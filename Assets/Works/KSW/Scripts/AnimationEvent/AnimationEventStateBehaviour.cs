@@ -8,8 +8,8 @@ public enum AnimationType
     HURTBOX = 1 << 1,
     MOVE = 1 << 2,
     AUDIO = 1 << 3,
-    COLLIDER_RESET = 1 << 4, 
- 
+    COLLIDER_RESET = 1 << 4,
+    PROJECTILE = 1 << 5
 
 }
 public class AnimationEventStateBehaviour : StateMachineBehaviour
@@ -108,7 +108,11 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             {
                 receiver.ResetColider();
             }
-            
+            if (animationType.HasFlag(AnimationType.PROJECTILE))
+            {
+                receiver.ActiveProjectileAnimation(colliderNum);
+            }
+
         }
     }
 }

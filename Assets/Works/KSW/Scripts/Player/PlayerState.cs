@@ -22,43 +22,6 @@ public abstract class State
 }
 
 
-public class PlayerState
-{
-    private State playerState;
-
-    public PlayerState(State defaultState)
-    {
-        playerState = defaultState;
-    }
-
-    public void SetState(State state)
-    {
-        playerState.ExitState();
-
-        playerState = state;
-
-        playerState.EnterState();
-    }
-    public State GetState()
-    {
-        return playerState;
-    }
-    public void Enter()
-    {
-        playerState.EnterState();
-    }
-
-    public void Update()
-    {
-        playerState.UpdateState();
-    }
-
-
-    public void Exit()
-    {
-        playerState.ExitState();
-    }
-}
 
 
 public class WaitState : State
@@ -77,13 +40,13 @@ public class WaitState : State
 
     public override void EnterState()
     {
-        controller.animator.SetBool("Wait", true);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait] , true);
 
     }
 
     public override void ExitState()
     {
-        controller.animator.SetBool("Wait", false);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait], false);
     }
 
     public override void UpdateState()
@@ -104,12 +67,12 @@ public class RunState : State
 
     public override void EnterState()
     {
-        controller.animator.SetBool("Run", true);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Run], true);
     }
 
     public override void ExitState()
     {
-        controller.animator.SetBool("Run", false);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Run], false);
     }
 
     public override void UpdateState()
@@ -139,14 +102,14 @@ public class AttackState : State
     {
 
        
-        controller.animator.SetBool("Atk", true);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Atk], true);
 
 
     }
 
     public override void ExitState()
     {
-        controller.animator.SetBool("Atk", false);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Atk], false);
     }
 
 
@@ -159,6 +122,43 @@ public class AttackState : State
     public override void Dispose()
     {
        
+    }
+}
+
+public class SkillState : State
+{
+
+    public SkillState(PlayerController controller) : base(controller)
+    {
+
+
+    }
+
+
+    public override void EnterState()
+    {
+
+
+        controller.animator.SetBool(controller.skillNumberHash, true);
+
+
+    }
+
+    public override void ExitState()
+    {
+        controller.animator.SetBool(controller.skillNumberHash, false);
+    }
+
+
+    public override void UpdateState()
+    {
+
+    }
+
+
+    public override void Dispose()
+    {
+
     }
 }
 
@@ -207,13 +207,13 @@ public class DodgeState : State
 
     public override void EnterState()
     {
-        controller.animator.SetBool("Dodge", true);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], true);
 
     }
 
     public override void ExitState()
     {
-        controller.animator.SetBool("Dodge", false);
+        controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], false);
     }
 
     public override void UpdateState()

@@ -4,19 +4,26 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum PlayerAnimationHashNumber
+{
+    Wait, Run, Atk, Dodge, Down, Hit, Skill1,Skill2,Skill3,Skill4, Size
+}
+
 public class PlayerController : MonoBehaviourPun
 {
 
-    public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Size }
+    public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
     [SerializeField] PlayerState curState = PlayerState.Wait;
     private State[] states = new State[(int)PlayerState.Size];
 
     [SerializeField] GameObject playerHurtbox;
-
     [SerializeField] StatusModel model;
 
     [SerializeField] public Animator animator;
+    [SerializeField] public int[] animatorParameterHash;
+    public int skillNumberHash;
 
+    // Todo : 추후에 분리
     [SerializeField] float speed;
     [SerializeField] float rotateSpeed;
 
@@ -27,14 +34,20 @@ public class PlayerController : MonoBehaviourPun
 
     [SerializeField] PlayerCamera playerCamera;
 
-
+    // Todo : 추후에 분리
     [SerializeField] private InputActionReference move;
+    [SerializeField] private InputActionReference atk;
+    [SerializeField] private InputActionReference skill;
+    [SerializeField] private InputActionReference dodge;
     Vector3 dir;
 
     public Vector2 moveInputVec;
 
     Vector3 vertical;
     Vector3 horizontal;
+
+
+    // todo : 추후에 다른 방식으로 정리
     [SerializeField] AudioClip damageSound;
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip downSound;
@@ -44,6 +57,10 @@ public class PlayerController : MonoBehaviourPun
             return;
         move.action.performed += MoveInput;
         move.action.canceled += MoveCancleInput;
+
+        atk.action.started += AttackInput;
+        skill.action.started += SkillInput;
+        dodge.action.started += DodgeInput;
     }
     private void OnDisable()
     {
@@ -51,19 +68,48 @@ public class PlayerController : MonoBehaviourPun
             return;
         move.action.performed -= MoveInput;
         move.action.canceled -= MoveCancleInput;
+
+        atk.action.started -= AttackInput;
+        skill.action.started -= SkillInput;
+        dodge.action.started -= DodgeInput;
     }
     private void Awake()
     {
-
+        SetAnimationHash();
         if (photonView.IsMine == false)
             return;
         model = GetComponent<StatusModel>();
+        rigid = GetComponent<Rigidbody>();
+        gameObject.AddComponent<AudioListener>();
+        SetCamera();
+
+        SetStates();
+
+       
+    }
+
+    private void SetCamera()
+    {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
         playerCamera.target = transform;
         playerCamera.pc = this;
         playerCamera.SetOffset();
-        gameObject.AddComponent<AudioListener>();
+    }
 
+    private void SetAnimationHash()
+    {
+        animatorParameterHash = new int[(int)PlayerAnimationHashNumber.Size];
+        for (int i = 0; i < animatorParameterHash.Length; i++)
+        {
+            AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
+            animatorParameterHash[i] = animatorControllerParameter.nameHash;
+        }
+
+
+    }
+
+    private void SetStates()
+    {
         states[(int)PlayerState.Wait] = new WaitState(this);
         states[(int)PlayerState.Run] = new RunState(this);
         states[(int)PlayerState.Attack] = new AttackState(this);
@@ -72,9 +118,9 @@ public class PlayerController : MonoBehaviourPun
         states[(int)PlayerState.Dodge] = new DodgeState(this);
         states[(int)PlayerState.Dead] = new DeadState(this);
         states[(int)PlayerState.InputWait] = new InputWaitState(this);
-
-
+        states[(int)PlayerState.Skill] = new SkillState(this);
     }
+
     private void Start()
     {
 
@@ -108,32 +154,15 @@ public class PlayerController : MonoBehaviourPun
 
     private void Update()
     {
-        // 모든 클라이언트가 할 내용
+  
 
-
-
-        // 소유권자만 할 내용
-        /*
-        if (photonView.Owner.IsLocal == false)
-            return;
-        */
         if (photonView.IsMine == false)
         {
             rigid.velocity = Vector3.zero;
             return;
 
         }
-        if (PlayerState.InputWait == curState )
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                isFixed = false;
-                ChangeState(PlayerState.Attack, true);
-
-            }
-        }
-
+    
             if (isFixed)
         {
             if (isMoveAni)
@@ -155,20 +184,48 @@ public class PlayerController : MonoBehaviourPun
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        
+    }
+    public void SkillInput(InputAction.CallbackContext value)
+    {
+
+        int index = value.action.GetBindingIndexForControl(value.control);
+
+        switch (index)
         {
-
-
-            ChangeState(PlayerState.Attack, true);
-
+            case 0:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill1];
+                break;
+            case 1:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill2];
+                break;
+            case 2:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill3];
+                break;
+            case 3:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
+                break;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+
+
+        ChangeState(PlayerState.Skill, true);
+
+    }
+
+    public void AttackInput(InputAction.CallbackContext value)
+    {
+        if (PlayerState.InputWait == curState)
         {
-
-
-            ChangeState(PlayerState.Dodge, true);
-
+                isFixed = false;
+             
         }
+
+        ChangeState(PlayerState.Attack, true);
+
+    }
+    public void DodgeInput(InputAction.CallbackContext value)
+    {
+        ChangeState(PlayerState.Dodge, true);
     }
 
     public void MoveInput(InputAction.CallbackContext value)
@@ -179,6 +236,7 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    
     public void MoveCancleInput(InputAction.CallbackContext value)
     {
 
@@ -216,15 +274,21 @@ public class PlayerController : MonoBehaviourPun
     {
        
         isFixed = false;
+        animator.SetFloat("Speed", model.AttackSpeed);
+    
+
+     
+
         AudioSource.PlayClipAtPoint(damageSound, transform.position + (Vector3.forward * 5));
         if (down)
         {
+
             AudioSource.PlayClipAtPoint(downSound, transform.position + (Vector3.forward*5));
             ChangeState(PlayerState.Down, true);
         }
         else
         {
-           
+            rigid.velocity = Vector3.zero;
             AudioSource.PlayClipAtPoint(hitSound, transform.position+ (Vector3.forward*5));
             ChangeState(PlayerState.Hit, true);
 
@@ -272,7 +336,7 @@ public class PlayerController : MonoBehaviourPun
      
         Quaternion lookRot = Quaternion.LookRotation(dir);
 
-      // transform.rotation = lookRot;
+    
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotateSpeed * Time.deltaTime);
 
 
@@ -287,8 +351,6 @@ public class PlayerController : MonoBehaviourPun
         isMoveAni = false;
         rigid.velocity = Vector3.zero;
     }
-
-
 
 
     public void TakeDamage(float damage, bool down, Vector3 target)
@@ -312,13 +374,17 @@ public class PlayerController : MonoBehaviourPun
         if (down)
         {
             ChangeState(PlayerState.Down, true);
-
-            animator.SetTrigger("Down");
+          
+                animator.SetTrigger(animatorParameterHash[ (int)PlayerAnimationHashNumber.Down]);
+            
         }
         else
         {
+          
             ChangeState(PlayerState.Hit, true);
-            animator.SetTrigger("Hit");
+           
+                animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
+           
         }
 
 
@@ -331,6 +397,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if(curState != PlayerState.Wait)
         {
+            animator.SetFloat("Speed", model.AttackSpeed);
             isFixed = false;
             ChangeState(PlayerState.Wait, false);
         }

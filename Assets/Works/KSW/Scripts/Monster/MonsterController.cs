@@ -13,6 +13,7 @@ public class MonsterPattern
     public float range;
 }
 
+
 public class MonsterController : MonoBehaviourPun, IPunObservable
 {
     [SerializeField] Animator animator;
@@ -21,7 +22,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     [SerializeField] StatusModel model;
 
-    [SerializeField] float aniSpeed;
     [SerializeField] public float atk;
     [SerializeField] float speed;
     [SerializeField] float range;
@@ -36,6 +36,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     Transform target;
 
     [SerializeField] MonsterPattern[] patterns;
+    [SerializeField] int nextPattern; 
+    
 
     int[] animtionHash;
     [SerializeField] int[] animatorParameterHash;
@@ -87,7 +89,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         }
 
 
-        animator.speed = aniSpeed;
+        animator.speed = model.AttackSpeed;
     }
 
     public void FindPlayers()
@@ -123,9 +125,10 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Start()
     {
-
+        SetNextPattern();
         if (photonView.IsMine == false)
             StartCoroutine(CheckAniLag());
+       
     }
 
     private void Update()
@@ -218,7 +221,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         
         
-        if ((target.position - transform.position).sqrMagnitude < range)
+        if ((target.position - transform.position).sqrMagnitude < patterns[nextPattern].range)
         {
             rigid.velocity = Vector3.zero;
 
@@ -233,15 +236,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         animator.SetBool(runParameterHash, true);
         animator.SetBool(waitParameterHash, false);
-        // Look
-
-
 
         transform.LookAt(target);
-        //   if (animator.GetCurrentAnimatorStateInfo(0).IsName("Run"))
-
-        // Trace
-
+   
         rigid.velocity = transform.forward * speed;
 
     }
@@ -253,11 +250,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         isFixed = true;
        
 
-        int ran = Random.Range(0, patterns.Length);
        
-        animator.SetBool(animatorParameterHash[ran], true);
+        animator.SetBool(animatorParameterHash[nextPattern], true);
 
         animator.SetBool(atkEndParameterHash, false);
+
+        SetNextPattern();
+    }
+
+    public void SetNextPattern()
+    {
+        nextPattern = Random.Range(0, patterns.Length);
     }
 
     public void PatternReset()
