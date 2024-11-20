@@ -13,8 +13,6 @@ public enum PlayerAnimationHashNumber
 
 public class PlayerController : MonoBehaviourPun
 {
-    [Header("캐릭터 번호")]
-    [SerializeField] int characterNumber;
 
     public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
     [Header("플레이어 상태")]
@@ -40,7 +38,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] public Rigidbody rigid;
     [SerializeField] StatusModel model;
     [SerializeField] PlayerCamera playerCamera;
-
+    [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
     
     Vector3 dir;
@@ -51,8 +49,7 @@ public class PlayerController : MonoBehaviourPun
     Vector3 horizontal;
 
 
-    // todo : 추후에 다른 방식으로 정리
-    [SerializeField] AudioClip damageSound; // 공격 하는 쪽에 넣어야함
+
 
     private void OnEnable()
     {
@@ -75,6 +72,7 @@ public class PlayerController : MonoBehaviourPun
         inputSystem = GetComponent<PlayerInputSystem>();
         model = GetComponent<StatusModel>();
         rigid = GetComponent<Rigidbody>();
+        audioSource = GetComponentInChildren<AudioSource>();
         gameObject.AddComponent<AudioListener>();
         SetCamera();
 
@@ -295,18 +293,16 @@ public class PlayerController : MonoBehaviourPun
         isFixed = false;
         animator.SetFloat("Speed", model.AttackSpeed);
 
-
-        AudioSource.PlayClipAtPoint(damageSound, transform.position + (Vector3.forward * 5));
         if (down)
         {
-            AudioManager.GetInstance().PlayDownVoice(characterNumber);
+      
             
             ChangeState(PlayerState.Down, true);
         }
         else
         {
             rigid.velocity = Vector3.zero;
-            AudioManager.GetInstance().PlayHitVoice(characterNumber);
+        
             ChangeState(PlayerState.Hit, true);
 
         }
@@ -370,10 +366,17 @@ public class PlayerController : MonoBehaviourPun
     }
 
 
-    public void TakeDamage(float damage, bool down, Vector3 target)
+    AudioClip hitSound;
+
+    public void TakeDamage(float damage, bool down, Vector3 target, AudioClip clip)
     {
+        if ( photonView.IsMine)
+            hitSound = clip;
 
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
+       
+
+           
     }
     [PunRPC]
     public void TakeDamageRPC(float damage, bool down, Vector3 target)
@@ -381,8 +384,11 @@ public class PlayerController : MonoBehaviourPun
         if (playerHurtbox.layer == (int)LayerEnum.DISABLE_BOX)
         {
             Debug.Log("DODGE!");
+            hitSound = null;
             return;
         }
+        if(hitSound != null) 
+            audioSource.PlayOneShot(hitSound);
 
         transform.LookAt(target);
 

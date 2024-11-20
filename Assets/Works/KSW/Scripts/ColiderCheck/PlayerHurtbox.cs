@@ -41,8 +41,9 @@ public class PlayerHurtbox : MonoBehaviourPun, IPunObservable
         {
             Vector3 target = other.transform.position;
             target.y = 0;
-      
-            pc.TakeDamage(hitbox.GetAtk(), hitbox.GetDown(), target);
+
+           
+            pc.TakeDamage(hitbox.GetAtk(), hitbox.GetDown(), target, hitbox.GetSoundEffect());
         }
 
     }

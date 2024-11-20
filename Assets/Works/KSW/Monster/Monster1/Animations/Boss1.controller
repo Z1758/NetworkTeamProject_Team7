@@ -15,8 +15,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.441
   animationType: 4
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -36,8 +35,7 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0.223
   animationType: 8
-  clip: {fileID: 8300000, guid: 4602c040ec136784aa19049d5d8b94d9, type: 3}
-  audioNum: 0
+  audioName: Run1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -56,9 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: FootStep
   triggerTime: 0.694
-  animationType: 64
-  clip: {fileID: 0}
-  audioNum: 1
+  animationType: 72
+  audioName: FootStep2
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -103,8 +100,7 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.465
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 0
@@ -123,9 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: FootStep
   triggerTime: 0.189
-  animationType: 64
-  clip: {fileID: 0}
-  audioNum: 0
+  animationType: 72
+  audioName: FootStep1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -145,8 +140,7 @@ MonoBehaviour:
   eventName: OnLeftAtk
   triggerTime: 0.414
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 1
@@ -191,8 +185,7 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.329
   animationType: 9
-  clip: {fileID: 8300000, guid: e6549177c968b7f4d8d4a19c960cc7ce, type: 3}
-  audioNum: 0
+  audioName: HeavyAtk2
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -284,8 +277,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.244
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 4
   colliderActive: 0
@@ -362,8 +354,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.017
   animationType: 4
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 30
   colliderNum: 0
   colliderActive: 0
@@ -383,8 +374,7 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.73
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 0
@@ -404,8 +394,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.585
   animationType: 4
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -425,8 +414,7 @@ MonoBehaviour:
   eventName: OnTwoHandAtk
   triggerTime: 0.591
   animationType: 9
-  clip: {fileID: 8300000, guid: d634e807857ff914291532dc3fd2e718, type: 3}
-  audioNum: 0
+  audioName: HeavyAtk3
   moveVelocity: 0
   colliderNum: 2
   colliderActive: 1
@@ -585,8 +573,7 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.507
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -606,8 +593,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.17
   animationType: 4
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -627,8 +613,7 @@ MonoBehaviour:
   eventName: OnLeftAtk
   triggerTime: 0.328
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 1
@@ -648,8 +633,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.966
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -669,8 +653,7 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.358
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -690,8 +673,7 @@ MonoBehaviour:
   eventName: OffRangeAtk
   triggerTime: 0.48
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 3
   colliderActive: 0
@@ -818,8 +800,7 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.646
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 0
@@ -839,8 +820,7 @@ MonoBehaviour:
   eventName: OffLefttAtk
   triggerTime: 0.505
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 0
@@ -860,8 +840,7 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.428
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -881,8 +860,7 @@ MonoBehaviour:
   eventName: PlaySound
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: 038eea40b28e0574eb6827e898bd184e, type: 3}
-  audioNum: 0
+  audioName: UltraAtk2
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -902,8 +880,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.926
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -950,8 +927,7 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: 34c0a90f5ed4f284d8de0c1addf12dbf, type: 3}
-  audioNum: 0
+  audioName: Atk2
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1001,8 +977,7 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.596
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 0
@@ -1181,8 +1156,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.2
   animationType: 4
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: -15
   colliderNum: 0
   colliderActive: 0
@@ -1227,8 +1201,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.96
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1248,8 +1221,7 @@ MonoBehaviour:
   eventName: OnAtk
   triggerTime: 0.409
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 7
   colliderActive: 1
@@ -1269,8 +1241,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.962
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1290,8 +1261,7 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.449
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 0
@@ -1311,8 +1281,7 @@ MonoBehaviour:
   eventName: OnLefttAtk
   triggerTime: 0.567
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 1
@@ -1332,8 +1301,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.318
   animationType: 4
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 10
   colliderNum: 0
   colliderActive: 0
@@ -1353,8 +1321,7 @@ MonoBehaviour:
   eventName: OnAtk
   triggerTime: 0.202
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 4
   colliderActive: 1
@@ -1449,8 +1416,7 @@ MonoBehaviour:
   eventName: PlaySound
   triggerTime: 0.081
   animationType: 8
-  clip: {fileID: 8300000, guid: 0c1ea7c47f701b947a053fbca5f3c290, type: 3}
-  audioNum: 0
+  audioName: HeavyAtk1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1470,8 +1436,7 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.523
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -1491,8 +1456,7 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: c5d39aafa4e8cff448532247d5db6b60, type: 3}
-  audioNum: 0
+  audioName: Atk1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1512,8 +1476,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.965
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1533,8 +1496,7 @@ MonoBehaviour:
   eventName: PlaySound
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: 4d16a167e42d19643a1d3958351f930c, type: 3}
-  audioNum: 0
+  audioName: Roar
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1585,8 +1547,7 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.626
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -1740,8 +1701,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.454
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 7
   colliderActive: 0
@@ -1884,8 +1844,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.962
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1905,8 +1864,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.972
   animationType: 16
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1959,8 +1917,7 @@ MonoBehaviour:
   eventName: OffTwoHandAtk
   triggerTime: 0.626
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 2
   colliderActive: 0
@@ -2005,8 +1962,7 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0.716
   animationType: 8
-  clip: {fileID: 8300000, guid: 7d543064e15703b47a22cc868ca6591f, type: 3}
-  audioNum: 0
+  audioName: Run2
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2026,8 +1982,7 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.447
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 0
@@ -2047,8 +2002,7 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.55
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 0
@@ -2068,8 +2022,7 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.423
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -2089,8 +2042,7 @@ MonoBehaviour:
   eventName: OnLeftAtk
   triggerTime: 0.71
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 1
@@ -2135,8 +2087,7 @@ MonoBehaviour:
   eventName: OnLeftAtk
   triggerTime: 0.478
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 1
@@ -2264,8 +2215,7 @@ MonoBehaviour:
   eventName: OnRangeAtk
   triggerTime: 0.43
   animationType: 1
-  clip: {fileID: 0}
-  audioNum: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 3
   colliderActive: 1

@@ -10,8 +10,11 @@ public enum AnimationType
     AUDIO = 1 << 3,
     COLLIDER_RESET = 1 << 4,
     PROJECTILE = 1 << 5
-
+    
 }
+
+
+
 public class AnimationEventStateBehaviour : StateMachineBehaviour
 {
     public string eventName;

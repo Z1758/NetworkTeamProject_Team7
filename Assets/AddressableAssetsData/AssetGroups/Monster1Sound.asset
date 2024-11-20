@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Monster1Sound
   m_EditorClassIdentifier: 
-  m_GroupName: Monster1Voice
+  m_GroupName: Monster1Sound
   m_Data:
     m_SerializedData: []
   m_GUID: 7b3260de5bb84a640b2f64ee7f2c6e98
   m_SerializeEntries:
   - m_GUID: 02325a40b792a31439e28761125b83db
     m_Address: Monster1/HeavyAtk1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 050475c1860cc3e479580bef4ef653cd
+    m_Address: Monster1/FootStep1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -48,7 +53,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 929ab709e47407042b202a4002ac84cc
-    m_Address: Monster1//Atk2
+    m_Address: Monster1/Atk2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f93968e6b21e364f955aa20db081570
+    m_Address: Monster1/FootStep2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -306,7 +306,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterNumber: 1
+  objectType: 1
   objectTransform: {fileID: 1007976354824252897}
   hitboxLayerEnum: 8
   hurtboxLayerEnum: 9
@@ -500,6 +501,7 @@ MonoBehaviour:
   animator: {fileID: 6565441163601852315}
   pc_s: []
   rigid: {fileID: -2810973816032400335}
+  audioSource: {fileID: 0}
   model: {fileID: 5612456238972113234}
   atk: 50
   speed: 10
@@ -713,6 +715,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &739155525024841091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1150,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &2062354378685991664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1495,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &2501619073000912944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1689,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &3018618451398581294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2229,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &4329324448867266815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2518,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &4805065627708213596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,6 +2951,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &5208463187396031946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4528,6 +4537,7 @@ MonoBehaviour:
   notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  soundName: BossAttackHit1
 --- !u!1 &8072501300283693286
 GameObject:
   m_ObjectHideFlags: 0

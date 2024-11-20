@@ -19,6 +19,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [SerializeField] Animator animator;
     [SerializeField] List<PlayerController> pc_s;
     [SerializeField] Rigidbody rigid;
+    [SerializeField] AudioSource audioSource;
 
     [SerializeField] StatusModel model;
 
@@ -55,6 +56,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator = GetComponent<Animator>();
         pc_s = new List<PlayerController>();
         rigid = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         model = GetComponent<StatusModel>();
         FindPlayers();
 
@@ -324,14 +326,16 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, AudioClip clip)
     {
-
+        if (clip != null)
+            audioSource.PlayOneShot(clip);
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
     }
     [PunRPC]
     public void TakeDamageRPC(float damage)
     {
+        
 
         Debug.Log("HIT!!!!!!!!!!!!!!" + damage);
         model.HP -= (float)damage;

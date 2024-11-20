@@ -14,17 +14,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmSource;
     [SerializeField] AudioSource voiceSource;
 
-    [SerializeField] AudioClip[,] monsterFootStep;
-    [SerializeField] int monsterFootStepSize;
 
     [SerializeField] public Dictionary<string, AudioClip> monsterVoiceDic;
-
-
-    [SerializeField] AudioClip[] playerHitVoices;
-    [SerializeField] AudioClip[] playerDownVoices;
+    [SerializeField] public Dictionary<string, AudioClip> playerVoiceDic;
+    [SerializeField] public Dictionary<string, AudioClip> effectSoundDic;
 
     StringBuilder voiceStringBuilder = new StringBuilder();
-
+    StringBuilder soundStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
     {
         Debug.Log("½Ì±ÛÅæ ºÒ·¯¿À±â");
@@ -37,7 +33,10 @@ public class AudioManager : MonoBehaviour
         {
           
             instance = this;
-            SetVoice();
+
+            monsterVoiceDic = new Dictionary<string, AudioClip>();
+            playerVoiceDic = new Dictionary<string, AudioClip>();
+            effectSoundDic = new Dictionary<string, AudioClip>();
         }
         else
         {
@@ -45,58 +44,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void SetVoice()
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        string hitPath = "/Hit";
-        string downPath = "/Down";
-        for (int i = 0; i < playerHitVoices.Length; i++)
-        {
-           
-
-            string path = $"Player{i+1}";
-
-            stringBuilder.Append(path);
-            stringBuilder.Append(hitPath);
-            playerHitVoices[i] = Addressables.LoadAssetAsync<AudioClip>(stringBuilder.ToString()).WaitForCompletion();
-
-            stringBuilder.Clear();
-
-            stringBuilder.Append(path);
-            stringBuilder.Append(downPath);
-            playerDownVoices[i] = Addressables.LoadAssetAsync<AudioClip>(stringBuilder.ToString()).WaitForCompletion();
-        }
-
-        stringBuilder.Clear();
-
-        monsterFootStep = new AudioClip[monsterFootStepSize, 2];
-        string mobFootStepPath = "/FootStep";
-
-        for (int i = 0; i < monsterFootStep.GetLength(0); i++)
-        {
-            for (int j = 0; j < 2; j++)
-            {
-
-
-                string path = $"Monster{i + 1}";
-
-                stringBuilder.Append(path);
-                stringBuilder.Append(mobFootStepPath);
-                stringBuilder.Append(j+1);
-                monsterFootStep[i, j] = Addressables.LoadAssetAsync<AudioClip>(stringBuilder.ToString()).WaitForCompletion();
-
-                stringBuilder.Clear();
-
-            }
-        }
-
-
-
-        monsterVoiceDic = new Dictionary<string, AudioClip>();
-
-        
-    }
 
     public AudioClip GetMonsterVoiceDic(int characterNumber,string str)
     {
@@ -116,10 +63,41 @@ public class AudioManager : MonoBehaviour
         return clip;
     }
 
-    public AudioClip GetFootStep(int characterNum, int audioNum)
+    public AudioClip GetPlayerVoiceDic(int characterNumber, string str)
     {
-        return monsterFootStep[characterNum,audioNum];
+        voiceStringBuilder.Clear();
+        voiceStringBuilder.Append($"Player{characterNumber}/");
+        voiceStringBuilder.Append(str);
+
+        string resultStr = voiceStringBuilder.ToString();
+
+        playerVoiceDic.TryGetValue(resultStr, out AudioClip clip);
+        if (clip == null)
+        {
+            playerVoiceDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
+            clip = playerVoiceDic[resultStr];
+        }
+
+        return clip;
     }
+    public AudioClip GetSoundVoiceDic(string str)
+    {
+        soundStringBuilder.Clear();
+        soundStringBuilder.Append("SoundEffect/");
+        soundStringBuilder.Append(str);
+
+        string resultStr = soundStringBuilder.ToString();
+
+        playerVoiceDic.TryGetValue(resultStr, out AudioClip clip);
+        if (clip == null)
+        {
+            playerVoiceDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
+            clip = playerVoiceDic[resultStr];
+        }
+
+        return clip;
+    }
+
 
     public void PlaySound(AudioClip clip)
     {
@@ -131,14 +109,6 @@ public class AudioManager : MonoBehaviour
         voiceSource.PlayOneShot(clip);
     }
 
-    public void PlayHitVoice(int num)
-    {
-        voiceSource.PlayOneShot(playerHitVoices[num]);
-    }
-    public void PlayDownVoice(int num)
-    {
-        voiceSource.PlayOneShot(playerDownVoices[num]);
-    }
     public void PlayBGM(AudioClip clip)
     {
         bgmSource.clip = clip;
