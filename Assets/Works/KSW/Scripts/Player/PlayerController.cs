@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public enum PlayerAnimationHashNumber
 {
-    Wait, Run, Atk, Dodge, Down, Hit, Size
+    Wait, Run, Atk, Dodge, Down, Hit, Skill1,Skill2,Skill3,Skill4, Size
 }
 
 public class PlayerController : MonoBehaviourPun
@@ -17,12 +17,13 @@ public class PlayerController : MonoBehaviourPun
     private State[] states = new State[(int)PlayerState.Size];
 
     [SerializeField] GameObject playerHurtbox;
-
     [SerializeField] StatusModel model;
 
     [SerializeField] public Animator animator;
     [SerializeField] public int[] animatorParameterHash;
+    public int skillNumberHash;
 
+    // Todo : 추후에 분리
     [SerializeField] float speed;
     [SerializeField] float rotateSpeed;
 
@@ -33,14 +34,20 @@ public class PlayerController : MonoBehaviourPun
 
     [SerializeField] PlayerCamera playerCamera;
 
-
+    // Todo : 추후에 분리
     [SerializeField] private InputActionReference move;
+    [SerializeField] private InputActionReference atk;
+    [SerializeField] private InputActionReference skill;
+    [SerializeField] private InputActionReference dodge;
     Vector3 dir;
 
     public Vector2 moveInputVec;
 
     Vector3 vertical;
     Vector3 horizontal;
+
+
+    // todo : 추후에 다른 방식으로 정리
     [SerializeField] AudioClip damageSound;
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip downSound;
@@ -50,6 +57,10 @@ public class PlayerController : MonoBehaviourPun
             return;
         move.action.performed += MoveInput;
         move.action.canceled += MoveCancleInput;
+
+        atk.action.started += AttackInput;
+        skill.action.started += SkillInput;
+        dodge.action.started += DodgeInput;
     }
     private void OnDisable()
     {
@@ -57,6 +68,10 @@ public class PlayerController : MonoBehaviourPun
             return;
         move.action.performed -= MoveInput;
         move.action.canceled -= MoveCancleInput;
+
+        atk.action.started -= AttackInput;
+        skill.action.started -= SkillInput;
+        dodge.action.started -= DodgeInput;
     }
     private void Awake()
     {
@@ -64,21 +79,25 @@ public class PlayerController : MonoBehaviourPun
         if (photonView.IsMine == false)
             return;
         model = GetComponent<StatusModel>();
+        rigid = GetComponent<Rigidbody>();
+        gameObject.AddComponent<AudioListener>();
+        SetCamera();
+
+        SetStates();
+
+        SetAnimationHash();
+    }
+
+    private void SetCamera()
+    {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
         playerCamera.target = transform;
         playerCamera.pc = this;
         playerCamera.SetOffset();
-        gameObject.AddComponent<AudioListener>();
+    }
 
-        states[(int)PlayerState.Wait] = new WaitState(this);
-        states[(int)PlayerState.Run] = new RunState(this);
-        states[(int)PlayerState.Attack] = new AttackState(this);
-        states[(int)PlayerState.Hit] = new HitState(this);
-        states[(int)PlayerState.Down] = new DownState(this);
-        states[(int)PlayerState.Dodge] = new DodgeState(this);
-        states[(int)PlayerState.Dead] = new DeadState(this);
-        states[(int)PlayerState.InputWait] = new InputWaitState(this);
-
+    private void SetAnimationHash()
+    {
         animatorParameterHash = new int[(int)PlayerAnimationHashNumber.Size];
         for (int i = 0; i < animatorParameterHash.Length; i++)
         {
@@ -88,6 +107,19 @@ public class PlayerController : MonoBehaviourPun
 
 
     }
+
+    private void SetStates()
+    {
+        states[(int)PlayerState.Wait] = new WaitState(this);
+        states[(int)PlayerState.Run] = new RunState(this);
+        states[(int)PlayerState.Attack] = new AttackState(this);
+        states[(int)PlayerState.Hit] = new HitState(this);
+        states[(int)PlayerState.Down] = new DownState(this);
+        states[(int)PlayerState.Dodge] = new DodgeState(this);
+        states[(int)PlayerState.Dead] = new DeadState(this);
+        states[(int)PlayerState.InputWait] = new InputWaitState(this);
+    }
+
     private void Start()
     {
 
@@ -129,17 +161,7 @@ public class PlayerController : MonoBehaviourPun
             return;
 
         }
-        if (PlayerState.InputWait == curState )
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                isFixed = false;
-                ChangeState(PlayerState.Attack, true);
-
-            }
-        }
-
+    
             if (isFixed)
         {
             if (isMoveAni)
@@ -165,16 +187,40 @@ public class PlayerController : MonoBehaviourPun
         {
 
 
-            ChangeState(PlayerState.Attack, true);
+          
 
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
 
-            ChangeState(PlayerState.Dodge, true);
+         
 
         }
+       
+        
+    }
+    public void SkillInput(InputAction.CallbackContext value)
+    {
+
+        int index = value.action.GetBindingIndexForControl(value.control);
+        Debug.Log(index);
+    }
+
+    public void AttackInput(InputAction.CallbackContext value)
+    {
+        if (PlayerState.InputWait == curState)
+        {
+                isFixed = false;
+             
+        }
+
+        ChangeState(PlayerState.Attack, true);
+
+    }
+    public void DodgeInput(InputAction.CallbackContext value)
+    {
+        ChangeState(PlayerState.Dodge, true);
     }
 
     public void MoveInput(InputAction.CallbackContext value)
@@ -185,6 +231,7 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    
     public void MoveCancleInput(InputAction.CallbackContext value)
     {
 

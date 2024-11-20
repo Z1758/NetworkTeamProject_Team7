@@ -125,6 +125,43 @@ public class AttackState : State
     }
 }
 
+public class SkillState : State
+{
+
+    public SkillState(PlayerController controller) : base(controller)
+    {
+
+
+    }
+
+
+    public override void EnterState()
+    {
+
+
+        controller.animator.SetBool(controller.skillNumberHash, true);
+
+
+    }
+
+    public override void ExitState()
+    {
+        controller.animator.SetBool(controller.skillNumberHash, false);
+    }
+
+
+    public override void UpdateState()
+    {
+
+    }
+
+
+    public override void Dispose()
+    {
+
+    }
+}
+
 public class InputWaitState : State
 {
    
