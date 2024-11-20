@@ -13,6 +13,7 @@ public class MonsterPattern
     public float range;
 }
 
+
 public class MonsterController : MonoBehaviourPun, IPunObservable
 {
     [SerializeField] Animator animator;
@@ -233,15 +234,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         animator.SetBool(runParameterHash, true);
         animator.SetBool(waitParameterHash, false);
-        // Look
-
-
 
         transform.LookAt(target);
-        //   if (animator.GetCurrentAnimatorStateInfo(0).IsName("Run"))
-
-        // Trace
-
+   
         rigid.velocity = transform.forward * speed;
 
     }

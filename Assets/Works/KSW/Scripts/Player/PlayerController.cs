@@ -4,6 +4,11 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum PlayerAnimationHashNumber
+{
+    Wait, Run, Atk, Dodge, Down, Hit, Size
+}
+
 public class PlayerController : MonoBehaviourPun
 {
 
@@ -16,6 +21,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] StatusModel model;
 
     [SerializeField] public Animator animator;
+    [SerializeField] public int[] animatorParameterHash;
 
     [SerializeField] float speed;
     [SerializeField] float rotateSpeed;
@@ -73,6 +79,13 @@ public class PlayerController : MonoBehaviourPun
         states[(int)PlayerState.Dead] = new DeadState(this);
         states[(int)PlayerState.InputWait] = new InputWaitState(this);
 
+        animatorParameterHash = new int[(int)PlayerAnimationHashNumber.Size];
+        for (int i = 0; i < animatorParameterHash.Length; i++)
+        {
+            AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
+            animatorParameterHash[i] = animatorControllerParameter.nameHash;
+        }
+
 
     }
     private void Start()
@@ -108,15 +121,8 @@ public class PlayerController : MonoBehaviourPun
 
     private void Update()
     {
-        // 모든 클라이언트가 할 내용
+  
 
-
-
-        // 소유권자만 할 내용
-        /*
-        if (photonView.Owner.IsLocal == false)
-            return;
-        */
         if (photonView.IsMine == false)
         {
             rigid.velocity = Vector3.zero;
@@ -272,7 +278,7 @@ public class PlayerController : MonoBehaviourPun
      
         Quaternion lookRot = Quaternion.LookRotation(dir);
 
-      // transform.rotation = lookRot;
+    
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotateSpeed * Time.deltaTime);
 
 
@@ -313,12 +319,12 @@ public class PlayerController : MonoBehaviourPun
         {
             ChangeState(PlayerState.Down, true);
 
-            animator.SetTrigger("Down");
+            animator.SetTrigger(animatorParameterHash[ (int)PlayerAnimationHashNumber.Down]);
         }
         else
         {
             ChangeState(PlayerState.Hit, true);
-            animator.SetTrigger("Hit");
+            animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
         }
 
 
