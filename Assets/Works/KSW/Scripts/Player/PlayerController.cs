@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviourPun
     }
     private void Awake()
     {
-        
+        SetAnimationHash();
         if (photonView.IsMine == false)
             return;
         model = GetComponent<StatusModel>();
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviourPun
 
         SetStates();
 
-        SetAnimationHash();
+       
     }
 
     private void SetCamera()
