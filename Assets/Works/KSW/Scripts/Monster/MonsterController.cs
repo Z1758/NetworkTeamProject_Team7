@@ -22,7 +22,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     [SerializeField] StatusModel model;
 
-    [SerializeField] float aniSpeed;
     [SerializeField] public float atk;
     [SerializeField] float speed;
     [SerializeField] float range;
@@ -90,7 +89,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         }
 
 
-        animator.speed = aniSpeed;
+        animator.speed = model.AttackSpeed;
     }
 
     public void FindPlayers()

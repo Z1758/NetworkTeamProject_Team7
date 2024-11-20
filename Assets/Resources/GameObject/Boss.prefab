@@ -407,6 +407,7 @@ MonoBehaviour:
   hurtboxLayerEnum: 9
   audioSource: {fileID: 754269761348012556}
   rigid: {fileID: -2810973816032400335}
+  projectiles: []
   hitboxes:
   - {fileID: 525219418336961288}
   - {fileID: 5085875823570055935}
@@ -510,7 +511,6 @@ MonoBehaviour:
   pc_s: []
   rigid: {fileID: -2810973816032400335}
   model: {fileID: 5612456238972113234}
-  aniSpeed: 1
   atk: 50
   speed: 10
   range: 50
@@ -641,6 +641,7 @@ MonoBehaviour:
   maxHP: 1000
   hp: 1000
   attack: 200
+  attackSpeed: 1
 --- !u!1 &525219418336961288
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +704,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   down: 0
+  notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!1 &739155525024841091
@@ -1458,6 +1460,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   down: 1
+  notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!1 &3018618451398581294
@@ -2219,6 +2222,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   down: 1
+  notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!1 &4805065627708213596
@@ -2567,6 +2571,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   down: 0
+  notFriction: 0
   effectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!1 &5208463187396031946
