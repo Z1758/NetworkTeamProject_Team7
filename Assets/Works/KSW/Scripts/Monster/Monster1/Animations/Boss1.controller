@@ -145,6 +145,31 @@ MonoBehaviour:
   colliderNum: 1
   colliderActive: 1
   isLoop: 0
+--- !u!1101 &-7529912688481731849
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &-7301746917747066246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,6 +487,7 @@ AnimatorState:
   - {fileID: 2588445070794839925}
   - {fileID: -3806723485439995756}
   - {fileID: -6781751765253544094}
+  - {fileID: 6153301717804386698}
   m_StateMachineBehaviours:
   - {fileID: -8907984649060301024}
   - {fileID: 6985791541973404121}
@@ -674,6 +700,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Atk3
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Atk4
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1154,6 +1186,46 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &2756886999980279466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAni
+  triggerTime: 0.96
+  animationType: 16
+  clip: {fileID: 0}
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &2804655785300395622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: OnAtk
+  triggerTime: 0.409
+  animationType: 1
+  clip: {fileID: 0}
+  moveVelocity: 0
+  colliderNum: 7
+  colliderActive: 1
+  isLoop: 0
 --- !u!114 &2872902489805735487
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1573,6 +1645,7 @@ AnimatorState:
   - {fileID: 8620868992258040388}
   - {fileID: 2231721883092923467}
   - {fileID: 8599036065476636385}
+  - {fileID: 7648888870725503638}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1613,6 +1686,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &6006053061763178390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: OffAtk
+  triggerTime: 0.454
+  animationType: 1
+  clip: {fileID: 0}
+  moveVelocity: 0
+  colliderNum: 7
+  colliderActive: 0
+  isLoop: 0
 --- !u!1102 &6037572922793566877
 AnimatorState:
   serializedVersion: 6
@@ -1680,6 +1773,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &6153301717804386698
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk4
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 8758307738905677195}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &6245541401667287447
 AnimatorState:
   serializedVersion: 6
@@ -1929,6 +2047,31 @@ MonoBehaviour:
   colliderNum: 6
   colliderActive: 1
   isLoop: 0
+--- !u!1101 &7648888870725503638
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk4
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 8758307738905677195}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.94485295
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &7774325793645120790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1981,7 +2124,7 @@ AnimatorStateMachine:
     m_Position: {x: 580, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3560041851246830672}
-    m_Position: {x: 220, y: -140, z: 0}
+    m_Position: {x: 220, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6037572922793566877}
     m_Position: {x: 680, y: -320, z: 0}
@@ -1994,6 +2137,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -6359302605463759764}
     m_Position: {x: 1000, y: 450, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8758307738905677195}
+    m_Position: {x: 440, y: 550, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -2074,3 +2220,33 @@ MonoBehaviour:
   colliderNum: 3
   colliderActive: 1
   isLoop: 0
+--- !u!1102 &8758307738905677195
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atk4
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -7529912688481731849}
+  m_StateMachineBehaviours:
+  - {fileID: 2804655785300395622}
+  - {fileID: 6006053061763178390}
+  - {fileID: 2756886999980279466}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 9713c000ed0370046af3d5fd4cdc26d4, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
