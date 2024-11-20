@@ -158,7 +158,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
                 Debug.Log("·º ¹ß»ý"); 
                 for (int i = 0; i < patterns.Length; i++)
                 {
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsTag(patterns[i].pattern))
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName(patterns[i].pattern))
                     {
                         animator.Play(animtionHash[i], 0, aniStateTime);
                     }

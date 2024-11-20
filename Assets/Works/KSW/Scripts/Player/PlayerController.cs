@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviourPun
     }
     private void Awake()
     {
-       
+        
         if (photonView.IsMine == false)
             return;
         model = GetComponent<StatusModel>();
@@ -282,6 +282,7 @@ public class PlayerController : MonoBehaviourPun
         AudioSource.PlayClipAtPoint(damageSound, transform.position + (Vector3.forward * 5));
         if (down)
         {
+
             AudioSource.PlayClipAtPoint(downSound, transform.position + (Vector3.forward*5));
             ChangeState(PlayerState.Down, true);
         }
@@ -373,13 +374,17 @@ public class PlayerController : MonoBehaviourPun
         if (down)
         {
             ChangeState(PlayerState.Down, true);
-
-            animator.SetTrigger(animatorParameterHash[ (int)PlayerAnimationHashNumber.Down]);
+          
+                animator.SetTrigger(animatorParameterHash[ (int)PlayerAnimationHashNumber.Down]);
+            
         }
         else
         {
+          
             ChangeState(PlayerState.Hit, true);
-            animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
+           
+                animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
+           
         }
 
 

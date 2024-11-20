@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffRightAtk
   triggerTime: 0.465
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 5
@@ -289,7 +289,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: moveAtk_3
+  m_Name: Atk3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -309,7 +309,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 91dce0cce140b8341aad00458cc75454, type: 2}
-  m_Tag: Atk3
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffLeftAtk
   triggerTime: 0.73
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 6
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffRightAtk
   triggerTime: 0.646
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 5
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffLefttAtk
   triggerTime: 0.505
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 6
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.428
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 5
@@ -860,7 +860,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atk3
+  m_Name: Atk3_Enter
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -875,7 +875,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 37c5627b5091f8342a33bcf792343a73, type: 2}
-  m_Tag: Atk3
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffLeftAtk
   triggerTime: 0.596
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 6
@@ -1079,7 +1079,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: d206fd936cfd0534395b1c44cdd7c3b7, type: 2}
-  m_Tag: HeavyAtk
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnLefttAtk
   triggerTime: 0.567
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 6
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.523
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 5
@@ -1455,7 +1455,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: d17ca9f5334c89449907d44d4fcd04e2, type: 2}
-  m_Tag: Atk2
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.626
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 5
@@ -1648,7 +1648,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 6226ed094eebadc41bd8668b1284ea60, type: 2}
-  m_Tag: UltraAtk1
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1660,7 +1660,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: moveAtk_2
+  m_Name: Atk3_Ready
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1675,7 +1675,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 017999fd0a6302c46811954fcbd458b0, type: 2}
-  m_Tag: Atk3
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1706,7 +1706,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 758b4d6c7a9895047b4bcd1dfb797630, type: 2}
-  m_Tag: Atk1
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1779,7 +1779,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 2c034f1fd54234340b7bc234bb06e28a, type: 2}
-  m_Tag: UltraAtk2
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffRightAtk
   triggerTime: 0.55
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 5
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnLeftAtk
   triggerTime: 0.71
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 6
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnLeftAtk
   triggerTime: 0.478
-  animationType: 0
+  animationType: 1
   clip: {fileID: 0}
   moveVelocity: 0
   colliderNum: 6
