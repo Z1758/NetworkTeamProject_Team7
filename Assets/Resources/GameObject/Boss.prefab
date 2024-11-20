@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffb2809eb15be544a80144dd350e07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 1
   objectTransform: {fileID: 1007976354824252897}
   hitboxLayerEnum: 8
   hurtboxLayerEnum: 9
@@ -646,6 +647,7 @@ MonoBehaviour:
   hp: 1000
   attack: 200
   attackSpeed: 1
+  moveSpeed: 0
 --- !u!1 &525219418336961288
 GameObject:
   m_ObjectHideFlags: 0

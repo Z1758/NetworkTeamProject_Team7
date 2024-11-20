@@ -142,23 +142,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d39c182b19b2142bc28a262b70f73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 0
   curState: 0
   playerHurtbox: {fileID: 6389341127001229001}
-  model: {fileID: 1077324688}
   animator: {fileID: 5944556669101705825}
   animatorParameterHash: 
   skillNumberHash: 0
-  speed: 10
   rotateSpeed: 15
   isFixed: 0
   isMoveAni: 0
   rigid: {fileID: 928105611069765242}
+  model: {fileID: 1077324688}
   playerCamera: {fileID: 0}
   inputSystem: {fileID: 1641774034918779575}
-  moveInputVec: {x: 0, y: 0}
   damageSound: {fileID: 8300000, guid: 120afae7fe2cb4b46832bd5dfc6b48ce, type: 3}
-  hitSound: {fileID: 8300000, guid: 9bca2125445f6c24ea133b63b7480915, type: 3}
-  downSound: {fileID: 8300000, guid: cf433684101b8f84185fc264b94b4365, type: 3}
 --- !u!54 &928105611069765242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4325,6 +4322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffb2809eb15be544a80144dd350e07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 0
   objectTransform: {fileID: 335190678564926517}
   hitboxLayerEnum: 10
   hurtboxLayerEnum: 11

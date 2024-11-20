@@ -21,7 +21,8 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
     [SerializeField] AnimationType animationType;
     bool hasTriggered;
     bool hasLoopTriggered;
-    public AudioClip clip;
+  
+    public string audioName;
     public float moveVelocity;
     public int colliderNum;
     public bool colliderActive;
@@ -98,8 +99,9 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             }
             if (animationType.HasFlag(AnimationType.AUDIO))
             {
-                receiver.PlaySound(clip);
+                receiver.PlaySound(audioName);
             }
+         
             if (animationType.HasFlag(AnimationType.MOVE))
             {
                 receiver.ControllMoveAnimation(moveVelocity);

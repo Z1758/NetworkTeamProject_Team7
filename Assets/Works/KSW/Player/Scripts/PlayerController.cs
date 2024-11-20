@@ -1,7 +1,9 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using System.Runtime.CompilerServices;
+using System.Text;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 
 public enum PlayerAnimationHashNumber
@@ -11,8 +13,9 @@ public enum PlayerAnimationHashNumber
 
 public class PlayerController : MonoBehaviourPun
 {
+    [Header("캐릭터 번호")]
+    [SerializeField] int characterNumber;
 
-  
     public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
     [Header("플레이어 상태")]
     [SerializeField] PlayerState curState = PlayerState.Wait;
@@ -50,8 +53,7 @@ public class PlayerController : MonoBehaviourPun
 
     // todo : 추후에 다른 방식으로 정리
     [SerializeField] AudioClip damageSound; // 공격 하는 쪽에 넣어야함
-    [SerializeField] AudioClip hitSound;
-    [SerializeField] AudioClip downSound;
+
     private void OnEnable()
     {
         if (photonView.IsMine == false)
@@ -80,6 +82,9 @@ public class PlayerController : MonoBehaviourPun
 
        
     }
+
+   
+    
 
     private void SetInputSystem(bool active)
     {
@@ -289,21 +294,19 @@ public class PlayerController : MonoBehaviourPun
        
         isFixed = false;
         animator.SetFloat("Speed", model.AttackSpeed);
-    
 
-     
 
         AudioSource.PlayClipAtPoint(damageSound, transform.position + (Vector3.forward * 5));
         if (down)
         {
-
-            AudioSource.PlayClipAtPoint(downSound, transform.position + (Vector3.forward*5));
+            AudioManager.GetInstance().PlayDownVoice(characterNumber);
+            
             ChangeState(PlayerState.Down, true);
         }
         else
         {
             rigid.velocity = Vector3.zero;
-            AudioSource.PlayClipAtPoint(hitSound, transform.position+ (Vector3.forward*5));
+            AudioManager.GetInstance().PlayHitVoice(characterNumber);
             ChangeState(PlayerState.Hit, true);
 
         }

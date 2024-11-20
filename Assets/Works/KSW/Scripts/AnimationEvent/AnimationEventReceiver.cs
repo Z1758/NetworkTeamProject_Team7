@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class AnimationEventReceiver : MonoBehaviourPun
 {
+    [SerializeField] int characterNumber;
+
     [SerializeField] Transform objectTransform;
 
     [SerializeField] LayerEnum hitboxLayerEnum;
@@ -82,11 +84,11 @@ public class AnimationEventReceiver : MonoBehaviourPun
         }
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(string str)
     {
+        AudioClip clip = AudioManager.GetInstance().GetMonsterVoiceDic(characterNumber ,str);
         audioSource.PlayOneShot(clip);
     }
-
 
 
 }
