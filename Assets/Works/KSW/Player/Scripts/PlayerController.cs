@@ -12,72 +12,65 @@ public enum PlayerAnimationHashNumber
 public class PlayerController : MonoBehaviourPun
 {
 
+  
     public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
+    [Header("플레이어 상태")]
     [SerializeField] PlayerState curState = PlayerState.Wait;
     private State[] states = new State[(int)PlayerState.Size];
 
+    [Header("플레이어 피격 콜라이더")]
     [SerializeField] GameObject playerHurtbox;
-    [SerializeField] StatusModel model;
 
+    [Header("애니메이션 해싱")]
     [SerializeField] public Animator animator;
     [SerializeField] public int[] animatorParameterHash;
     public int skillNumberHash;
 
-    // Todo : 추후에 분리
-    [SerializeField] float speed;
+    [Header("플레이어 회전 속도")]
     [SerializeField] float rotateSpeed;
 
+    [Header("디버그 확인")]
     [SerializeField] public bool isFixed;
     [SerializeField] bool isMoveAni;
 
+    [Header("필수 컴포넌트")]
     [SerializeField] public Rigidbody rigid;
-
+    [SerializeField] StatusModel model;
     [SerializeField] PlayerCamera playerCamera;
 
-    // Todo : 추후에 분리
-    [SerializeField] private InputActionReference move;
-    [SerializeField] private InputActionReference atk;
-    [SerializeField] private InputActionReference skill;
-    [SerializeField] private InputActionReference dodge;
+    [SerializeField] PlayerInputSystem inputSystem;
+    
     Vector3 dir;
 
-    public Vector2 moveInputVec;
+    Vector2 moveInputVec;
 
     Vector3 vertical;
     Vector3 horizontal;
 
 
     // todo : 추후에 다른 방식으로 정리
-    [SerializeField] AudioClip damageSound;
+    [SerializeField] AudioClip damageSound; // 공격 하는 쪽에 넣어야함
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip downSound;
     private void OnEnable()
     {
         if (photonView.IsMine == false)
             return;
-        move.action.performed += MoveInput;
-        move.action.canceled += MoveCancleInput;
-
-        atk.action.started += AttackInput;
-        skill.action.started += SkillInput;
-        dodge.action.started += DodgeInput;
+        SetInputSystem(true);
     }
     private void OnDisable()
     {
         if (photonView.IsMine == false)
             return;
-        move.action.performed -= MoveInput;
-        move.action.canceled -= MoveCancleInput;
-
-        atk.action.started -= AttackInput;
-        skill.action.started -= SkillInput;
-        dodge.action.started -= DodgeInput;
+        SetInputSystem(false);
+      
     }
     private void Awake()
     {
         SetAnimationHash();
         if (photonView.IsMine == false)
             return;
+        inputSystem = GetComponent<PlayerInputSystem>();
         model = GetComponent<StatusModel>();
         rigid = GetComponent<Rigidbody>();
         gameObject.AddComponent<AudioListener>();
@@ -88,6 +81,27 @@ public class PlayerController : MonoBehaviourPun
        
     }
 
+    private void SetInputSystem(bool active)
+    {
+        if (active)
+        {
+            inputSystem.move.action.performed += MoveInput;
+            inputSystem.move.action.canceled += MoveCancleInput;
+
+            inputSystem.atk.action.started += AttackInput;
+            inputSystem.skill.action.started += SkillInput;
+            inputSystem.dodge.action.started += DodgeInput;
+        }
+        else
+        {
+            inputSystem.move.action.performed -= MoveInput;
+            inputSystem.move.action.canceled -= MoveCancleInput;
+
+            inputSystem.atk.action.started -= AttackInput;
+            inputSystem.skill.action.started -= SkillInput;
+            inputSystem.dodge.action.started -= DodgeInput;
+        }
+    }
     private void SetCamera()
     {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
@@ -324,7 +338,7 @@ public class PlayerController : MonoBehaviourPun
     {
 
 
-        rigid.velocity = dir * speed;
+        rigid.velocity = dir * model.MoveSpeed;
         Rotate();
 
 

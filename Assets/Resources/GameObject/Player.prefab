@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: -6677085441657607762}
   - component: {fileID: 406029828898345964}
   - component: {fileID: 1077324688}
+  - component: {fileID: 1641774034918779575}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -153,10 +154,7 @@ MonoBehaviour:
   isMoveAni: 0
   rigid: {fileID: 928105611069765242}
   playerCamera: {fileID: 0}
-  move: {fileID: 3301401711991942255, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
-  atk: {fileID: 6298375363570842354, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
-  skill: {fileID: -3306358822428908550, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
-  dodge: {fileID: -7178746385847757148, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
+  inputSystem: {fileID: 1641774034918779575}
   moveInputVec: {x: 0, y: 0}
   damageSound: {fileID: 8300000, guid: 120afae7fe2cb4b46832bd5dfc6b48ce, type: 3}
   hitSound: {fileID: 8300000, guid: 9bca2125445f6c24ea133b63b7480915, type: 3}
@@ -224,6 +222,23 @@ MonoBehaviour:
   hp: 1000
   attack: 100
   attackSpeed: 1
+  moveSpeed: 10
+--- !u!114 &1641774034918779575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335190678564926518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c897c818d08294cb8ea1a7d670a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: {fileID: 3301401711991942255, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
+  atk: {fileID: 6298375363570842354, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
+  skill: {fileID: -3306358822428908550, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
+  dodge: {fileID: -7178746385847757148, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
 --- !u!1 &962650243930248522
 GameObject:
   m_ObjectHideFlags: 0

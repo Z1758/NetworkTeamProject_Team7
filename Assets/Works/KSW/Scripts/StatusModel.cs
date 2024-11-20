@@ -15,13 +15,13 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     [SerializeField] private float hp;
     [SerializeField] private float attack;
     [SerializeField] private float attackSpeed;
-
+    [SerializeField] private float moveSpeed;
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 
     public float MaxHP { get { return maxHP; } }
     public float Attack { get { return attack; } }
     public float AttackSpeed { get { return attackSpeed; } }
-
+    public float MoveSpeed { get { return moveSpeed; } }
     public UnityAction<float> OnChangedHpEvent;
 
     private void OnDisable()
