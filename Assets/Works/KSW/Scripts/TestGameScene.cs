@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TestGameScene : MonoBehaviourPunCallbacks
 {
-    public const string RoomName = "TestRoo";
+    public const string RoomName = "TestRoom";
 
     private void Update()
     {
