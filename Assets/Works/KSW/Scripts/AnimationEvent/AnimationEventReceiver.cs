@@ -23,6 +23,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     [SerializeField] Rigidbody rigid;
 
+    [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject[] hitboxes;
     [SerializeField] GameObject hurtbox;
     [SerializeField] List<AnimationEvent> animationEvents = new();
@@ -66,6 +67,11 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
         hurtbox.layer = active ? hurtboxLayer : colliderDisableLayer;
 
+    }
+
+    public void ActiveProjectileAnimation(int num)
+    {
+        projectiles[num].SetActive(true);
     }
 
     public void ResetColider()

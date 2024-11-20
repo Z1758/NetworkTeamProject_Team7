@@ -10,8 +10,11 @@ public class Hitbox : MonoBehaviour
 
     [SerializeField] StatusModel model;
     [SerializeField] bool down;
+    [SerializeField] bool notFriction;
     [SerializeField] GameObject effectPrefab;
     [SerializeField] AudioClip hitSound;
+
+    WaitForSeconds atkSlow= new WaitForSeconds(0.2f);
     private void Awake()
     {
         if (model == null)
@@ -20,21 +23,29 @@ public class Hitbox : MonoBehaviour
        
     }
 
+
     public void HitEffect()
     {
         Instantiate(effectPrefab, transform.position, transform.rotation);
 
+
+
         // 역경직 테스트
-        animator.speed -= 0.9f;
-        StartCoroutine(SlowSpeed());
+        if (notFriction == false)
+        {
+            animator.SetFloat("Speed", model.AttackSpeed - 0.9f );
+        
+            StartCoroutine(SlowSpeed());
+        }
+
         AudioSource.PlayClipAtPoint(hitSound, transform.position);
     }
 
     // 역경직 테스트
     IEnumerator SlowSpeed()
     {
-        yield return new WaitForSeconds(0.2f);
-        animator.speed += 0.9f;
+        yield return atkSlow;
+        animator.SetFloat("Speed", model.AttackSpeed);
     }
 
     public float GetAtk()

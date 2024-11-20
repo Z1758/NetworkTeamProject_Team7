@@ -12,7 +12,7 @@ public enum PlayerAnimationHashNumber
 public class PlayerController : MonoBehaviourPun
 {
 
-    public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Size }
+    public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
     [SerializeField] PlayerState curState = PlayerState.Wait;
     private State[] states = new State[(int)PlayerState.Size];
 
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviourPun
     }
     private void Awake()
     {
-
+       
         if (photonView.IsMine == false)
             return;
         model = GetComponent<StatusModel>();
@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviourPun
         states[(int)PlayerState.Dodge] = new DodgeState(this);
         states[(int)PlayerState.Dead] = new DeadState(this);
         states[(int)PlayerState.InputWait] = new InputWaitState(this);
+        states[(int)PlayerState.Skill] = new SkillState(this);
     }
 
     private void Start()
@@ -183,28 +184,32 @@ public class PlayerController : MonoBehaviourPun
         }
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
-
-
-          
-
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-
-         
-
-        }
-       
         
     }
     public void SkillInput(InputAction.CallbackContext value)
     {
 
         int index = value.action.GetBindingIndexForControl(value.control);
-        Debug.Log(index);
+
+        switch (index)
+        {
+            case 0:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill1];
+                break;
+            case 1:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill2];
+                break;
+            case 2:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill3];
+                break;
+            case 3:
+                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
+                break;
+        }
+
+
+        ChangeState(PlayerState.Skill, true);
+
     }
 
     public void AttackInput(InputAction.CallbackContext value)
@@ -269,6 +274,11 @@ public class PlayerController : MonoBehaviourPun
     {
        
         isFixed = false;
+        animator.SetFloat("Speed", model.AttackSpeed);
+    
+
+     
+
         AudioSource.PlayClipAtPoint(damageSound, transform.position + (Vector3.forward * 5));
         if (down)
         {
@@ -277,7 +287,7 @@ public class PlayerController : MonoBehaviourPun
         }
         else
         {
-           
+            rigid.velocity = Vector3.zero;
             AudioSource.PlayClipAtPoint(hitSound, transform.position+ (Vector3.forward*5));
             ChangeState(PlayerState.Hit, true);
 
@@ -342,8 +352,6 @@ public class PlayerController : MonoBehaviourPun
     }
 
 
-
-
     public void TakeDamage(float damage, bool down, Vector3 target)
     {
 
@@ -384,6 +392,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if(curState != PlayerState.Wait)
         {
+            animator.SetFloat("Speed", model.AttackSpeed);
             isFixed = false;
             ChangeState(PlayerState.Wait, false);
         }
