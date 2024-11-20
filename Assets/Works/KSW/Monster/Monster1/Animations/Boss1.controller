@@ -325,6 +325,7 @@ AnimatorState:
   - {fileID: -6867557657275366161}
   - {fileID: -5745549964509142751}
   - {fileID: -2156534397334202305}
+  - {fileID: 6916126656224872693}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -598,6 +599,46 @@ MonoBehaviour:
   colliderNum: 0
   colliderActive: 0
   isLoop: 0
+--- !u!114 &-1787689695294239598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Atk3_1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-1483122406513865436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: UltraAtk1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &-1454762161275663007
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -654,6 +695,26 @@ MonoBehaviour:
   triggerTime: 0.358
   animationType: 1
   audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-169747733440724534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Atk4
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -897,7 +958,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2033997857918411805}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -1787689695294239598}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1732,6 +1794,7 @@ AnimatorState:
   - {fileID: 89224427687335383}
   - {fileID: 7571323615119807663}
   - {fileID: -5235365190090167901}
+  - {fileID: -1483122406513865436}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1920,6 +1983,26 @@ MonoBehaviour:
   audioName: 
   moveVelocity: 0
   colliderNum: 2
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &6916126656224872693
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Atk3_2
+  moveVelocity: 0
+  colliderNum: 0
   colliderActive: 0
   isLoop: 0
 --- !u!1101 &6920755534417794276
@@ -2236,6 +2319,7 @@ AnimatorState:
   - {fileID: 2804655785300395622}
   - {fileID: 6006053061763178390}
   - {fileID: 2756886999980279466}
+  - {fileID: -169747733440724534}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

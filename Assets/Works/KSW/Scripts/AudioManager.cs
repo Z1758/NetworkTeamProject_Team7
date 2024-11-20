@@ -15,10 +15,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource voiceSource;
 
 
-    [SerializeField] public Dictionary<string, AudioClip> monsterVoiceDic;
-    [SerializeField] public Dictionary<string, AudioClip> playerVoiceDic;
-    [SerializeField] public Dictionary<string, AudioClip> effectSoundDic;
-
+    [SerializeField] public Dictionary<string, AudioClip> monsterSoundDic;
+    [SerializeField] public Dictionary<string, AudioClip> playerSoundDic;
+   
     StringBuilder voiceStringBuilder = new StringBuilder();
     StringBuilder soundStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
@@ -34,9 +33,9 @@ public class AudioManager : MonoBehaviour
           
             instance = this;
 
-            monsterVoiceDic = new Dictionary<string, AudioClip>();
-            playerVoiceDic = new Dictionary<string, AudioClip>();
-            effectSoundDic = new Dictionary<string, AudioClip>();
+            monsterSoundDic = new Dictionary<string, AudioClip>();
+            playerSoundDic = new Dictionary<string, AudioClip>();
+         
         }
         else
         {
@@ -45,7 +44,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public AudioClip GetMonsterVoiceDic(int characterNumber,string str)
+    public AudioClip GetMonsterSoundDic(int characterNumber,string str)
     {
         voiceStringBuilder.Clear();
         voiceStringBuilder.Append($"Monster{characterNumber}/");
@@ -53,17 +52,17 @@ public class AudioManager : MonoBehaviour
 
         string resultStr = voiceStringBuilder.ToString();
 
-        monsterVoiceDic.TryGetValue(resultStr, out AudioClip clip);
+        monsterSoundDic.TryGetValue(resultStr, out AudioClip clip);
         if (clip == null)
         {
-           monsterVoiceDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
-           clip = monsterVoiceDic[resultStr];
+            monsterSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
+           clip = monsterSoundDic[resultStr];
         }
 
         return clip;
     }
 
-    public AudioClip GetPlayerVoiceDic(int characterNumber, string str)
+    public AudioClip GetPlayerSoundDic(int characterNumber, string str)
     {
         voiceStringBuilder.Clear();
         voiceStringBuilder.Append($"Player{characterNumber}/");
@@ -71,32 +70,16 @@ public class AudioManager : MonoBehaviour
 
         string resultStr = voiceStringBuilder.ToString();
 
-        playerVoiceDic.TryGetValue(resultStr, out AudioClip clip);
+        playerSoundDic.TryGetValue(resultStr, out AudioClip clip);
         if (clip == null)
         {
-            playerVoiceDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
-            clip = playerVoiceDic[resultStr];
+            playerSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
+            clip = playerSoundDic[resultStr];
         }
 
         return clip;
     }
-    public AudioClip GetSoundVoiceDic(string str)
-    {
-        soundStringBuilder.Clear();
-        soundStringBuilder.Append("SoundEffect/");
-        soundStringBuilder.Append(str);
-
-        string resultStr = soundStringBuilder.ToString();
-
-        playerVoiceDic.TryGetValue(resultStr, out AudioClip clip);
-        if (clip == null)
-        {
-            playerVoiceDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
-            clip = playerVoiceDic[resultStr];
-        }
-
-        return clip;
-    }
+ 
 
 
     public void PlaySound(AudioClip clip)

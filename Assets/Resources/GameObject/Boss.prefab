@@ -351,7 +351,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.166
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -403,8 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffb2809eb15be544a80144dd350e07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNumber: 1
-  objectType: 1
+  model: {fileID: 5612456238972113234}
   objectTransform: {fileID: 1007976354824252897}
   hitboxLayerEnum: 8
   hurtboxLayerEnum: 9
@@ -644,6 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32ef5aded91803478eb43c5f82f7ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 1
   type: 1
   maxHP: 1000
   hp: 1000

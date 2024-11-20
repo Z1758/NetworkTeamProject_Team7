@@ -10,18 +10,23 @@ public enum ModelType { PLAYER, ENEMY }
 public class StatusModel : MonoBehaviourPun, IPunObservable
 {
 
+    [SerializeField] int characterNumber;
     [SerializeField] ModelType type;
     [SerializeField] private float maxHP;
     [SerializeField] private float hp;
     [SerializeField] private float attack;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float moveSpeed;
+
+    public int CharacterNumber { get { return characterNumber; } }
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 
     public float MaxHP { get { return maxHP; } }
     public float Attack { get { return attack; } }
     public float AttackSpeed { get { return attackSpeed; } }
     public float MoveSpeed { get { return moveSpeed; } }
+
+    public ModelType ModelType { get { return type; } }
     public UnityAction<float> OnChangedHpEvent;
 
     private void OnDisable()

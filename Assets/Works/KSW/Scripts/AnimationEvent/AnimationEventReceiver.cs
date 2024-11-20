@@ -3,16 +3,12 @@ using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ObjectType{
-    PLAYER, MONSTER
-}
 
 
 public class AnimationEventReceiver : MonoBehaviourPun
 {
-    [SerializeField] int characterNumber;
-    [SerializeField] ObjectType objectType;
-
+    [SerializeField] StatusModel model;
+  
     [SerializeField] Transform objectTransform;
 
     [SerializeField] LayerEnum hitboxLayerEnum;
@@ -38,6 +34,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     private void Awake()
     {
         //  hitboxLayer = Mathf.RoundToInt(Mathf.Log(hitboxLayerMask.value, 2));
+      
         audioSource = GetComponent<AudioSource>();
         hitboxLayer = (int)hitboxLayerEnum;
         hurtboxLayer = (int)hurtboxLayerEnum;
@@ -92,13 +89,13 @@ public class AnimationEventReceiver : MonoBehaviourPun
     public void PlaySound(string str)
     {
         AudioClip clip = null;
-        if (objectType == ObjectType.PLAYER)
+        if (model.ModelType == ModelType.PLAYER)
         {
-            clip = AudioManager.GetInstance().GetPlayerVoiceDic(characterNumber, str);
+            clip = AudioManager.GetInstance().GetPlayerSoundDic(model.CharacterNumber, str);
         }
-        else if (objectType == ObjectType.MONSTER)
+        else if (model.ModelType == ModelType.ENEMY)
         {
-            clip = AudioManager.GetInstance().GetMonsterVoiceDic(characterNumber, str);
+            clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
         }
         audioSource.PlayOneShot(clip);
     }

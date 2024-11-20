@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Player1Sound
+  m_EditorClassIdentifier: 
+  m_GroupName: Player1Sound
+  m_Data:
+    m_SerializedData: []
+  m_GUID: de594ea6fb270b246b7abfc57c75e1cd
+  m_SerializeEntries:
+  - m_GUID: 4bc434fe36f9d2e42a6f47950ea88673
+    m_Address: Player1/Atk4Swing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 597cd2d14ef23ac40a23b55cbcabe290
+    m_Address: Player1/Skill4Cast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6423f2f44f0fbd04b9b791bc4692e87a
+    m_Address: Player1/Skill1Cast1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e8b29f924473c641a86f22d520798ae
+    m_Address: Player1/Skill3Cast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 859cac1e0a9b8cb4c8c69f51efc89460
+    m_Address: Player1/Atk1Swing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a729482686259342b2c7956527091d8
+    m_Address: Player1/Skill2Hit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99b395109752c9246b71e3fc70e4005b
+    m_Address: Player1/Skill4Shot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d1a89e1f83aa0640a399ce8884e3688
+    m_Address: Player1/Skill1Cast2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a24b5b0eb24fb6541b91d774e5a50cb0
+    m_Address: Player1/Skill3Hit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5aa90802d186d6469f738dd7e6d3311
+    m_Address: Player1/SwordAttackHit1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb8c9fb6e894f454ebe538a073b33e07
+    m_Address: Player1/Atk2Swing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c618895fe4c3df34384a767c12d73dde
+    m_Address: Player1/Skill2Cast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d982b2f22cd790649a5d6f41e37935ac
+    m_Address: Player1/Skill3Shot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db2b636daba679341b8aeff7bc5cf8d1
+    m_Address: Player1/Skill1Hit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc40813ddd5ff7d43873862e1a12637d
+    m_Address: Player1/Atk3Swing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7f85bb32437e35545836f5f28177357f, type: 2}
+    - {fileID: 11400000, guid: aca3a1fbc70c12047b29bfbf3544a3bc, type: 2}

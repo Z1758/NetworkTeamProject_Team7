@@ -51,8 +51,14 @@ public class Hitbox : MonoBehaviour
         }
         if (hitSound == null)
         {
-            
-            hitSound = AudioManager.GetInstance().GetSoundVoiceDic(soundName);
+            if (model.ModelType == ModelType.PLAYER)
+            {
+                hitSound = AudioManager.GetInstance().GetPlayerSoundDic(model.CharacterNumber, soundName);
+            }
+            else if (model.ModelType == ModelType.ENEMY)
+            {
+                hitSound = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, soundName);
+            }
 
         }
         return hitSound;
