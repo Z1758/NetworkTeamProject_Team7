@@ -146,7 +146,10 @@ public class SkillState : State
 
     public override void ExitState()
     {
-        controller.animator.SetBool(controller.skillNumberHash, false);
+        for (int i = 0; i < controller.animatorParameterHash.Length; i++)
+        {
+            controller.animator.SetBool(controller.animatorParameterHash[i], false);
+        }
     }
 
 
