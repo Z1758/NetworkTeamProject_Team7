@@ -1388,9 +1388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205481c408c48742b6cf08ab81cf5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 2145677782}
-  outputText: {fileID: 252313904}
-  ChatID: 
+  _inputField: {fileID: 2145677782}
+  _outputText: {fileID: 252313904}
 --- !u!4 &1811364159
 Transform:
   m_ObjectHideFlags: 0
