@@ -30,9 +30,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [SerializeField] bool isFixed;
     [SerializeField] bool isMoveAni;
 
-    float lag;
-    float time;
-    float aniStateTime;
+    [SerializeField] float lag;
+    [SerializeField] float time;
+    [SerializeField] float aniStateTime;
  
     Transform target;
 
@@ -50,6 +50,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     WaitForSeconds cooldown = new WaitForSeconds(0.5f);
     Coroutine cooldownCoroutine;
+
+    WaitForSeconds lagWFS = new WaitForSeconds(0.1f);
 
     private void Awake()
     {
@@ -146,7 +148,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return lagWFS;
 
 
 
@@ -179,9 +181,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void SetAniTime()
     {
-       
 
-
+      
 
 
 
@@ -192,7 +193,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             lag = time - aniStateTime;
             return;
         }
-        
+        time = 0;
+        lag = 0;
         aniStateTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
 
