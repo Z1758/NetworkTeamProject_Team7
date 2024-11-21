@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviourPun
     [Header("애니메이션 해싱")]
     [SerializeField] public Animator animator;
     [SerializeField] public int[] animatorParameterHash;
+  
     public int skillNumberHash;
     
     // 현재 사용한 스킬
@@ -134,7 +135,6 @@ public class PlayerController : MonoBehaviourPun
             AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
             animatorParameterHash[i] = animatorControllerParameter.nameHash;
         }
-
 
     }
 
@@ -391,9 +391,9 @@ public class PlayerController : MonoBehaviourPun
 
     public void Move()
     {
-
-
+       
         rigid.velocity = dir * model.MoveSpeed;
+       
         Rotate();
 
 
@@ -423,12 +423,16 @@ public class PlayerController : MonoBehaviourPun
 
 
     AudioClip hitSound;
-
-    public void TakeDamage(float damage, bool down, Vector3 target, AudioClip clip)
+    GameObject hurtEffect;
+    Vector3 hurtEffectPos;
+    public void TakeDamage(float damage, bool down, Vector3 target, AudioClip clip, GameObject effect, Vector3 effectPos)
     {
-        if ( photonView.IsMine)
+        if (photonView.IsMine)
+        {
             hitSound = clip;
-
+            hurtEffect = effect;
+            hurtEffectPos = effectPos;
+        }
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
        
 
@@ -441,11 +445,21 @@ public class PlayerController : MonoBehaviourPun
         {
             Debug.Log("DODGE!");
             hitSound = null;
+            hurtEffect = null;
+            hurtEffectPos = Vector3.zero;
             return;
         }
-        if(hitSound != null) 
+        if (hitSound != null)
+        {
             audioSource.PlayOneShot(hitSound);
+            if (hurtEffectPos.y < 1f)
+            {
+                hurtEffectPos.y += 1.5f;
+            }
 
+            Instantiate(hurtEffect, hurtEffectPos, transform.rotation);
+
+        }
         transform.LookAt(target);
 
         isFixed = false;

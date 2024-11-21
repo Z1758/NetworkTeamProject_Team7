@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
     StringBuilder soundStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
     {
-        Debug.Log("¿Àµğ¿À ½Ì±ÛÅæ È£Ãâ");
         return instance;
     }
 

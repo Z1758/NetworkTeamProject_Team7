@@ -27,14 +27,29 @@ public class Hitbox : MonoBehaviour
     }
 
 
-    public void HitEffect()
+    public void HitEffect(Vector3 vec)
     {
         if (effectPrefab == null)
         {
            effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
         }
+        if(vec.y < 1f)
+        {
+            vec.y += 1.5f;
+        }
 
-        Instantiate(effectPrefab, transform.position, transform.rotation);
+        Instantiate(effectPrefab, vec, transform.rotation);
+
+    }
+
+    public GameObject HitEffect()
+    {
+        if (effectPrefab == null)
+        {
+            effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
+        }
+        
+        return effectPrefab;
 
 
     }

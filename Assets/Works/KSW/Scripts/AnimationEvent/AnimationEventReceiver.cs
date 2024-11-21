@@ -28,6 +28,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject[] hitboxes;
     [SerializeField] GameObject hurtbox;
+    [SerializeField] ParticleSystem[] effects;
     [SerializeField] List<AnimationEvent> animationEvents = new();
 
 
@@ -105,5 +106,12 @@ public class AnimationEventReceiver : MonoBehaviourPun
         AudioClip clip = null;
         clip = AudioManager.GetInstance().GetCommonSoundDic( str);
         audioSource.PlayOneShot(clip);
+    }
+
+    public void ActiveEffect(int num)
+    {
+        effects[num].gameObject.SetActive(true);
+        effects[num].Play();
+     //   effects[num].SetActive(true);
     }
 }

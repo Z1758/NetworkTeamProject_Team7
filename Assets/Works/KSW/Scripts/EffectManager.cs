@@ -22,7 +22,6 @@ public class EffectManager : MonoBehaviour
 
     public static EffectManager GetInstance()
     {
-        Debug.Log("¿Ã∆Â∆Æ ΩÃ±€≈Ê »£√‚");
         return instance;
     }
 

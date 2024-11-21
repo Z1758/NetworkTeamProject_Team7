@@ -17,8 +17,26 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 17cced7722ffd934b9165f315b1d5b03
   m_SerializeEntries:
+  - m_GUID: 33b6f37507659a744bf465991205c20e
+    m_Address: Effects/HitEffect1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76f52a2fa033cf649a1453a40143d1b6
     m_Address: Effects/SlashHitEffect1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87bac4058bf037549af575b5c05da35c
+    m_Address: Effects/HitEffect2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4c1f955a86b7ef46a419a954d888f30
+    m_Address: Effects/Distortion
     m_ReadOnly: 0
     m_SerializedLabels:
     - Effects
