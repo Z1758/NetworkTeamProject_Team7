@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: a55ce97359019ea47943bf1ebd5c3319
   m_currentHash:
     serializedVersion: 2
-    Hash: 1a36c631170e800642edc0bc15581a7f
+    Hash: 3188f5c0239afd76eea6f890bf47b50f
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -92,6 +92,11 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - MonsterCommonSound
+    - Player1Voice
+    - Player1Sound
+    - Monster1Voice
+    - Monster1Sound
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: dbdeb77a3a308e046a40c70f3c9cdfc0, type: 2}

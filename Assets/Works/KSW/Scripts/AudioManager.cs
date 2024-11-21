@@ -4,6 +4,8 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,14 +16,20 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmSource;
     [SerializeField] AudioSource voiceSource;
 
+    public List<string> monsterKeys = new List<string>() { "Monster1Voice", "Monster1Sound" };
+    public List<string> playerKeys = new List<string>() { "Player1Voice", "Player1Sound" };
+    public List<string> commonKeys = new List<string>() { "MonsterCommonSound"};
+
+    AsyncOperationHandle<IList<AudioClip>> playerSoundLoadHandle;
+    AsyncOperationHandle<IList<AudioClip>> monsterSoundLoadHandle;
+    AsyncOperationHandle<IList<AudioClip>> commonSoundLoadHandle;
 
     [SerializeField] public Dictionary<string, AudioClip> monsterSoundDic;
     [SerializeField] public Dictionary<string, AudioClip> playerSoundDic;
     [SerializeField] public Dictionary<string, AudioClip> commonSoundDic;
 
-    StringBuilder voiceStringBuilder = new StringBuilder();
+
     StringBuilder soundStringBuilder = new StringBuilder();
-    StringBuilder commonStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
     {
         Debug.Log("싱글톤 불러오기");
@@ -38,6 +46,11 @@ public class AudioManager : MonoBehaviour
             monsterSoundDic = new Dictionary<string, AudioClip>();
             playerSoundDic = new Dictionary<string, AudioClip>();
             commonSoundDic = new Dictionary<string, AudioClip>();
+
+            //추후에 변경
+            LoadPlayerSounds();
+            LoadMonsterSounds();
+            LoadCommonSounds();
         }
         else
         {
@@ -45,18 +58,93 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    #region 한꺼번에 로딩
+    public void LoadPlayerSounds()
+    {
 
+        playerSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
+            playerKeys, 
+            addressable =>
+            {
+                soundStringBuilder.Clear();
+                //추후에 변경
+                soundStringBuilder.Append("Player1/");
+        
+                if (addressable != null)
+                {
+                    soundStringBuilder.Append(addressable.name);
+                    playerSoundDic.Add(soundStringBuilder.ToString(), addressable);
+                }
+
+
+            }, Addressables.MergeMode.Union, 
+            false);
+        playerSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+      
+    }
+    public void LoadMonsterSounds()
+    {
+
+        monsterSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
+            monsterKeys,
+            addressable =>
+            {
+                
+                soundStringBuilder.Clear();
+                //추후에 변경
+                soundStringBuilder.Append("Monster1/");
+
+                if (addressable != null)
+                {
+                    soundStringBuilder.Append(addressable.name);
+                    monsterSoundDic.Add(soundStringBuilder.ToString(), addressable);
+                }
+
+
+            }, Addressables.MergeMode.Union,
+            false);
+        monsterSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+
+    }
+    public void LoadCommonSounds()
+    {
+
+        commonSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
+            commonKeys,
+            addressable =>
+            {
+                
+                soundStringBuilder.Clear();
+                //추후에 변경
+                soundStringBuilder.Append("Common/");
+
+                if (addressable != null)
+                {
+                    soundStringBuilder.Append(addressable.name);
+                    commonSoundDic.Add(soundStringBuilder.ToString(), addressable);
+                }
+
+
+            }, Addressables.MergeMode.Union,
+            false);
+        commonSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+
+    }
+    #endregion
+
+    #region 사운드 파일 전달
     public AudioClip GetMonsterSoundDic(int characterNumber,string str)
     {
-        voiceStringBuilder.Clear();
-        voiceStringBuilder.Append($"Monster{characterNumber}/");
-        voiceStringBuilder.Append(str);
+        soundStringBuilder.Clear();
+        soundStringBuilder.Append($"Monster{characterNumber}/");
+        soundStringBuilder.Append(str);
 
-        string resultStr = voiceStringBuilder.ToString();
+        string resultStr = soundStringBuilder.ToString();
 
         monsterSoundDic.TryGetValue(resultStr, out AudioClip clip);
         if (clip == null)
         {
+            Debug.Log("몬스터 사운드 초기화");
             monsterSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
            clip = monsterSoundDic[resultStr];
         }
@@ -64,19 +152,22 @@ public class AudioManager : MonoBehaviour
         return clip;
     }
 
+ 
     public AudioClip GetPlayerSoundDic(int characterNumber, string str)
     {
-        voiceStringBuilder.Clear();
-        voiceStringBuilder.Append($"Player{characterNumber}/");
-        voiceStringBuilder.Append(str);
+        soundStringBuilder.Clear();
+        soundStringBuilder.Append($"Player{characterNumber}/");
+        soundStringBuilder.Append(str);
 
-        string resultStr = voiceStringBuilder.ToString();
+        string resultStr = soundStringBuilder.ToString();
 
         playerSoundDic.TryGetValue(resultStr, out AudioClip clip);
         if (clip == null)
         {
+            Debug.Log("플레이어 사운드 초기화");
             playerSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
             clip = playerSoundDic[resultStr];
+            Debug.Log(clip.name);
         }
 
         return clip;
@@ -84,21 +175,39 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip GetCommonSoundDic(string str)
     {
-        commonStringBuilder.Clear();
-        commonStringBuilder.Append($"Common/");
-        commonStringBuilder.Append(str);
+        soundStringBuilder.Clear();
+        soundStringBuilder.Append($"Common/");
+        soundStringBuilder.Append(str);
 
-        string resultStr = commonStringBuilder.ToString();
+        string resultStr = soundStringBuilder.ToString();
 
         commonSoundDic.TryGetValue(resultStr, out AudioClip clip);
         if (clip == null)
         {
+            Debug.Log("일반 사운드 초기화");
             commonSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
             clip = commonSoundDic[resultStr];
         }
 
         return clip;
     }
+    #endregion
+    private void LoadSoundHandle_Completed(AsyncOperationHandle<IList<AudioClip>> operation)
+    {
+        Debug.Log(operation.Result);
+
+        if (operation.Status != AsyncOperationStatus.Succeeded)
+            Debug.LogWarning("사운드 에셋 로딩 완료");
+    }
+    private void OnDestroy()
+    {
+        Addressables.Release(monsterSoundLoadHandle);
+
+        Addressables.Release(playerSoundLoadHandle);
+
+        Addressables.Release(commonSoundLoadHandle);
+    }
+
 
     public void PlaySound(AudioClip clip)
     {

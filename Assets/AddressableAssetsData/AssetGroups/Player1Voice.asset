@@ -20,52 +20,62 @@ MonoBehaviour:
   - m_GUID: 0a0438a285e874a4c8a23eada73ce52e
     m_Address: Player1/Atk4
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 149a8e777c4abc643a6fdc9cac033dc1
     m_Address: Player1/Hit
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d145324d49453846b683399b9d37272
     m_Address: Player1/Skill4_1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6afcc10fba2de19479530c76b677c409
     m_Address: Player1/Down
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6fa47ee838b2e604fb90abd62260f6b0
     m_Address: Player1/Skill3
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8853f61965f33bd45b9250a9706f6eee
     m_Address: Player1/Skill1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 986bef2f9ad22f549bcba9bd0b82b118
     m_Address: Player1/Atk2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1aab9e4d19ea364dbba55f3b1846cfd
     m_Address: Player1/Skill4_2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e444ef9e7d8a47f4a87a67185ae6a139
     m_Address: Player1/Skill2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efb551f80c2351d40a380f37cc1927de
     m_Address: Player1/Death
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}

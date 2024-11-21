@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 0258c583289a41e419f19568a6546a92
     m_Address: Monster1/BossAttackHit1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Monster1Sound
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
