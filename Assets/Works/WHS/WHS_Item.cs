@@ -19,7 +19,7 @@ public class WHS_Item : MonoBehaviourPun
 
     private void Update()
     {
-        1
+        
         float newY = startPos.y + Mathf.Sin(Time.time * 5f) * 0.3f;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         transform.Rotate(Vector3.up, 90f * Time.deltaTime, 0);
