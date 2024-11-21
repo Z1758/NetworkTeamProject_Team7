@@ -157,6 +157,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 7079407250204562785}
   inputSystem: {fileID: 1641774034918779575}
+  projectiles:
+  - {fileID: 951795956697150902}
 --- !u!54 &928105611069765242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -419,7 +421,7 @@ GameObject:
   - component: {fileID: 5935825889033737817}
   - component: {fileID: 2848607444943295459}
   - component: {fileID: 951795956697150902}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: ProjectileHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

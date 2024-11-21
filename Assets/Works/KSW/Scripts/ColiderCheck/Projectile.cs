@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class Projectile : Hitbox
     private void Awake()
     {
         returnTimeWFS = new WaitForSeconds(returnTime);
+ 
+    
     }
 
     private void OnEnable()
@@ -55,6 +58,11 @@ public class Projectile : Hitbox
 
        
         gameObject.SetActive(false);
+    }
+
+    public void ActiveLayer()
+    {
+        gameObject.layer = (int)LayerEnum.PLAYER_HIT_BOX;
     }
 
     private void OnDisable()

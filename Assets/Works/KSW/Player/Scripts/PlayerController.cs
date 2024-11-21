@@ -44,7 +44,10 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] PlayerCamera playerCamera;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
-    
+
+    [Header("≈ıªÁ√º")]
+    [SerializeField] Projectile[] projectiles;
+
     Vector3 dir;
 
     Vector2 moveInputVec;
@@ -82,11 +85,17 @@ public class PlayerController : MonoBehaviourPun
 
         SetStates();
 
-       
+        SetProjectilesLayer();
     }
 
    
-    
+    private void SetProjectilesLayer()
+    {
+        for (int i = 0; i < projectiles.Length; i++)
+        {
+            projectiles[i].ActiveLayer();
+        }
+    }
 
     private void SetInputSystem(bool active)
     {

@@ -22,7 +22,7 @@ public class Hitbox : MonoBehaviour
         if (model == null)
             model = GetComponentInParent<StatusModel>();
 
-       
+      
     }
 
 
