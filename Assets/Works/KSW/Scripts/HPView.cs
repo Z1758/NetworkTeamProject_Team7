@@ -5,34 +5,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class HPView : MonoBehaviour
+public class HPView : SliderView
 {
-    [SerializeField] Slider hpSlider;
-    [SerializeField] StatusModel model;
 
-    private void Awake()
-    {
-        hpSlider = GetComponent<Slider>();
-    }
 
-    public void SetModel(StatusModel model)
+    public override void SetModel(StatusModel model)
     {
-     
+
         this.model = model;
-        model.OnChangedHpEvent += SetHPSlider;
-        hpSlider.maxValue = model.MaxHP;
-        hpSlider.value = model.MaxHP;
+        model.OnChangedHpEvent += SetSlider;
+        slider.maxValue = model.MaxHP;
+        slider.value = model.MaxHP;
     }
 
     private void OnDisable()
     {
         if (model != null)
-            model.OnChangedHpEvent -= SetHPSlider;
-    }
-
-    public void SetHPSlider(float hp)
-    {
-        hpSlider.value = hp;
-     
+            model.OnChangedHpEvent -= SetSlider;
     }
 }

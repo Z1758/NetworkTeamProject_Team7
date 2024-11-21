@@ -128,6 +128,8 @@ public class AttackState : State
 public class SkillState : State
 {
 
+
+
     public SkillState(PlayerController controller) : base(controller)
     {
 
@@ -138,7 +140,7 @@ public class SkillState : State
     public override void EnterState()
     {
 
-
+        controller.model.SetCurrentSkillCoolTime(controller.skillNumber, controller.model.SkillCoolTime[controller.skillNumber]);
         controller.animator.SetBool(controller.skillNumberHash, true);
 
 
@@ -146,7 +148,10 @@ public class SkillState : State
 
     public override void ExitState()
     {
-        controller.animator.SetBool(controller.skillNumberHash, false);
+        for (int i = 0; i < controller.animatorParameterHash.Length; i++)
+        {
+            controller.animator.SetBool(controller.animatorParameterHash[i], false);
+        }
     }
 
 
@@ -208,6 +213,7 @@ public class DodgeState : State
     public override void EnterState()
     {
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], true);
+        controller.model.Stamina -= controller.model.ConsumStamina;
 
     }
 

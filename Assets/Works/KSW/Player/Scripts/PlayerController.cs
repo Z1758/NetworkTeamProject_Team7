@@ -1,7 +1,9 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using System.Runtime.CompilerServices;
+using System.Text;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 
 public enum PlayerAnimationHashNumber
@@ -13,81 +15,109 @@ public class PlayerController : MonoBehaviourPun
 {
 
     public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
+    [Header("플레이어 상태")]
     [SerializeField] PlayerState curState = PlayerState.Wait;
     private State[] states = new State[(int)PlayerState.Size];
 
+    [Header("플레이어 피격 콜라이더")]
     [SerializeField] GameObject playerHurtbox;
-    [SerializeField] StatusModel model;
 
+    [Header("애니메이션 해싱")]
     [SerializeField] public Animator animator;
     [SerializeField] public int[] animatorParameterHash;
     public int skillNumberHash;
+    
+    // 현재 사용한 스킬
+    [HideInInspector]public int skillNumber;
 
-    // Todo : 추후에 분리
-    [SerializeField] float speed;
+
+    [Header("플레이어 회전 속도")]
     [SerializeField] float rotateSpeed;
 
+    [Header("디버그 확인")]
     [SerializeField] public bool isFixed;
     [SerializeField] bool isMoveAni;
 
+    [Header("필수 컴포넌트")]
     [SerializeField] public Rigidbody rigid;
-
+    [SerializeField] public StatusModel model;
     [SerializeField] PlayerCamera playerCamera;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] PlayerInputSystem inputSystem;
 
-    // Todo : 추후에 분리
-    [SerializeField] private InputActionReference move;
-    [SerializeField] private InputActionReference atk;
-    [SerializeField] private InputActionReference skill;
-    [SerializeField] private InputActionReference dodge;
+    [Header("투사체")]
+    [SerializeField] Projectile[] projectiles;
+
     Vector3 dir;
 
-    public Vector2 moveInputVec;
+    Vector2 moveInputVec;
 
     Vector3 vertical;
     Vector3 horizontal;
 
 
-    // todo : 추후에 다른 방식으로 정리
-    [SerializeField] AudioClip damageSound;
-    [SerializeField] AudioClip hitSound;
-    [SerializeField] AudioClip downSound;
+
+
     private void OnEnable()
     {
         if (photonView.IsMine == false)
             return;
-        move.action.performed += MoveInput;
-        move.action.canceled += MoveCancleInput;
-
-        atk.action.started += AttackInput;
-        skill.action.started += SkillInput;
-        dodge.action.started += DodgeInput;
+        SetInputSystem(true);
     }
     private void OnDisable()
     {
         if (photonView.IsMine == false)
             return;
-        move.action.performed -= MoveInput;
-        move.action.canceled -= MoveCancleInput;
-
-        atk.action.started -= AttackInput;
-        skill.action.started -= SkillInput;
-        dodge.action.started -= DodgeInput;
+        SetInputSystem(false);
+      
     }
     private void Awake()
     {
         SetAnimationHash();
         if (photonView.IsMine == false)
             return;
+        inputSystem = GetComponent<PlayerInputSystem>();
         model = GetComponent<StatusModel>();
         rigid = GetComponent<Rigidbody>();
+        audioSource = GetComponentInChildren<AudioSource>();
         gameObject.AddComponent<AudioListener>();
         SetCamera();
 
         SetStates();
 
-       
+        SetProjectilesLayer();
     }
 
+   
+    private void SetProjectilesLayer()
+    {
+        for (int i = 0; i < projectiles.Length; i++)
+        {
+            projectiles[i].ActiveLayer();
+        }
+    }
+
+    private void SetInputSystem(bool active)
+    {
+        if (active)
+        {
+            inputSystem.move.action.performed += MoveInput;
+            inputSystem.move.action.canceled += MoveCancleInput;
+
+            inputSystem.atk.action.started += AttackInput;
+            inputSystem.skill.action.started += SkillInput;
+            inputSystem.dodge.action.started += DodgeInput;
+        }
+        else
+        {
+            inputSystem.move.action.performed -= MoveInput;
+            inputSystem.move.action.canceled -= MoveCancleInput;
+
+            inputSystem.atk.action.started -= AttackInput;
+            inputSystem.skill.action.started -= SkillInput;
+            inputSystem.dodge.action.started -= DodgeInput;
+        }
+    }
     private void SetCamera()
     {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
@@ -162,7 +192,10 @@ public class PlayerController : MonoBehaviourPun
             return;
 
         }
-    
+
+      
+        ChangeCoolTime();
+
             if (isFixed)
         {
             if (isMoveAni)
@@ -173,7 +206,7 @@ public class PlayerController : MonoBehaviourPun
             return;
         }
 
-
+        RecoveryStamina();
         states[(int)curState].UpdateState();
 
         if (moveInputVec != Vector2.zero)
@@ -186,27 +219,52 @@ public class PlayerController : MonoBehaviourPun
 
         
     }
+
+    public void ChangeCoolTime()
+    {
+        for (int i = 0; i < model.SkillCoolTime.Length; i++)
+        {
+            float cool = model.GetCurrentSkillCoolTime(i);
+            if (cool > 0)
+            {
+                model.SetCurrentSkillCoolTime(i, cool - Time.deltaTime);
+            }
+        }
+    }
+
     public void SkillInput(InputAction.CallbackContext value)
     {
 
-        int index = value.action.GetBindingIndexForControl(value.control);
+        skillNumber = value.action.GetBindingIndexForControl(value.control);
 
-        switch (index)
+        if(model.GetCurrentSkillCoolTime(skillNumber) > 0)
         {
-            case 0:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill1];
-                break;
-            case 1:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill2];
-                break;
-            case 2:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill3];
-                break;
-            case 3:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
-                break;
+            return;
         }
 
+        switch (skillNumber)
+        {
+            case 0:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill1];
+                }
+                break;
+            case 1:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill2];
+                }
+                break;
+            case 2:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill3];
+                }
+                break;
+            case 3:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
+                }
+                break;
+        }
 
         ChangeState(PlayerState.Skill, true);
 
@@ -225,6 +283,10 @@ public class PlayerController : MonoBehaviourPun
     }
     public void DodgeInput(InputAction.CallbackContext value)
     {
+        if ( model.Stamina < model.ConsumStamina)
+        {
+            return;
+        }
         ChangeState(PlayerState.Dodge, true);
     }
 
@@ -248,6 +310,17 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
+    public void RecoveryStamina()
+    {
+        if (model.Stamina < model.MaxStamina)
+        {
+            model.Stamina += Time.deltaTime * model.RecoveryStaminaMag;
+        }
+        if (model.Stamina > model.MaxStamina)
+        {
+            model.Stamina = model.MaxStamina;
+        }
+    }
     public void AniEnd()
     {
         isFixed = false;
@@ -275,21 +348,17 @@ public class PlayerController : MonoBehaviourPun
        
         isFixed = false;
         animator.SetFloat("Speed", model.AttackSpeed);
-    
 
-     
-
-        AudioSource.PlayClipAtPoint(damageSound, transform.position + (Vector3.forward * 5));
         if (down)
         {
-
-            AudioSource.PlayClipAtPoint(downSound, transform.position + (Vector3.forward*5));
+      
+            
             ChangeState(PlayerState.Down, true);
         }
         else
         {
             rigid.velocity = Vector3.zero;
-            AudioSource.PlayClipAtPoint(hitSound, transform.position+ (Vector3.forward*5));
+        
             ChangeState(PlayerState.Hit, true);
 
         }
@@ -324,7 +393,7 @@ public class PlayerController : MonoBehaviourPun
     {
 
 
-        rigid.velocity = dir * speed;
+        rigid.velocity = dir * model.MoveSpeed;
         Rotate();
 
 
@@ -353,10 +422,17 @@ public class PlayerController : MonoBehaviourPun
     }
 
 
-    public void TakeDamage(float damage, bool down, Vector3 target)
+    AudioClip hitSound;
+
+    public void TakeDamage(float damage, bool down, Vector3 target, AudioClip clip)
     {
+        if ( photonView.IsMine)
+            hitSound = clip;
 
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
+       
+
+           
     }
     [PunRPC]
     public void TakeDamageRPC(float damage, bool down, Vector3 target)
@@ -364,8 +440,11 @@ public class PlayerController : MonoBehaviourPun
         if (playerHurtbox.layer == (int)LayerEnum.DISABLE_BOX)
         {
             Debug.Log("DODGE!");
+            hitSound = null;
             return;
         }
+        if(hitSound != null) 
+            audioSource.PlayOneShot(hitSound);
 
         transform.LookAt(target);
 
@@ -390,7 +469,7 @@ public class PlayerController : MonoBehaviourPun
 
 
         Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
-        model.HP -= (float)damage;
+        model.HP -= damage;
     }
 
     public void FreezingCheck()

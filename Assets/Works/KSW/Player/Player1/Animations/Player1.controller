@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: EndAni
-  triggerTime: 0.958
+  triggerTime: 0.966
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -71,6 +71,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-8981421910247232358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Hit
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &-8663107564252873298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +106,7 @@ MonoBehaviour:
   eventName: FreezingCheck
   triggerTime: 0.868
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -128,7 +148,7 @@ MonoBehaviour:
   eventName: AtkRotate
   triggerTime: 0
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -149,6 +169,7 @@ AnimatorState:
   - {fileID: 3837814773677024210}
   - {fileID: 8126644670499253206}
   - {fileID: -833904314322326719}
+  - {fileID: -1278723913124326645}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -202,8 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.412
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Atk4Swing
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -225,6 +246,8 @@ AnimatorState:
   - {fileID: 2974711052604249989}
   - {fileID: 6498097077450703414}
   - {fileID: 8057566125696171425}
+  - {fileID: -7599710861705030593}
+  - {fileID: 3683299361794209780}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -254,6 +277,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -5856147204081723483}
   - {fileID: 7093533944212036187}
+  - {fileID: -8981421910247232358}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -268,6 +292,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-7657509884976016383
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Skill2Cast
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &-7604049117784837528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +327,27 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.523
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-7599710861705030593
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAtk
+  triggerTime: 0.771
+  animationType: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -303,7 +367,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0
   animationType: 6
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 15
   colliderNum: 0
   colliderActive: 0
@@ -367,7 +431,9 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7585545475047343292}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -3152634946975383520}
+  - {fileID: -3883425662744544456}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -395,9 +461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: EndAni
-  triggerTime: 0.952
+  triggerTime: 0.968
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -447,7 +513,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.962
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -466,8 +532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.493
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Atk1Swing
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -563,6 +629,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 6776938034183823427}
     m_Position: {x: 780, y: -160, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5455722818738921421}
+    m_Position: {x: -80, y: -220, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -5552749865154454494}
@@ -570,7 +639,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 30, y: 10, z: 0}
+  m_AnyStatePosition: {x: -30, y: 10, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 870, y: 40, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -589,8 +658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.063
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Skill2
   moveVelocity: -15
   colliderNum: 0
   colliderActive: 0
@@ -610,7 +679,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.026
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 10
   colliderNum: 0
   colliderActive: 0
@@ -630,7 +699,7 @@ MonoBehaviour:
   eventName: EndDodge
   triggerTime: 0.903
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -704,8 +773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.613
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Atk3Swing
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -771,6 +840,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-3883425662744544456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.292
+  animationType: 8
+  audioName: Skill4Cast
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &-3514995523872733709
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -784,9 +873,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: EndAni
-  triggerTime: 0.963
+  triggerTime: 0.97
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-3152634946975383520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Skill4_1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -804,9 +913,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: EndAni
-  triggerTime: 0.961
+  triggerTime: 0.97
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -847,8 +956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.352
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Atk4
   moveVelocity: 4
   colliderNum: 0
   colliderActive: 0
@@ -868,7 +977,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.956
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -891,6 +1000,8 @@ AnimatorState:
   - {fileID: -79058312218924099}
   - {fileID: 7252982913649051236}
   - {fileID: 311376805022395075}
+  - {fileID: 7220445649116854966}
+  - {fileID: -7657509884976016383}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -920,7 +1031,27 @@ MonoBehaviour:
   eventName: EndAtk
   triggerTime: 0.705
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-2154785060334758038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.409
+  animationType: 8
+  audioName: Skill4_2
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -989,7 +1120,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.70000005
   m_HasExitTime: 0
@@ -1011,8 +1142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.486
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Atk2Swing
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -1097,6 +1228,46 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-1278723913124326645
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Down
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-1219439978204981519
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAtk
+  triggerTime: 0.598
+  animationType: 0
+  audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &-905305412201016847
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1112,7 +1283,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.392
   animationType: 6
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -1132,7 +1303,7 @@ MonoBehaviour:
   eventName: DownTriggerAni
   triggerTime: 0
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1174,7 +1345,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.357
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1307,7 +1478,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.153
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1327,7 +1498,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.546
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 6
   colliderNum: 0
   colliderActive: 0
@@ -1429,7 +1600,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.765625
   m_HasExitTime: 0
@@ -1452,7 +1623,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.968
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1471,6 +1642,7 @@ AnimatorState:
   - {fileID: -1504264658820313147}
   m_StateMachineBehaviours:
   - {fileID: -6350880130803544966}
+  - {fileID: -1219439978204981519}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1502,6 +1674,7 @@ AnimatorState:
   - {fileID: 1772629394887480387}
   - {fileID: 6953215332702947501}
   - {fileID: 5157923606092525497}
+  - {fileID: -2154785060334758038}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1582,7 +1755,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.516
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1601,8 +1774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffMoveAni
   triggerTime: 0.229
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Skill4Shot
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1675,7 +1848,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.675
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1695,7 +1868,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.973
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1715,7 +1888,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.053
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 5
   colliderNum: 0
   colliderActive: 0
@@ -1756,10 +1929,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.506
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Skill1
   moveVelocity: 0
-  colliderNum: 0
+  colliderNum: 2
   colliderActive: 1
   isLoop: 0
 --- !u!1101 &3320172777267148263
@@ -1787,6 +1960,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &3683299361794209780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Skill3Cast
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &3762696456646403813
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1802,7 +1995,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.773
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1822,7 +2015,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: -10
   colliderNum: 0
   colliderActive: 0
@@ -1842,7 +2035,7 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.387
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 5
   colliderNum: 0
   colliderActive: 0
@@ -1887,7 +2080,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.63
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1932,7 +2125,7 @@ MonoBehaviour:
   eventName: EndAtk
   triggerTime: 0.724
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1974,7 +2167,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.631
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2038,7 +2231,27 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.473
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &5175971470477311031
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAtk
+  triggerTime: 0.734
+  animationType: 0
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2068,6 +2281,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &5455722818738921421
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 78d387d4c0c6d6a4abdcfb8b5c594baa, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &5727370878413935054
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2108,7 +2347,7 @@ MonoBehaviour:
   eventName: AtkRotate
   triggerTime: 0
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2127,8 +2366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.033
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Skill1Cast1
   moveVelocity: 4
   colliderNum: 0
   colliderActive: 0
@@ -2147,8 +2386,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffMoveAni
   triggerTime: 0.323
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Skill3Shot
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2168,7 +2407,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.968
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2188,7 +2427,7 @@ MonoBehaviour:
   eventName: EndAtk
   triggerTime: 0.697
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2211,6 +2450,8 @@ AnimatorState:
   - {fileID: 7366606067727898521}
   - {fileID: 3305727755697377273}
   - {fileID: 8182605614544371096}
+  - {fileID: 5175971470477311031}
+  - {fileID: 9051316643254415579}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2274,7 +2515,7 @@ MonoBehaviour:
   eventName: OnAtk
   triggerTime: 0.426
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -2294,7 +2535,7 @@ MonoBehaviour:
   eventName: HitTriggerAni
   triggerTime: 0
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2321,6 +2562,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &7220445649116854966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAtk
+  triggerTime: 0.716
+  animationType: 0
+  audioName: 
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
 --- !u!114 &7252982913649051236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2336,7 +2597,7 @@ MonoBehaviour:
   eventName: OnAtk
   triggerTime: 0.074
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 1
@@ -2356,7 +2617,7 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.562
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2376,7 +2637,7 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.931
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2396,7 +2657,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.359
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2484,8 +2745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.289
-  animationType: 32
-  clip: {fileID: 0}
+  animationType: 40
+  audioName: Skill3
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2505,7 +2766,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.321
   animationType: 20
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2525,7 +2786,7 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.739
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2545,9 +2806,9 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.55
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
-  colliderNum: 0
+  colliderNum: 2
   colliderActive: 0
   isLoop: 0
 --- !u!114 &8369387505034351120
@@ -2565,7 +2826,7 @@ MonoBehaviour:
   eventName: AtkRotate
   triggerTime: 0
   animationType: 0
-  clip: {fileID: 0}
+  audioName: 
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -2609,8 +2870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.369
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Atk2
   moveVelocity: 6
   colliderNum: 0
   colliderActive: 0
@@ -2698,3 +2959,23 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &9051316643254415579
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.5
+  animationType: 8
+  audioName: Skill1Cast2
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0

@@ -10,8 +10,10 @@ public enum AnimationType
     AUDIO = 1 << 3,
     COLLIDER_RESET = 1 << 4,
     PROJECTILE = 1 << 5
-
 }
+
+
+
 public class AnimationEventStateBehaviour : StateMachineBehaviour
 {
     public string eventName;
@@ -21,7 +23,10 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
     [SerializeField] AnimationType animationType;
     bool hasTriggered;
     bool hasLoopTriggered;
-    public AudioClip clip;
+  
+    public string audioName;
+    public bool commonAudio;
+
     public float moveVelocity;
     public int colliderNum;
     public bool colliderActive;
@@ -98,8 +103,17 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             }
             if (animationType.HasFlag(AnimationType.AUDIO))
             {
-                receiver.PlaySound(clip);
+                if (commonAudio)
+                {
+                    receiver.PlayCommonSound(audioName);
+                }
+                else
+                {
+                    receiver.PlaySound(audioName);
+                }
+               
             }
+         
             if (animationType.HasFlag(AnimationType.MOVE))
             {
                 receiver.ControllMoveAnimation(moveVelocity);

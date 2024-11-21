@@ -15,7 +15,8 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.441
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -35,7 +36,8 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0.223
   animationType: 8
-  clip: {fileID: 8300000, guid: 4602c040ec136784aa19049d5d8b94d9, type: 3}
+  audioName: Run1
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -54,8 +56,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: FootStep
   triggerTime: 0.694
-  animationType: 8
-  clip: {fileID: 8300000, guid: 3af98996f84dcb2458d70ebc0bcf4a74, type: 3}
+  animationType: 72
+  audioName: FootStep2
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -100,7 +103,8 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.465
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 0
@@ -119,8 +123,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: FootStep
   triggerTime: 0.189
-  animationType: 8
-  clip: {fileID: 8300000, guid: b3c89e6c97e069344a06152ba2bc1e1d, type: 3}
+  animationType: 72
+  audioName: FootStep1
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -139,8 +144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnLeftAtk
   triggerTime: 0.414
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Swing2
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 1
@@ -185,7 +191,8 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.329
   animationType: 9
-  clip: {fileID: 8300000, guid: e6549177c968b7f4d8d4a19c960cc7ce, type: 3}
+  audioName: HeavyAtk2
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -277,7 +284,8 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.244
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 4
   colliderActive: 0
@@ -325,6 +333,7 @@ AnimatorState:
   - {fileID: -6867557657275366161}
   - {fileID: -5745549964509142751}
   - {fileID: -2156534397334202305}
+  - {fileID: 6916126656224872693}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -354,7 +363,8 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.017
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 30
   colliderNum: 0
   colliderActive: 0
@@ -374,7 +384,8 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.73
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 0
@@ -393,8 +404,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffMoveAni
   triggerTime: 0.585
-  animationType: 4
-  clip: {fileID: 0}
+  animationType: 12
+  audioName: Swing3
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -414,7 +426,8 @@ MonoBehaviour:
   eventName: OnTwoHandAtk
   triggerTime: 0.591
   animationType: 9
-  clip: {fileID: 8300000, guid: d634e807857ff914291532dc3fd2e718, type: 3}
+  audioName: HeavyAtk3
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 2
   colliderActive: 1
@@ -573,7 +586,8 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.507
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -593,7 +607,50 @@ MonoBehaviour:
   eventName: OffMoveAni
   triggerTime: 0.17
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-1787689695294239598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Atk3_1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-1483122406513865436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: UltraAtk1
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -612,8 +669,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnLeftAtk
   triggerTime: 0.328
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Swing3
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 1
@@ -633,7 +691,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.966
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -652,8 +711,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffRightAtk
   triggerTime: 0.358
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Swing1
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &-169747733440724534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Atk4
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -673,7 +754,8 @@ MonoBehaviour:
   eventName: OffRangeAtk
   triggerTime: 0.48
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 3
   colliderActive: 0
@@ -800,7 +882,8 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.646
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 0
@@ -820,7 +903,8 @@ MonoBehaviour:
   eventName: OffLefttAtk
   triggerTime: 0.505
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 0
@@ -839,8 +923,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.428
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Impact1
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -860,7 +945,8 @@ MonoBehaviour:
   eventName: PlaySound
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: 038eea40b28e0574eb6827e898bd184e, type: 3}
+  audioName: UltraAtk2
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -880,7 +966,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.926
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -897,7 +984,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2033997857918411805}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -1787689695294239598}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -927,7 +1015,8 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: 34c0a90f5ed4f284d8de0c1addf12dbf, type: 3}
+  audioName: Atk2
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -977,7 +1066,8 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.596
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 0
@@ -1156,7 +1246,8 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.2
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: -15
   colliderNum: 0
   colliderActive: 0
@@ -1201,7 +1292,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.96
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1220,8 +1312,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.409
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Impact2
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 7
   colliderActive: 1
@@ -1241,7 +1334,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.962
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1261,7 +1355,8 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.449
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 0
@@ -1281,7 +1376,8 @@ MonoBehaviour:
   eventName: OnLefttAtk
   triggerTime: 0.567
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 1
@@ -1301,7 +1397,8 @@ MonoBehaviour:
   eventName: OnMoveAni
   triggerTime: 0.318
   animationType: 4
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 10
   colliderNum: 0
   colliderActive: 0
@@ -1320,8 +1417,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.202
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Impact2
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 4
   colliderActive: 1
@@ -1416,7 +1514,8 @@ MonoBehaviour:
   eventName: PlaySound
   triggerTime: 0.081
   animationType: 8
-  clip: {fileID: 8300000, guid: 0c1ea7c47f701b947a053fbca5f3c290, type: 3}
+  audioName: HeavyAtk1
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1435,8 +1534,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.523
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Impact1
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -1456,7 +1556,8 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: c5d39aafa4e8cff448532247d5db6b60, type: 3}
+  audioName: Atk1
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1476,7 +1577,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.965
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1496,7 +1598,8 @@ MonoBehaviour:
   eventName: PlaySound
   triggerTime: 0
   animationType: 8
-  clip: {fileID: 8300000, guid: 4d16a167e42d19643a1d3958351f930c, type: 3}
+  audioName: Roar
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1546,8 +1649,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.626
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Impact1
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -1701,7 +1805,8 @@ MonoBehaviour:
   eventName: OffAtk
   triggerTime: 0.454
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 7
   colliderActive: 0
@@ -1732,6 +1837,7 @@ AnimatorState:
   - {fileID: 89224427687335383}
   - {fileID: 7571323615119807663}
   - {fileID: -5235365190090167901}
+  - {fileID: -1483122406513865436}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1844,7 +1950,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.962
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1864,7 +1971,8 @@ MonoBehaviour:
   eventName: EndAni
   triggerTime: 0.972
   animationType: 16
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1917,9 +2025,31 @@ MonoBehaviour:
   eventName: OffTwoHandAtk
   triggerTime: 0.626
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 2
+  colliderActive: 0
+  isLoop: 0
+--- !u!114 &6916126656224872693
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Atk3_2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
   colliderActive: 0
   isLoop: 0
 --- !u!1101 &6920755534417794276
@@ -1962,7 +2092,8 @@ MonoBehaviour:
   eventName: 
   triggerTime: 0.716
   animationType: 8
-  clip: {fileID: 8300000, guid: 7d543064e15703b47a22cc868ca6591f, type: 3}
+  audioName: Run2
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1982,7 +2113,8 @@ MonoBehaviour:
   eventName: OffLeftAtk
   triggerTime: 0.447
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 0
@@ -2002,7 +2134,8 @@ MonoBehaviour:
   eventName: OffRightAtk
   triggerTime: 0.55
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 0
@@ -2022,7 +2155,8 @@ MonoBehaviour:
   eventName: OnRightAtk
   triggerTime: 0.423
   animationType: 1
-  clip: {fileID: 0}
+  audioName: Swing2
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 1
@@ -2042,7 +2176,8 @@ MonoBehaviour:
   eventName: OnLeftAtk
   triggerTime: 0.71
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 1
@@ -2087,7 +2222,8 @@ MonoBehaviour:
   eventName: OnLeftAtk
   triggerTime: 0.478
   animationType: 1
-  clip: {fileID: 0}
+  audioName: 
+  commonAudio: 0
   moveVelocity: 0
   colliderNum: 6
   colliderActive: 1
@@ -2136,7 +2272,7 @@ AnimatorStateMachine:
     m_Position: {x: 730, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6359302605463759764}
-    m_Position: {x: 1000, y: 450, z: 0}
+    m_Position: {x: 990, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8758307738905677195}
     m_Position: {x: 440, y: 550, z: 0}
@@ -2214,8 +2350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRangeAtk
   triggerTime: 0.43
-  animationType: 1
-  clip: {fileID: 0}
+  animationType: 9
+  audioName: Impact2
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 3
   colliderActive: 1
@@ -2236,6 +2373,7 @@ AnimatorState:
   - {fileID: 2804655785300395622}
   - {fileID: 6006053061763178390}
   - {fileID: 2756886999980279466}
+  - {fileID: -169747733440724534}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

@@ -13,14 +13,16 @@ public class Hitbox : MonoBehaviour
     [SerializeField] bool notFriction;
     [SerializeField] GameObject effectPrefab;
     [SerializeField] AudioClip hitSound;
+    [SerializeField] string soundName;
 
     WaitForSeconds atkSlow= new WaitForSeconds(0.2f);
+
     private void Awake()
     {
         if (model == null)
             model = GetComponentInParent<StatusModel>();
 
-       
+      
     }
 
 
@@ -38,7 +40,28 @@ public class Hitbox : MonoBehaviour
             StartCoroutine(SlowSpeed());
         }
 
-        AudioSource.PlayClipAtPoint(hitSound, transform.position);
+        
+    }
+
+    public AudioClip GetSoundEffect()
+    {
+        if(soundName == "")
+        {
+            return null;
+        }
+        if (hitSound == null)
+        {
+            if (model.ModelType == ModelType.PLAYER)
+            {
+                hitSound = AudioManager.GetInstance().GetPlayerSoundDic(model.CharacterNumber, soundName);
+            }
+            else if (model.ModelType == ModelType.ENEMY)
+            {
+                hitSound = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, soundName);
+            }
+
+        }
+        return hitSound;
     }
 
     // 역경직 테스트

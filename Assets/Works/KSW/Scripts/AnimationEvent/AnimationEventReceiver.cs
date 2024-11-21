@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class AnimationEventReceiver : MonoBehaviourPun
 {
+    [SerializeField] StatusModel model;
+  
     [SerializeField] Transform objectTransform;
 
     [SerializeField] LayerEnum hitboxLayerEnum;
@@ -32,6 +34,8 @@ public class AnimationEventReceiver : MonoBehaviourPun
     private void Awake()
     {
         //  hitboxLayer = Mathf.RoundToInt(Mathf.Log(hitboxLayerMask.value, 2));
+      
+        audioSource = GetComponent<AudioSource>();
         hitboxLayer = (int)hitboxLayerEnum;
         hurtboxLayer = (int)hurtboxLayerEnum;
     }
@@ -82,11 +86,24 @@ public class AnimationEventReceiver : MonoBehaviourPun
         }
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(string str)
     {
+        AudioClip clip = null;
+        if (model.ModelType == ModelType.PLAYER)
+        {
+            clip = AudioManager.GetInstance().GetPlayerSoundDic(model.CharacterNumber, str);
+        }
+        else if (model.ModelType == ModelType.ENEMY)
+        {
+            clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
+        }
         audioSource.PlayOneShot(clip);
     }
 
-
-
+    public void PlayCommonSound(string str)
+    {
+        AudioClip clip = null;
+        clip = AudioManager.GetInstance().GetCommonSoundDic( str);
+        audioSource.PlayOneShot(clip);
+    }
 }

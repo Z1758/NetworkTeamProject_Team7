@@ -42,7 +42,7 @@ public class MonsterHurtBox : MonoBehaviour
         {
             //hitbox.ChangeLayer();
             hitbox.HitEffect();
-            monster.TakeDamage(hitbox.GetAtk());
+            monster.TakeDamage(hitbox.GetAtk(), hitbox.GetSoundEffect());
         }
 
     }
