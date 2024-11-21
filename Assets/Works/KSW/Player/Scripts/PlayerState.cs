@@ -128,6 +128,8 @@ public class AttackState : State
 public class SkillState : State
 {
 
+
+
     public SkillState(PlayerController controller) : base(controller)
     {
 
@@ -138,7 +140,7 @@ public class SkillState : State
     public override void EnterState()
     {
 
-
+        controller.model.SetCurrentSkillCoolTime(controller.skillNumber, controller.model.SkillCoolTime[controller.skillNumber]);
         controller.animator.SetBool(controller.skillNumberHash, true);
 
 

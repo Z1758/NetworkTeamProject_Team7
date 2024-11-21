@@ -148,6 +148,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   animatorParameterHash: 
   skillNumberHash: 0
+  skillNumber: 0
   rotateSpeed: 15
   isFixed: 0
   isMoveAni: 0
@@ -221,6 +222,16 @@ MonoBehaviour:
   attack: 100
   attackSpeed: 1
   moveSpeed: 10
+  skillCoolTime:
+  - 10
+  - 6
+  - 7
+  - 20
+  currentSkillCoolTime:
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!114 &1641774034918779575
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,8 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     [SerializeField] private float attack;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float moveSpeed;
-
+    [SerializeField] private float[] skillCoolTime;
+    [SerializeField] private float[] currentSkillCoolTime = new float[4];
     public int CharacterNumber { get { return characterNumber; } }
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 
@@ -26,30 +27,44 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public float AttackSpeed { get { return attackSpeed; } }
     public float MoveSpeed { get { return moveSpeed; } }
 
+    public float[] SkillCoolTime{ get { return skillCoolTime; } }
+    public void SetCurrentSkillCoolTime(int num, float value)
+    {
+        currentSkillCoolTime[num] = value;
+        OnChangedCoolTimeEvent?.Invoke(num, currentSkillCoolTime[num]);
+    }
+    public float GetCurrentSkillCoolTime(int num)
+    {
+        return currentSkillCoolTime[num];
+    }
+
     public ModelType ModelType { get { return type; } }
     public UnityAction<float> OnChangedHpEvent;
-
+    public UnityAction<int,float> OnChangedCoolTimeEvent;
     private void OnDisable()
     {
         OnChangedHpEvent = null;
+        OnChangedCoolTimeEvent = null;
     }
 
     private void Start()
     {
         OnChangedHpEvent = null;
-            switch (type) {
+        OnChangedCoolTimeEvent = null;
+        switch (type) {
                 case ModelType.PLAYER:
                     if (photonView.IsMine)
                     {
                         GameObject.Find("PlayerHPSlider").GetComponent<HPView>().SetModel(this);
-                    }
+                        GameObject.Find("SkillPanel").GetComponent<SkillView>().SetModel(this);
+                }
                     break;
                 case ModelType.ENEMY:
                     GameObject.Find("MonsterHPSlider").GetComponent<HPView>().SetModel(this);
                     break;
 
             }
-       
+     
         
     }
 

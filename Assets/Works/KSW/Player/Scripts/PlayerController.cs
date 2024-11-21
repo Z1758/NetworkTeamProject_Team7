@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] public Animator animator;
     [SerializeField] public int[] animatorParameterHash;
     public int skillNumberHash;
+    
+    // 현재 사용한 스킬
+    [HideInInspector]public int skillNumber;
+
 
     [Header("플레이어 회전 속도")]
     [SerializeField] float rotateSpeed;
@@ -36,7 +40,7 @@ public class PlayerController : MonoBehaviourPun
 
     [Header("필수 컴포넌트")]
     [SerializeField] public Rigidbody rigid;
-    [SerializeField] StatusModel model;
+    [SerializeField] public StatusModel model;
     [SerializeField] PlayerCamera playerCamera;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
@@ -179,7 +183,8 @@ public class PlayerController : MonoBehaviourPun
             return;
 
         }
-    
+        ChangeCoolTime();
+
             if (isFixed)
         {
             if (isMoveAni)
@@ -203,27 +208,52 @@ public class PlayerController : MonoBehaviourPun
 
         
     }
+
+    public void ChangeCoolTime()
+    {
+        for (int i = 0; i < model.SkillCoolTime.Length; i++)
+        {
+            float cool = model.GetCurrentSkillCoolTime(i);
+            if (cool > 0)
+            {
+                model.SetCurrentSkillCoolTime(i, cool - Time.deltaTime);
+            }
+        }
+    }
+
     public void SkillInput(InputAction.CallbackContext value)
     {
 
-        int index = value.action.GetBindingIndexForControl(value.control);
+        skillNumber = value.action.GetBindingIndexForControl(value.control);
 
-        switch (index)
+        if(model.GetCurrentSkillCoolTime(skillNumber) > 0)
         {
-            case 0:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill1];
-                break;
-            case 1:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill2];
-                break;
-            case 2:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill3];
-                break;
-            case 3:
-                skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
-                break;
+            return;
         }
 
+        switch (skillNumber)
+        {
+            case 0:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill1];
+                }
+                break;
+            case 1:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill2];
+                }
+                break;
+            case 2:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill3];
+                }
+                break;
+            case 3:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
+                }
+                break;
+        }
 
         ChangeState(PlayerState.Skill, true);
 
