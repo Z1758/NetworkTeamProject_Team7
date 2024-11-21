@@ -213,6 +213,7 @@ public class DodgeState : State
     public override void EnterState()
     {
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], true);
+        controller.model.Stamina -= controller.model.ConsumStamina;
 
     }
 

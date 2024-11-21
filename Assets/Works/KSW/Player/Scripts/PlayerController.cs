@@ -192,6 +192,8 @@ public class PlayerController : MonoBehaviourPun
             return;
 
         }
+
+      
         ChangeCoolTime();
 
             if (isFixed)
@@ -204,7 +206,7 @@ public class PlayerController : MonoBehaviourPun
             return;
         }
 
-
+        RecoveryStamina();
         states[(int)curState].UpdateState();
 
         if (moveInputVec != Vector2.zero)
@@ -281,6 +283,10 @@ public class PlayerController : MonoBehaviourPun
     }
     public void DodgeInput(InputAction.CallbackContext value)
     {
+        if ( model.Stamina < model.ConsumStamina)
+        {
+            return;
+        }
         ChangeState(PlayerState.Dodge, true);
     }
 
@@ -304,6 +310,17 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
+    public void RecoveryStamina()
+    {
+        if (model.Stamina < model.MaxStamina)
+        {
+            model.Stamina += Time.deltaTime * model.RecoveryStaminaMag;
+        }
+        if (model.Stamina > model.MaxStamina)
+        {
+            model.Stamina = model.MaxStamina;
+        }
+    }
     public void AniEnd()
     {
         isFixed = false;
@@ -452,7 +469,7 @@ public class PlayerController : MonoBehaviourPun
 
 
         Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
-        model.HP -= (float)damage;
+        model.HP -= damage;
     }
 
     public void FreezingCheck()
