@@ -41,7 +41,7 @@ public class WHS_ItemManager : MonoBehaviourPun
             SpawnItem(spawnPos);
         }
     }
-        
+
     private void SpawnItem(Vector3 position)
     {
         photonView.RPC(nameof(SpawnItemRPC), RpcTarget.MasterClient, position);
@@ -65,7 +65,7 @@ public class WHS_ItemManager : MonoBehaviourPun
 
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
-        photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, item.type, item.value);
+        photonView.RPC(nameof(ApplyItemRPC), RpcTarget.AllViaServer, statusModel.photonView.ViewID, item.type, item.value);
         PhotonNetwork.Destroy(item.gameObject);
     }
 
@@ -73,9 +73,9 @@ public class WHS_ItemManager : MonoBehaviourPun
     public void ApplyItemRPC(int viewID, ItemType itemType, float itemValue)
     {
         PhotonView pv = PhotonView.Find(viewID);
-
         StatusModel statusModel = pv.GetComponent<StatusModel>();
-        if (statusModel != null)
+
+        if (statusModel != null && pv.IsMine)
         {
             switch (itemType)
             {
@@ -84,11 +84,9 @@ public class WHS_ItemManager : MonoBehaviourPun
                     Debug.Log($"체력 {itemValue} 회복");
                     break;
                 case ItemType.MaxHP:
-                    // statusModel.IncreaseMaxHP(itemValue);
                     Debug.Log($"최대 체력 {itemValue} 증가");
                     break;
                 case ItemType.Attack:
-                    // statusModel.IncreaseAttack(itemValue);
                     Debug.Log($"공격력 {itemValue} 증가");
                     break;
             }
