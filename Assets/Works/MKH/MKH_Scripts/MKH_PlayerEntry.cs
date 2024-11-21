@@ -9,6 +9,7 @@ public class MKH_PlayerEntry : MonoBehaviour
     [SerializeField] TMP_Text readyText;
     [SerializeField] TMP_Text nameText;
     [SerializeField] Button readyButton;
+    //[SerializeField] GameObject player;
 
     public void SetPlayer(Player player)
     {
@@ -43,6 +44,7 @@ public class MKH_PlayerEntry : MonoBehaviour
         readyText.text = "";
         nameText.text = "None";
         readyButton.gameObject.SetActive(false);
+        //player.SetActive(false);
     }
 
     public void Ready()
