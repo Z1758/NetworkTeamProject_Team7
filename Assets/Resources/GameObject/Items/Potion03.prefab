@@ -88,7 +88,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6e55673b917e04f4b9de4bc44063e706, type: 3}
---- !u!114 &-8467903514193303906
+--- !u!114 &-1268269169268252263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,11 +106,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 7691727659295373481}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-6122715804844305987
+--- !u!114 &7691727659295373481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aff34ac1a6733944a2487c44b719611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  value: 0
+  type: 1
+  value: 300

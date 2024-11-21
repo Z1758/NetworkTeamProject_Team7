@@ -88,7 +88,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0aed56f19616ab848b389bcfe5595ca0, type: 3}
---- !u!114 &-539745345968406478
+--- !u!114 &3043298549417211581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  value: 0
+  value: 200
 --- !u!114 &8903261734794475280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 3043298549417211581}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
