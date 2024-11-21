@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Lobby/Scenes/LobbyScene.unity
+  - enabled: 1
+    path: Assets/Works/MKH/MKH_Scenes/MKH_LobbyScene.unity
     guid: 1cd1dfed0af10c34884128a22979786e
-  - enabled: 0
-    path: Assets/Works/Lobby/Scenes/LobbyScene.unity
-    guid: 2402ec8eb6185be4abb59a039fba6c5b
   - enabled: 1
     path: Assets/Works/KSW/GameScene.unity
     guid: 27d29fb6a9da22c4dba8605a9613f226

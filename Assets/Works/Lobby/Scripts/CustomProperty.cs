@@ -6,14 +6,14 @@ public static class CustomProperty
     public const string READY = "Ready";
     public const string NICK = "";
     public const string PASSWORD = "";
-    public static void SetReady(this Player player, bool ready)
-    {
+    //public static void SetReady(this Player player, bool ready)
+    //{
 
-        customProperty.Clear();
-        customProperty[READY] = ready;
-        //customProperty.Add("Ready", ready);
-        player.SetCustomProperties(customProperty);
-    }
+    //    customProperty.Clear();
+    //    customProperty[READY] = ready;
+    //    //customProperty.Add("Ready", ready);
+    //    player.SetCustomProperties(customProperty);
+    //}
     public static void SetNickName(this Player player, string nick)
     {
 
@@ -21,19 +21,19 @@ public static class CustomProperty
         customProperty[NICK] = nick;
         player.SetCustomProperties(customProperty);
     }
-    public static bool GetReady(this Player player)
-    {
-        PhotonHashtable customProperty = player.CustomProperties;
-        if (customProperty.ContainsKey(READY))
-        {
-            return (bool)customProperty[READY];
-        }
-        else
-        {
-            return false;
-        }
+    //public static bool GetReady(this Player player)
+    //{
+    //    PhotonHashtable customProperty = player.CustomProperties;
+    //    if (customProperty.ContainsKey(READY))
+    //    {
+    //        return (bool)customProperty[READY];
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
 
-    }
+    //}
     public static string GetNick(this Player player)
     {
         PhotonHashtable customProperty = player.CustomProperties;
