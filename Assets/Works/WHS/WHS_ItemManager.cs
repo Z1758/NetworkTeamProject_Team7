@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
+using Photon.Pun.Demo.Cockpit;
 
 public class WHS_ItemManager : MonoBehaviourPun
 {
@@ -31,13 +32,23 @@ public class WHS_ItemManager : MonoBehaviourPun
 
     private void Update()
     {
+        if (PhotonNetwork.IsMasterClient == false)
+            return;
+
         if (Input.GetKeyDown(KeyCode.I))
         {
-            SpawnItem(new Vector3(Random.Range(0, 5), 1, Random.Range(0, 5)));
+            Vector3 spawnPos = new Vector3(Random.Range(0, 5), 1, Random.Range(0, 5));
+            SpawnItem(spawnPos);
         }
     }
 
-    public void SpawnItem(Vector3 position)
+    private void SpawnItem(Vector3 position)
+    {
+        photonView.RPC(nameof(SpawnItemRPC), RpcTarget.MasterClient, position);
+    }
+
+    [PunRPC]
+    private void SpawnItemRPC(Vector3 position)
     {
         int randomIndex = Random.Range(0, itemPrefabs.Length);
         ItemPrefab selectedItem = itemPrefabs[randomIndex];
@@ -54,7 +65,31 @@ public class WHS_ItemManager : MonoBehaviourPun
 
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
-        item.photonView.RPC(nameof(WHS_Item.ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, item.type, item.value);
+        photonView.RPC(nameof(ApplyItemRPC), RpcTarget.AllViaServer, statusModel.photonView.ViewID, item.type, item.value);
         PhotonNetwork.Destroy(item.gameObject);
+    }
+
+    [PunRPC]
+    public void ApplyItemRPC(int viewID, ItemType itemType, float itemValue)
+    {
+        PhotonView pv = PhotonView.Find(viewID);
+        StatusModel statusModel = pv.GetComponent<StatusModel>();
+
+        if (statusModel != null && pv.IsMine)
+        {
+            switch (itemType)
+            {
+                case ItemType.HP:
+                    statusModel.HP += itemValue;
+                    Debug.Log($"체력 {itemValue} 회복");
+                    break;
+                case ItemType.MaxHP:
+                    Debug.Log($"최대 체력 {itemValue} 증가");
+                    break;
+                case ItemType.Attack:
+                    Debug.Log($"공격력 {itemValue} 증가");
+                    break;
+            }
+        }
     }
 }
