@@ -7,29 +7,33 @@ using ExitGames.Client.Photon;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Chat.Demo;
-using UnityEngine.Networking;
 
-public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
+public class KSH_NetworkChat : MonoBehaviour, IChatClientListener
 {
     private ChatClient _chatClient;  // Photon Chat 클라이언트 객체
 
     private string _userName;        // 사용자 이름
     private string _currentChannelName;  // 현재 채팅 채널 이름
-    public TMP_InputField InputField { get; private set; }  // 유저가 메시지를 입력하는 InputField UI 요소
-    public Text OutputText { get; private set; }    // 메시지가 출력되는 Text UI 요소
+    [SerializeField] TMP_InputField _inputField;  // 유저가 메시지를 입력하는 InputField UI 요소
+    [SerializeField] Text _outputText;        // 메시지가 출력되는 Text UI 요소
 
-    public string ChatID { get; private set; }
+    private string _chatID;
+    public string ChatID { get { return _chatID; } }
+    public TMP_InputField InputField { get { return _inputField; } }
+    public Text OutputText { get { return _outputText; } }
 
-    private void Start()
+    private void OnEnable()
     {
+        _outputText.text = "";
+
         // 백그라운드에서 실행 허용
         Application.runInBackground = true;
 
         // 사용자 이름을 로컬플레이어 이름으로 설정
         _userName = PhotonNetwork.LocalPlayer.NickName;
 
-        // ChatID 설정 값 적용
-        ChatID = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat;
+        // 설정 값 적용
+        _chatID = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat;
 
         // 기본 채널 설정
         _currentChannelName = "Channel 001";
@@ -42,15 +46,25 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
 
         // 서버 연결을 시도
         Debug.Log(_chatClient.AppId);
-        _chatClient.Connect(ChatID, "1.0", new AuthenticationValues(_userName));  // Photon Chat 서버에 연결 시도
+        _chatClient.Connect(_chatID, "1.0", new AuthenticationValues(_userName));  // Photon Chat 서버에 연결 시도
 
         // 연결 시도 메시지 출력 {0}에 부분에 nserName 표기
-        AddLine(string.Format("연결시도 : {0}", _userName));
+        AddLine(string.Format(" 연결시도 : {0}", _userName));
+    }
+
+    void OnDisable()
+    {
+        // UI 오브젝트가 파괴될 때 채널에서 나감
+        if (_chatClient != null && _chatClient.State == ChatState.ConnectedToFrontEnd)
+        {
+            _chatClient.Unsubscribe(new string[] { _currentChannelName });
+            Debug.Log("채널에서 나갔습니다: " + _currentChannelName);
+        }
     }
 
     public void AddLine(string lineString)
     {
-        OutputText.text += lineString + "\r\n";  // outputText에 메시지를 추가
+        _outputText.text += lineString + "\r\n";  // outputText에 메시지를 추가
     }
 
     private void Update()
@@ -67,13 +81,12 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
         if (_chatClient.State == ChatState.ConnectedToFrontEnd)
         {
             // 채널에 메시지를 전송
-            _chatClient.PublishMessage(_currentChannelName, InputField.text);
+            _chatClient.PublishMessage(_currentChannelName, _inputField.text);
 
             // 메시지 입력 필드 초기화
-            InputField.text = "";
+            _inputField.text = "";
         }
     }
-
 
     // 프로그램 종료 시, 서버와의 연결을 끊기
     public void OnApplicationQuit()
@@ -104,7 +117,7 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 채널 상태가 변경될 때 호출되는 콜백
     public void OnChatStateChange(ChatState state)
     {
-        
+        Debug.Log("OnChatStateChange = " + state);  // 채팅 상태가 변경될 때 상태를 로그로 출력
     }
 
 
@@ -113,10 +126,10 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     public void OnConnected()
     {
         Debug.Log("연결");
-        AddLine("서버에 연결되었습니다.");  // 연결 성공 메시지 출력
+        AddLine(" 서버에 연결되었습니다.");  // 연결 성공 메시지 출력
 
         // 연결된 후, 채널에 가입
-        _chatClient.Subscribe(new string[] { _currentChannelName }, 10);  // 채널에 가입
+        _chatClient.Subscribe(new string[] { _currentChannelName }, 0);  // 채널에 가입
     }
 
 
@@ -124,7 +137,9 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 서버에 연결이 끊어졌을 때 호출되는 콜백
     public void OnDisconnected()
     {
-        
+        // 연결 끊어진 이유 확인을 위한 로그 추가
+        Debug.Log("디스커넥트 이유: " + _chatClient.DebugOut.ToString());
+        AddLine(" 서버에 연결이 끊어졌습니다.");  // 연결 끊어짐 메시지 출력
     }
 
 
@@ -132,7 +147,11 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 채널에서 메시지가 수신되었을 때 호출되는 콜백 channelName 채널이름, senders 사용자 이름, messages 메시지 내용
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-        
+        for (int i = 0; i < messages.Length; i++)
+        {
+            // 각 메시지와 보낸 사람을 출력
+            AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
+        }
     }
 
 
@@ -140,7 +159,7 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 개인 메시지가 수신되었을 때 호출되는 콜백
     public void OnPrivateMessage(string sender, object message, string channelName)
     {
-        
+        Debug.Log("OnPrivateMessage : " + message);  // 개인 메시지 내용 로그로 출력
     }
 
 
@@ -148,7 +167,8 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 사용자 상태 업데이트가 있을 때 호출되는 콜백
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)
     {
-        
+        Debug.Log("status : " + string.Format("{0} is {1}, Msg : {2} ", user, status, message));
+        // 상태 변경에 대한 로그 출력
     }
 
 
@@ -156,7 +176,7 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 채널 구독이 완료되었을 때 호출되는 콜백 channels 구독한 채널 이름 results는 구독 성공 여부
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        
+        AddLine(string.Format(" 채널 입장 ({0})", string.Join(",", channels)));  // 채널에 입장한 후, 채널 이름 출력
     }
 
 
@@ -164,7 +184,7 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 채널 구독이 취소되었을 때 호출되는 콜백
     public void OnUnsubscribed(string[] channels)
     {
-        
+        AddLine(string.Format(" 채널 퇴장 ({0})", string.Join(",", channels)));  // 채널에서 나갈 때, 퇴장한 채널 이름 출력
     }
 
 
@@ -172,7 +192,7 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 사용자가 채널에 가입했을 때 호출되는 콜백
     public void OnUserSubscribed(string channel, string user)
     {
-        
+        Debug.Log($"{user}님이 채널 '{channel}'에 가입했습니다!");
     }
 
 
@@ -180,6 +200,6 @@ public class KSH_NetworkChat : MonoBehaviour,IChatClientListener
     // 사용자가 채널에서 퇴장했을 때 호출되는 콜백
     public void OnUserUnsubscribed(string channel, string user)
     {
-        
+        Debug.Log($"{user}님이 채널 '{channel}'에 퇴장했습니다!");
     }
 }
