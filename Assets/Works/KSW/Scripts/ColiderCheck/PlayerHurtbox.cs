@@ -42,7 +42,7 @@ public class PlayerHurtbox : MonoBehaviourPun, IPunObservable
             Vector3 target = other.transform.position;
             target.y = 0;
 
-           
+            hitbox.HitEffect();
             pc.TakeDamage(hitbox.GetAtk(), hitbox.GetDown(), target, hitbox.GetSoundEffect());
         }
 

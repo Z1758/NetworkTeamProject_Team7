@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
     StringBuilder soundStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
     {
-        Debug.Log("싱글톤 불러오기");
+        Debug.Log("오디오 싱글톤 호출");
         return instance;
     }
 
@@ -194,10 +194,15 @@ public class AudioManager : MonoBehaviour
     #endregion
     private void LoadSoundHandle_Completed(AsyncOperationHandle<IList<AudioClip>> operation)
     {
-        Debug.Log(operation.Result);
 
         if (operation.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogWarning("사운드 에셋 로딩 실패");
+        }
+        else
+        {
             Debug.LogWarning("사운드 에셋 로딩 완료");
+        }
     }
     private void OnDestroy()
     {

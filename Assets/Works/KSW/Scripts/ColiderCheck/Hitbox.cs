@@ -12,6 +12,7 @@ public class Hitbox : MonoBehaviour
     [SerializeField] bool down;
     [SerializeField] bool notFriction;
     [SerializeField] GameObject effectPrefab;
+    [SerializeField] string effectName;
     [SerializeField] AudioClip hitSound;
     [SerializeField] string soundName;
 
@@ -28,19 +29,27 @@ public class Hitbox : MonoBehaviour
 
     public void HitEffect()
     {
+        if (effectPrefab == null)
+        {
+           effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
+        }
+
         Instantiate(effectPrefab, transform.position, transform.rotation);
 
 
+    }
 
+    public void AttackFriction()
+    {
         // 역경직 테스트
         if (notFriction == false)
         {
-            animator.SetFloat("Speed", model.AttackSpeed - 0.9f );
-        
+            animator.SetFloat("Speed", model.AttackSpeed - 0.9f);
+
             StartCoroutine(SlowSpeed());
         }
 
-        
+
     }
 
     public AudioClip GetSoundEffect()
