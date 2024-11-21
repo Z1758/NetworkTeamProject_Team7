@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6689600637617303038}
   - component: {fileID: 5741769511849828552}
+  - component: {fileID: -7188270497949898526}
   m_Layer: 0
   m_Name: ItemManager
   m_TagString: Untagged
@@ -51,3 +52,25 @@ MonoBehaviour:
     prefab: {fileID: 3323670622729539595, guid: 3b5d2e25931285741baf5c795080fa9b, type: 3}
   - type: 2
     prefab: {fileID: 5312765511768575065, guid: 670a85ea56b2323419cc901a5f7bad92, type: 3}
+--- !u!114 &-7188270497949898526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184215268072939927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

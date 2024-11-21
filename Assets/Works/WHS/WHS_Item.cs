@@ -16,9 +16,11 @@ public class WHS_Item : MonoBehaviourPun
     {
         startPos = transform.position;
     }
+
     private void Update()
     {
-        if (!photonView.IsMine) return;
+        if (PhotonNetwork.IsMasterClient == false)
+            return;
 
         float newY = startPos.y + Mathf.Sin(Time.time * 5f) * 0.3f;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
@@ -35,32 +37,6 @@ public class WHS_Item : MonoBehaviourPun
             {
                 Debug.Log("아이템 적용");
                 WHS_ItemManager.Instance.ApplyItem(statusModel, this);
-            }
-        }
-    }
-
-    [PunRPC]
-    public void ApplyItemRPC(int viewID, ItemType itemType, float itemValue)
-    {
-        PhotonView pv = PhotonView.Find(viewID);
-
-        StatusModel statusModel = pv.GetComponent<StatusModel>();
-        if (statusModel != null)
-        {
-            switch (itemType)
-            {
-                case ItemType.HP:
-                    statusModel.HP += itemValue;
-                    Debug.Log($"체력 {itemValue} 회복");
-                    break;
-                case ItemType.MaxHP:
-                    // statusModel.IncreaseMaxHP(itemValue);
-                    Debug.Log($"최대 체력 {itemValue} 증가");
-                    break;
-                case ItemType.Attack:
-                    // statusModel.IncreaseAttack(itemValue);
-                    Debug.Log($"공격력 {itemValue} 증가");
-                    break;
             }
         }
     }
