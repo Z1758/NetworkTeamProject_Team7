@@ -650,15 +650,14 @@ MonoBehaviour:
   type: 1
   maxHP: 1000
   hp: 1000
+  maxStamina: 0
+  stamina: 0
+  consumStamina: 0
+  recoveryStaminaMag: 0
   attack: 200
   attackSpeed: 1
   moveSpeed: 0
   skillCoolTime: []
-  currentSkillCoolTime:
-  - 0
-  - 0
-  - 0
-  - 0
 --- !u!1 &525219418336961288
 GameObject:
   m_ObjectHideFlags: 0

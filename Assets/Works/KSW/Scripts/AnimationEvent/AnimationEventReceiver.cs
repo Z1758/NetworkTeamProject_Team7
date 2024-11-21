@@ -100,5 +100,10 @@ public class AnimationEventReceiver : MonoBehaviourPun
         audioSource.PlayOneShot(clip);
     }
 
-
+    public void PlayCommonSound(string str)
+    {
+        AudioClip clip = null;
+        clip = AudioManager.GetInstance().GetCommonSoundDic( str);
+        audioSource.PlayOneShot(clip);
+    }
 }

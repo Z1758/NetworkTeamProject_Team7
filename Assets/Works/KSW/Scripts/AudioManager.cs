@@ -17,9 +17,11 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] public Dictionary<string, AudioClip> monsterSoundDic;
     [SerializeField] public Dictionary<string, AudioClip> playerSoundDic;
-   
+    [SerializeField] public Dictionary<string, AudioClip> commonSoundDic;
+
     StringBuilder voiceStringBuilder = new StringBuilder();
     StringBuilder soundStringBuilder = new StringBuilder();
+    StringBuilder commonStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
     {
         Debug.Log("½Ì±ÛÅæ ºÒ·¯¿À±â");
@@ -35,7 +37,7 @@ public class AudioManager : MonoBehaviour
 
             monsterSoundDic = new Dictionary<string, AudioClip>();
             playerSoundDic = new Dictionary<string, AudioClip>();
-         
+            commonSoundDic = new Dictionary<string, AudioClip>();
         }
         else
         {
@@ -79,8 +81,24 @@ public class AudioManager : MonoBehaviour
 
         return clip;
     }
- 
 
+    public AudioClip GetCommonSoundDic(string str)
+    {
+        commonStringBuilder.Clear();
+        commonStringBuilder.Append($"Common/");
+        commonStringBuilder.Append(str);
+
+        string resultStr = commonStringBuilder.ToString();
+
+        commonSoundDic.TryGetValue(resultStr, out AudioClip clip);
+        if (clip == null)
+        {
+            commonSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
+            clip = commonSoundDic[resultStr];
+        }
+
+        return clip;
+    }
 
     public void PlaySound(AudioClip clip)
     {
