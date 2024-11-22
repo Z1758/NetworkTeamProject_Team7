@@ -29,6 +29,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     [SerializeField] GameObject[] hitboxes;
     [SerializeField] GameObject hurtbox;
     [SerializeField] ParticleSystem[] effects;
+    [SerializeField] ParticleSystem[] aoeEffects;
     [SerializeField] List<AnimationEvent> animationEvents = new();
     [SerializeField] LayerMask aoeRayMask;
 
@@ -115,27 +116,66 @@ public class AnimationEventReceiver : MonoBehaviourPun
      //   effects[num].SetActive(true);
     }
 
-    public void AOERayCast(int num)
+    public void AOERayCast(int colliderNum)
     {
  
         RaycastHit hit;
         if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f, aoeRayMask))
         {
+            Vector3 vec;
             if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
             {
-                projectiles[num].transform.position = hit.transform.position;
+                vec = hit.transform.position;
             }
             else
             {
-                projectiles[num].transform.position = hit.point;
+              
+              
+               vec = hit.point;
             }
-            Debug.Log(hit.collider.name);
+
+            vec.y = 0;
+            projectiles[colliderNum].transform.position = vec;
         }
         else
         {
-            projectiles[num].transform.position = transform.position;
-            projectiles[num].transform.rotation = transform.parent.rotation;
-            projectiles[num].transform.Translate(Vector3.forward* 20);
+            projectiles[colliderNum].transform.position = transform.position;
+            projectiles[colliderNum].transform.rotation = transform.parent.rotation;
+            projectiles[colliderNum].transform.Translate(Vector3.forward* 20);
         }
+  
     }
+    public void AOERayCast(int colliderNum, int effectNum)
+    {
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up * 2, transform.parent.forward, out hit, 20f, aoeRayMask))
+        {
+            Vector3 vec;
+            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            {
+                vec = hit.transform.position;
+            }
+            else
+            {
+
+
+                vec = hit.point;
+            }
+
+            vec.y = 0;
+            projectiles[colliderNum].transform.position = vec;
+            aoeEffects[effectNum].transform.position = vec;
+        }
+        else
+        {
+            projectiles[colliderNum].transform.position = transform.position;
+            projectiles[colliderNum].transform.rotation = transform.parent.rotation;
+            projectiles[colliderNum].transform.Translate(Vector3.forward * 20);
+
+            aoeEffects[effectNum].transform.position = projectiles[colliderNum].transform.position;
+        }
+        aoeEffects[effectNum].gameObject.SetActive(true);
+    }
+ 
 }

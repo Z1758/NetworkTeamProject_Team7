@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviourPun
             AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
             animatorParameterHash[i] = animatorControllerParameter.nameHash;
         }
-
+   
     }
 
     private void SetStates()
@@ -494,9 +494,13 @@ public class PlayerController : MonoBehaviourPun
     {
         if(curState != PlayerState.Wait)
         {
-            animator.SetFloat("Speed", model.AttackSpeed);
-            isFixed = false;
-            ChangeState(PlayerState.Wait, false);
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Wait"))
+            {
+
+                animator.SetFloat("Speed", model.AttackSpeed);
+                isFixed = false;
+                ChangeState(PlayerState.Wait, false);
+            }
         }
         
     }

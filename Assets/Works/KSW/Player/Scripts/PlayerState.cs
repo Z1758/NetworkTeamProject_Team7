@@ -40,6 +40,10 @@ public class WaitState : State
 
     public override void EnterState()
     {
+        for (int i = 0; i < controller.animatorParameterHash.Length; i++)
+        {
+            controller.animator.SetBool(controller.animatorParameterHash[i], false);
+        }
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait] , true);
 
     }
