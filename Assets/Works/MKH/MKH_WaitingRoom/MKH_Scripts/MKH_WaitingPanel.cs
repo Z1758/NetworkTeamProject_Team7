@@ -2,13 +2,11 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 
 
-public class MKH_RoomPanel : MonoBehaviour
+public class MKH_WaitingPanel : MonoBehaviour
 {
     [SerializeField] MKH_PlayerEntry[] playerEntries;
     [SerializeField] Button startButton;
@@ -34,15 +32,15 @@ public class MKH_RoomPanel : MonoBehaviour
     public void UpdatePlayers()
     {
         // 플레이어 들어오기전 공간 셋팅
-        foreach (MKH_PlayerEntry entry in playerEntries)          
+        foreach (MKH_PlayerEntry entry in playerEntries)
         {
             entry.SetEmpty();
         }
         // 모든 플레이어 확인
-        foreach (Player player in PhotonNetwork.PlayerList)        
+        foreach (Player player in PhotonNetwork.PlayerList)
         {
             // 아직 번호 할당 안받았을 때 업데이트 하지 말기
-            if (player.GetPlayerNumber() == -1)                     
+            if (player.GetPlayerNumber() == -1)
                 continue;
             // 플레이어 넘버 가지고 오기
             int number = player.GetPlayerNumber();
@@ -91,7 +89,7 @@ public class MKH_RoomPanel : MonoBehaviour
     private bool CheckAllReady()
     {
         // 플레이어 리스트에 있는 플레이어들이 레디를 안했을 경우 비활성화
-        foreach(Player player in PhotonNetwork.PlayerList)
+        foreach (Player player in PhotonNetwork.PlayerList)
         {
             if (player.GetReady() == false)
                 return false;
