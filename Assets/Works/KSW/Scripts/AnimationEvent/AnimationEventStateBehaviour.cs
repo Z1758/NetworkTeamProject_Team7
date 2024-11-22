@@ -130,14 +130,21 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             {
                 receiver.AOERayCast(colliderNum);
             }
+            if (animationType.HasFlag(AnimationType.AOE)&& animationType.HasFlag(AnimationType.EFFECT))
+            {
+                receiver.AOERayCast(colliderNum, effectNum);
+            }
+            else if (animationType.HasFlag(AnimationType.EFFECT))
+            {
+                receiver.ActiveEffect(effectNum);
+            }
+
+         
             if (animationType.HasFlag(AnimationType.PROJECTILE))
             {
                 receiver.ActiveProjectileAnimation(colliderNum);
             }
-            if (animationType.HasFlag(AnimationType.EFFECT))
-            {
-                receiver.ActiveEffect(effectNum);
-            }
+           
 
         }
     }

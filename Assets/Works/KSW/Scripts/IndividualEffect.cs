@@ -14,7 +14,7 @@ public class IndividualEffect : MonoBehaviour
 
     private void OnEnable()
     {
-       transform.position = point.position;
+        transform.SetPositionAndRotation(point.position,point.rotation);
     }
 
 

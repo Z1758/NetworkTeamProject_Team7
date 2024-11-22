@@ -60,12 +60,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
-  down: 0
-  notFriction: 0
+  hitboxType: 0
   effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
   effectName: 
   hitSound: {fileID: 0}
   soundName: SwordAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &335190678564926518
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,12 +410,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
-  down: 0
-  notFriction: 0
+  hitboxType: 0
   effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
   effectName: 
   hitSound: {fileID: 0}
   soundName: Skill1Hit
+  radius: 0
+  angle: 0
 --- !u!1 &5058720582594721321
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,16 +619,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
-  down: 0
-  notFriction: 1
+  hitboxType: 2
   effectPrefab: {fileID: 0}
   effectName: HitEffect2
   hitSound: {fileID: 0}
   soundName: Skill3Hit
+  radius: 0
+  angle: 0
   projectilePoint: {fileID: 1408690827326932648}
   rigid: {fileID: 2848607444943295459}
   speed: 30
   returnTime: 1
+  isAOE: 0
 --- !u!1 &8141413067438298525
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,12 +789,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
-  down: 0
-  notFriction: 0
+  hitboxType: 0
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: Skill2Hit
+  radius: 0
+  angle: 0
 --- !u!1001 &222324971020375018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4745,6 +4750,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  aoeRayMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &8158452268532631919
 MonoBehaviour:
   m_ObjectHideFlags: 0
