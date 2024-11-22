@@ -11338,11 +11338,13 @@ MonoBehaviour:
   monsterKeys:
   - Monster1Voice
   - Monster1Sound
-  playerKeys:
-  - Player1Voice
-  - Player1Sound
   commonKeys:
   - MonsterCommonSound
+  playerKeys:
+  - num: 0
+    keys: []
+  - num: 0
+    keys: []
 --- !u!4 &2019877270
 Transform:
   m_ObjectHideFlags: 0
@@ -11660,6 +11662,18 @@ PrefabInstance:
     - target: {fileID: 184215268072939927, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
       propertyPath: m_Name
       value: ItemManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741769511849828552, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
+      propertyPath: chestPos.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741769511849828552, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
+      propertyPath: chestPrefab
+      value: 
+      objectReference: {fileID: 2885670934856364096, guid: d8829a77203d6784f91a522f8bd5a75c, type: 3}
+    - target: {fileID: 5741769511849828552, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
+      propertyPath: chestDistance
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6689600637617303038, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
       propertyPath: m_RootOrder

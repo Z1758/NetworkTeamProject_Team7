@@ -16,8 +16,12 @@ public class WHS_ItemManager : MonoBehaviourPun
     }
 
     [SerializeField] ItemPrefab[] itemPrefabs;
-
     [SerializeField] GameObject chestPrefab;
+    [SerializeField] float chestDistance;
+
+    [SerializeField] Vector3 chestPos;
+    private List<WHS_Chest> chests = new List<WHS_Chest>();
+
 
     public static WHS_ItemManager Instance;
 
@@ -44,6 +48,10 @@ public class WHS_ItemManager : MonoBehaviourPun
             SpawnItem(spawnPos);
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SpawnChest(chestPos);
+        }
 
     }
 
@@ -111,5 +119,38 @@ public class WHS_ItemManager : MonoBehaviourPun
                     break;
             }
         }
+    }
+
+    private void SpawnChest(Vector3 position)
+    {
+        if (PhotonNetwork.IsMasterClient == false) return;
+
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 spawnPos = position + Vector3.right * (i - 1) * chestDistance;
+            photonView.RPC(nameof(SpawnChestRPC), RpcTarget.All, spawnPos);
+        }
+    }
+
+    [PunRPC]
+    private void SpawnChestRPC(Vector3 position)
+    {
+        Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
+        GameObject chestObj = Instantiate(chestPrefab, position, rotation);
+        WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
+        chest.SetItemManager(this);
+        chests.Add(chest);
+    }
+
+    public void DestroyAllChests(WHS_Chest destroyedChest)
+    {
+        foreach(WHS_Chest chest in chests)
+        {
+            if(chest != destroyedChest)
+            {
+                Destroy(chest.gameObject);
+            }
+        }
+        chests.Clear();
     }
 }
