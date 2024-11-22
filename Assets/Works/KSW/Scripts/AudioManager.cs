@@ -26,7 +26,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource voiceSource;
 
     public List<string> monsterKeys = new List<string>() { "Monster1Voice", "Monster1Sound" };
-   // public List<string> playerKeys = new List<string>() { "Player1Voice", "Player1Sound" };
     public List<string> commonKeys = new List<string>() { "MonsterCommonSound"};
 
     [SerializeField] SoundKeys[] playerKeys;

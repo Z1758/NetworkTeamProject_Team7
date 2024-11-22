@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: a55ce97359019ea47943bf1ebd5c3319
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 9c84f842fd2ceb9a62e02d828b2b151e
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a46a52487438ead41a7fbfbb7e645987, type: 2}
   - {fileID: 11400000, guid: 5011a20e191a51e49ae4773a44e9c92b, type: 2}
   - {fileID: 11400000, guid: 5fb417edd62ebbc499708072f2617dca, type: 2}
+  - {fileID: 11400000, guid: 9e11de84b4f94c54cb24cdced7f3e350, type: 2}
   - {fileID: 11400000, guid: abf6b8a260e64a04babdd7b7a9a27375, type: 2}
   - {fileID: 11400000, guid: f7767410306ce374689fcad2476968d4, type: 2}
   - {fileID: 11400000, guid: 1548f477c689a1a40b1dc92a72bacb27, type: 2}
@@ -103,6 +104,7 @@ MonoBehaviour:
     - Effects
     - Player2Voice
     - Player2Sound
+    - UI
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: dbdeb77a3a308e046a40c70f3c9cdfc0, type: 2}
