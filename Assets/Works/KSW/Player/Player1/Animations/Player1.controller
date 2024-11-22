@@ -518,6 +518,28 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-6136577728970385610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Death1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
 --- !u!114 &-5856147204081723483
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1636,6 +1658,28 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &750633365139975092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.469
+  animationType: 8
+  audioName: Death2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
 --- !u!1102 &944651694395081697
 AnimatorState:
   serializedVersion: 6
@@ -2411,7 +2455,9 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 750633365139975092}
+  - {fileID: -6136577728970385610}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

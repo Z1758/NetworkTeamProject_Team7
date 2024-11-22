@@ -41,20 +41,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Player2Voice
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 629c62d779f6ec44ca0adae4f32ad5c9
+    m_Address: Player2/Death2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 755e03393cdbed4449cc7488d22324fa
     m_Address: Player2/Hit
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Voice
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d955984a18078834e81be386405a124a
-    m_Address: Player2/Down
+  - m_GUID: 7e15e7531476ebd43824f1605676b313
+    m_Address: Player2/Death1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Voice
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fb384bdadce216f46a08c4d094405d82
-    m_Address: Player2/Death
+  - m_GUID: d955984a18078834e81be386405a124a
+    m_Address: Player2/Down
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Voice

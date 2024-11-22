@@ -447,6 +447,11 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     public void TakeDamageRPC(float damage, bool down, Vector3 target)
     {
+        if (model.HP <= 0)
+        {
+            Debug.Log("PlayerDeath");
+        }
+
         if (playerHurtbox.layer == (int)LayerEnum.DISABLE_BOX)
         {
             Debug.Log("DODGE!");
@@ -469,28 +474,47 @@ public class PlayerController : MonoBehaviourPun
         transform.LookAt(target);
 
         isFixed = false;
-      
+        Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
+        model.HP -= damage;
+
+        if (model.HP < 0f)
+        {
+            Dying();
+            return;
+        }
+
+
         if (down)
         {
             ChangeState(PlayerState.Down, true);
-          
-                animator.SetTrigger(animatorParameterHash[ (int)PlayerAnimationHashNumber.Down]);
-            
+
+            animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Down]);
+
         }
         else
         {
-          
+
             ChangeState(PlayerState.Hit, true);
-           
-                animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
-           
+
+            animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
+
         }
 
 
-
-        Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
-        model.HP -= damage;
     }
+     
+
+    void Dying()
+    {
+
+        ChangeState(PlayerState.Dead, true);
+        animator.Play("Death");
+        playerHurtbox.layer = (int)LayerEnum.DISABLE_BOX;
+        gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+    }
+
+    
+
 
     public int freezingCnt = 0;
 

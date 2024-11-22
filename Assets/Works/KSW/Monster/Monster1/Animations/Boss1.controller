@@ -135,6 +135,34 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 1
+--- !u!1102 &-7869562026170352115
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours:
+  - {fileID: -2872279738669576739}
+  - {fileID: 7804678559708925485}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e0576d96abb62d946b0bfad9603e46be, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!114 &-7533860713757724608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -599,6 +627,28 @@ MonoBehaviour:
   triggerTime: 0.507
   animationType: 1
   audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+--- !u!114 &-2872279738669576739
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Death
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
@@ -2304,6 +2354,28 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 2
   isLoop: 0
+--- !u!114 &7804678559708925485
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAni
+  triggerTime: 0.063
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
 --- !u!1107 &8395237259317594690
 AnimatorStateMachine:
   serializedVersion: 6
@@ -2352,6 +2424,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8758307738905677195}
     m_Position: {x: 440, y: 550, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7869562026170352115}
+    m_Position: {x: 100, y: -70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

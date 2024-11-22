@@ -162,6 +162,7 @@ MonoBehaviour:
   inputSystem: {fileID: 1641774034918779575}
   projectiles:
   - {fileID: 951795956697150902}
+  freezingCnt: 0
 --- !u!54 &928105611069765242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -202,7 +203,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335190678564926518}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.8
   m_Height: 2.9
@@ -4605,6 +4606,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 3966896713418610675}
   - {fileID: 502480107596525036}
+  aoeEffects: []
   animationEvents:
   - eventName: EndAni
     OnAnimationEvent:

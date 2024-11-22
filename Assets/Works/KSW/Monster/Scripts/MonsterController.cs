@@ -1,10 +1,7 @@
-using Firebase.Analytics;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 [System.Serializable]
 public class MonsterPattern
@@ -29,16 +26,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     [SerializeField] bool isFixed;
     [SerializeField] bool isMoveAni;
+    [SerializeField] bool isDie; 
 
     [SerializeField] float lag;
     [SerializeField] float time;
     [SerializeField] float aniStateTime;
- 
+
     Transform target;
 
     [SerializeField] MonsterPattern[] patterns;
-    [SerializeField] int nextPattern; 
-    
+    [SerializeField] int nextPattern;
+
 
     int[] animtionHash;
     [SerializeField] int[] animatorParameterHash;
@@ -74,7 +72,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         for (int i = 0; i < animator.parameterCount; i++)
         {
-           
+
             AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
 
             if (animatorControllerParameter.name == "Run")
@@ -103,7 +101,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         foreach (GameObject obj in objects)
         {
-            pc_s.Add(obj.GetComponent<PlayerController>());
+            if (obj.layer != (int)LayerEnum.DISABLE_BOX)
+            {
+                Debug.Log(obj.name);
+                pc_s.Add(obj.GetComponent<PlayerController>());
+
+            }
         }
         TargetChange();
 
@@ -115,16 +118,23 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine == false)
             return;
         int ran = Random.Range(0, pc_s.Count);
+        if (pc_s.Count == 0)
+            return;
         if (pc_s[ran] == null)
         {
             return;
+        }
+        else if (pc_s[ran].gameObject.layer == (int)LayerEnum.DISABLE_BOX)
+        {
+            target = null;
+            FindPlayers();
         }
         else
         {
             target = pc_s[ran].transform;
         }
 
-      
+
     }
 
     private void Start()
@@ -132,11 +142,14 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         SetNextPattern();
         if (photonView.IsMine == false)
             StartCoroutine(CheckAniLag());
-       
+
     }
 
     private void Update()
     {
+
+        if (isDie)
+            return;
 
         TraceMonster();
 
@@ -159,17 +172,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             }
             else if (Mathf.Abs(lag) > 0.05f)
             {
-                Debug.Log("렉 발생"); 
+                Debug.Log("렉 발생");
                 for (int i = 0; i < patterns.Length; i++)
                 {
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName(patterns[i].pattern))
                     {
                         animator.Play(animtionHash[i], 0, aniStateTime);
                     }
-                  
+
                 }
 
-               
+
 
             }
 
@@ -182,7 +195,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     public void SetAniTime()
     {
 
-      
+
 
 
 
@@ -221,10 +234,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (target == null)
         {
             FindPlayers();
+            return;
         }
 
-        
-        
+
+
         if ((target.position - transform.position).sqrMagnitude < patterns[nextPattern].range)
         {
             rigid.velocity = Vector3.zero;
@@ -242,19 +256,19 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator.SetBool(waitParameterHash, false);
 
         transform.LookAt(target);
-   
+
         rigid.velocity = transform.forward * speed;
 
     }
 
     public void MonsterAttack()
     {
-       
+
         transform.LookAt(target);
         isFixed = true;
-       
 
-       
+
+
         animator.SetBool(animatorParameterHash[nextPattern], true);
 
         animator.SetBool(atkEndParameterHash, false);
@@ -269,13 +283,13 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void PatternReset()
     {
-        if(cooldownCoroutine != null)
+        if (cooldownCoroutine != null)
         {
             StopCoroutine(cooldownCoroutine);
         }
 
         cooldownCoroutine = StartCoroutine(AttackCooldown());
-       
+
 
         for (int i = 0; i < animatorParameterHash.Length; i++)
         {
@@ -307,7 +321,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         isFixed = false;
     }
 
-    
+
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -337,9 +351,23 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [PunRPC]
     public void TakeDamageRPC(float damage)
     {
-        
+        if (model.HP <= 0)
+        {
+            Debug.Log("MonsterDeath");
+        }
 
         Debug.Log("HIT!!!!!!!!!!!!!!" + damage);
         model.HP -= (float)damage;
+
+        if (model.HP <= 0)
+        {
+
+            animator.Play("Death");
+            PatternReset();
+            isDie = true;
+            gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+           
+        }
+
     }
 }
