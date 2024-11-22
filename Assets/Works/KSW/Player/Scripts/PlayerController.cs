@@ -410,6 +410,10 @@ public class PlayerController : MonoBehaviourPun
 
 
     }
+
+
+
+
     public void MoveAni()
     {
         isMoveAni = true;

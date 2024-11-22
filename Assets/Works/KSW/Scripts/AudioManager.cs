@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,14 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class AudioManager : MonoBehaviour
 {
+    [Serializable]
+    public class SoundKeys
+    {
+        public int num;
+        public List<string> keys = new List<string>();
+       
+    }
+
     // ½Ì±ÛÅæ
     private static AudioManager instance;
 
@@ -17,8 +26,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource voiceSource;
 
     public List<string> monsterKeys = new List<string>() { "Monster1Voice", "Monster1Sound" };
-    public List<string> playerKeys = new List<string>() { "Player1Voice", "Player1Sound" };
+   // public List<string> playerKeys = new List<string>() { "Player1Voice", "Player1Sound" };
     public List<string> commonKeys = new List<string>() { "MonsterCommonSound"};
+
+    [SerializeField] SoundKeys[] playerKeys;
 
     AsyncOperationHandle<IList<AudioClip>> playerSoundLoadHandle;
     AsyncOperationHandle<IList<AudioClip>> monsterSoundLoadHandle;
@@ -60,26 +71,29 @@ public class AudioManager : MonoBehaviour
     #region ÇÑ²¨¹ø¿¡ ·Îµù
     public void LoadPlayerSounds()
     {
+        foreach(SoundKeys key  in playerKeys)
+        {
+            playerSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
+              key.keys,
+              addressable =>
+              {
+                  soundStringBuilder.Clear();
+                  soundStringBuilder.Append($"Player{key.num}/");
 
-        playerSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
-            playerKeys, 
-            addressable =>
-            {
-                soundStringBuilder.Clear();
-                //ÃßÈÄ¿¡ º¯°æ
-                soundStringBuilder.Append("Player1/");
+                  if (addressable != null)
+                  {
+                      soundStringBuilder.Append(addressable.name);
+                      playerSoundDic.Add(soundStringBuilder.ToString(), addressable);
+                  }
+
+
+              }, Addressables.MergeMode.Union,
+              false);
+            playerSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+        }
         
-                if (addressable != null)
-                {
-                    soundStringBuilder.Append(addressable.name);
-                    playerSoundDic.Add(soundStringBuilder.ToString(), addressable);
-                }
-
-
-            }, Addressables.MergeMode.Union, 
-            false);
-        playerSoundLoadHandle.Completed += LoadSoundHandle_Completed;
-      
+          
+        
     }
     public void LoadMonsterSounds()
     {

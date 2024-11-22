@@ -10,7 +10,8 @@ public enum AnimationType
     AUDIO = 1 << 3,
     COLLIDER_RESET = 1 << 4,
     PROJECTILE = 1 << 5,
-    EFFECT = 1 << 6
+    EFFECT = 1 << 6,
+    AOE = 1 << 7
 }
 
 
@@ -95,6 +96,7 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
 
 
+         
             if (animationType.HasFlag(AnimationType.HITBOX))
             {
                 receiver.ActiveHitboxAnimation(colliderNum, colliderActive);
@@ -123,6 +125,10 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             if (animationType.HasFlag(AnimationType.COLLIDER_RESET))
             {
                 receiver.ResetColider();
+            }
+            if (animationType.HasFlag(AnimationType.AOE))
+            {
+                receiver.AOERayCast(colliderNum);
             }
             if (animationType.HasFlag(AnimationType.PROJECTILE))
             {

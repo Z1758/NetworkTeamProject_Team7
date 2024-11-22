@@ -114,4 +114,20 @@ public class AnimationEventReceiver : MonoBehaviourPun
         effects[num].Play();
      //   effects[num].SetActive(true);
     }
+
+    public void AOERayCast(int num)
+    {
+ 
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f))
+        {
+            projectiles[num].transform.position = hit.point;
+        }
+        else
+        {
+            projectiles[num].transform.position = transform.position;
+            projectiles[num].transform.rotation = transform.parent.rotation;
+            projectiles[num].transform.Translate(Vector3.forward* 20);
+        }
+    }
 }
