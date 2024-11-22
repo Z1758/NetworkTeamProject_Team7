@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class WHS_Chest : MonoBehaviourPun
 {
-    private WHS_ItemManager itemManager;
-    private bool isDestroyed = false;
-
-    public void SetItemManager(WHS_ItemManager manager)
-    {
-        itemManager = manager;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(!isDestroyed && other.CompareTag("Player"))
+        if (other.CompareTag("Player") && PhotonNetwork.IsMasterClient)
         {
-            isDestroyed = true;
-            itemManager.DestroyAllChests(this);
-            Vector3 spawnPos = transform.position;
-            itemManager.SpawnItem(spawnPos);
+            if (photonView.IsMine || PhotonNetwork.IsMasterClient)
+            {
+                WHS_ItemManager.Instance.DestroyAllChests(this);
 
-            PhotonNetwork.Destroy(gameObject);
+                Vector3 spawnPos = transform.position;
+                spawnPos.y += 1f;
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    WHS_ItemManager.Instance.SpawnItem(spawnPos);
+                    PhotonNetwork.Destroy(gameObject);
+                }
+            }
+
         }
     }
 }

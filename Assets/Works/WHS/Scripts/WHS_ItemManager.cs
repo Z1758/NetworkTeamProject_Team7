@@ -123,12 +123,10 @@ public class WHS_ItemManager : MonoBehaviourPun
 
     private void SpawnChest(Vector3 position)
     {
-        if (PhotonNetwork.IsMasterClient == false) return;
-
         for (int i = 0; i < 3; i++)
         {
             Vector3 spawnPos = position + Vector3.right * (i - 1) * chestDistance;
-            photonView.RPC(nameof(SpawnChestRPC), RpcTarget.All, spawnPos);
+            photonView.RPC(nameof(SpawnChestRPC), RpcTarget.MasterClient, spawnPos);
         }
     }
 
@@ -136,9 +134,9 @@ public class WHS_ItemManager : MonoBehaviourPun
     private void SpawnChestRPC(Vector3 position)
     {
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
-        GameObject chestObj = Instantiate(chestPrefab, position, rotation);
+        string chestPath = "GameObject/Items/" + chestPrefab.name;
+        GameObject chestObj = PhotonNetwork.Instantiate(chestPath, position, rotation);
         WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
-        chest.SetItemManager(this);
         chests.Add(chest);
     }
 
@@ -146,9 +144,12 @@ public class WHS_ItemManager : MonoBehaviourPun
     {
         foreach(WHS_Chest chest in chests)
         {
-            if(chest != destroyedChest)
+            if(chest != destroyedChest && chest != null)
             {
-                Destroy(chest.gameObject);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.Destroy(chest.gameObject);
+                }
             }
         }
         chests.Clear();
