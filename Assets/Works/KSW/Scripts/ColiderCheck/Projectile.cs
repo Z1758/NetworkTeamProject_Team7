@@ -44,7 +44,9 @@ public class Projectile : Hitbox
 
     private void OnTriggerEnter(Collider other)
     {
-        if(returnTimeCoroutine != null)
+        if (isAOE)
+            return;
+        if (returnTimeCoroutine != null)
         {
             StopCoroutine(returnTimeCoroutine);
         }
@@ -61,8 +63,7 @@ public class Projectile : Hitbox
 
     private void DisableProjectile()
     {
-        if (isAOE)
-            return;
+        
         rigid.velocity = Vector3.zero;
 
        

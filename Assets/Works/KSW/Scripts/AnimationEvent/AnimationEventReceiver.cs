@@ -30,7 +30,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     [SerializeField] GameObject hurtbox;
     [SerializeField] ParticleSystem[] effects;
     [SerializeField] List<AnimationEvent> animationEvents = new();
-
+    [SerializeField] LayerMask aoeRayMask;
 
     private void Awake()
     {
@@ -119,9 +119,17 @@ public class AnimationEventReceiver : MonoBehaviourPun
     {
  
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f))
+        if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f, aoeRayMask))
         {
-            projectiles[num].transform.position = hit.point;
+            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            {
+                projectiles[num].transform.position = hit.transform.position;
+            }
+            else
+            {
+                projectiles[num].transform.position = hit.point;
+            }
+            Debug.Log(hit.collider.name);
         }
         else
         {
