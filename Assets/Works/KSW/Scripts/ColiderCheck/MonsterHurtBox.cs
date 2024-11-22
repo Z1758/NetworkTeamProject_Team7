@@ -41,8 +41,14 @@ public class MonsterHurtBox : MonoBehaviour
         if (other.TryGetComponent(out Hitbox hitbox))
         {
             //hitbox.ChangeLayer();
+            if(!hitbox.GetAngleHit(transform))
+            {
+                return;
+            }
             hitbox.HitEffect(other.ClosestPoint(transform.position));
             hitbox.AttackFriction();
+            
+            
             monster.TakeDamage(hitbox.GetAtk(), hitbox.GetSoundEffect());
         }
 

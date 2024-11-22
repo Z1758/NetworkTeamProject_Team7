@@ -1,7 +1,18 @@
-using Photon.Pun;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+
+[Flags]
+public enum HitboxType
+{
+
+    DOWN_ATTACK = 1 << 0,
+    NOT_FRICTION_ATTACK = 1 << 1,
+    FOV_ATTACK = 1 << 2
+}
+
+
 
 public class Hitbox : MonoBehaviour
 {
@@ -9,21 +20,25 @@ public class Hitbox : MonoBehaviour
     [SerializeField] Animator animator;
 
     [SerializeField] StatusModel model;
-    [SerializeField] bool down;
-    [SerializeField] bool notFriction;
+    [SerializeField] HitboxType hitboxType;
+   
     [SerializeField] GameObject effectPrefab;
     [SerializeField] string effectName;
     [SerializeField] AudioClip hitSound;
     [SerializeField] string soundName;
 
-    WaitForSeconds atkSlow= new WaitForSeconds(0.2f);
+    [SerializeField] public float radius;
+    [SerializeField] public float angle;
+
+
+    WaitForSeconds atkSlow = new WaitForSeconds(0.2f);
 
     private void Awake()
     {
         if (model == null)
             model = GetComponentInParent<StatusModel>();
 
-      
+
     }
 
 
@@ -31,9 +46,9 @@ public class Hitbox : MonoBehaviour
     {
         if (effectPrefab == null)
         {
-           effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
+            effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
         }
-        if(vec.y < 1f)
+        if (vec.y < 1f)
         {
             vec.y += 1.5f;
         }
@@ -48,7 +63,7 @@ public class Hitbox : MonoBehaviour
         {
             effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
         }
-        
+
         return effectPrefab;
 
 
@@ -57,19 +72,21 @@ public class Hitbox : MonoBehaviour
     public void AttackFriction()
     {
         // 역경직 테스트
-        if (notFriction == false)
+        if (hitboxType.HasFlag(HitboxType.NOT_FRICTION_ATTACK))
         {
-            animator.SetFloat("Speed", model.AttackSpeed - 0.9f);
-
-            StartCoroutine(SlowSpeed());
+            return;
         }
 
+        animator.SetFloat("Speed", model.AttackSpeed - 0.9f);
 
+        StartCoroutine(SlowSpeed());
     }
+
+
 
     public AudioClip GetSoundEffect()
     {
-        if(soundName == "")
+        if (soundName == "")
         {
             return null;
         }
@@ -101,11 +118,48 @@ public class Hitbox : MonoBehaviour
     }
     public bool GetDown()
     {
-        return down;
+        return hitboxType.HasFlag(HitboxType.DOWN_ATTACK);
     }
 
     public void ChangeLayer()
     {
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+    }
+
+    public bool GetAngleHit(Transform hit)
+    {
+        if (hitboxType.HasFlag(HitboxType.FOV_ATTACK))
+        {
+            Vector3 target = (hit.transform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, target) < angle / 2)
+            {
+                float distance = Vector3.Distance(transform.position, target);
+
+
+
+                Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
+
+                Debug.Log(hit.name);
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // 에디터 그리기용
+    public Vector3 DirFromAngle(float angle, bool global)
+    {
+
+        angle += transform.eulerAngles.y;
+
+
+
+        return new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad));
+
     }
 }

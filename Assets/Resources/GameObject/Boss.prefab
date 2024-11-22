@@ -731,12 +731,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 0
-  notFriction: 0
+  hitboxType: 0
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &739155525024841091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,12 +1168,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 1
-  notFriction: 0
+  hitboxType: 1
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &2062354378685991664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,12 +1515,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 1
-  notFriction: 0
+  hitboxType: 1
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &2501619073000912944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,12 +1711,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 1
-  notFriction: 0
+  hitboxType: 1
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &3018618451398581294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,12 +2253,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 1
-  notFriction: 0
+  hitboxType: 1
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &4329324448867266815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,12 +2544,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 1
-  notFriction: 0
+  hitboxType: 1
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &4805065627708213596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,12 +2979,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 0
-  notFriction: 0
+  hitboxType: 0
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &5208463187396031946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4598,12 +4605,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  down: 1
-  notFriction: 0
+  hitboxType: 1
   effectPrefab: {fileID: 0}
   effectName: HitEffect1
   hitSound: {fileID: 0}
   soundName: BossAttackHit1
+  radius: 0
+  angle: 0
 --- !u!1 &8072501300283693286
 GameObject:
   m_ObjectHideFlags: 0
