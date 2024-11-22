@@ -5,7 +5,7 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*
 public class MKH_WaitingPanel : MonoBehaviour
 {
     [SerializeField] MKH_PlayerEntry[] playerEntries;
@@ -110,6 +110,7 @@ public class MKH_WaitingPanel : MonoBehaviour
     // Ήζ Επΐε
     public void LeaveRoom()
     {
-        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel("MKH_LobbyScene");
     }
 }
+*/

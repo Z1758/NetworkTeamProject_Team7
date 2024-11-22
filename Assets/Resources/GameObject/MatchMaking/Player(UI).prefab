@@ -95,6 +95,7 @@ MonoBehaviour:
   down: 0
   notFriction: 0
   effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
+  effectName: 
   hitSound: {fileID: 0}
   soundName: SwordAttackHit1
 --- !u!1 &1152343483970032857
@@ -344,6 +345,7 @@ MonoBehaviour:
   down: 0
   notFriction: 0
   effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
+  effectName: 
   hitSound: {fileID: 0}
   soundName: Skill1Hit
 --- !u!1 &6048434945223075366
@@ -470,6 +472,7 @@ MonoBehaviour:
   down: 0
   notFriction: 0
   effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
+  effectName: 
   hitSound: {fileID: 0}
   soundName: Skill2Hit
 --- !u!1 &8885788838500660773
@@ -604,12 +607,14 @@ MonoBehaviour:
   down: 0
   notFriction: 1
   effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
+  effectName: 
   hitSound: {fileID: 0}
   soundName: Skill3Hit
   projectilePoint: {fileID: 1790049694106986055}
   rigid: {fileID: 3230045267181417228}
   speed: 25
   returnTime: 1
+  isAOE: 0
 --- !u!1 &8910152384635041138
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,6 +4327,7 @@ MonoBehaviour:
   - {fileID: 8686036666508765353}
   - {fileID: 4039920000103391938}
   hurtbox: {fileID: 6048434945223075366}
+  effects: []
   animationEvents:
   - eventName: EndAni
     OnAnimationEvent:
@@ -4467,6 +4473,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  aoeRayMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &8790939091591539308
 MonoBehaviour:
   m_ObjectHideFlags: 0
