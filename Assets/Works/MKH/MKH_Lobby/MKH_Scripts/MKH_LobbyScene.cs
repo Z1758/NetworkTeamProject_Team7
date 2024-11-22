@@ -10,8 +10,9 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
 
     [SerializeField] MKH_LoginPanel loginPanel;
     [SerializeField] MKH_MainPanel menuPanel;
-    [SerializeField] MKH_RoomPanel roomPanel;
+    //[SerializeField] MKH_RoomPanel roomPanel;
     [SerializeField] MKH_LobbyPanel lobbyPanel;
+    //[SerializeField] MKH_WaitingPanel waitingPanel;
 
     private void Start()
     {
@@ -20,8 +21,8 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
 
         if(PhotonNetwork.InRoom)
         {
-            SetActivePanel(Panel.Room);
-            //PhotonNetwork.LoadLevel("WaitingScene");
+            //SetActivePanel(Panel.Room);
+            PhotonNetwork.LoadLevel("WaitingScene");
         }
         else if (PhotonNetwork.InLobby)
         {
@@ -99,19 +100,22 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     // 플레이어 입장
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        roomPanel.EnterPlayer(newPlayer);
+        //roomPanel.EnterPlayer(newPlayer);
+        //waitingPanel.EnterPlayer(newPlayer);
     }
 
     // 플레이어 업데이트
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        roomPanel.UpdatePlayerProperty(targetPlayer, changedProps);
+        //roomPanel.UpdatePlayerProperty(targetPlayer, changedProps);
+        //waitingPanel.UpdatePlayerProperty(targetPlayer, changedProps);
     }
 
     // 플레이어 퇴장
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        roomPanel.ExitPlayer(otherPlayer);
+        //roomPanel.ExitPlayer(otherPlayer);
+        //waitingPanel.ExitPlayer(otherPlayer);
     }
     #endregion
 
@@ -144,7 +148,8 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     {
         loginPanel.gameObject.SetActive(panel == Panel.Login);
         menuPanel.gameObject.SetActive(panel == Panel.Menu);
-        roomPanel.gameObject.SetActive(panel == Panel.Room);
+        //roomPanel.gameObject.SetActive(panel == Panel.Room);
+        //waitingPanel.gameObject.SetActive(panel == Panel.Room);
         lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
     }
 }

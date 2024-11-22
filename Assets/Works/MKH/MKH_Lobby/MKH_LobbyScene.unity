@@ -3815,7 +3815,6 @@ MonoBehaviour:
   readyText: {fileID: 1056832980}
   nameText: {fileID: 9035798}
   readyButton: {fileID: 1607714257}
-  play: {fileID: 1354132842}
 --- !u!1 &820515356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,11 +4416,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867647774}
   m_CullTransparentMesh: 1
---- !u!1 &872045812 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5329690485561220981, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
-  m_PrefabInstance: {fileID: 1805687265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &872045813 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 801199535602823450, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
@@ -4918,11 +4912,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1007365157 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5329690485561220981, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
-  m_PrefabInstance: {fileID: 488178714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1007365158 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 801199535602823450, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
@@ -6597,11 +6586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emailInputfield: {fileID: 609135737}
---- !u!1 &1354132842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5329690485561220981, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
-  m_PrefabInstance: {fileID: 825771951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1354132843 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 801199535602823450, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
@@ -7016,11 +7000,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1525594511 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5329690485561220981, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
-  m_PrefabInstance: {fileID: 1864897707}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1525594512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 801199535602823450, guid: 0762c2a12acfe6c4e85703eaf641c19f, type: 3}
@@ -7084,7 +7063,6 @@ MonoBehaviour:
   readyText: {fileID: 571025553}
   nameText: {fileID: 250575689}
   readyButton: {fileID: 1718609361}
-  play: {fileID: 1007365157}
 --- !u!114 &1534605431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7688,8 +7666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginPanel: {fileID: 2359447018297488304}
   menuPanel: {fileID: 8371969074817434935}
-  roomPanel: {fileID: 5619281812584765103}
   lobbyPanel: {fileID: 7784678395671557667}
+  waitingPanel: {fileID: 0}
 --- !u!1 &1622179230
 GameObject:
   m_ObjectHideFlags: 0
@@ -10099,7 +10077,6 @@ MonoBehaviour:
   readyText: {fileID: 1622179231}
   nameText: {fileID: 820515357}
   readyButton: {fileID: 1555745912}
-  play: {fileID: 1525594511}
 --- !u!114 &1974981322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10535,7 +10512,6 @@ MonoBehaviour:
   readyText: {fileID: 658111025}
   nameText: {fileID: 1817390232}
   readyButton: {fileID: 258796651}
-  play: {fileID: 872045812}
 --- !u!114 &2076897312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13536,7 +13512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970155510132964368}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc2f9f832addd6647a205bd5f0e24f77, type: 3}
   m_Name: 
