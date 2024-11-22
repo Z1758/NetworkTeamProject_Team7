@@ -26,12 +26,28 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         transform.Rotate(Vector3.up, 90f * Time.deltaTime, 0);
     }
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             StatusModel statusModel = collision.gameObject.GetComponent<StatusModel>();
+            if (statusModel.photonView != null && statusModel.photonView.IsMine)
+            {
+                Debug.Log("아이템 적용");
+                isCollected = true;
+                WHS_ItemManager.Instance.ApplyItem(statusModel, this);
+                photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
+            }
+        }
+    }
+    */
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!isCollected && other.CompareTag("Player"))
+        {
+            StatusModel statusModel = other.GetComponent<StatusModel>();
+
             if (statusModel.photonView != null && statusModel.photonView.IsMine)
             {
                 Debug.Log("아이템 적용");
