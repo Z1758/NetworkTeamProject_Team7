@@ -16,6 +16,12 @@ public class WHS_ItemManager : MonoBehaviourPun
     }
 
     [SerializeField] ItemPrefab[] itemPrefabs;
+    [SerializeField] GameObject chestPrefab;
+    [SerializeField] float chestDistance;
+
+    [SerializeField] Vector3 chestPos;
+    private List<WHS_Chest> chests = new List<WHS_Chest>();
+
 
     public static WHS_ItemManager Instance;
 
@@ -41,9 +47,15 @@ public class WHS_ItemManager : MonoBehaviourPun
             Vector3 spawnPos = new Vector3(Random.Range(0, 5), 1, Random.Range(0, 5));
             SpawnItem(spawnPos);
         }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SpawnChest(chestPos);
+        }
+
     }
 
-    private void SpawnItem(Vector3 position)
+    public void SpawnItem(Vector3 position)
     {
         photonView.RPC(nameof(SpawnItemRPC), RpcTarget.MasterClient, position);
     }
@@ -107,5 +119,39 @@ public class WHS_ItemManager : MonoBehaviourPun
                     break;
             }
         }
+    }
+
+    private void SpawnChest(Vector3 position)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 spawnPos = position + Vector3.right * (i - 1) * chestDistance;
+            photonView.RPC(nameof(SpawnChestRPC), RpcTarget.MasterClient, spawnPos);
+        }
+    }
+
+    [PunRPC]
+    private void SpawnChestRPC(Vector3 position)
+    {
+        Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
+        string chestPath = "GameObject/Items/" + chestPrefab.name;
+        GameObject chestObj = PhotonNetwork.Instantiate(chestPath, position, rotation);
+        WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
+        chests.Add(chest);
+    }
+
+    public void DestroyAllChests(WHS_Chest destroyedChest)
+    {
+        foreach(WHS_Chest chest in chests)
+        {
+            if(chest != destroyedChest && chest != null)
+            {
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.Destroy(chest.gameObject);
+                }
+            }
+        }
+        chests.Clear();
     }
 }

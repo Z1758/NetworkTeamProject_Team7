@@ -52,6 +52,9 @@ MonoBehaviour:
     prefab: {fileID: 3323670622729539595, guid: 3b5d2e25931285741baf5c795080fa9b, type: 3}
   - type: 2
     prefab: {fileID: 5312765511768575065, guid: 670a85ea56b2323419cc901a5f7bad92, type: 3}
+  chestPrefab: {fileID: 2885670934856364096, guid: d8829a77203d6784f91a522f8bd5a75c, type: 3}
+  chestDistance: 6
+  chestPos: {x: 3, y: 0, z: 0}
 --- !u!114 &-7188270497949898526
 MonoBehaviour:
   m_ObjectHideFlags: 0
