@@ -2,10 +2,8 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using PhotonHashtable = ExitGames.Client.Photon.Hashtable;
 
 
 public class MKH_RoomPanel : MonoBehaviour
