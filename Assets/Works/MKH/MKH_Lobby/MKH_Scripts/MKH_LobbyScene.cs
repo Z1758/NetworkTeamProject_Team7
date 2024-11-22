@@ -21,6 +21,7 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
         if(PhotonNetwork.InRoom)
         {
             SetActivePanel(Panel.Room);
+            //PhotonNetwork.LoadLevel("WaitingScene");
         }
         else if (PhotonNetwork.InLobby)
         {
@@ -72,7 +73,8 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()    
     {
         Debug.Log("방 입장 성공");
-        SetActivePanel(Panel.Room);
+        PhotonNetwork.LoadLevel("MKH_WaitingScene");
+        //SetActivePanel(Panel.Room);
     }
 
     // 방 입장 실패
