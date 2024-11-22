@@ -9,6 +9,7 @@ public class Projectile : Hitbox
     [SerializeField] Rigidbody rigid;
     [SerializeField] float speed;
     [SerializeField] float returnTime;
+    [SerializeField] bool isAOE;
 
     WaitForSeconds returnTimeWFS;
     Coroutine returnTimeCoroutine;
@@ -32,28 +33,37 @@ public class Projectile : Hitbox
 
     private void MoveProjectile()
     {
-      
+        if (isAOE)
+        {
+            return;
+        }
+
         transform.SetPositionAndRotation(projectilePoint.position, projectilePoint.rotation);
         rigid.velocity = transform.forward * speed;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(returnTimeCoroutine != null)
+        if (isAOE)
+            return;
+        if (returnTimeCoroutine != null)
         {
             StopCoroutine(returnTimeCoroutine);
         }
+        
         DisableProjectile();
     }
  
     IEnumerator ReturnTimeRoutine()
     {
+        
         yield return returnTimeWFS;
         DisableProjectile();
     }
 
     private void DisableProjectile()
     {
+        
         rigid.velocity = Vector3.zero;
 
        
@@ -62,7 +72,7 @@ public class Projectile : Hitbox
 
     public void ActiveLayer()
     {
-        gameObject.layer = (int)LayerEnum.PLAYER_HIT_BOX;
+        gameObject.layer = (int)LayerEnum.PLAYER_PROJECTILE;
     }
 
     private void OnDisable()

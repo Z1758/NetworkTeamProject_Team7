@@ -28,8 +28,9 @@ public class AnimationEventReceiver : MonoBehaviourPun
     [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject[] hitboxes;
     [SerializeField] GameObject hurtbox;
+    [SerializeField] ParticleSystem[] effects;
     [SerializeField] List<AnimationEvent> animationEvents = new();
-
+    [SerializeField] LayerMask aoeRayMask;
 
     private void Awake()
     {
@@ -105,5 +106,36 @@ public class AnimationEventReceiver : MonoBehaviourPun
         AudioClip clip = null;
         clip = AudioManager.GetInstance().GetCommonSoundDic( str);
         audioSource.PlayOneShot(clip);
+    }
+
+    public void ActiveEffect(int num)
+    {
+        effects[num].gameObject.SetActive(true);
+        effects[num].Play();
+     //   effects[num].SetActive(true);
+    }
+
+    public void AOERayCast(int num)
+    {
+ 
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f, aoeRayMask))
+        {
+            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            {
+                projectiles[num].transform.position = hit.transform.position;
+            }
+            else
+            {
+                projectiles[num].transform.position = hit.point;
+            }
+            Debug.Log(hit.collider.name);
+        }
+        else
+        {
+            projectiles[num].transform.position = transform.position;
+            projectiles[num].transform.rotation = transform.parent.rotation;
+            projectiles[num].transform.Translate(Vector3.forward* 20);
+        }
     }
 }
