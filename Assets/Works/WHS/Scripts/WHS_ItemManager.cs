@@ -17,6 +17,8 @@ public class WHS_ItemManager : MonoBehaviourPun
 
     [SerializeField] ItemPrefab[] itemPrefabs;
 
+    [SerializeField] GameObject chestPrefab;
+
     public static WHS_ItemManager Instance;
 
     private void Awake()
@@ -41,9 +43,11 @@ public class WHS_ItemManager : MonoBehaviourPun
             Vector3 spawnPos = new Vector3(Random.Range(0, 5), 1, Random.Range(0, 5));
             SpawnItem(spawnPos);
         }
+
+
     }
 
-    private void SpawnItem(Vector3 position)
+    public void SpawnItem(Vector3 position)
     {
         photonView.RPC(nameof(SpawnItemRPC), RpcTarget.MasterClient, position);
     }
