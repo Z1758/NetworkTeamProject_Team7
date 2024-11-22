@@ -323,6 +323,8 @@ public class PlayerController : MonoBehaviourPun
     }
     public void AniEnd()
     {
+        freezingCnt = 0;
+
         isFixed = false;
         ChangeState(PlayerState.Wait, false);
     }
@@ -490,17 +492,23 @@ public class PlayerController : MonoBehaviourPun
         model.HP -= damage;
     }
 
+    public int freezingCnt = 0;
+
     public void FreezingCheck()
     {
         if(curState != PlayerState.Wait)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Wait"))
             {
-
-                animator.SetFloat("Speed", model.AttackSpeed);
-                isFixed = false;
-                ChangeState(PlayerState.Wait, false);
+                freezingCnt++;
+                if (freezingCnt > 5)
+                {
+                    animator.SetFloat("Speed", model.AttackSpeed);
+                    isFixed = false;
+                    ChangeState(PlayerState.Wait, false);
+                }
             }
+            
         }
         
     }

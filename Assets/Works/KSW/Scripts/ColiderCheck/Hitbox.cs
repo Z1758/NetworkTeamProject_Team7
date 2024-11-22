@@ -133,13 +133,10 @@ public class Hitbox : MonoBehaviour
             Vector3 target = (hit.transform.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, target) < angle / 2)
             {
-                float distance = Vector3.Distance(transform.position, target);
+               //  float distance = Vector3.Distance(transform.position, target);
 
+               // Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
 
-
-                Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
-
-                Debug.Log(hit.name);
 
             }
             else

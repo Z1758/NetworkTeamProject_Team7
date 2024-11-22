@@ -130,6 +130,7 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             {
                 receiver.AOERayCast(colliderNum);
             }
+            // 범위 공격 준비
             if (animationType.HasFlag(AnimationType.AOE)&& animationType.HasFlag(AnimationType.EFFECT))
             {
                 receiver.AOERayCast(colliderNum, effectNum);

@@ -174,6 +174,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
             projectiles[colliderNum].transform.Translate(Vector3.forward * 20);
 
             aoeEffects[effectNum].transform.position = projectiles[colliderNum].transform.position;
+
         }
         aoeEffects[effectNum].gameObject.SetActive(true);
     }

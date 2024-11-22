@@ -58,8 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.669
-  animationType: 32
-  audioName: 
+  animationType: 40
+  audioName: Skill4Shot
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 2
@@ -184,6 +184,7 @@ AnimatorState:
   - {fileID: -634067015554952248}
   - {fileID: -4305389457293440650}
   - {fileID: 5990046663792299796}
+  - {fileID: 127481473169024610}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -267,8 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.08
-  animationType: 6
-  audioName: 
+  animationType: 14
+  audioName: DodgeSound
   commonAudio: 0
   moveVelocity: -15
   colliderNum: 0
@@ -314,6 +315,7 @@ AnimatorState:
   - {fileID: -4248066151381107846}
   - {fileID: 7265265098003230582}
   - {fileID: -8767556481782777479}
+  - {fileID: 1688311618573282649}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -545,14 +547,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: 
-  triggerTime: 0.411
-  animationType: 128
+  triggerTime: 0.103
+  animationType: 192
   audioName: 
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 1
   colliderActive: 0
-  effectNum: 0
+  effectNum: 1
   isLoop: 0
 --- !u!114 &-4248066151381107846
 MonoBehaviour:
@@ -932,8 +934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.058
-  animationType: 64
-  audioName: 
+  animationType: 72
+  audioName: Skill3Cast
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
@@ -1053,6 +1055,28 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &127481473169024610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.645
+  animationType: 8
+  audioName: Skill3Shot
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
 --- !u!1101 &641990048799416348
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1150,6 +1174,28 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &1688311618573282649
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.657
+  animationType: 8
+  audioName: Skill4
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
 --- !u!1101 &1792957174398270760
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1267,8 +1313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.188
-  animationType: 65
-  audioName: 
+  animationType: 73
+  audioName: Skill1Shot
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
@@ -1291,6 +1337,28 @@ MonoBehaviour:
   triggerTime: 0.286
   animationType: 1
   audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+--- !u!114 &2799337582746350301
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.081
+  animationType: 8
+  audioName: Skill1
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
@@ -1430,8 +1498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.091
-  animationType: 69
-  audioName: 
+  animationType: 77
+  audioName: Skill2
   commonAudio: 0
   moveVelocity: -13
   colliderNum: 1
@@ -1528,8 +1596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.645
-  animationType: 32
-  audioName: 
+  animationType: 40
+  audioName: Skill3
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 1
@@ -1575,8 +1643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffAtk
   triggerTime: 0.149
-  animationType: 1
-  audioName: 
+  animationType: 9
+  audioName: Skill2Shot
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 1
@@ -1600,6 +1668,7 @@ AnimatorState:
   - {fileID: -3514995523872733709}
   - {fileID: 2462722603665532594}
   - {fileID: 2735643945558627471}
+  - {fileID: 2799337582746350301}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1709,8 +1778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.16
-  animationType: 192
-  audioName: 
+  animationType: 200
+  audioName: Skill4Cast
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 2
@@ -1731,8 +1800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.349
-  animationType: 32
-  audioName: 
+  animationType: 40
+  audioName: Atk1Cast
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0

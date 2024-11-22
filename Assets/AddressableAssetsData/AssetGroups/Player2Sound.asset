@@ -17,14 +17,56 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 44dd70ad6bfe85a4691d66625f8960f8
   m_SerializeEntries:
+  - m_GUID: 105ee390c884b494e851bae0a0cbbe18
+    m_Address: Player2/Skill3Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b61950729c40c41a2e63c047f1a952
+    m_Address: Player2//Skill4Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 220f0f8d0e701424da244cda9c3e4bb5
     m_Address: Player2/Atk1Hit
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3021bbdd0900adc4e81d949331e52d02
+    m_Address: Player2/Skill3Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5152704e7e4cfb444b59777002440cfa
+    m_Address: Player2/Skill4Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d4cf46bb73ec4d4c82be9952320d785
+    m_Address: Player2/Skill1Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94379f41a2e950545b75c884ac5edaec
     m_Address: Player2/Atk1Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cae95a635bd14e346ad121a6c1844848
+    m_Address: Player2/Skill2Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbd990888165f16448169d9ecd4acfb1
+    m_Address: Player2/DodgeSound
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Sound
