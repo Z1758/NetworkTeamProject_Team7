@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Pun.Demo.Cockpit;
+using static UnityEditor.Progress;
 
 public class WHS_ItemManager : MonoBehaviourPun
 {
@@ -59,23 +60,38 @@ public class WHS_ItemManager : MonoBehaviourPun
         GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position, rotation);
         WHS_Item item = itemObj.GetComponent<WHS_Item>();
 
-        item.type = selectedItem.type;
-        item.value = 200;
+        photonView.RPC(nameof(SetItemValue), RpcTarget.MasterClient, item.photonView.ViewID, (int)selectedItem.type);
+    }
+
+    [PunRPC]
+    private void SetItemValue(int itemViewID, int itemType)
+    {
+        PhotonView itemPV = PhotonView.Find(itemViewID);
+        if (itemPV != null)
+        {
+            WHS_Item item = itemPV.GetComponent<WHS_Item>();
+
+            item.type = (ItemType)itemType;
+        }
     }
 
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
-        photonView.RPC(nameof(ApplyItemRPC), RpcTarget.AllViaServer, statusModel.photonView.ViewID, item.type, item.value);
-        PhotonNetwork.Destroy(item.gameObject);
+        if (photonView != null && photonView.ViewID != 0)
+        {
+            photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, (int)item.type, item.value);
+        }
     }
 
     [PunRPC]
-    public void ApplyItemRPC(int viewID, ItemType itemType, float itemValue)
+    public void ApplyItemRPC(int playerViewID, int itemTypeIndex, float itemValue)
     {
-        PhotonView pv = PhotonView.Find(viewID);
-        StatusModel statusModel = pv.GetComponent<StatusModel>();
+        ItemType itemType = (ItemType)itemTypeIndex;
+        PhotonView playerPV = PhotonView.Find(playerViewID);
 
-        if (statusModel != null && pv.IsMine)
+        StatusModel statusModel = playerPV.GetComponent<StatusModel>();
+
+        if (statusModel != null && playerPV.IsMine)
         {
             switch (itemType)
             {
