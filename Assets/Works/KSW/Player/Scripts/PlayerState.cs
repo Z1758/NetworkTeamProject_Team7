@@ -105,7 +105,7 @@ public class AttackState : State
     public override void EnterState()
     {
 
-       
+        controller.ImmediateRotate();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Atk], true);
 
 
@@ -143,7 +143,7 @@ public class SkillState : State
 
     public override void EnterState()
     {
-
+        controller.ImmediateRotate();
         controller.model.SetCurrentSkillCoolTime(controller.skillNumber, controller.model.SkillCoolTime[controller.skillNumber]);
         controller.animator.SetBool(controller.skillNumberHash, true);
 
@@ -216,6 +216,7 @@ public class DodgeState : State
 
     public override void EnterState()
     {
+        controller.ImmediateRotate();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], true);
         controller.model.Stamina -= controller.model.ConsumStamina;
 

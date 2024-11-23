@@ -346,7 +346,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         if (clip != null)
             audioSource.PlayOneShot(clip);
-        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
+      //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
+        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage);
     }
     [PunRPC]
     public void TakeDamageRPC(float damage)
@@ -361,12 +362,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         if (model.HP <= 0)
         {
-
             animator.Play("Death");
             PatternReset();
             isDie = true;
             gameObject.layer = (int)LayerEnum.DISABLE_BOX;
-           
+
+            rigid.velocity = Vector3.zero;
         }
 
     }

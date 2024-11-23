@@ -9,7 +9,8 @@ public enum HitboxType
 
     DOWN_ATTACK = 1 << 0,
     NOT_FRICTION_ATTACK = 1 << 1,
-    FOV_ATTACK = 1 << 2
+    FOV_ATTACK = 1 << 2,
+    ONCE_HIT = 1 << 3
 }
 
 
@@ -114,7 +115,13 @@ public class Hitbox : MonoBehaviour
 
     public float GetAtk()
     {
-        return model.Attack;
+        if (hitboxType.HasFlag(HitboxType.ONCE_HIT))
+        {
+            ChangeLayer();
+        }
+
+
+            return model.Attack;
     }
     public bool GetDown()
     {

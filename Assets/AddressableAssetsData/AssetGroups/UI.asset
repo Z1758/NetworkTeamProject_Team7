@@ -17,8 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 709f3f76de8a73b44b768f092eb15ab9
   m_SerializeEntries:
+  - m_GUID: 1aa300d0189e77b46b4a8c5cb3a06ae1
+    m_Address: UI/Player3Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f7672b60390aa74686e0a10e87e7c3f
     m_Address: UI/Player1Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fcf095d65cb67b479394496c3a1e453
+    m_Address: UI/Player3Skill3
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
@@ -47,6 +59,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 892ddc4330a424c4cbb35b646aeccb52
+    m_Address: UI/Player3Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a220b7af0ae3694d8c93afd5e7a592e
     m_Address: UI/Player1Skill2
     m_ReadOnly: 0
@@ -61,6 +79,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e47223f6213108a45b231150784aa67d
     m_Address: UI/Player2Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1fef02884e326d4d8992d1a80790864
+    m_Address: UI/Player3Skill2
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
