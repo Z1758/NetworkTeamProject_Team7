@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster2Voice
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster2Voice
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2baf305de9bb58848ada437184fa28e8
+  m_SerializeEntries:
+  - m_GUID: 14e2f94d65af96d478069ac416a4ceb4
+    m_Address: Monster2/Death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58485f15aa83f214885c40757fd28de2
+    m_Address: Monster2/Run
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d37718bf512fc2242abced235b5758ce
+    m_Address: Monster2/Ready
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: dc590f86c7b19614db208078faf0e673, type: 2}
+    - {fileID: 11400000, guid: 475ccaff7fca3934a8ebf892760abc38, type: 2}

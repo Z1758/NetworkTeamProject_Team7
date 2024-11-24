@@ -17,10 +17,11 @@ public enum HitboxType
 
 public class Hitbox : MonoBehaviour
 {
-    // 역경직 테스트
+    [Header("필수 컴포넌트")]
     [SerializeField] Animator animator;
-
     [SerializeField] StatusModel model;
+
+
     [SerializeField] HitboxType hitboxType;
    
     [SerializeField] GameObject effectPrefab;
@@ -28,10 +29,11 @@ public class Hitbox : MonoBehaviour
     [SerializeField] AudioClip hitSound;
     [SerializeField] string soundName;
 
+    [Header("FOV")]
     [SerializeField] public float radius;
     [SerializeField] public float angle;
 
-
+    //역경직 시간
     WaitForSeconds atkSlow = new WaitForSeconds(0.2f);
 
     private void Awake()

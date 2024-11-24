@@ -149,9 +149,11 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     public void AOERayCast(int colliderNum)
     {
- 
+
+      
+
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f, aoeRayMask))
+        if (Physics.Raycast(transform.position + Vector3.up*2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
             if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
@@ -171,16 +173,17 @@ public class AnimationEventReceiver : MonoBehaviourPun
         else
         {
             projectiles[colliderNum].transform.position = transform.position;
-            projectiles[colliderNum].transform.rotation = transform.parent.rotation;
+            projectiles[colliderNum].transform.rotation = objectTransform.rotation;
             projectiles[colliderNum].transform.Translate(Vector3.forward* 20);
         }
   
     }
+    // 시전, 범위 표시용
     public void AOERayCast(int colliderNum, int effectNum)
     {
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up * 2, transform.parent.forward, out hit, 20f, aoeRayMask))
+        if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
             if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
@@ -201,7 +204,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
         else
         {
             projectiles[colliderNum].transform.position = transform.position;
-            projectiles[colliderNum].transform.rotation = transform.parent.rotation;
+            projectiles[colliderNum].transform.rotation = objectTransform.rotation;
             projectiles[colliderNum].transform.Translate(Vector3.forward * 20);
 
             aoeEffects[effectNum].transform.position = projectiles[colliderNum].transform.position;

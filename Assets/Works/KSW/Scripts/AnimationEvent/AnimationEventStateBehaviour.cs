@@ -21,20 +21,29 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 {
     public string eventName;
 
+
     [Range(0f, 1f)] public float triggerTime;
 
+    [Header("애니메이션 타입")]
     [SerializeField] AnimationType animationType;
     bool hasTriggered;
     bool hasLoopTriggered;
-  
-    public string audioName;
-    public bool commonAudio;
 
+    [Header("사운드 이름")]
+    public string audioName;
+    [Header("일반 사운드 체크")]
+    public bool commonAudio;
+    [Header("움직임 거리")]
     public float moveVelocity;
+    [Header("히트박스 배열 번호")]
     public int colliderNum;
+    [Header("히트 박스 활성화 체크")]
     public bool colliderActive;
+    [Header("이펙트 배열 번호")]
     public int effectNum;
+    [Header("반복 애니메이션 체크")]
     public bool isLoop;
+    [Header("카메라 흔들림 시간")]
     public float shakeTime;
 
     AnimationEventReceiver receiver;

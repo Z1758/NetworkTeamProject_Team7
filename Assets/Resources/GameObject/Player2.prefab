@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337467590586216505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.78, z: 1.87}
+  m_LocalPosition: {x: 0, y: 2.49, z: 1.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -597,18 +597,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 6120082010212651789}
   objectTransform: {fileID: 625097572905212261}
-  hitboxLayerEnum: 10
-  hurtboxLayerEnum: 11
   audioSource: {fileID: 8134251120529341670}
   rigid: {fileID: 2582555723844075761}
-  projectiles:
-  - {fileID: 1430589723203537788}
-  - {fileID: 5685522371089258708}
-  - {fileID: 6109295963009094397}
   hitboxes:
   - {fileID: 975883602}
   - {fileID: 40066518991079196}
   hurtbox: {fileID: 1589576053224297187}
+  projectiles:
+  - {fileID: 1430589723203537788}
+  - {fileID: 5685522371089258708}
+  - {fileID: 6109295963009094397}
   effects:
   - {fileID: 198523390736915052}
   - {fileID: 8686644840457936241}
@@ -616,6 +614,11 @@ MonoBehaviour:
   aoeEffects:
   - {fileID: 7144219057285198016}
   - {fileID: 4562489847271832346}
+  aoeRayMask:
+    serializedVersion: 2
+    m_Bits: 536871424
+  hitboxLayerEnum: 10
+  hurtboxLayerEnum: 11
   animationEvents:
   - eventName: EndAni
     OnAnimationEvent:
@@ -745,9 +748,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  aoeRayMask:
-    serializedVersion: 2
-    m_Bits: 536871424
 --- !u!114 &6964971408786309671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &6715444663763485960
 MonoBehaviour:
@@ -912,6 +912,7 @@ MonoBehaviour:
   speed: 30
   returnTime: 1
   isAOE: 0
+  hasParent: 0
 --- !u!1 &1589576053224297187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1277,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &348197235726754232
 MonoBehaviour:
@@ -1304,6 +1305,7 @@ MonoBehaviour:
   speed: 0
   returnTime: 2
   isAOE: 1
+  hasParent: 0
 --- !u!135 &7653172765985294488
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1366,7 +1368,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &284749337969793503
 MonoBehaviour:
@@ -1394,6 +1396,7 @@ MonoBehaviour:
   speed: 0
   returnTime: 2
   isAOE: 1
+  hasParent: 0
 --- !u!135 &5125498034197596656
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -388,16 +388,23 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         if (model.HP <= 0)
         {
-            animator.Play("Death");
-            PatternReset();
-            isDie = true;
-            gameObject.layer = (int)LayerEnum.DISABLE_BOX;
-
-            rigid.velocity = Vector3.zero;
+            Dying();
         }
 
     }
 
+
+    private void Dying()
+    {
+        animator.speed = 1.0f;
+        animator.Play("Death");
+        PatternReset();
+        isDie = true;
+        gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+
+        rigid.velocity = Vector3.zero;
+       
+    }
 
     public void Furious()
     {

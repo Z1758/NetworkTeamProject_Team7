@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class Projectile : Hitbox
 {
+    [Header("투사체")]
     [SerializeField] Transform projectilePoint;
     [SerializeField] Rigidbody rigid;
+
+   
     [SerializeField] float speed;
     [SerializeField] float returnTime;
+
+    [Header("범위 공격 체크")]
     [SerializeField] bool isAOE;
+    [SerializeField] bool hasParent;
+
 
     WaitForSeconds returnTimeWFS;
     Coroutine returnTimeCoroutine;
@@ -30,6 +37,7 @@ public class Projectile : Hitbox
     }
     private void Start()
     {
+        if(!hasParent)
         transform.SetParent(null);
     }
 
