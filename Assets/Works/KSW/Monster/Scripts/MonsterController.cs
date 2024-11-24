@@ -25,7 +25,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [Header("상태")]
     [SerializeField] bool isFixed;
     [SerializeField] bool isMoveAni;
+
     [SerializeField] bool isDie;
+    [SerializeField] bool isFurious;
 
     [Header("동기화")]
     [SerializeField] float lag;
@@ -39,13 +41,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [SerializeField] MonsterPattern[] patterns;
     [SerializeField] int nextPattern;
 
-    [Header("애니메이션 해싱")]
-    int[] animtionHash;
-    [SerializeField] int[] animatorParameterHash;
+    [Header("광폭화 마테리얼")]
+    [SerializeField] SkinnedMeshRenderer furiousRenderer;
 
-    [SerializeField] int runParameterHash;
-    [SerializeField] int waitParameterHash;
-    [SerializeField] int atkEndParameterHash;
+
+    //   [Header("애니메이션 해싱")]
+    int[] animtionHash;
+    int[] animatorParameterHash;
+
+    int runParameterHash;
+    int waitParameterHash;
+    int atkEndParameterHash;
 
     // 코루틴 캐싱
     WaitForSeconds cooldown = new WaitForSeconds(0.5f);
@@ -55,13 +61,27 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Awake()
     {
+        SetComponent();
+
+        FindPlayers();
+
+        SetAniHash();
+
+
+        animator.speed = model.AttackSpeed;
+    }
+
+    private void SetComponent()
+    {
         animator = GetComponent<Animator>();
         pc_s = new List<PlayerController>();
         rigid = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         model = GetComponent<StatusModel>();
-        FindPlayers();
+    }
 
+    private void SetAniHash()
+    {
         animtionHash = new int[patterns.Length];
         animatorParameterHash = new int[patterns.Length];
         for (int i = 0; i < patterns.Length; i++)
@@ -91,9 +111,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             }
 
         }
-
-
-        animator.speed = model.AttackSpeed;
     }
 
     public void FindPlayers()
@@ -145,6 +162,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine == false)
             StartCoroutine(CheckAniLag());
 
+    
+
     }
 
     private void Update()
@@ -165,9 +184,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             yield return lagWFS;
 
-
-
-
             if (Mathf.Abs(lag) > 0.5f)
             {
 
@@ -184,11 +200,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
                 }
 
-
-
             }
-
-
 
 
         }
@@ -196,11 +208,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void SetAniTime()
     {
-
-
-
-
-
 
         if (photonView.IsMine == false)
         {
@@ -212,14 +219,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         lag = 0;
         aniStateTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-
-
-
     }
 
     public void TraceMonster()
     {
-
+        
         if (isFixed)
         {
             if (isMoveAni)
@@ -230,9 +234,20 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             return;
         }
 
+        // 광폭화 시작
+        if (model.HP <= model.MaxHP * 0.5 && isFurious == false)
+        {
+            Furious();
+            return;
+        }
+
+        // 소유권자가 아니면 리턴
         if (photonView.IsMine == false)
             return;
 
+      
+
+        // 타겟 찾기
         if (target == null)
         {
             FindPlayers();
@@ -240,7 +255,25 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         }
 
 
+        // 범위 체크
+        if (MonsterCheckRange())
+        {
+            return;
+        }
+        // 몬스터 이동
+        MonsterMove();
+    }
 
+    private void MonsterMove()
+    {
+        animator.SetBool(runParameterHash, true);
+        animator.SetBool(waitParameterHash, false);
+        transform.LookAt(target);
+        rigid.velocity = transform.forward * model.MoveSpeed;
+    }
+
+    private bool MonsterCheckRange()
+    {     
         if ((target.position - transform.position).sqrMagnitude < patterns[nextPattern].range)
         {
             rigid.velocity = Vector3.zero;
@@ -250,17 +283,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             animator.SetBool(waitParameterHash, true);
             MonsterAttack();
 
-            return;
+            return true;
         }
-
-
-        animator.SetBool(runParameterHash, true);
-        animator.SetBool(waitParameterHash, false);
-
-        transform.LookAt(target);
-
-        rigid.velocity = transform.forward * model.MoveSpeed;
-
+        return false;
     }
 
     public void MonsterAttack()
@@ -302,7 +327,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator.SetBool(atkEndParameterHash, true);
 
         TargetChange();
-        Debug.Log("패턴 끝");
     }
 
 
@@ -348,7 +372,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         if (clip != null)
             audioSource.PlayOneShot(clip);
-      //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
+        //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage);
     }
     [PunRPC]
@@ -372,5 +396,23 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             rigid.velocity = Vector3.zero;
         }
 
+    }
+
+
+    public void Furious()
+    {
+        foreach(Material mat in furiousRenderer.materials)
+        {
+            mat.EnableKeyword("_EMISSION");
+        }
+   
+        isFixed = true;
+        isFurious = true;
+        rigid.velocity = Vector3.zero;
+        animator.Play("Furious");
+
+        model.AttackSpeed += 0.2f;
+        model.MoveSpeed += model.MoveSpeed * 0.3f;
+        animator.speed = model.AttackSpeed;
     }
 }

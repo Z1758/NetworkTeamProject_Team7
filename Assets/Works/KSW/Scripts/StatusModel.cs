@@ -45,8 +45,8 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public float RecoveryStaminaMag { get { return recoveryStaminaMag; } }
 
     public float Attack { get { return attack; } }
-    public float AttackSpeed { get { return attackSpeed; } }
-    public float MoveSpeed { get { return moveSpeed; } }
+    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
 
     public float[] SkillCoolTime{ get { return skillCoolTime; } }
     public void SetCurrentSkillCoolTime(int num, float value)
