@@ -12,15 +12,24 @@ public class PlayerCamera : MonoBehaviour
 
 
     [SerializeField] Vector3 offset;
- 
-    [SerializeField] float smoothTime;
+
+
   
+
 
     private Vector2 mouseDelta;
 
     public float rotateSpeed;
 
+    // Ä«¸Þ¶ó ÁÜ
+    List<Collider> wallCols = new List<Collider>();
+    Vector3 mainCameraOffSet;
+    Vector3 zoomOffSet;
 
+    [Header("È­¸é Èçµé¸²")]
+    [SerializeField] bool isShake;
+    Coroutine shakeRoutine;
+    float shakeTime;
 
     void Awake()
     {
@@ -35,7 +44,10 @@ public class PlayerCamera : MonoBehaviour
         offset = transform.position - target.position;
         offset.x = 0;
         offset.z = 0;
-  
+
+        mainCameraOffSet = mainCamera.localPosition;
+        zoomOffSet = mainCameraOffSet +  new Vector3(0, -1, 4f);
+
     }
 
     public void LookAround(InputAction.CallbackContext value)
@@ -69,16 +81,32 @@ public class PlayerCamera : MonoBehaviour
         pc.InputDir();
     }
 
-    [Header("È­¸é Èçµé¸²")]
-    [SerializeField] bool isShake;
-    Coroutine shakeRoutine;
-    float shakeTime;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        wallCols.Add(other);
+        mainCamera.localPosition = zoomOffSet;
+        
+       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        wallCols.Remove(other);
+
+        if(wallCols.Count == 0 ) 
+            mainCamera.localPosition = mainCameraOffSet;
+    }
 
     private void Update()
     {
         
         if (target == null)
             return;
+
+
+       
+
         //È­¸é Èçµé¸²
         if (isShake)
         {
@@ -89,7 +117,10 @@ public class PlayerCamera : MonoBehaviour
             transform.position = target.position + offset ;
         }
 
+       
     }
+
+
 
     private void Shake()
     {
@@ -126,5 +157,7 @@ public class PlayerCamera : MonoBehaviour
 
         isShake = false;
     }
+
+
 
 }

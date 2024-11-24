@@ -333,10 +333,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 8134251120529341670}
   inputSystem: {fileID: 2837830095976972728}
-  projectiles:
-  - {fileID: 6715444663763485960}
-  - {fileID: 348197235726754232}
-  - {fileID: 284749337969793503}
   freezingCnt: 0
   dodgeFreezingCnt: 0
 --- !u!54 &2582555723844075761
@@ -616,7 +612,7 @@ MonoBehaviour:
   - {fileID: 4562489847271832346}
   aoeRayMask:
     serializedVersion: 2
-    m_Bits: 536871424
+    m_Bits: 805306880
   hitboxLayerEnum: 10
   hurtboxLayerEnum: 11
   animationEvents:

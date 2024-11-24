@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 1077324688}
   - component: {fileID: 1641774034918779575}
   m_Layer: 3
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,8 +161,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 7079407250204562785}
   inputSystem: {fileID: 1641774034918779575}
-  projectiles:
-  - {fileID: 951795956697150902}
   freezingCnt: 0
   dodgeFreezingCnt: 0
 --- !u!54 &928105611069765242
@@ -701,6 +699,7 @@ MonoBehaviour:
   speed: 30
   returnTime: 1
   isAOE: 0
+  hasParent: 0
 --- !u!1 &8141413067438298525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,24 +4768,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1077324688}
   objectTransform: {fileID: 335190678564926517}
-  hitboxLayerEnum: 10
-  hurtboxLayerEnum: 11
   audioSource: {fileID: 7079407250204562785}
   rigid: {fileID: 928105611069765242}
-  projectiles:
-  - {fileID: 8073702547691476682}
   hitboxes:
   - {fileID: 178681891}
   - {fileID: 8345209956745775174}
   - {fileID: 3696199357948740141}
   - {fileID: 636107834109372405}
   hurtbox: {fileID: 6389341127001229001}
+  projectiles:
+  - {fileID: 8073702547691476682}
   effects:
   - {fileID: 5539208365862259779}
   - {fileID: 0}
   - {fileID: 3966896713418610675}
   - {fileID: 502480107596525036}
   aoeEffects: []
+  aoeRayMask:
+    serializedVersion: 2
+    m_Bits: 805306880
+  hitboxLayerEnum: 10
+  hurtboxLayerEnum: 11
   animationEvents:
   - eventName: EndAni
     OnAnimationEvent:
@@ -4916,9 +4918,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  aoeRayMask:
-    serializedVersion: 2
-    m_Bits: 536871424
 --- !u!114 &8158452268532631919
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -525,7 +525,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 410365189}
   inputSystem: {fileID: 3086220390598684005}
-  projectiles: []
   freezingCnt: 0
   dodgeFreezingCnt: 0
 --- !u!54 &3530258004792619432
@@ -3932,7 +3931,7 @@ MonoBehaviour:
   aoeEffects: []
   aoeRayMask:
     serializedVersion: 2
-    m_Bits: 536871424
+    m_Bits: 805306880
   hitboxLayerEnum: 10
   hurtboxLayerEnum: 11
   animationEvents:

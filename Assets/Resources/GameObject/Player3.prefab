@@ -1389,11 +1389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 4477423199602759413}
   objectTransform: {fileID: 4217012507161561424}
-  hitboxLayerEnum: 10
-  hurtboxLayerEnum: 11
   audioSource: {fileID: 5441437242760826938}
   rigid: {fileID: 3657568929032751903}
-  projectiles: []
   hitboxes:
   - {fileID: 1900771700}
   - {fileID: 1000105281}
@@ -1407,12 +1404,18 @@ MonoBehaviour:
   - {fileID: 765729761269417288}
   - {fileID: 6246946589874303601}
   hurtbox: {fileID: 7388295145158818732}
+  projectiles: []
   effects:
   - {fileID: 34811856869925063}
   - {fileID: 8588972505633054789}
   - {fileID: 34218619198425509}
   - {fileID: 34793978313798274}
   aoeEffects: []
+  aoeRayMask:
+    serializedVersion: 2
+    m_Bits: 805306880
+  hitboxLayerEnum: 10
+  hurtboxLayerEnum: 11
   animationEvents:
   - eventName: EndAni
     OnAnimationEvent:
@@ -1542,9 +1545,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  aoeRayMask:
-    serializedVersion: 2
-    m_Bits: 536871424
 --- !u!114 &1641332644405525370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,7 +2971,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 5441437242760826938}
   inputSystem: {fileID: 2948661918679160786}
-  projectiles: []
   freezingCnt: 0
   dodgeFreezingCnt: 0
 --- !u!54 &3657568929032751903

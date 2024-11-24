@@ -71,19 +71,16 @@ public class Projectile : Hitbox
         DisableProjectile();
     }
 
+    
     private void DisableProjectile()
     {
-        
         rigid.velocity = Vector3.zero;
 
-       
+
         gameObject.SetActive(false);
     }
 
-    public void ActiveLayer()
-    {
-        gameObject.layer = (int)LayerEnum.PLAYER_PROJECTILE;
-    }
+
 
     private void OnDisable()
     {

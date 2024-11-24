@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -15,7 +16,7 @@ public enum HitboxType
 
 
 
-public class Hitbox : MonoBehaviour
+public class Hitbox : MonoBehaviourPun
 {
     [Header("필수 컴포넌트")]
     [SerializeField] Animator animator;

@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: -5479571804796904941}
   - component: {fileID: 5612456238972113234}
   m_Layer: 7
-  m_Name: Boss
+  m_Name: Boss1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   aoeEffects: []
   aoeRayMask:
     serializedVersion: 2
-    m_Bits: 536872960
+    m_Bits: 805308416
   hitboxLayerEnum: 8
   hurtboxLayerEnum: 9
   animationEvents:

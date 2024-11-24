@@ -9,7 +9,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
 {
     [Header("필수 컴포넌트")]
     [SerializeField] StatusModel model;
-  
+
     [SerializeField] Transform objectTransform;
     [SerializeField] AudioSource audioSource;
 
@@ -58,6 +58,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     private void Start()
     {
         SetCamera();
+        SetProjectileLayer();
     }
 
     private void SetCamera()
@@ -75,7 +76,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     public void OnAnimationEventTriggered(string eventName)
     {
-      
+
         AnimationEvent matchingEvent = animationEvents.Find(se => se.eventName == eventName);
 
         matchingEvent?.OnAnimationEvent?.Invoke();
@@ -119,6 +120,36 @@ public class AnimationEventReceiver : MonoBehaviourPun
         }
     }
 
+    private void SetProjectileLayer()
+    {
+
+        for (int i = 0; i < projectiles.Length; i++)
+        {
+            if (!photonView.IsMine)
+            {
+                if (model.ModelType == ModelType.PLAYER)
+                {
+                    projectiles[i].layer = (int)LayerEnum.OTHER_CLIENT_PLAYER_COLLIDER;
+                }
+                else if (model.ModelType == ModelType.ENEMY)
+                {
+                    projectiles[i].layer = (int)LayerEnum.OTHER_CLIENT_MONSTER_COLLIDER;
+                }
+            }
+            else
+            {
+                if (model.ModelType == ModelType.PLAYER)
+                {
+                    projectiles[i].layer = (int)LayerEnum.PLAYER_PROJECTILE;
+                }
+                else if (model.ModelType == ModelType.ENEMY)
+                {
+                    projectiles[i].layer = (int)LayerEnum.MONSTER_PROJECTILE;
+                }
+            }
+        }
+    }
+
     public void PlaySound(string str)
     {
         AudioClip clip = null;
@@ -136,7 +167,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     public void PlayCommonSound(string str)
     {
         AudioClip clip = null;
-        clip = AudioManager.GetInstance().GetCommonSoundDic( str);
+        clip = AudioManager.GetInstance().GetCommonSoundDic(str);
         audioSource.PlayOneShot(clip);
     }
 
@@ -144,16 +175,16 @@ public class AnimationEventReceiver : MonoBehaviourPun
     {
         effects[num].gameObject.SetActive(true);
         effects[num].Play();
-     //   effects[num].SetActive(true);
+        //   effects[num].SetActive(true);
     }
 
     public void AOERayCast(int colliderNum)
     {
 
-      
+
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up*2, objectTransform.forward, out hit, 20f, aoeRayMask))
+        if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
             if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
@@ -162,9 +193,9 @@ public class AnimationEventReceiver : MonoBehaviourPun
             }
             else
             {
-              
-              
-               vec = hit.point;
+
+
+                vec = hit.point;
             }
 
             vec.y = 0;
@@ -174,9 +205,9 @@ public class AnimationEventReceiver : MonoBehaviourPun
         {
             projectiles[colliderNum].transform.position = transform.position;
             projectiles[colliderNum].transform.rotation = objectTransform.rotation;
-            projectiles[colliderNum].transform.Translate(Vector3.forward* 20);
+            projectiles[colliderNum].transform.Translate(Vector3.forward * 20);
         }
-  
+
     }
     // 시전, 범위 표시용
     public void AOERayCast(int colliderNum, int effectNum)
@@ -212,7 +243,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
         }
         aoeEffects[effectNum].gameObject.SetActive(true);
     }
- 
+
     public void ShakeCamera(float time)
     {
         playerCamera.StartShake(time);
