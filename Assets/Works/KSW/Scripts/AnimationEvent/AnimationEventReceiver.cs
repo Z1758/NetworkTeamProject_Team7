@@ -7,36 +7,67 @@ using UnityEngine;
 
 public class AnimationEventReceiver : MonoBehaviourPun
 {
+    [Header("필수 컴포넌트")]
     [SerializeField] StatusModel model;
   
     [SerializeField] Transform objectTransform;
+    [SerializeField] AudioSource audioSource;
 
+    [SerializeField] Rigidbody rigid;
+    PlayerCamera playerCamera;
+
+
+    [Header("히트 박스")]
+    [SerializeField] GameObject[] hitboxes;
+    [Header("피격 박스")]
+    [SerializeField] GameObject hurtbox;
+    [Header("투사체")]
+    [SerializeField] GameObject[] projectiles;
+    [Header("이펙트")]
+    [SerializeField] ParticleSystem[] effects;
+    [Header("범위 이펙트")]
+    [SerializeField] ParticleSystem[] aoeEffects;
+
+    [Header("범위 체크 마스크")]
+    [SerializeField] LayerMask aoeRayMask;
+
+    [Header("히트박스 레이어")]
     [SerializeField] LayerEnum hitboxLayerEnum;
     [SerializeField] LayerEnum hurtboxLayerEnum;
     //  [SerializeField] LayerMask hitboxLayerMask;
 
-
+    // 히트박스 레이어
     int hitboxLayer;
-    int hurtboxLayer ;
+    int hurtboxLayer;
     int colliderDisableLayer = (int)LayerEnum.DISABLE_BOX;
 
 
-    [SerializeField] AudioSource audioSource;
 
-    [SerializeField] Rigidbody rigid;
-
-    [SerializeField] GameObject[] projectiles;
-    [SerializeField] GameObject[] hitboxes;
-    [SerializeField] GameObject hurtbox;
-    [SerializeField] ParticleSystem[] effects;
-    [SerializeField] ParticleSystem[] aoeEffects;
+    [Header("애니메이션 이벤트")]
     [SerializeField] List<AnimationEvent> animationEvents = new();
-    [SerializeField] LayerMask aoeRayMask;
+
 
     private void Awake()
     {
         //  hitboxLayer = Mathf.RoundToInt(Mathf.Log(hitboxLayerMask.value, 2));
-      
+        InitReceiver();
+
+
+    }
+
+    private void Start()
+    {
+        SetCamera();
+    }
+
+    private void SetCamera()
+    {
+        playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
+
+    }
+
+    private void InitReceiver()
+    {
         audioSource = GetComponent<AudioSource>();
         hitboxLayer = (int)hitboxLayerEnum;
         hurtboxLayer = (int)hurtboxLayerEnum;
@@ -179,4 +210,8 @@ public class AnimationEventReceiver : MonoBehaviourPun
         aoeEffects[effectNum].gameObject.SetActive(true);
     }
  
+    public void ShakeCamera(float time)
+    {
+        playerCamera.StartShake(time);
+    }
 }

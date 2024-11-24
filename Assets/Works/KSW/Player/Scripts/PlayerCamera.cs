@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static MirzaBeig.ParticleSystems.Demos.CameraShake;
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] public PlayerController pc;
@@ -68,15 +69,62 @@ public class PlayerCamera : MonoBehaviour
         pc.InputDir();
     }
 
+    [Header("È­¸é Èçµé¸²")]
+    [SerializeField] bool isShake;
+    Coroutine shakeRoutine;
+    float shakeTime;
 
     private void Update()
     {
         
         if (target == null)
             return;
-        transform.position = target.position + offset;
+        //È­¸é Èçµé¸²
+        if (isShake)
+        {
+            Shake();
+        }
+        else
+        {
+            transform.position = target.position + offset ;
+        }
 
+    }
 
+    private void Shake()
+    {
+
+        float ranX = Random.Range(-0.05f, 0.05f);
+        float ranY = Random.Range(-0.05f, 0.05f);
+        float ranZ = Random.Range(-0.05f, 0.05f);
+        Vector3 shake = new Vector3(ranX, ranY, ranZ);
+
+        transform.position = target.position + offset + shake;
+    }
+
+    public void StartShake(float time)
+    {
+        isShake = true;
+        shakeTime = time;
+        if (shakeRoutine  != null)
+        {
+            StopCoroutine(shakeRoutine);
+        }
+        shakeRoutine = StartCoroutine(ShakeTime());
+    }
+
+  
+
+    IEnumerator ShakeTime()
+    {
+        while (shakeTime > 0)
+        {
+            shakeTime -= Time.deltaTime;
+            yield return null;
+
+        }
+
+        isShake = false;
     }
 
 }

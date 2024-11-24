@@ -13,6 +13,7 @@ public class MonsterPattern
 
 public class MonsterController : MonoBehaviourPun, IPunObservable
 {
+    [Header("필수 컴포넌트")]
     [SerializeField] Animator animator;
     [SerializeField] List<PlayerController> pc_s;
     [SerializeField] Rigidbody rigid;
@@ -20,24 +21,25 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     [SerializeField] StatusModel model;
 
-    [SerializeField] public float atk;
-    [SerializeField] float speed;
-    [SerializeField] float range;
 
+    [Header("상태")]
     [SerializeField] bool isFixed;
     [SerializeField] bool isMoveAni;
-    [SerializeField] bool isDie; 
+    [SerializeField] bool isDie;
 
+    [Header("동기화")]
     [SerializeField] float lag;
     [SerializeField] float time;
     [SerializeField] float aniStateTime;
 
+    // 타겟
     Transform target;
 
+    [Header("몬스터 패턴")]
     [SerializeField] MonsterPattern[] patterns;
     [SerializeField] int nextPattern;
 
-
+    [Header("애니메이션 해싱")]
     int[] animtionHash;
     [SerializeField] int[] animatorParameterHash;
 
@@ -45,7 +47,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [SerializeField] int waitParameterHash;
     [SerializeField] int atkEndParameterHash;
 
-
+    // 코루틴 캐싱
     WaitForSeconds cooldown = new WaitForSeconds(0.5f);
     Coroutine cooldownCoroutine;
 
@@ -257,7 +259,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         transform.LookAt(target);
 
-        rigid.velocity = transform.forward * speed;
+        rigid.velocity = transform.forward * model.MoveSpeed;
 
     }
 

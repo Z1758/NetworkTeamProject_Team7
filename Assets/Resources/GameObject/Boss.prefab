@@ -515,9 +515,6 @@ MonoBehaviour:
   rigid: {fileID: -2810973816032400335}
   audioSource: {fileID: 0}
   model: {fileID: 5612456238972113234}
-  atk: 50
-  speed: 10
-  range: 50
   isFixed: 0
   isMoveAni: 0
   isDie: 0
@@ -670,7 +667,7 @@ MonoBehaviour:
   recoveryStaminaMag: 0
   attack: 200
   attackSpeed: 1
-  moveSpeed: 0
+  moveSpeed: 15
   skillCoolTime: []
 --- !u!1 &525219418336961288
 GameObject:

@@ -51,6 +51,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-8663107564252873298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +74,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 1
+  shakeTime: 0
 --- !u!114 &-8611899693586813084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.36
-  animationType: 8
+  animationType: 328
   audioName: Skill1Hit
   commonAudio: 0
   moveVelocity: 0
@@ -95,6 +97,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0.3
 --- !u!1102 &-8388991912779015980
 AnimatorState:
   serializedVersion: 6
@@ -148,6 +151,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-8291497953194258604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,6 +174,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-7947379095175057404
 AnimatorState:
   serializedVersion: 6
@@ -251,6 +256,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-7897203878609616229
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -325,6 +331,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-7604049117784837528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,6 +354,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-7475964457495735708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,6 +377,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-7468074282407788086
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -416,6 +425,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-7258135573625318672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +448,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-7205794447608615642
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -482,6 +493,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-7017805254094438029
 AnimatorState:
   serializedVersion: 6
@@ -567,6 +579,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-6345995197324406717
 AnimatorState:
   serializedVersion: 6
@@ -646,6 +659,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5969781218985838171
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,6 +682,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5856147204081723483
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -690,6 +705,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5827283442771254089
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -712,6 +728,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-5766602563883600607
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -756,6 +773,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1107 &-5478659238006764271
 AnimatorStateMachine:
   serializedVersion: 6
@@ -853,6 +871,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5366256493242336832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -875,6 +894,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5334659463547888529
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -897,6 +917,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-4825408463333259223
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -919,6 +940,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-4794223709047464329
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -941,6 +963,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-4642700068917164987
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -963,6 +986,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-4621408775508370257
 AnimatorState:
   serializedVersion: 6
@@ -1039,6 +1063,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-3971315182157629936
 AnimatorState:
   serializedVersion: 6
@@ -1122,6 +1147,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-3504561689636615371
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1169,6 +1195,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-3074938431930534340
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1238,6 +1265,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-2445274154060532912
 AnimatorState:
   serializedVersion: 6
@@ -1292,6 +1320,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-2266066011698253978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1314,6 +1343,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-2193110834891758144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1336,6 +1366,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-1862928258705553109
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1441,6 +1472,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-905305412201016847
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1463,6 +1495,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-833904314322326719
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1485,6 +1518,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-84841865920796701
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1507,6 +1541,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -1617,6 +1652,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &411220799360732468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1639,6 +1675,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 3
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &541972220911785582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1661,6 +1698,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &640804088786622530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1683,6 +1721,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &641990048799416348
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1730,6 +1769,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &670347586770187591
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1752,6 +1792,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 3
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &888440457109914011
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1829,6 +1870,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &1373290838323232550
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1930,6 +1972,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &2081568148264198670
 AnimatorState:
   serializedVersion: 6
@@ -1980,6 +2023,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &2549262603901977366
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2027,6 +2071,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &2857102557511054382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2049,6 +2094,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &3228548203387170451
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2118,6 +2164,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3762696456646403813
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2140,6 +2187,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3767306439427522194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2162,6 +2210,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3779546663182412086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2184,6 +2233,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3837814773677024210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2206,6 +2256,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &4126618289280378766
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2250,6 +2301,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4203460855068308624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2272,6 +2324,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4241808589637530982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2294,6 +2347,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4267178286801111954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2316,6 +2370,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4357166578369358762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2338,6 +2393,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &4363248101541209707
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2432,6 +2488,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4517494009956857248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2454,6 +2511,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4552179946611956817
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2476,6 +2534,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 3
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &5122951928793896061
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2572,6 +2631,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &5727370878413935054
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2666,6 +2726,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &6776011330062595338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2688,6 +2749,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &6776938034183823427
 AnimatorState:
   serializedVersion: 6
@@ -2770,6 +2832,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 3
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &6930524625084681549
 AnimatorState:
   serializedVersion: 6
@@ -2826,6 +2889,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &7346530744189985306
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2870,6 +2934,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &7562424502755531799
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2892,6 +2957,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &7855541015769188285
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2936,6 +3002,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &8151532972726541234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2958,6 +3025,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &8439632268590061921
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2997,14 +3065,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.11
-  animationType: 9
+  animationType: 73
   audioName: Skill2Cast
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
-  effectNum: 0
+  effectNum: 1
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &8479280482048422776
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -3052,6 +3121,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &8779432844135759295
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

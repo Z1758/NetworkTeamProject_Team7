@@ -11,7 +11,8 @@ public enum AnimationType
     COLLIDER_RESET = 1 << 4,
     PROJECTILE = 1 << 5,
     EFFECT = 1 << 6,
-    AOE = 1 << 7
+    AOE = 1 << 7,
+    SHAKE_CAMERA = 1 << 8
 }
 
 
@@ -34,6 +35,7 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
     public bool colliderActive;
     public int effectNum;
     public bool isLoop;
+    public float shakeTime;
 
     AnimationEventReceiver receiver;
 
@@ -145,7 +147,11 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             {
                 receiver.ActiveProjectileAnimation(colliderNum);
             }
-           
+
+            if (animationType.HasFlag(AnimationType.SHAKE_CAMERA))
+            {
+                receiver.ShakeCamera(shakeTime);
+            }
 
         }
     }
