@@ -1544,7 +1544,7 @@ MonoBehaviour:
           m_CallState: 2
   aoeRayMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 536871424
 --- !u!114 &1641332644405525370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3038,16 +3038,16 @@ MonoBehaviour:
   hp: 1000
   maxStamina: 100
   stamina: 100
-  consumStamina: 0
+  consumStamina: 40
   recoveryStaminaMag: 5
   attack: 100
   attackSpeed: 1
   moveSpeed: 10
   skillCoolTime:
-  - 1
-  - 1
-  - 1
-  - 1
+  - 7
+  - 8
+  - 9
+  - 15
 --- !u!114 &2948661918679160786
 MonoBehaviour:
   m_ObjectHideFlags: 0

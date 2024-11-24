@@ -9,22 +9,24 @@ public class SliderView : MonoBehaviour
     [SerializeField] protected Slider slider;
     [SerializeField] protected StatusModel model;
 
+    protected float currentValue;
  
     private void Awake()
     {
         slider = GetComponent<Slider>();
     }
+ 
 
     public virtual void SetModel(StatusModel model)
     {
 
         this.model = model;
-      
     }
 
     public void SetSlider(float value)
     {
-        slider.value = value;
-
+        currentValue = value;
+      
     }
+
 }

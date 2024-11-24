@@ -462,8 +462,8 @@ public class PlayerController : MonoBehaviourPun
             hurtEffect = effect;
             hurtEffectPos = effectPos;
         }
-        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
-       // photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target);
+       // photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
+        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target);
 
 
     }
