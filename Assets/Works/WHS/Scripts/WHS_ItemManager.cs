@@ -42,12 +42,14 @@ public class WHS_ItemManager : MonoBehaviourPun
         if (PhotonNetwork.IsMasterClient == false)
             return;
 
+        // TODO : 몬스터 사망 후 아이템 생성
         if (Input.GetKeyDown(KeyCode.I))
         {
             Vector3 spawnPos = new Vector3(Random.Range(0, 5), 1, Random.Range(0, 5));
             SpawnItem(spawnPos);
         }
 
+        // TODO : 몬스터 사망 후 상자 생성
         if (Input.GetKeyDown(KeyCode.K))
         {
             SpawnChest(chestPos);
@@ -55,11 +57,13 @@ public class WHS_ItemManager : MonoBehaviourPun
 
     }
 
+    // 마스터 클라이언트에서만 아이템 생성 호출
     public void SpawnItem(Vector3 position)
     {
         photonView.RPC(nameof(SpawnItemRPC), RpcTarget.MasterClient, position);
     }
 
+    // 지정된 타입 중 랜덤한 아이템 생성
     [PunRPC]
     private void SpawnItemRPC(Vector3 position)
     {
@@ -71,22 +75,9 @@ public class WHS_ItemManager : MonoBehaviourPun
 
         GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position, rotation);
         WHS_Item item = itemObj.GetComponent<WHS_Item>();
-
-        photonView.RPC(nameof(SetItemValue), RpcTarget.MasterClient, item.photonView.ViewID, (int)selectedItem.type);
     }
 
-    [PunRPC]
-    private void SetItemValue(int itemViewID, int itemType)
-    {
-        PhotonView itemPV = PhotonView.Find(itemViewID);
-        if (itemPV != null)
-        {
-            WHS_Item item = itemPV.GetComponent<WHS_Item>();
-
-            item.type = (ItemType)itemType;
-        }
-    }
-
+    // 획득한 아이템 스탯 적용 호출
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
         if (photonView != null && photonView.ViewID != 0)
@@ -95,6 +86,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
+    // 각 플레이어 획득한 아이템 스탯 적용
     [PunRPC]
     public void ApplyItemRPC(int playerViewID, int itemTypeIndex, float itemValue)
     {
@@ -111,6 +103,8 @@ public class WHS_ItemManager : MonoBehaviourPun
                     statusModel.HP += itemValue;
                     Debug.Log($"체력 {itemValue} 회복");
                     break;
+                    
+                // TODO : 체력 외 다른 스탯 증가?
                 case ItemType.MaxHP:
                     Debug.Log($"최대 체력 {itemValue} 증가");
                     break;
@@ -121,6 +115,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
+    // 마스터 클라이언트에서만 상자 생성
     private void SpawnChest(Vector3 position)
     {
         for (int i = 0; i < 3; i++)
@@ -130,6 +125,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
+    // 상자 생성, 배열에 추가
     [PunRPC]
     private void SpawnChestRPC(Vector3 position)
     {
@@ -140,11 +136,12 @@ public class WHS_ItemManager : MonoBehaviourPun
         chests.Add(chest);
     }
 
+    // 직접 부순 상자 외 다른 상자 제거
     public void DestroyAllChests(WHS_Chest destroyedChest)
     {
         foreach(WHS_Chest chest in chests)
         {
-            if(chest != destroyedChest && chest != null)
+            if(chest != destroyedChest)
             {
                 if (PhotonNetwork.IsMasterClient)
                 {

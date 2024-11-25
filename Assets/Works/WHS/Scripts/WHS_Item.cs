@@ -12,8 +12,6 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
 
     private Vector3 startPos;
 
-    private bool isCollected = false;
-
     private void Start()
     {
         startPos = transform.position;
@@ -21,11 +19,12 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
-
+        // 아이템 움직임
         float newY = startPos.y + Mathf.Sin(Time.time * 5f) * 0.3f;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         transform.Rotate(Vector3.up, 90f * Time.deltaTime, 0);
     }
+
     /*
     private void OnCollisionEnter(Collision collision)
     {
@@ -42,16 +41,22 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         }
     }
     */
+
+    // 아이템 획득 및 적용    
     private void OnTriggerEnter(Collider other)
     {
-        if(!isCollected && other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             StatusModel statusModel = other.GetComponent<StatusModel>();
+            WHS_Inventory inventory = other.GetComponent<WHS_Inventory>();
 
-            if (statusModel.photonView != null && statusModel.photonView.IsMine)
+            if (statusModel.photonView != null && statusModel.photonView.IsMine && inventory != null)
             {
-                Debug.Log("아이템 적용");
-                isCollected = true;
+                if(type == ItemType.HP)
+                {
+                    inventory.AddItem(type, 1);
+                    Debug.Log("HP포션 획득");
+                }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, this);
                 photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
             }
