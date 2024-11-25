@@ -22,6 +22,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     [SerializeField] Vector3 chestPos;
     private List<WHS_Chest> chests = new List<WHS_Chest>();
 
+    public Dictionary<ItemType, WHS_Item> itemData = new Dictionary<ItemType, WHS_Item>();
 
     public static WHS_ItemManager Instance;
 
@@ -75,6 +76,8 @@ public class WHS_ItemManager : MonoBehaviourPun
 
         GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position, rotation);
         WHS_Item item = itemObj.GetComponent<WHS_Item>();
+
+        itemData[item.type] = item;
     }
 
     // 획득한 아이템 스탯 적용 호출
@@ -93,25 +96,37 @@ public class WHS_ItemManager : MonoBehaviourPun
         ItemType itemType = (ItemType)itemTypeIndex;
         PhotonView playerPV = PhotonView.Find(playerViewID);
 
-        StatusModel statusModel = playerPV.GetComponent<StatusModel>();
-
-        if (statusModel != null && playerPV.IsMine)
+        if (playerPV != null)
         {
-            switch (itemType)
+            StatusModel statusModel = playerPV.GetComponent<StatusModel>();
+
+            if (statusModel != null && playerPV.IsMine)
             {
-                case ItemType.HP:
-                    statusModel.HP += itemValue;
-                    Debug.Log($"체력 {itemValue} 회복");
-                    break;
-                    
-                // TODO : 체력 외 다른 스탯 증가?
-                case ItemType.MaxHP:
-                    Debug.Log($"최대 체력 {itemValue} 증가");
-                    break;
-                case ItemType.Attack:
-                    Debug.Log($"공격력 {itemValue} 증가");
-                    break;
+                switch (itemType)
+                {
+                    case ItemType.HP:
+                        statusModel.HP += itemValue;
+                        Debug.Log($"체력 {itemValue} 회복");
+                        break;
+
+                    // TODO : 체력 외 다른 스탯 증가?
+                    case ItemType.MaxHP:
+                        Debug.Log($"최대 체력 {itemValue} 증가");
+                        statusModel.MaxHP += itemValue;
+                        break;
+                    case ItemType.Attack:
+                        Debug.Log($"공격력 {itemValue} 증가");
+                        break;
+                }
             }
+            else
+            {
+                Debug.LogError("로컬 플레이어가 아닌");
+            }
+        }
+        else
+        {
+            Debug.Log($"플레이어 ViewID를 찾을 수 없음 {playerViewID}");
         }
     }
 

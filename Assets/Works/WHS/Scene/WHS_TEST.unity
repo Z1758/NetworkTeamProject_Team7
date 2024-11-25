@@ -473,8 +473,8 @@ MonoBehaviour:
   target: {fileID: 0}
   mainCamera: {fileID: 780331213}
   offset: {x: 0, y: 0, z: 0}
-  smoothTime: 0.1
   rotateSpeed: 40
+  isShake: 0
 --- !u!4 &195292496
 Transform:
   m_ObjectHideFlags: 0
@@ -937,12 +937,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482158e2a64dc8840b1c017037011c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooltimeBackgroundImage: []
   cooltimeImage:
   - {fileID: 1872101713}
   - {fileID: 948443478}
   - {fileID: 1918472194}
   - {fileID: 650102537}
   model: {fileID: 0}
+  uiKeys:
+  - UI
 --- !u!114 &378326463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6048,6 +6051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionCountText: {fileID: 593859976}
   potionButton: {fileID: 1242794656}
+  hpPotionPrefab: {fileID: 3464571292550342384, guid: 68ebe8f671df0c14596396f259a1f963, type: 3}
 --- !u!1001 &1299409008
 PrefabInstance:
   m_ObjectHideFlags: 0

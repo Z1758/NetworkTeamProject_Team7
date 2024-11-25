@@ -25,24 +25,33 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         transform.Rotate(Vector3.up, 90f * Time.deltaTime, 0);
     }
 
-    /*
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             StatusModel statusModel = collision.gameObject.GetComponent<StatusModel>();
-            if (statusModel.photonView != null && statusModel.photonView.IsMine)
+            WHS_Inventory inventory = collision.gameObject.GetComponent<WHS_Inventory>();
+
+            if (statusModel.photonView != null && statusModel.photonView.IsMine && inventory != null)
             {
-                Debug.Log("¾ÆÀÌÅÛ Àû¿ë");
-                isCollected = true;
-                WHS_ItemManager.Instance.ApplyItem(statusModel, this);
+                if (type == ItemType.HP)
+                {
+                    inventory.AddItem(type, 1);
+                    Debug.Log("HPÆ÷¼Ç È¹µæ");
+                }
+                else
+                {
+                    WHS_ItemManager.Instance.ApplyItem(statusModel, this);
+                }
                 photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
             }
         }
     }
-    */
+    
 
-    // ¾ÆÀÌÅÛ È¹µæ ¹× Àû¿ë    
+    // ¾ÆÀÌÅÛ È¹µæ ¹× Àû¿ë
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -62,7 +71,7 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
             }
         }
     }
-
+    */
     [PunRPC]
     private void DestroyItemObj()
     {

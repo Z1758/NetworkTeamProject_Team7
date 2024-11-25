@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class WHS_Inventory : MonoBehaviour
 {
-    private Dictionary<ItemType, int> items = new Dictionary<ItemType, int>();    
+    private Dictionary<ItemType, int> items = new Dictionary<ItemType, int>();
+    private StatusModel statusModel;
+
+    private void Awake()
+    {
+        statusModel = GetComponent<StatusModel>();
+        if(statusModel == null)
+        {
+            Debug.LogError("statusModel을 찾지못함");
+        }
+    }
 
     public void AddItem(ItemType type, int amount)
     {
@@ -18,23 +28,23 @@ public class WHS_Inventory : MonoBehaviour
         }
     }
 
-    public bool UseItem(ItemType type)
+    public void UseItem(ItemType type)
     {
-        if(items.ContainsKey(type) && items[type] > 0)
+        if (items.ContainsKey(type) && items[type] > 0)
         {
-            Debug.Log("아이템을 사용합니다.");
             items[type]--;
-            return true;
-        }
 
-        Debug.Log($"{type} 아이템이 없습니다");
-        return false;
+            if (WHS_ItemManager.Instance.itemData.TryGetValue(type, out WHS_Item item))
+            {
+                Debug.Log($"아이템 {item.type}, {item.value}");
+
+                WHS_ItemManager.Instance.ApplyItem(statusModel, item);
+            }
+        }
     }
 
     public int GetItemCount(ItemType type)
     {
         return items.ContainsKey(type) ? items[type] : 0;
     }
-
-
 }
