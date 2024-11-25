@@ -42,6 +42,11 @@ public class PlayerHurtbox : MonoBehaviourPun, IPunObservable
 
             if (hitbox.gameObject.layer == (int)LayerEnum.OTHER_CLIENT_MONSTER_COLLIDER)
                 return;
+            if (!hitbox.GetAngleHit(transform))
+            {
+                return;
+            }
+
             Vector3 target = other.transform.position;
             target.y = 0;
 
