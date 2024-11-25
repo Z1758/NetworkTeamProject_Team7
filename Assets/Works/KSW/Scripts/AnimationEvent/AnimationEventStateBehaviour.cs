@@ -13,6 +13,7 @@ public enum AnimationType
     EFFECT = 1 << 6,
     AOE = 1 << 7,
     SHAKE_CAMERA = 1 << 8
+
 }
 
 

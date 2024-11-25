@@ -426,7 +426,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         isFurious = true;
         rigid.velocity = Vector3.zero;
         animator.Play("Furious");
-
+        animator.SetBool(atkEndParameterHash, false);
         model.AttackSpeed += 0.2f;
         model.MoveSpeed += model.MoveSpeed * 0.3f;
         animator.speed = model.AttackSpeed;

@@ -128,6 +128,8 @@ public class AnimationEventReceiver : MonoBehaviourPun
         {
             hitbox.layer = colliderDisableLayer;
         }
+        if (model.ModelType == ModelType.ENEMY)
+            hurtbox.layer =  hurtboxLayer;
     }
 
     private void SetProjectileLayer()

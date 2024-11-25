@@ -17,8 +17,26 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f9ada72af23a50647b810eb7b1f977cb
   m_SerializeEntries:
+  - m_GUID: 15269a4f1e53776479c754ffbe2fbff4
+    m_Address: Monster2/Hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25d39171f9f6b0f439b401df4abe7314
+    m_Address: Monster2/UltraAtk1Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26d79752f9c18644e8bc696e15d6ab96
     m_Address: Monster2/FootStep1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5997a4a51204d54797d96f8ae9b9494
+    m_Address: Monster2/DeathSound.ogg
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster2Sound
