@@ -55,7 +55,6 @@ public class WHS_ItemManager : MonoBehaviourPun
         {
             SpawnChest(chestPos);
         }
-
     }
 
     // 마스터 클라이언트에서만 아이템 생성 호출
@@ -100,7 +99,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         {
             StatusModel statusModel = playerPV.GetComponent<StatusModel>();
 
-            if (statusModel != null && playerPV.IsMine)
+            if (statusModel != null)
             {
                 switch (itemType)
                 {
@@ -119,14 +118,6 @@ public class WHS_ItemManager : MonoBehaviourPun
                         break;
                 }
             }
-            else
-            {
-                Debug.LogError("로컬 플레이어가 아닌");
-            }
-        }
-        else
-        {
-            Debug.Log($"플레이어 ViewID를 찾을 수 없음 {playerViewID}");
         }
     }
 

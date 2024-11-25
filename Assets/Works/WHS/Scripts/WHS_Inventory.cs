@@ -10,12 +10,9 @@ public class WHS_Inventory : MonoBehaviour
     private void Awake()
     {
         statusModel = GetComponent<StatusModel>();
-        if(statusModel == null)
-        {
-            Debug.LogError("statusModel을 찾지못함");
-        }
     }
 
+    // 아이템 추가
     public void AddItem(ItemType type, int amount)
     {
         if (items.ContainsKey(type))
@@ -28,6 +25,7 @@ public class WHS_Inventory : MonoBehaviour
         }
     }
 
+    // 해당 아이템 사용
     public void UseItem(ItemType type)
     {
         if (items.ContainsKey(type) && items[type] > 0)
@@ -43,6 +41,7 @@ public class WHS_Inventory : MonoBehaviour
         }
     }
 
+    // 아이템 개수 출력
     public int GetItemCount(ItemType type)
     {
         return items.ContainsKey(type) ? items[type] : 0;

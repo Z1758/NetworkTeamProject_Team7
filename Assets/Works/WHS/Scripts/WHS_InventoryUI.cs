@@ -1,12 +1,10 @@
-using Photon.Pun;
-using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WHS_InventoryUI : MonoBehaviourPunCallbacks
+public class WHS_InventoryUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI potionCountText;
     [SerializeField] Button potionButton;
@@ -33,11 +31,12 @@ public class WHS_InventoryUI : MonoBehaviourPunCallbacks
         }
     }
 
+    // 인벤토리 컴포넌트를 가진 플레이어 찾기
     IEnumerator FindPlayer()
     {
         while (inventory == null)
         {
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(1f);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
@@ -47,7 +46,7 @@ public class WHS_InventoryUI : MonoBehaviourPunCallbacks
         }
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         potionCount = inventory.GetItemCount(ItemType.HP);
         potionCountText.text = $"{potionCount}";
@@ -58,6 +57,7 @@ public class WHS_InventoryUI : MonoBehaviourPunCallbacks
     {
         if (potionCount > 0)
         {
+            Debug.Log("포션 사용");
             inventory.UseItem(ItemType.HP);
         }
         else

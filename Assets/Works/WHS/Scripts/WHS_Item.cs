@@ -38,17 +38,19 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
                 if (type == ItemType.HP)
                 {
                     inventory.AddItem(type, 1);
-                    Debug.Log("HPÆ÷¼Ç È¹µæ");
+                    Debug.Log($"{statusModel.photonView.Owner.NickName}ÀÌ {type} ¾ÆÀÌÅÛ È¹µæ");
+                    Debug.Log($"ÇöÀç º¸À¯ ¼ö·® : {inventory.GetItemCount(ItemType.HP)}");
                 }
                 else
                 {
                     WHS_ItemManager.Instance.ApplyItem(statusModel, this);
                 }
+
                 photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
             }
         }
     }
-    
+
 
     // ¾ÆÀÌÅÛ È¹µæ ¹× Àû¿ë
     /*
@@ -72,6 +74,7 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         }
     }
     */
+
     [PunRPC]
     private void DestroyItemObj()
     {
