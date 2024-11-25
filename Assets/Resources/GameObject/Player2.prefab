@@ -321,13 +321,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 0
   playerHurtbox: {fileID: 1589576053224297187}
-  animator: {fileID: 947654097071455769}
   animatorParameterHash: 
   skillNumberHash: 0
   skillNumber: 0
   rotateSpeed: 15
   isFixed: 0
   isMoveAni: 0
+  animator: {fileID: 947654097071455769}
   rigid: {fileID: 2582555723844075761}
   model: {fileID: 6120082010212651789}
   playerCamera: {fileID: 0}
@@ -632,22 +632,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventName: EndAtk
-    OnAnimationEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8575700257333893525}
-          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-          m_MethodName: AttackEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventName: OnMoveAni
     OnAnimationEvent:
       m_PersistentCalls:
@@ -671,6 +655,22 @@ MonoBehaviour:
         - m_Target: {fileID: 8575700257333893525}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: EndMoveAni
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: EndAtk
+    OnAnimationEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8575700257333893525}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: AttackEnd
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

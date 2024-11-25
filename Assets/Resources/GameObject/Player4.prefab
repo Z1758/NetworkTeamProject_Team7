@@ -513,13 +513,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 0
   playerHurtbox: {fileID: 7257491659272438043}
-  animator: {fileID: 5719219414308757056}
   animatorParameterHash: 
   skillNumberHash: 0
   skillNumber: 0
   rotateSpeed: 15
   isFixed: 0
   isMoveAni: 0
+  animator: {fileID: 5719219414308757056}
   rigid: {fileID: 3530258004792619432}
   model: {fileID: 4331536851024096322}
   playerCamera: {fileID: 0}
@@ -3951,22 +3951,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventName: EndAtk
-    OnAnimationEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9097472309769900193}
-          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-          m_MethodName: AttackEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventName: OnMoveAni
     OnAnimationEvent:
       m_PersistentCalls:
@@ -3990,6 +3974,22 @@ MonoBehaviour:
         - m_Target: {fileID: 9097472309769900193}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: EndMoveAni
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: EndAtk
+    OnAnimationEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9097472309769900193}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: AttackEnd
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Ready
   commonAudio: 0
@@ -37,6 +38,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.297
+  eventType: 0
   animationType: 8
   audioName: Run
   commonAudio: 0
@@ -60,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: FootStep
   triggerTime: 0.658
+  eventType: 0
   animationType: 8
   audioName: FootStep2
   commonAudio: 0
@@ -83,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.587
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -142,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.736
+  eventType: 0
   animationType: 8
   audioName: Swing2
   commonAudio: 1
@@ -165,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.57
+  eventType: 0
   animationType: 64
   audioName: 
   commonAudio: 0
@@ -244,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: FootStep
   triggerTime: 0.171
+  eventType: 0
   animationType: 8
   audioName: FootStep1
   commonAudio: 0
@@ -295,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Furious
   commonAudio: 0
@@ -343,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.909
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -366,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.395
+  eventType: 0
   animationType: 40
   audioName: Impact4
   commonAudio: 1
@@ -389,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.42
+  eventType: 0
   animationType: 72
   audioName: Hit1
   commonAudio: 0
@@ -437,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.372
+  eventType: 0
   animationType: 329
   audioName: Impact3
   commonAudio: 1
@@ -516,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.157
+  eventType: 2
   animationType: 12
   audioName: Cast1
   commonAudio: 1
@@ -539,6 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.438
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -562,6 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -635,6 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.554
+  eventType: 0
   animationType: 9
   audioName: Hit1
   commonAudio: 0
@@ -658,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -681,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -704,6 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.438
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -727,6 +746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Furious
   commonAudio: 0
@@ -800,6 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.422
+  eventType: 0
   animationType: 40
   audioName: Impact4
   commonAudio: 1
@@ -881,6 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.43
+  eventType: 0
   animationType: 256
   audioName: 
   commonAudio: 0
@@ -904,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.256
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -952,6 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.231
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -975,6 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.537
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -998,6 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -1021,6 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.355
+  eventType: 0
   animationType: 72
   audioName: Hit1
   commonAudio: 0
@@ -1044,6 +1071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: HeavyAtk2
   commonAudio: 0
@@ -1186,6 +1214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnMoveAni
   triggerTime: 0.215
+  eventType: 2
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -1242,6 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Death
   commonAudio: 0
@@ -1265,6 +1295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.62
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1288,6 +1319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -1436,6 +1468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.079
+  eventType: 0
   animationType: 192
   audioName: 
   commonAudio: 0
@@ -1459,6 +1492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -1532,6 +1566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.223
+  eventType: 0
   animationType: 9
   audioName: Impact2
   commonAudio: 1
@@ -1555,6 +1590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: UltraAtk1
   commonAudio: 0
@@ -1578,6 +1614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffMoveAni
   triggerTime: 0.388
+  eventType: 3
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -1601,6 +1638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.388
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1624,6 +1662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.471
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1647,6 +1686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk2
   commonAudio: 0
@@ -1695,6 +1735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.198
+  eventType: 0
   animationType: 73
   audioName: Hit1
   commonAudio: 0
@@ -1743,6 +1784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.24
+  eventType: 0
   animationType: 64
   audioName: 
   commonAudio: 0
@@ -1766,6 +1808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.05
+  eventType: 0
   animationType: 192
   audioName: 
   commonAudio: 0
@@ -1814,6 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.52
+  eventType: 0
   animationType: 8
   audioName: Swing3
   commonAudio: 1
@@ -1968,6 +2012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk5
   commonAudio: 0
@@ -1991,6 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk5
   commonAudio: 0
@@ -2014,6 +2060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.645
+  eventType: 0
   animationType: 40
   audioName: Impact4
   commonAudio: 1
@@ -2037,6 +2084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.587
+  eventType: 0
   animationType: 8
   audioName: Swing2
   commonAudio: 1
@@ -2060,6 +2108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk3
   commonAudio: 0
@@ -2083,6 +2132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.735
+  eventType: 0
   animationType: 8
   audioName: Swing2
   commonAudio: 1
@@ -2131,6 +2181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.3
+  eventType: 0
   animationType: 8
   audioName: Cast2
   commonAudio: 1
@@ -2179,6 +2230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 0
   triggerTime: 0.801
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2202,6 +2254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -2225,6 +2278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -2248,6 +2302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.381
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2271,6 +2326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.512
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2294,6 +2350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: HeavyAtk2
   commonAudio: 0
@@ -2342,6 +2399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.331
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2365,6 +2423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: UltraAtk2
   commonAudio: 0
@@ -2413,6 +2472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.522
+  eventType: 0
   animationType: 40
   audioName: Impact4
   commonAudio: 1
@@ -2461,6 +2521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.504
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2484,6 +2545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.107
+  eventType: 0
   animationType: 8
   audioName: Cast1
   commonAudio: 1
@@ -2507,6 +2569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -2592,6 +2655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.61
+  eventType: 0
   animationType: 64
   audioName: 
   commonAudio: 0
@@ -2615,6 +2679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.43
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2713,6 +2778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.59
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -2736,6 +2802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk4
   commonAudio: 0
@@ -2809,6 +2876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk1
   commonAudio: 0
@@ -2832,6 +2900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.472
+  eventType: 0
   animationType: 73
   audioName: Impact3
   commonAudio: 1
@@ -2951,6 +3020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.15
+  eventType: 0
   animationType: 8
   audioName: Swing2
   commonAudio: 1
@@ -2974,6 +3044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.545
+  eventType: 0
   animationType: 8
   audioName: Swing2
   commonAudio: 1
@@ -2997,6 +3068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.15
+  eventType: 0
   animationType: 8
   audioName: Swing2
   commonAudio: 1
@@ -3020,6 +3092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.595
+  eventType: 0
   animationType: 9
   audioName: Impact4
   commonAudio: 1
@@ -3125,6 +3198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -3173,6 +3247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.752
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -3229,6 +3304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OffMoveAni
   triggerTime: 0.347
+  eventType: 3
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -3277,6 +3353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.322
+  eventType: 0
   animationType: 8
   audioName: Cast1
   commonAudio: 1
@@ -3300,6 +3377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -3323,6 +3401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.063
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -3396,6 +3475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.381
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -3486,6 +3566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.628
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -3509,6 +3590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0

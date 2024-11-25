@@ -16,6 +16,19 @@ public enum AnimationType
 }
 
 
+public enum EventType
+{
+    NONE,
+    END_ANI ,
+    START_MOVE_ANI,
+    END_MOVE_ANI ,
+    ATTACK_END,
+    DODGE_END ,
+    FREEZING_CHECK ,
+    DOWN_TRIGGER_ANI,
+    HIT_TRIGGER_ANI
+
+}
 
 public class AnimationEventStateBehaviour : StateMachineBehaviour
 {
@@ -23,6 +36,11 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
 
     [Range(0f, 1f)] public float triggerTime;
+
+    [Header("이벤트 타입")]
+    [SerializeField] EventType eventType;
+
+   
 
     [Header("애니메이션 타입")]
     [SerializeField] AnimationType animationType;
@@ -103,9 +121,16 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
         if (receiver != null)
         {
+            /*
             if(eventName !=null)
             receiver.OnAnimationEventTriggered(eventName);
 
+            */
+            if(eventType > 0)
+            {
+                receiver.OnAnimationEventTriggered(eventType);
+
+            }
 
 
          
