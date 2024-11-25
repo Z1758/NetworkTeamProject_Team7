@@ -25,24 +25,35 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         transform.Rotate(Vector3.up, 90f * Time.deltaTime, 0);
     }
 
-    /*
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             StatusModel statusModel = collision.gameObject.GetComponent<StatusModel>();
-            if (statusModel.photonView != null && statusModel.photonView.IsMine)
+            WHS_Inventory inventory = collision.gameObject.GetComponent<WHS_Inventory>();
+
+            if (statusModel.photonView != null && statusModel.photonView.IsMine && inventory != null)
             {
-                Debug.Log("아이템 적용");
-                isCollected = true;
-                WHS_ItemManager.Instance.ApplyItem(statusModel, this);
+                if (type == ItemType.HP)
+                {
+                    inventory.AddItem(type, 1);
+                    Debug.Log($"{statusModel.photonView.Owner.NickName}이 {type} 아이템 획득");
+                    Debug.Log($"현재 보유 수량 : {inventory.GetItemCount(ItemType.HP)}");
+                }
+                else
+                {
+                    WHS_ItemManager.Instance.ApplyItem(statusModel, this);
+                }
+
                 photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
             }
         }
     }
-    */
 
-    // 아이템 획득 및 적용    
+
+    // 아이템 획득 및 적용
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -62,6 +73,7 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
             }
         }
     }
+    */
 
     [PunRPC]
     private void DestroyItemObj()
