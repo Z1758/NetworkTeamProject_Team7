@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Player4Voice
+  m_EditorClassIdentifier: 
+  m_GroupName: Player4Voice
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6493aad01cdc8bb49b27cac35ef53e59
+  m_SerializeEntries:
+  - m_GUID: 0fc32c59b83da5e4c966c3dc2831f712
+    m_Address: Player4/Atk2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12446b73a99893b4ebc4632973ed386d
+    m_Address: Player4/Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 150af290031a5c84d99556a1e20a1652
+    m_Address: Player4/Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17c58f3ed7d7d9a458062e19835c45ee
+    m_Address: Player4/Hit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b110163735607549aaf3c5ddddfa3ae
+    m_Address: Player4/Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75deac3c56931b441a968e5995c9ade8
+    m_Address: Player4/Skill2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4f7f324d85688a4e8a902f0c8b59661
+    m_Address: Player4/Atk4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0b0cbb9005cedb459da58eeac2950c8
+    m_Address: Player4/Down
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1fb20de734fea047b7e722f4aafa792
+    m_Address: Player4/Death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e40187e1b256e0245b683d3b5fd9ca92, type: 2}
+    - {fileID: 11400000, guid: 0be0ce6fe672fa742bf4acee7976eb3f, type: 2}

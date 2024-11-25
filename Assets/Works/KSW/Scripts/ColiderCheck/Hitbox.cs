@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -9,17 +10,19 @@ public enum HitboxType
 
     DOWN_ATTACK = 1 << 0,
     NOT_FRICTION_ATTACK = 1 << 1,
-    FOV_ATTACK = 1 << 2
+    FOV_ATTACK = 1 << 2,
+    ONCE_HIT = 1 << 3
 }
 
 
 
-public class Hitbox : MonoBehaviour
+public class Hitbox : MonoBehaviourPun
 {
-    // 역경직 테스트
+    [Header("필수 컴포넌트")]
     [SerializeField] Animator animator;
-
     [SerializeField] StatusModel model;
+
+
     [SerializeField] HitboxType hitboxType;
    
     [SerializeField] GameObject effectPrefab;
@@ -27,10 +30,11 @@ public class Hitbox : MonoBehaviour
     [SerializeField] AudioClip hitSound;
     [SerializeField] string soundName;
 
+    [Header("FOV")]
     [SerializeField] public float radius;
     [SerializeField] public float angle;
 
-
+    //역경직 시간
     WaitForSeconds atkSlow = new WaitForSeconds(0.2f);
 
     private void Awake()
@@ -114,7 +118,13 @@ public class Hitbox : MonoBehaviour
 
     public float GetAtk()
     {
-        return model.Attack;
+        if (hitboxType.HasFlag(HitboxType.ONCE_HIT))
+        {
+            ChangeLayer();
+        }
+
+
+            return model.Attack;
     }
     public bool GetDown()
     {
@@ -133,13 +143,10 @@ public class Hitbox : MonoBehaviour
             Vector3 target = (hit.transform.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, target) < angle / 2)
             {
-                float distance = Vector3.Distance(transform.position, target);
+               //  float distance = Vector3.Distance(transform.position, target);
 
+               // Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
 
-
-                Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
-
-                Debug.Log(hit.name);
 
             }
             else

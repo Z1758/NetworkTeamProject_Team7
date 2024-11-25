@@ -17,8 +17,44 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 66b3f97954d974843bc9fc8b2c347a31
   m_SerializeEntries:
+  - m_GUID: 0ff322dab04967c43bccc4aab555b5fe
+    m_Address: Player2/Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49469fa59cb8ad94d83c7d488f75a90e
+    m_Address: Player2/Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a460aaf942d94b4f898dcc1a88bbcf2
+    m_Address: Player2/Skill2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 515d00a51cab1ed4daebe0419ff325d9
+    m_Address: Player2/Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 629c62d779f6ec44ca0adae4f32ad5c9
+    m_Address: Player2/Death2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 755e03393cdbed4449cc7488d22324fa
     m_Address: Player2/Hit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e15e7531476ebd43824f1605676b313
+    m_Address: Player2/Death1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Voice

@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UI
+  m_EditorClassIdentifier: 
+  m_GroupName: UI
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 709f3f76de8a73b44b768f092eb15ab9
+  m_SerializeEntries:
+  - m_GUID: 1aa300d0189e77b46b4a8c5cb3a06ae1
+    m_Address: UI/Player3Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f7672b60390aa74686e0a10e87e7c3f
+    m_Address: UI/Player1Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29528713ad9cb7543b81c4408ea5480c
+    m_Address: UI/Player4Skill2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fcf095d65cb67b479394496c3a1e453
+    m_Address: UI/Player3Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38e1161c0c06153409989674b3f13f39
+    m_Address: UI/Player2Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f11617d7b087eb4280b472585c15977
+    m_Address: UI/Player1Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a1eeb417ba1da44e864866f775d392d
+    m_Address: UI/Player2Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 701a6a74e614c7646962a372b26c9195
+    m_Address: UI/Player2Skill2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bb38e272bba11044947238dbd671768
+    m_Address: UI/Player4Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 892ddc4330a424c4cbb35b646aeccb52
+    m_Address: UI/Player3Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a78c05d457b91646b55aef5fa017206
+    m_Address: UI/Player4Skill4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 979e29a7969072b42b054b80b33686d8
+    m_Address: UI/Player4Skill1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a220b7af0ae3694d8c93afd5e7a592e
+    m_Address: UI/Player1Skill2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b14f63286fda1714d9bdb8d45051be57
+    m_Address: UI/Player1Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e47223f6213108a45b231150784aa67d
+    m_Address: UI/Player2Skill3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1fef02884e326d4d8992d1a80790864
+    m_Address: UI/Player3Skill2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 1c910cab1d66b5e47aa4d73c6366e603, type: 2}
+    - {fileID: 11400000, guid: 72dc545842f46bb40800082e52186623, type: 2}

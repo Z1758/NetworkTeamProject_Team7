@@ -31,7 +31,7 @@ public class TimelineTest : MonoBehaviourPun
         timeline.Play();
   
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
-        PhotonNetwork.InstantiateRoomObject("GameObject/Boss", randomPos, Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject("GameObject/Boss2", randomPos, Quaternion.identity);
         Time.timeScale = 0;
     }
 

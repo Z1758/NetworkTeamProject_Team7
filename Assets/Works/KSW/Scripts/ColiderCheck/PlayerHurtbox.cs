@@ -39,8 +39,13 @@ public class PlayerHurtbox : MonoBehaviourPun, IPunObservable
     {
         if (other.TryGetComponent(out Hitbox hitbox))
         {
+
+            if (hitbox.gameObject.layer == (int)LayerEnum.OTHER_CLIENT_MONSTER_COLLIDER)
+                return;
             Vector3 target = other.transform.position;
             target.y = 0;
+
+
 
             pc.TakeDamage(hitbox.GetAtk(), hitbox.GetDown(), target, hitbox.GetSoundEffect(), hitbox.HitEffect(), other.ClosestPoint(transform.position));
         }

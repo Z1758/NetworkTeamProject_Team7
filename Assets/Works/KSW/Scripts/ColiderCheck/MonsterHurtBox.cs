@@ -47,7 +47,9 @@ public class MonsterHurtBox : MonoBehaviour
             }
             hitbox.HitEffect(other.ClosestPoint(transform.position));
             hitbox.AttackFriction();
-            
+
+            if (hitbox.gameObject.layer == (int)LayerEnum.OTHER_CLIENT_PLAYER_COLLIDER)
+                return;
             
             monster.TakeDamage(hitbox.GetAtk(), hitbox.GetSoundEffect());
         }

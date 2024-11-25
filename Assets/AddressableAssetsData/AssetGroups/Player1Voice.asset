@@ -65,6 +65,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc422646b08c6b248b23b02b24f5b957
+    m_Address: Player1/Death1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster1Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e444ef9e7d8a47f4a87a67185ae6a139
     m_Address: Player1/Skill2
     m_ReadOnly: 0
@@ -72,7 +78,7 @@ MonoBehaviour:
     - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efb551f80c2351d40a380f37cc1927de
-    m_Address: Player1/Death
+    m_Address: Player1/Death2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player1Voice

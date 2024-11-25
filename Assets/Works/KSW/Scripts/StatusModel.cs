@@ -35,7 +35,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public int CharacterNumber { get { return characterNumber; } }
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 
-    public float MaxHP { get { return maxHP; } }
+    public float MaxHP { get { return maxHP; } set { maxHP = value; OnChangedMaxHpEvent?.Invoke(hp); } }
 
     public float Stamina { get { return stamina; } set { stamina = value; OnChangedStaminaEvent?.Invoke(stamina); } }
 
@@ -45,8 +45,8 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public float RecoveryStaminaMag { get { return recoveryStaminaMag; } }
 
     public float Attack { get { return attack; } }
-    public float AttackSpeed { get { return attackSpeed; } }
-    public float MoveSpeed { get { return moveSpeed; } }
+    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
 
     public float[] SkillCoolTime{ get { return skillCoolTime; } }
     public void SetCurrentSkillCoolTime(int num, float value)
@@ -60,11 +60,13 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     }
 
     public ModelType ModelType { get { return type; } }
+    public UnityAction<float> OnChangedMaxHpEvent;
     public UnityAction<float> OnChangedHpEvent;
     public UnityAction<float> OnChangedStaminaEvent;
     public UnityAction<int,float> OnChangedCoolTimeEvent;
     private void OnDisable()
     {
+        OnChangedMaxHpEvent = null;
         OnChangedHpEvent = null;
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
@@ -72,6 +74,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
 
     private void Start()
     {
+        OnChangedMaxHpEvent = null;
         OnChangedHpEvent = null;
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;

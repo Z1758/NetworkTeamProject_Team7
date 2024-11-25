@@ -1,7 +1,9 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
@@ -22,11 +24,11 @@ public class PlayerController : MonoBehaviourPun
     [Header("플레이어 피격 콜라이더")]
     [SerializeField] GameObject playerHurtbox;
 
-    [Header("애니메이션 해싱")]
-    [SerializeField] public Animator animator;
-    [SerializeField] public int[] animatorParameterHash;
   
-    public int skillNumberHash;
+    // 애니메이터 파라미터 해싱
+    [HideInInspector] public int[] animatorParameterHash;
+
+    [HideInInspector] public int skillNumberHash;
     
     // 현재 사용한 스킬
     [HideInInspector]public int skillNumber;
@@ -40,14 +42,12 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] bool isMoveAni;
 
     [Header("필수 컴포넌트")]
+    [SerializeField] public Animator animator;
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public StatusModel model;
     [SerializeField] PlayerCamera playerCamera;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
-
-    [Header("투사체")]
-    [SerializeField] Projectile[] projectiles;
 
     Vector3 dir;
 
@@ -70,7 +70,11 @@ public class PlayerController : MonoBehaviourPun
         if (photonView.IsMine == false)
             return;
         SetInputSystem(false);
-      
+        if (freezingCheckCoroutine != null)
+        {
+            StopCoroutine(freezingCheckCoroutine);
+        }
+
     }
     private void Awake()
     {
@@ -86,18 +90,9 @@ public class PlayerController : MonoBehaviourPun
 
         SetStates();
 
-        SetProjectilesLayer();
     }
 
    
-    private void SetProjectilesLayer()
-    {
-        for (int i = 0; i < projectiles.Length; i++)
-        {
-            projectiles[i].ActiveLayer();
-        }
-    }
-
     private void SetInputSystem(bool active)
     {
         if (active)
@@ -159,8 +154,12 @@ public class PlayerController : MonoBehaviourPun
         states[(int)curState].EnterState();
       
         Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerNumber());
-    }
 
+        freezingCheckCoroutine = StartCoroutine(DodgeFreezingCheck());
+      
+
+    }
+    
     private void OnDestroy()
     {
         if (photonView.IsMine == false)
@@ -195,7 +194,7 @@ public class PlayerController : MonoBehaviourPun
 
       
         ChangeCoolTime();
-
+      
             if (isFixed)
         {
             if (isMoveAni)
@@ -303,6 +302,7 @@ public class PlayerController : MonoBehaviourPun
     {
 
         moveInputVec = value.ReadValue<Vector2>();
+        InputDir();
         if (moveInputVec == Vector2.zero)
         {
             ChangeState(PlayerState.Wait, false);
@@ -323,6 +323,8 @@ public class PlayerController : MonoBehaviourPun
     }
     public void AniEnd()
     {
+        freezingCnt = 0;
+
         isFixed = false;
         ChangeState(PlayerState.Wait, false);
     }
@@ -339,6 +341,7 @@ public class PlayerController : MonoBehaviourPun
         {
             return;
         }
+        freezingCnt = 0;
         isFixed = false;
         ChangeState(PlayerState.Wait, false);
 
@@ -411,7 +414,18 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    public void ImmediateRotate()
+    {
+        if (dir == Vector3.zero)
+            return;
 
+        Quaternion lookRot = Quaternion.LookRotation(dir);
+
+
+        transform.rotation = lookRot;
+
+
+    }
 
 
     public void MoveAni()
@@ -437,14 +451,19 @@ public class PlayerController : MonoBehaviourPun
             hurtEffect = effect;
             hurtEffectPos = effectPos;
         }
-        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
-       
+       // photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
+        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target);
 
-           
+
     }
     [PunRPC]
     public void TakeDamageRPC(float damage, bool down, Vector3 target)
     {
+        if (model.HP <= 0)
+        {
+            Debug.Log("PlayerDeath");
+        }
+
         if (playerHurtbox.layer == (int)LayerEnum.DISABLE_BOX)
         {
             Debug.Log("DODGE!");
@@ -467,28 +486,52 @@ public class PlayerController : MonoBehaviourPun
         transform.LookAt(target);
 
         isFixed = false;
-      
+        Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
+        model.HP -= damage;
+
+        if (model.HP < 0f)
+        {
+            Dying();
+            return;
+        }
+
+
         if (down)
         {
             ChangeState(PlayerState.Down, true);
-          
-                animator.SetTrigger(animatorParameterHash[ (int)PlayerAnimationHashNumber.Down]);
-            
+
+            animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Down]);
+
         }
         else
         {
-          
+
             ChangeState(PlayerState.Hit, true);
-           
-                animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
-           
+
+            animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
+
         }
 
 
-
-        Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
-        model.HP -= damage;
     }
+     
+
+    void Dying()
+    {
+
+        ChangeState(PlayerState.Dead, true);
+        animator.Play("Death");
+        playerHurtbox.layer = (int)LayerEnum.DISABLE_BOX;
+        gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+    }
+
+    
+
+
+
+    // 애니메이션 프리징 예외 처리
+
+    public int freezingCnt = 0;
 
     public void FreezingCheck()
     {
@@ -496,12 +539,53 @@ public class PlayerController : MonoBehaviourPun
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Wait"))
             {
-
-                animator.SetFloat("Speed", model.AttackSpeed);
-                isFixed = false;
-                ChangeState(PlayerState.Wait, false);
+                freezingCnt++;
+                if (freezingCnt > 5)
+                {
+                    FreezingOut();
+                }
             }
+            
         }
         
     }
+
+
+
+    public float dodgeFreezingCnt = 0;
+
+    Coroutine freezingCheckCoroutine;
+    WaitForSeconds checkTime = new WaitForSeconds(0.1f);
+
+    IEnumerator DodgeFreezingCheck()
+    {
+        while (true)
+        {
+            yield return checkTime;
+            if (curState == PlayerState.Dodge)
+            {
+                dodgeFreezingCnt += 0.1f;
+
+                if (dodgeFreezingCnt > 2)
+                {
+                    FreezingOut();
+
+
+                }
+
+            }
+            else
+            {
+                dodgeFreezingCnt = 0;
+            }
+        }
+    }
+
+    void FreezingOut()
+    {
+        animator.SetFloat("Speed", model.AttackSpeed);
+        isFixed = false;
+        ChangeState(PlayerState.Wait, false);
+    }
+
 }

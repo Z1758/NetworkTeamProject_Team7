@@ -7,36 +7,68 @@ using UnityEngine;
 
 public class AnimationEventReceiver : MonoBehaviourPun
 {
+    [Header("필수 컴포넌트")]
     [SerializeField] StatusModel model;
-  
-    [SerializeField] Transform objectTransform;
 
+    [SerializeField] Transform objectTransform;
+    [SerializeField] AudioSource audioSource;
+
+    [SerializeField] Rigidbody rigid;
+    PlayerCamera playerCamera;
+
+
+    [Header("히트 박스")]
+    [SerializeField] GameObject[] hitboxes;
+    [Header("피격 박스")]
+    [SerializeField] GameObject hurtbox;
+    [Header("투사체")]
+    [SerializeField] GameObject[] projectiles;
+    [Header("이펙트")]
+    [SerializeField] ParticleSystem[] effects;
+    [Header("범위 이펙트")]
+    [SerializeField] ParticleSystem[] aoeEffects;
+
+    [Header("범위 체크 마스크")]
+    [SerializeField] LayerMask aoeRayMask;
+
+    [Header("히트박스 레이어")]
     [SerializeField] LayerEnum hitboxLayerEnum;
     [SerializeField] LayerEnum hurtboxLayerEnum;
     //  [SerializeField] LayerMask hitboxLayerMask;
 
-
+    // 히트박스 레이어
     int hitboxLayer;
-    int hurtboxLayer ;
+    int hurtboxLayer;
     int colliderDisableLayer = (int)LayerEnum.DISABLE_BOX;
 
 
-    [SerializeField] AudioSource audioSource;
 
-    [SerializeField] Rigidbody rigid;
-
-    [SerializeField] GameObject[] projectiles;
-    [SerializeField] GameObject[] hitboxes;
-    [SerializeField] GameObject hurtbox;
-    [SerializeField] ParticleSystem[] effects;
-    [SerializeField] ParticleSystem[] aoeEffects;
+    [Header("애니메이션 이벤트")]
     [SerializeField] List<AnimationEvent> animationEvents = new();
-    [SerializeField] LayerMask aoeRayMask;
+
 
     private void Awake()
     {
         //  hitboxLayer = Mathf.RoundToInt(Mathf.Log(hitboxLayerMask.value, 2));
-      
+        InitReceiver();
+
+
+    }
+
+    private void Start()
+    {
+        SetCamera();
+        SetProjectileLayer();
+    }
+
+    private void SetCamera()
+    {
+        playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
+
+    }
+
+    private void InitReceiver()
+    {
         audioSource = GetComponent<AudioSource>();
         hitboxLayer = (int)hitboxLayerEnum;
         hurtboxLayer = (int)hurtboxLayerEnum;
@@ -44,7 +76,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     public void OnAnimationEventTriggered(string eventName)
     {
-      
+
         AnimationEvent matchingEvent = animationEvents.Find(se => se.eventName == eventName);
 
         matchingEvent?.OnAnimationEvent?.Invoke();
@@ -53,7 +85,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     public void ControllMoveAnimation(float speed)
     {
-        rigid.velocity = objectTransform.forward * speed;
+        rigid.velocity = objectTransform.forward * speed * model.AttackSpeed;
 
     }
 
@@ -88,6 +120,36 @@ public class AnimationEventReceiver : MonoBehaviourPun
         }
     }
 
+    private void SetProjectileLayer()
+    {
+
+        for (int i = 0; i < projectiles.Length; i++)
+        {
+            if (!photonView.IsMine)
+            {
+                if (model.ModelType == ModelType.PLAYER)
+                {
+                    projectiles[i].layer = (int)LayerEnum.OTHER_CLIENT_PLAYER_COLLIDER;
+                }
+                else if (model.ModelType == ModelType.ENEMY)
+                {
+                    projectiles[i].layer = (int)LayerEnum.OTHER_CLIENT_MONSTER_COLLIDER;
+                }
+            }
+            else
+            {
+                if (model.ModelType == ModelType.PLAYER)
+                {
+                    projectiles[i].layer = (int)LayerEnum.PLAYER_PROJECTILE;
+                }
+                else if (model.ModelType == ModelType.ENEMY)
+                {
+                    projectiles[i].layer = (int)LayerEnum.MONSTER_PROJECTILE;
+                }
+            }
+        }
+    }
+
     public void PlaySound(string str)
     {
         AudioClip clip = null;
@@ -100,12 +162,13 @@ public class AnimationEventReceiver : MonoBehaviourPun
             clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
         }
         audioSource.PlayOneShot(clip);
+        
     }
 
     public void PlayCommonSound(string str)
     {
         AudioClip clip = null;
-        clip = AudioManager.GetInstance().GetCommonSoundDic( str);
+        clip = AudioManager.GetInstance().GetCommonSoundDic(str);
         audioSource.PlayOneShot(clip);
     }
 
@@ -113,14 +176,16 @@ public class AnimationEventReceiver : MonoBehaviourPun
     {
         effects[num].gameObject.SetActive(true);
         effects[num].Play();
-     //   effects[num].SetActive(true);
+        //   effects[num].SetActive(true);
     }
 
     public void AOERayCast(int colliderNum)
     {
- 
+
+
+
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up*2, transform.parent.forward, out hit, 20f, aoeRayMask))
+        if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
             if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
@@ -129,9 +194,9 @@ public class AnimationEventReceiver : MonoBehaviourPun
             }
             else
             {
-              
-              
-               vec = hit.point;
+
+
+                vec = hit.point;
             }
 
             vec.y = 0;
@@ -140,16 +205,17 @@ public class AnimationEventReceiver : MonoBehaviourPun
         else
         {
             projectiles[colliderNum].transform.position = transform.position;
-            projectiles[colliderNum].transform.rotation = transform.parent.rotation;
-            projectiles[colliderNum].transform.Translate(Vector3.forward* 20);
+            projectiles[colliderNum].transform.rotation = objectTransform.rotation;
+            projectiles[colliderNum].transform.Translate(Vector3.forward * 20);
         }
-  
+
     }
+    // 시전, 범위 표시용
     public void AOERayCast(int colliderNum, int effectNum)
     {
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up * 2, transform.parent.forward, out hit, 20f, aoeRayMask))
+        if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
             if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
@@ -170,12 +236,17 @@ public class AnimationEventReceiver : MonoBehaviourPun
         else
         {
             projectiles[colliderNum].transform.position = transform.position;
-            projectiles[colliderNum].transform.rotation = transform.parent.rotation;
+            projectiles[colliderNum].transform.rotation = objectTransform.rotation;
             projectiles[colliderNum].transform.Translate(Vector3.forward * 20);
 
             aoeEffects[effectNum].transform.position = projectiles[colliderNum].transform.position;
+
         }
         aoeEffects[effectNum].gameObject.SetActive(true);
     }
- 
+
+    public void ShakeCamera(float time)
+    {
+        playerCamera.StartShake(time);
+    }
 }

@@ -22,6 +22,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-8907984649060301024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,6 +45,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 1
+  shakeTime: 0
 --- !u!114 &-8802524612227822427
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,6 +68,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 1
+  shakeTime: 0
 --- !u!1101 &-8406036807628247979
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -113,6 +116,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-7973267916240662733
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +139,58 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 1
+  shakeTime: 0
+--- !u!1102 &-7869562026170352115
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours:
+  - {fileID: -2872279738669576739}
+  - {fileID: 7804678559708925485}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e0576d96abb62d946b0bfad9603e46be, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &-7609657864603598361
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Furious
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &-7533860713757724608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +213,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-7529912688481731849
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -204,6 +261,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-7187129220560381739
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -298,6 +356,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-6781751765253544094
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -356,6 +415,52 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-6151924363089473395
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 7
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6016694738084148342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAni
+  triggerTime: 0.959
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5745549964509142751
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,6 +483,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5235365190090167901
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,6 +506,30 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
+--- !u!114 &-4951338015606654876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.763
+  animationType: 256
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0.5
 --- !u!114 &-4757465380249469972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,6 +552,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-4649717610184573694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,6 +575,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-4639277912442912166
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -540,10 +672,14 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Furious
-  m_Speed: 1
+  m_Speed: 0.8
   m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_Transitions:
+  - {fileID: 5994763341607921566}
+  m_StateMachineBehaviours:
+  - {fileID: -6016694738084148342}
+  - {fileID: -4951338015606654876}
+  - {fileID: -7609657864603598361}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -605,6 +741,30 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
+--- !u!114 &-2872279738669576739
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0
+  animationType: 8
+  audioName: Death
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &-2156534397334202305
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -627,6 +787,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-1787689695294239598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -649,6 +810,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-1483122406513865436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -671,6 +833,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-1454762161275663007
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -693,6 +856,30 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
+--- !u!114 &-820128203300614316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  triggerTime: 0.706
+  animationType: 256
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0.5
 --- !u!114 &-647948379042072527
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -715,6 +902,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-476438521909831678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,6 +925,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-169747733440724534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -759,6 +948,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &-119324003807247872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -781,6 +971,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -910,6 +1101,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &589783232462223422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -932,6 +1124,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &658513270330109032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -946,7 +1139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.428
-  animationType: 73
+  animationType: 329
   audioName: Impact1
   commonAudio: 1
   moveVelocity: 0
@@ -954,6 +1147,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 1
   isLoop: 0
+  shakeTime: 2.4
 --- !u!114 &1011645243750525041
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +1170,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &1187269005033522651
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,6 +1193,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &1497561954384420822
 AnimatorState:
   serializedVersion: 6
@@ -1048,6 +1244,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &1850129598107991859
 AnimatorState:
   serializedVersion: 6
@@ -1101,6 +1298,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &2011205426896315121
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1212,7 +1410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   triggerTime: 0.22
-  animationType: 64
+  animationType: 320
   audioName: 
   commonAudio: 0
   moveVelocity: 0
@@ -1220,6 +1418,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 1
 --- !u!1102 &2474798656310324409
 AnimatorState:
   serializedVersion: 6
@@ -1243,6 +1442,7 @@ AnimatorState:
   - {fileID: -4757465380249469972}
   - {fileID: 4227048123020004612}
   - {fileID: 6372073301476495345}
+  - {fileID: -820128203300614316}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1304,6 +1504,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &2736655164964067168
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1351,6 +1552,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &2804655785300395622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1365,7 +1567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.409
-  animationType: 73
+  animationType: 329
   audioName: Impact2
   commonAudio: 1
   moveVelocity: 0
@@ -1373,6 +1575,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 6
   isLoop: 0
+  shakeTime: 0.5
 --- !u!114 &2872902489805735487
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1395,6 +1598,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3171581430624773488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1417,6 +1621,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3271268067576664312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1439,6 +1644,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 4
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3309239423200775460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1461,6 +1667,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &3445262791819543470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1475,7 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnAtk
   triggerTime: 0.202
-  animationType: 73
+  animationType: 329
   audioName: Impact2
   commonAudio: 1
   moveVelocity: 0
@@ -1483,6 +1690,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 6
   isLoop: 0
+  shakeTime: 0.5
 --- !u!1101 &3647350157678419076
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1580,6 +1788,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4271399376720585229
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1602,6 +1811,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 3
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4325992620487008587
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1624,6 +1834,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4539758281027280197
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1646,6 +1857,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &4610270967645328741
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1668,6 +1880,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &4713891301065441915
 AnimatorState:
   serializedVersion: 6
@@ -1721,6 +1934,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 1
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &4991571860466984993
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1855,6 +2069,28 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &5994763341607921566
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5593306954591015595}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.94186044
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &6006053061763178390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1877,6 +2113,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &6037572922793566877
 AnimatorState:
   serializedVersion: 6
@@ -2023,6 +2260,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &6372073301476495345
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2045,6 +2283,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1102 &6386699291932827385
 AnimatorState:
   serializedVersion: 6
@@ -2100,6 +2339,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &6916126656224872693
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2122,6 +2362,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &6920755534417794276
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2169,6 +2410,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 1
+  shakeTime: 0
 --- !u!114 &6992286416960768583
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2191,6 +2433,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &7469831841846816280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2213,6 +2456,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &7477950308783599838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2227,7 +2471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRightAtk
   triggerTime: 0.423
-  animationType: 1
+  animationType: 9
   audioName: Swing2
   commonAudio: 1
   moveVelocity: 0
@@ -2235,6 +2479,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
+  shakeTime: 0
 --- !u!114 &7571323615119807663
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2257,6 +2502,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 2
   isLoop: 0
+  shakeTime: 0
 --- !u!1101 &7648888870725503638
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2304,6 +2550,30 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 2
   isLoop: 0
+  shakeTime: 0
+--- !u!114 &7804678559708925485
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: EndAni
+  triggerTime: 0.063
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1107 &8395237259317594690
 AnimatorStateMachine:
   serializedVersion: 6
@@ -2336,7 +2606,7 @@ AnimatorStateMachine:
     m_Position: {x: 580, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3560041851246830672}
-    m_Position: {x: 220, y: -150, z: 0}
+    m_Position: {x: 270, y: -80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6037572922793566877}
     m_Position: {x: 680, y: -320, z: 0}
@@ -2352,6 +2622,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8758307738905677195}
     m_Position: {x: 440, y: 550, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7869562026170352115}
+    m_Position: {x: 40, y: -80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -2426,7 +2699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: OnRangeAtk
   triggerTime: 0.43
-  animationType: 73
+  animationType: 329
   audioName: Impact2
   commonAudio: 1
   moveVelocity: 0
@@ -2434,6 +2707,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 5
   isLoop: 0
+  shakeTime: 0.5
 --- !u!1102 &8758307738905677195
 AnimatorState:
   serializedVersion: 6
@@ -2451,6 +2725,7 @@ AnimatorState:
   - {fileID: 6006053061763178390}
   - {fileID: 2756886999980279466}
   - {fileID: -169747733440724534}
+  - {fileID: -6151924363089473395}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
