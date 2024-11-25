@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using ExitGames.Client.Photon;
 using Photon.Chat;
 using Photon.Pun;
-using ExitGames.Client.Photon;
-using UnityEngine.UI;
 using TMPro;
-using Photon.Chat.Demo;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
+public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
 {
     private ChatClient _chatClient;  // Photon Chat 클라이언트 객체
 
@@ -17,6 +14,7 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     private string _privateReceiver = "";    // 개인 메시지 수신자
     [SerializeField] TMP_InputField _inputField;  // 유저가 메시지를 입력하는 InputField UI 요소
     [SerializeField] Text _outputText;        // 메시지가 출력되는 Text UI 요소
+    [SerializeField] Text _speechBubble;        // 말풍선
 
     private string _chatID;
     public string ChatID { get { return _chatID; } }
@@ -31,7 +29,8 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
         Application.runInBackground = true;
 
         // 사용자 이름을 로컬플레이어 이름으로 설정
-        _userName = PhotonNetwork.LocalPlayer.NickName;
+        // _userName = PhotonNetwork.LocalPlayer.NickName;
+        _userName = "MMSS";
 
         // 설정 값 적용
         _chatID = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat;
@@ -162,8 +161,8 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     {
         AddLine("서버에 연결되었습니다.");  // 연결 성공 메시지 출력
 
-        //// 채팅 채널을 Photon 방 이름으로 설정
-        //_currentChannelName = PhotonNetwork.CurrentRoom.Name;
+        // 채팅 채널을 Photon 방 이름으로 설정
+        // _currentChannelName = PhotonNetwork.CurrentRoom.Name;   *****
 
         // 연결된 후, 채널에 가입
         _chatClient.Subscribe(new string[] { _currentChannelName }, 0);  // 채널에 가입
@@ -187,8 +186,11 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     {
         for (int i = 0; i < messages.Length; i++)
         {
-            // 각 메시지와 보낸 사람을 출력
             AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
+            if (senders[i] == _userName)
+            {
+                _speechBubble.text += messages[i] + "\r\n";
+            }
         }
     }
 
@@ -240,5 +242,12 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     public void OnUserUnsubscribed(string channel, string user)
     {
         Debug.Log($"{user}님이 채널 '{channel}'에 퇴장했습니다!");
+    }
+
+
+    // 인 게임 말풍선 효과
+    public void SpeechBubble()
+    {
+
     }
 }

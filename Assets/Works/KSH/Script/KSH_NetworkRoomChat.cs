@@ -166,7 +166,7 @@ public class KSH_NetworkRoomChat : MonoBehaviour, IChatClientListener
         _currentChannelName = PhotonNetwork.CurrentRoom.Name;
 
         // 연결된 후, 채널에 가입
-        _chatClient.Subscribe(new string[] { _currentChannelName }, 10);  // 채널에 가입
+        _chatClient.Subscribe(new string[] { _currentChannelName }, 0);  // 채널에 가입
     }
 
 
