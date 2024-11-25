@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class MKH_LobbyScene : MonoBehaviourPunCallbacks
 {
-    public enum Panel { Menu, Lobby, Room }
+    public enum Panel { Menu, Lobby, Room}
 
-    [SerializeField] MKH_MainPanel menuPanel;
+    [SerializeField] MKH_MainPanel mainPanel;
     [SerializeField] MKH_RoomPanel roomPanel;
     [SerializeField] MKH_LobbyPanel lobbyPanel;
 
@@ -128,7 +128,7 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     // 패널 정보
     private void SetActivePanel(Panel panel)
     {
-        menuPanel.gameObject.SetActive(panel == Panel.Menu);
+        mainPanel.gameObject.SetActive(panel == Panel.Menu);
         roomPanel.gameObject.SetActive(panel == Panel.Room);
         lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
     }

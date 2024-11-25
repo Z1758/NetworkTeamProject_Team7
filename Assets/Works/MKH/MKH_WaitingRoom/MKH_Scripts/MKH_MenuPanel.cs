@@ -5,18 +5,7 @@ using Photon.Pun;
 
 public class MKH_MenuPanel : MonoBehaviour
 {
-    [SerializeField] GameObject menuPanel;
-
-    private void Awake()
-    {
-    }
-
-    void Start()
-    {
-        menuPanel.SetActive(false);
-       
-    }
-
+    [SerializeField] GameObject MenuPanel;
     private void Update()
     {
         Menu();
@@ -26,15 +15,21 @@ public class MKH_MenuPanel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            menuPanel.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (MenuPanel.activeSelf == false)
+            {
+                Debug.Log("1");
+                MenuPanel.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else if (MenuPanel.activeSelf == true)
+            {
+                Debug.Log("2");
+                MenuPanel.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            menuPanel.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+
     }
 }

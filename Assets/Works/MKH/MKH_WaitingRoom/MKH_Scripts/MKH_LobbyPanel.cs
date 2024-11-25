@@ -11,7 +11,7 @@ public class MKH_LobbyPanel : MonoBehaviour
 
     private Dictionary<string, MKH_RoomEntry> roomDictionary = new Dictionary<string, MKH_RoomEntry>();
 
-    /*
+    
     private void OnEnable()     // µé¾î °¬À» ¶§
     {
         ClearRoomEntries();
@@ -21,7 +21,7 @@ public class MKH_LobbyPanel : MonoBehaviour
     {
         ClearRoomEntries();
     }
-    */
+    
 
     public void LeaveLobby()
     {
