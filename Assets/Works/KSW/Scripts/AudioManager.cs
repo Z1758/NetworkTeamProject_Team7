@@ -25,10 +25,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmSource;
     [SerializeField] AudioSource voiceSource;
 
-    public List<string> monsterKeys = new List<string>() { "Monster1Voice", "Monster1Sound" };
     public List<string> commonKeys = new List<string>() { "CommonSound"};
 
     [SerializeField] SoundKeys[] playerKeys;
+    [SerializeField] SoundKeys[] monsterKeys;
 
     AsyncOperationHandle<IList<AudioClip>> playerSoundLoadHandle;
     AsyncOperationHandle<IList<AudioClip>> monsterSoundLoadHandle;
@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
             playerSoundDic = new Dictionary<string, AudioClip>();
             commonSoundDic = new Dictionary<string, AudioClip>();
 
-            //추후에 변경
+        
             LoadPlayerSounds();
             LoadMonsterSounds();
             LoadCommonSounds();
@@ -96,26 +96,28 @@ public class AudioManager : MonoBehaviour
     }
     public void LoadMonsterSounds()
     {
+        foreach (SoundKeys key in monsterKeys)
+        {
+            monsterSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
+              key.keys,
+              addressable =>
+              {
+                  soundStringBuilder.Clear();
+                  soundStringBuilder.Append($"Monster{key.num}/");
 
-        monsterSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
-            monsterKeys,
-            addressable =>
-            {
-                
-                soundStringBuilder.Clear();
-                //추후에 변경
-                soundStringBuilder.Append("Monster1/");
-
-                if (addressable != null)
-                {
-                    soundStringBuilder.Append(addressable.name);
-                    monsterSoundDic.Add(soundStringBuilder.ToString(), addressable);
-                }
+                  if (addressable != null)
+                  {
+                      soundStringBuilder.Append(addressable.name);
+                      monsterSoundDic.Add(soundStringBuilder.ToString(), addressable);
+                  }
 
 
-            }, Addressables.MergeMode.Union,
-            false);
-        monsterSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+              }, Addressables.MergeMode.Union,
+              false);
+            monsterSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+        }
+
+
 
     }
     public void LoadCommonSounds()

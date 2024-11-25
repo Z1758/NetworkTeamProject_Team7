@@ -41,7 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
   eventType: 0
   animationType: 8
@@ -65,9 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: FreezingCheck
   triggerTime: 0.868
-  eventType: 32
+  eventType: 6
   animationType: 0
   audioName: 
   commonAudio: 0
@@ -89,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.36
   eventType: 0
   animationType: 328
@@ -144,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.334
   eventType: 3
   animationType: 4
@@ -168,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.972
   eventType: 1
   animationType: 16
@@ -251,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.214
   eventType: 2
   animationType: 4
@@ -327,7 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.043
   eventType: 0
   animationType: 8
@@ -351,7 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.474
   eventType: 3
   animationType: 4
@@ -375,7 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0
   eventType: 2
   animationType: 6
@@ -424,7 +415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.349
   eventType: 0
   animationType: 9
@@ -448,7 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.41
   eventType: 3
   animationType: 4
@@ -494,7 +483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.38
   eventType: 0
   animationType: 1
@@ -581,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.08
   eventType: 2
   animationType: 4
@@ -662,7 +649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
   eventType: 0
   animationType: 24
@@ -686,7 +672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.128
   eventType: 2
   animationType: 12
@@ -710,7 +695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.962
   eventType: 1
   animationType: 16
@@ -734,7 +718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.28
   eventType: 0
   animationType: 8
@@ -780,7 +763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.452
   eventType: 0
   animationType: 9
@@ -879,7 +861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.413
   eventType: 3
   animationType: 4
@@ -903,7 +884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.064
   eventType: 2
   animationType: 12
@@ -927,7 +907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.189
   eventType: 3
   animationType: 4
@@ -951,7 +930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndDodge
   triggerTime: 0.896
   eventType: 5
   animationType: 0
@@ -975,7 +953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.7
   eventType: 3
   animationType: 4
@@ -999,7 +976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.26
   eventType: 0
   animationType: 1
@@ -1077,7 +1053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.577
   eventType: 0
   animationType: 9
@@ -1162,7 +1137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.174
   eventType: 0
   animationType: 1
@@ -1211,7 +1185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.47
   eventType: 0
   animationType: 1
@@ -1282,7 +1255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.956
   eventType: 1
   animationType: 16
@@ -1338,7 +1310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.48
   eventType: 0
   animationType: 1
@@ -1362,7 +1333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.448
   eventType: 0
   animationType: 1
@@ -1386,7 +1356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAtk
   triggerTime: 0.595
   eventType: 4
   animationType: 0
@@ -1493,7 +1462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
   eventType: 0
   animationType: 8
@@ -1517,7 +1485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.8
   eventType: 3
   animationType: 6
@@ -1541,7 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DownTriggerAni
   triggerTime: 0
   eventType: 7
   animationType: 16
@@ -1565,7 +1531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.5
   eventType: 0
   animationType: 13
@@ -1677,7 +1642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
   eventType: 1
   animationType: 16
@@ -1701,7 +1665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.32
   eventType: 0
   animationType: 65
@@ -1725,7 +1688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.202
   eventType: 2
   animationType: 4
@@ -1749,7 +1711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.5
   eventType: 2
   animationType: 4
@@ -1798,7 +1759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.427
   eventType: 3
   animationType: 4
@@ -1822,7 +1782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.2
   eventType: 0
   animationType: 65
@@ -1901,7 +1860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.968
   eventType: 1
   animationType: 16
@@ -2004,7 +1962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.402
   eventType: 0
   animationType: 65
@@ -2056,7 +2013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.335
   eventType: 0
   animationType: 9
@@ -2105,7 +2061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.4
   eventType: 0
   animationType: 1
@@ -2129,7 +2084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.96
   eventType: 1
   animationType: 16
@@ -2200,7 +2154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.25
   eventType: 0
   animationType: 8
@@ -2224,7 +2177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.7
   eventType: 0
   animationType: 1
@@ -2248,7 +2200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
   eventType: 1
   animationType: 16
@@ -2272,7 +2223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.28
   eventType: 0
   animationType: 8
@@ -2296,7 +2246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0
   eventType: 2
   animationType: 4
@@ -2342,7 +2291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.31
   eventType: 2
   animationType: 4
@@ -2366,7 +2314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.096
   eventType: 2
   animationType: 4
@@ -2390,7 +2337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.14
   eventType: 0
   animationType: 1
@@ -2414,7 +2360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.417
   eventType: 0
   animationType: 1
@@ -2438,7 +2383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffAtk
   triggerTime: 0.552
   eventType: 0
   animationType: 1
@@ -2534,7 +2478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAtk
   triggerTime: 0.724
   eventType: 4
   animationType: 0
@@ -2558,7 +2501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.979
   eventType: 1
   animationType: 16
@@ -2582,7 +2524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.44
   eventType: 0
   animationType: 65
@@ -2680,7 +2621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.6
   eventType: 0
   animationType: 8
@@ -2776,7 +2716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.968
   eventType: 1
   animationType: 16
@@ -2800,7 +2739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAtk
   triggerTime: 0.697
   eventType: 4
   animationType: 0
@@ -2884,7 +2822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.08
   eventType: 0
   animationType: 73
@@ -2942,7 +2879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: HitTriggerAni
   triggerTime: 0
   eventType: 8
   animationType: 16
@@ -2988,7 +2924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.931
   eventType: 1
   animationType: 16
@@ -3012,7 +2947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.3
   eventType: 0
   animationType: 8
@@ -3058,7 +2992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.321
   eventType: 3
   animationType: 20
@@ -3082,7 +3015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.67
   eventType: 3
   animationType: 4
@@ -3131,7 +3063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnAtk
   triggerTime: 0.11
   eventType: 0
   animationType: 73
@@ -3180,7 +3111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.47
   eventType: 0
   animationType: 8

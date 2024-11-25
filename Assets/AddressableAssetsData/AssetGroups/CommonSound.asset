@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 17648ac495671354a902915760dbe95c
   m_SerializeEntries:
+  - m_GUID: 18c30b9d8f06b614ea384a71a018fa6e
+    m_Address: Common/Impact5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f6ea6aaa3b2fd448f6da5871432aad
     m_Address: Common/Impact2
     m_ReadOnly: 0
@@ -42,7 +48,7 @@ MonoBehaviour:
     - CommonSound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9c86e626dddb694fa47a950e6e06fb8
-    m_Address: Assets/Imports/SoundAssets/_Common/Cast2.ogg
+    m_Address: Common/Cast2.ogg
     m_ReadOnly: 0
     m_SerializedLabels:
     - CommonSound

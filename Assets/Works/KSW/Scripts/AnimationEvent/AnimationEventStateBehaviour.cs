@@ -32,13 +32,13 @@ public enum EventType
 
 public class AnimationEventStateBehaviour : StateMachineBehaviour
 {
-    public string eventName;
+    //public string eventName;
 
 
     [Range(0f, 1f)] public float triggerTime;
 
     [Header("이벤트 타입")]
-    [SerializeField] EventType eventType;
+    [SerializeField] EventType eventType =0;
 
    
 
@@ -126,6 +126,7 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             receiver.OnAnimationEventTriggered(eventName);
 
             */
+        
             if(eventType > 0)
             {
                 receiver.OnAnimationEventTriggered(eventType);

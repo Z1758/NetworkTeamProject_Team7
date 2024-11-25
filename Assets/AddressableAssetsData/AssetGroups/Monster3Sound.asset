@@ -21,13 +21,25 @@ MonoBehaviour:
     m_Address: Monster3/FootStep2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Player3Sound
+    - Monster3Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2962afdbe94847d48a1ec23953a6c6a5
+    m_Address: Monster3/FuriousStart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster3Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 723e61f4e269c0845ba81dc4984339b9
     m_Address: Monster3/FootStep1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Player3Sound
+    - Monster3Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8295311b8e9c4247a55aba20d11bd98
+    m_Address: Monster3/UltraAtk1Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster3Sound
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
