@@ -8,7 +8,7 @@ using Firebase.Extensions;
 using Firebase.Auth;
 using Photon.Pun.Demo.Cockpit;
 
-public class MKH_LoginPanel : MonoBehaviour
+public class MKH_LoginPanel : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField emailInputField;
     [SerializeField] TMP_InputField passwordInputField;
@@ -41,6 +41,7 @@ public class MKH_LoginPanel : MonoBehaviour
                 AuthResult result = task.Result;
                 Debug.Log($"User signed in successfully: {result.User.DisplayName} ({result.User.UserId})");
                 CheckUserInfo();
+                OnConnectedToMaster();
             });
     }
 
@@ -67,5 +68,12 @@ public class MKH_LoginPanel : MonoBehaviour
             PhotonNetwork.LocalPlayer.NickName = user.DisplayName;
             PhotonNetwork.ConnectUsingSettings();
         }
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("접속에 성공했다!");
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+        PhotonNetwork.LoadLevel("MKH_WaitingScene");
     }
 }
