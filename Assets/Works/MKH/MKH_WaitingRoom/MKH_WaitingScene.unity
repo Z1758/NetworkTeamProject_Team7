@@ -211,23 +211,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< Updated upstream
-  m_Children: []
-=======
   m_Children:
   - {fileID: 5178023426076758832}
->>>>>>> Stashed changes
   m_Father: {fileID: 1767827886}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-<<<<<<< Updated upstream
-  m_SizeDelta: {x: -1420, y: -280}
-=======
   m_SizeDelta: {x: -1420, y: -240}
->>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561326054
 MonoBehaviour:
@@ -1517,15 +1509,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1676882840}
-<<<<<<< Updated upstream
-  - {fileID: 5607356893493132415}
-  - {fileID: 3158983859998805470}
-=======
   - {fileID: 561326053}
   - {fileID: 746854074775711827}
   - {fileID: 5607356893493132415}
   - {fileID: 1427776244247194683}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1874,39 +1861,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
-<<<<<<< Updated upstream
---- !u!114 &526266126112273052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3743403177033355580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 0.7176471}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
-=======
->>>>>>> Stashed changes
 --- !u!224 &533102752823652022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2113,22 +2067,13 @@ RectTransform:
   - {fileID: 9157127920523706682}
   - {fileID: 533102752823652022}
   - {fileID: 6536194838912049923}
-<<<<<<< Updated upstream
-  m_Father: {fileID: 3158983859998805470}
-  m_RootOrder: 1
-=======
   m_Father: {fileID: 1767827886}
   m_RootOrder: 2
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-<<<<<<< Updated upstream
-  m_SizeDelta: {x: 0, y: 0}
-=======
   m_SizeDelta: {x: -160, y: -160}
->>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769861128410004463
 MonoBehaviour:
@@ -3661,17 +3606,6 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
---- !u!222 &2803191305688142116
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3743403177033355580}
-  m_CullTransparentMesh: 1
-=======
->>>>>>> Stashed changes
 --- !u!114 &2858465632952708258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3839,11 +3773,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: CreateRoomConfirm
         m_Mode: 1
@@ -4507,44 +4437,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5155611318790417528}
   m_CullTransparentMesh: 1
-<<<<<<< Updated upstream
---- !u!1 &3743403177033355580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3158983859998805470}
-  - component: {fileID: 2803191305688142116}
-  - component: {fileID: 526266126112273052}
-  - component: {fileID: 3743403177033355581}
-  m_Layer: 5
-  m_Name: MainPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &3743403177033355581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3743403177033355580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e179feebe911d344ca38e8bceb74e96d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuPanel: {fileID: 5178023426076758835}
-  createRoomPanel: {fileID: 4278252362514570223}
-  roomNameInputField: {fileID: 7927897230185253634}
-  maxPlayerInputField: {fileID: 2221068532477936399}
-=======
->>>>>>> Stashed changes
 --- !u!1 &3793062742508611070
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,11 +5381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: DeleteUser
         m_Mode: 1
@@ -5677,11 +5565,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5178023426076758835}
-<<<<<<< Updated upstream
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-=======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5692,21 +5576,13 @@ RectTransform:
   - {fileID: 3929047385096460628}
   - {fileID: 4731151334335049376}
   - {fileID: 5178023425491404225}
-<<<<<<< Updated upstream
-  m_Father: {fileID: 3158983859998805470}
-=======
   m_Father: {fileID: 561326053}
->>>>>>> Stashed changes
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-<<<<<<< Updated upstream
-  m_SizeDelta: {x: 0, y: 0}
-=======
   m_SizeDelta: {x: 1260, y: 120}
->>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5178023426076758835
 GameObject:
@@ -5768,11 +5644,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: RandomMatching
         m_Mode: 1
@@ -5957,11 +5829,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: Logout
         m_Mode: 1
@@ -6358,11 +6226,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: CreateRoomMenu
         m_Mode: 1
@@ -7271,11 +7135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: JoinLobby
         m_Mode: 1
@@ -7778,11 +7638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-<<<<<<< Updated upstream
-  m_Color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
-=======
   m_Color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 0.44705883}
->>>>>>> Stashed changes
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7890,13 +7746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81db5c0d8c2ee0540a7af697bf3f9012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  loginPanel: {fileID: 0}
-  menuPanel: {fileID: 0}
-=======
   menuPanel: {fileID: 0}
   roomPanel: {fileID: 0}
->>>>>>> Stashed changes
   lobbyPanel: {fileID: 0}
 --- !u!1 &7531030273826564582
 GameObject:
@@ -8509,11 +8360,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 3743403177033355581}
-=======
       - m_Target: {fileID: 0}
->>>>>>> Stashed changes
         m_TargetAssemblyTypeName: MainPanel, Assembly-CSharp
         m_MethodName: CreateRoomCancel
         m_Mode: 1
