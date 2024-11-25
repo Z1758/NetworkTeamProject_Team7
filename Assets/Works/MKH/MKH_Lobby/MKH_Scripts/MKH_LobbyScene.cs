@@ -6,13 +6,11 @@ using UnityEngine;
 
 public class MKH_LobbyScene : MonoBehaviourPunCallbacks
 {
-    public enum Panel { Login, Menu, Lobby, Room }
+    public enum Panel { Menu, Lobby, Room }
 
-    [SerializeField] MKH_LoginPanel loginPanel;
     [SerializeField] MKH_MainPanel menuPanel;
-    //[SerializeField] MKH_RoomPanel roomPanel;
+    [SerializeField] MKH_RoomPanel roomPanel;
     [SerializeField] MKH_LobbyPanel lobbyPanel;
-    //[SerializeField] MKH_WaitingPanel waitingPanel;
 
     private void Start()
     {
@@ -21,8 +19,7 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
 
         if(PhotonNetwork.InRoom)
         {
-            //SetActivePanel(Panel.Room);
-            PhotonNetwork.LoadLevel("WaitingScene");
+            SetActivePanel(Panel.Room);
         }
         else if (PhotonNetwork.InLobby)
         {
@@ -32,27 +29,16 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
         {
             SetActivePanel(Panel.Menu);
         }
-        else
-        {
-            SetActivePanel(Panel.Login);
-        }
     }
 
-    #region 서버 (접속, 종료)
-    // 서버 접속
-    public override void OnConnectedToMaster()    
-    {
-        Debug.Log("접속에 성공했다!");
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-        SetActivePanel(Panel.Menu);
-    }
+    
     // 접속 종료
     public override void OnDisconnected(DisconnectCause cause) 
     {
         Debug.Log($"접속이 끊켰다. cause : {cause}");
-        SetActivePanel(Panel.Login);
+        PhotonNetwork.LoadLevel("LobbyScene");
     }
-    #endregion
+    
 
     #region 방 생성
     // 방 생성 성공
@@ -74,8 +60,7 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()    
     {
         Debug.Log("방 입장 성공");
-        PhotonNetwork.LoadLevel("MKH_WaitingScene");
-        //SetActivePanel(Panel.Room);
+        SetActivePanel(Panel.Room);
     }
 
     // 방 입장 실패
@@ -100,22 +85,19 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     // 플레이어 입장
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        //roomPanel.EnterPlayer(newPlayer);
-        //waitingPanel.EnterPlayer(newPlayer);
+        roomPanel.EnterPlayer(newPlayer);
     }
 
     // 플레이어 업데이트
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        //roomPanel.UpdatePlayerProperty(targetPlayer, changedProps);
-        //waitingPanel.UpdatePlayerProperty(targetPlayer, changedProps);
+        roomPanel.UpdatePlayerProperty(targetPlayer, changedProps);
     }
 
     // 플레이어 퇴장
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        //roomPanel.ExitPlayer(otherPlayer);
-        //waitingPanel.ExitPlayer(otherPlayer);
+        roomPanel.ExitPlayer(otherPlayer);
     }
     #endregion
 
@@ -146,10 +128,8 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     // 패널 정보
     private void SetActivePanel(Panel panel)
     {
-        loginPanel.gameObject.SetActive(panel == Panel.Login);
         menuPanel.gameObject.SetActive(panel == Panel.Menu);
-        //roomPanel.gameObject.SetActive(panel == Panel.Room);
-        //waitingPanel.gameObject.SetActive(panel == Panel.Room);
+        roomPanel.gameObject.SetActive(panel == Panel.Room);
         lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
     }
 }
