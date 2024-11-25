@@ -15,7 +15,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 {
     [Header("필수 컴포넌트")]
     [SerializeField] Animator animator;
-    [SerializeField] List<PlayerController> pc_s;
+    List<PlayerController> pc_s;
     [SerializeField] Rigidbody rigid;
     [SerializeField] AudioSource audioSource;
 

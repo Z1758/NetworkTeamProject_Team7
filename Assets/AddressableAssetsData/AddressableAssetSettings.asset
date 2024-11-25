@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: a55ce97359019ea47943bf1ebd5c3319
   m_currentHash:
     serializedVersion: 2
-    Hash: 43a392553709ef577e37dbc68dc83b6f
+    Hash: 247c63a175b1f3eca02240485864b245
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 72767f107347e624bbf7fd242a25a467, type: 2}
   - {fileID: 11400000, guid: f1cb271875d86be40a3a322774498e7d, type: 2}
+  - {fileID: 11400000, guid: 92ed0a9594819ea4dbb71ee65f5d0b6e, type: 2}
   - {fileID: 11400000, guid: 09c74d35000031c4982e58ad8747d85a, type: 2}
   - {fileID: 11400000, guid: b3b3fb24beefacd429078d440db30c5d, type: 2}
   - {fileID: 11400000, guid: a46a52487438ead41a7fbfbb7e645987, type: 2}
@@ -59,6 +60,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1548f477c689a1a40b1dc92a72bacb27, type: 2}
   - {fileID: 11400000, guid: cd7cd1023308b134bbd1bfa34a9f5b40, type: 2}
   - {fileID: 11400000, guid: 38a7d48ffbe19624680220f1443b0d66, type: 2}
+  - {fileID: 11400000, guid: 69f6dc8f202d7a8449a36325467ff6b5, type: 2}
   - {fileID: 11400000, guid: d535027f17942f848a344c852c0554b9, type: 2}
   - {fileID: 11400000, guid: 46b27b6ed568fd648b00bbd6614c33f9, type: 2}
   m_BuildSettings:
@@ -117,6 +119,12 @@ MonoBehaviour:
     - Player4Sound
     - Monster2Voice
     - Monster2Sound
+    - Monster3Voice
+    - Monster3Sound
+    - Monster4Voice
+    - Monster4Sound
+    - Monster5Voice
+    - Monster5Sound
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: dbdeb77a3a308e046a40c70f3c9cdfc0, type: 2}
