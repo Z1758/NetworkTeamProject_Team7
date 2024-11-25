@@ -17,8 +17,32 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2baf305de9bb58848ada437184fa28e8
   m_SerializeEntries:
+  - m_GUID: 0ba1efd022b6e7540985534fc5bad2c8
+    m_Address: Monster2/Atk3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 129e3d8e292d8584ebb53c3badb65549
+    m_Address: Monster2/Ready
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14e2f94d65af96d478069ac416a4ceb4
     m_Address: Monster2/Death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46b83eaec01bd894781533952b0dc3ff
+    m_Address: Monster2/Furious
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4af744251ddb4a94ca4230461d72d61a
+    m_Address: Monster2/UltraAtk2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster2Voice
@@ -29,8 +53,38 @@ MonoBehaviour:
     m_SerializedLabels:
     - Monster2Voice
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7acbdf5730c722145bcd519e49608922
+    m_Address: Monster2/UltraAtk1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a8247bb347820449a12615c59ef8bf9
+    m_Address: Monster2/Atk5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5f856dd15ba5b7479082aedd4745943
+    m_Address: Monster2/Atk2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad09eb103beab404081640108c8b39a8
+    m_Address: Monster2/Atk4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d37718bf512fc2242abced235b5758ce
-    m_Address: Monster2/Ready
+    m_Address: Monster2/HeavyAtk2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster2Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6eef906f9d0c8545b1caa34d930998d
+    m_Address: Monster2/Atk1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster2Voice

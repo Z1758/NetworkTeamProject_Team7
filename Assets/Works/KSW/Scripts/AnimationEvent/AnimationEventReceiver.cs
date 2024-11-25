@@ -85,7 +85,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     public void ControllMoveAnimation(float speed)
     {
-        rigid.velocity = objectTransform.forward * speed;
+        rigid.velocity = objectTransform.forward * speed * model.AttackSpeed;
 
     }
 
@@ -162,6 +162,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
             clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
         }
         audioSource.PlayOneShot(clip);
+        
     }
 
     public void PlayCommonSound(string str)

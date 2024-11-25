@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviourPun
     [Header("플레이어 피격 콜라이더")]
     [SerializeField] GameObject playerHurtbox;
 
-    [Header("애니메이션 해싱")]
-    [SerializeField] public Animator animator;
-    [SerializeField] public int[] animatorParameterHash;
   
-    public int skillNumberHash;
+    // 애니메이터 파라미터 해싱
+    [HideInInspector] public int[] animatorParameterHash;
+
+    [HideInInspector] public int skillNumberHash;
     
     // 현재 사용한 스킬
     [HideInInspector]public int skillNumber;
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] bool isMoveAni;
 
     [Header("필수 컴포넌트")]
+    [SerializeField] public Animator animator;
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public StatusModel model;
     [SerializeField] PlayerCamera playerCamera;

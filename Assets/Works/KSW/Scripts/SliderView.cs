@@ -28,5 +28,9 @@ public class SliderView : MonoBehaviour
         currentValue = value;
       
     }
+    public void SetSliderMax(float value)
+    {
+        slider.maxValue = value;
 
+    }
 }

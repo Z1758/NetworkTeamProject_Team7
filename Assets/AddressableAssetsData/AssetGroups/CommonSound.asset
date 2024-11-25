@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - CommonSound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9c86e626dddb694fa47a950e6e06fb8
+    m_Address: Assets/Imports/SoundAssets/_Common/Cast2.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be06de185a0ae7b41bd3a31d407a737c
     m_Address: Common/Step2
     m_ReadOnly: 0
@@ -59,8 +65,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - CommonSound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3ca55167298d654f99a5d2346594763
+    m_Address: Common/Cast1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e19504044182ed846adff96e9c04a15b
+    m_Address: Common/Impact4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef351e37c889d0c4f94ce0cdfe6ee271
     m_Address: Common/Step1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f71d84f41a281494082fe153ff30edd8
+    m_Address: Common/Impact3
     m_ReadOnly: 0
     m_SerializedLabels:
     - CommonSound

@@ -2959,13 +2959,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 0
   playerHurtbox: {fileID: 7388295145158818732}
-  animator: {fileID: 1596147993227803519}
   animatorParameterHash: 
   skillNumberHash: 0
   skillNumber: 0
   rotateSpeed: 15
   isFixed: 0
   isMoveAni: 0
+  animator: {fileID: 1596147993227803519}
   rigid: {fileID: 3657568929032751903}
   model: {fileID: 4477423199602759413}
   playerCamera: {fileID: 0}

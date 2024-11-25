@@ -103,6 +103,7 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
         if (receiver != null)
         {
+            if(eventName !=null)
             receiver.OnAnimationEventTriggered(eventName);
 
 

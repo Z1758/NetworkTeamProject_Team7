@@ -41,6 +41,7 @@ public class HPView : SliderView
 
         this.model = model;
         model.OnChangedHpEvent += SetSlider;
+        model.OnChangedMaxHpEvent += SetSliderMax;
         slider.maxValue = model.MaxHP;
         currentValue = model.MaxHP;
         slider.value = model.MaxHP;
@@ -49,6 +50,9 @@ public class HPView : SliderView
     private void OnDisable()
     {
         if (model != null)
+        {
             model.OnChangedHpEvent -= SetSlider;
+            model.OnChangedMaxHpEvent -= SetSliderMax;
+        }
     }
 }

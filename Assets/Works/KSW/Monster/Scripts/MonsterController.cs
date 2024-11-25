@@ -305,7 +305,16 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void SetNextPattern()
     {
-        nextPattern = Random.Range(0, patterns.Length);
+        for (int i = 0; i < patterns.Length; i++)
+        {
+            int ran = Random.Range(0, patterns.Length);
+            if (nextPattern != ran)
+            {
+                nextPattern = ran;
+                return;
+            }
+        }
+        nextPattern = 0;
     }
 
     public void PatternReset()
