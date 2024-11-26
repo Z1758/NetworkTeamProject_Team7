@@ -5647,6 +5647,10 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Position.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 528153296876278286, guid: aaf8f33d31b7c9849b181f8b9a89aeb5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1526640812583713190, guid: aaf8f33d31b7c9849b181f8b9a89aeb5, type: 3}
       propertyPath: looping
       value: 0

@@ -133,6 +133,19 @@ AnimatorState:
   - {fileID: -6974151109201470143}
   m_StateMachineBehaviours:
   - {fileID: 1901964592645926295}
+  - {fileID: -6835238186583142169}
+  - {fileID: -1027016717933936956}
+  - {fileID: -1043204378003368122}
+  - {fileID: -5296326609343364998}
+  - {fileID: -597142815502236764}
+  - {fileID: 8551448131496901265}
+  - {fileID: -813270492361774318}
+  - {fileID: -7722190222920928665}
+  - {fileID: -4906893979403167132}
+  - {fileID: -3282702069422218949}
+  - {fileID: 6660516655258191376}
+  - {fileID: -6795718731817481605}
+  - {fileID: 665757530963437452}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -147,6 +160,29 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-8635526160247304420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.287
+  eventType: 0
+  animationType: 9
+  audioName: Impact6
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 1
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-8101173048660030154
 AnimatorState:
   serializedVersion: 6
@@ -161,6 +197,9 @@ AnimatorState:
   - {fileID: -5158066536410317162}
   m_StateMachineBehaviours:
   - {fileID: 7676909905894730545}
+  - {fileID: -4169861081455036988}
+  - {fileID: -6972795086430759942}
+  - {fileID: -5903415490143055474}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -251,6 +290,98 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-7722190222920928665
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.527
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7480710989416313330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7438770051758479499
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.391
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7109429468429500367
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.339
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 1
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &-6986188685406483655
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,6 +430,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-6972795086430759942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.637
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 2
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-6837992955008161515
 AnimatorState:
   serializedVersion: 6
@@ -329,6 +483,75 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-6835238186583142169
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.3
+  eventType: 0
+  animationType: 73
+  audioName: Cast3
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 1
+  effectNum: 2
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6795718731817481605
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.292
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk1_2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6599865768703680827
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk2_1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-6495725234645756085
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -446,6 +669,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
+--- !u!114 &-5903415490143055474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk4
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-5712304925832368496
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -496,6 +742,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-5296326609343364998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.41
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-5259131174163616130
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -546,6 +815,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-5089514183559236943
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.389
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &-4951338015606654876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -569,6 +861,98 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0.5
+--- !u!114 &-4906893979403167132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.313
+  eventType: 2
+  animationType: 4
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 10
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-4561350752118482130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.455
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-4169861081455036988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.59
+  eventType: 0
+  animationType: 73
+  audioName: Impact4
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 2
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-3794911999984519025
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-3636975172919318762
 AnimatorState:
   serializedVersion: 6
@@ -625,6 +1009,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -6016694738084148342}
   - {fileID: -4951338015606654876}
+  - {fileID: 3430889733452434086}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -639,6 +1024,52 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-3451577194833577451
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk5_1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-3282702069422218949
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.527
+  eventType: 3
+  animationType: 4
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-2980017348721549176
 AnimatorState:
   serializedVersion: 6
@@ -653,6 +1084,14 @@ AnimatorState:
   - {fileID: -1239521095506252562}
   m_StateMachineBehaviours:
   - {fileID: -6385996953279288827}
+  - {fileID: 3887225796812412067}
+  - {fileID: -894793377094086547}
+  - {fileID: -5089514183559236943}
+  - {fileID: 5064204441185118580}
+  - {fileID: 2225673529589725504}
+  - {fileID: 4341814494111429204}
+  - {fileID: -3451577194833577451}
+  - {fileID: -2267010609240675642}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -713,6 +1152,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
+--- !u!114 &-2267010609240675642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.52
+  eventType: 0
+  animationType: 8
+  audioName: Impact4
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-2257700212957109360
 AnimatorState:
   serializedVersion: 6
@@ -728,6 +1190,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -2760548731218136382}
   - {fileID: -6410798860397216370}
+  - {fileID: 7668141650484887455}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -758,6 +1221,13 @@ AnimatorState:
   - {fileID: 3334406994043199500}
   - {fileID: -6986188685406483655}
   - {fileID: 2432833712269057896}
+  - {fileID: 1853589620357898727}
+  - {fileID: 3134246419218813928}
+  - {fileID: -6599865768703680827}
+  - {fileID: 8787718566853159713}
+  - {fileID: 7143925561182292739}
+  - {fileID: 3990621542847404020}
+  - {fileID: 4336815871328582007}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -795,6 +1265,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 1
   shakeTime: 0
+--- !u!114 &-1605703135194107977
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.345
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-1239521095506252562
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -820,6 +1313,52 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-1043204378003368122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.389
+  eventType: 0
+  animationType: 65
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 1
+  effectNum: 2
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-1027016717933936956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.339
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-1004594170684676666
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -845,6 +1384,75 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-894793377094086547
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.345
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-813270492361774318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.501
+  eventType: 0
+  animationType: 65
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 1
+  effectNum: 2
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-597142815502236764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.434
+  eventType: 0
+  animationType: 65
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 1
+  effectNum: 2
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &-580334461052938508
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -870,6 +1478,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-31428782417437455
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.493
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -952,6 +1583,29 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &665757530963437452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.501
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk1_3
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &1586813335573797396
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1002,6 +1656,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &1853589620357898727
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.519
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 5
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &1901964592645926295
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1023,6 +1700,29 @@ MonoBehaviour:
   colliderNum: 0
   colliderActive: 0
   effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &2225673529589725504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.506
+  eventType: 0
+  animationType: 73
+  audioName: Atk5_3
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 1
+  effectNum: 1
   isLoop: 0
   shakeTime: 0
 --- !u!1101 &2321103336212704716
@@ -1098,6 +1798,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
+--- !u!114 &3134246419218813928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.551
+  eventType: 0
+  animationType: 9
+  audioName: UltraAtk2_2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 5
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &3334406994043199500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1114,6 +1837,29 @@ MonoBehaviour:
   eventType: 1
   animationType: 16
   audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3430889733452434086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Furious
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
@@ -1143,6 +1889,52 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &3887225796812412067
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.331
+  eventType: 0
+  animationType: 9
+  audioName: Atk5_2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3990621542847404020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.53
+  eventType: 0
+  animationType: 72
+  audioName: Impact5
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &4244001332035594501
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1168,6 +1960,52 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &4336815871328582007
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.079
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 3
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &4341814494111429204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.525
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &4419335297256012179
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1241,6 +2079,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &5064204441185118580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.421
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &5298893298368459351
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1410,6 +2271,9 @@ AnimatorState:
   - {fileID: -7824893569352261755}
   m_StateMachineBehaviours:
   - {fileID: 7070494091596148273}
+  - {fileID: -8635526160247304420}
+  - {fileID: -7109429468429500367}
+  - {fileID: -7480710989416313330}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1424,6 +2288,29 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &6660516655258191376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk1_1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &7070494091596148273
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1447,6 +2334,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
+--- !u!114 &7143925561182292739
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.507
+  eventType: 3
+  animationType: 4
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &7593481188550044864
 AnimatorState:
   serializedVersion: 6
@@ -1461,6 +2371,11 @@ AnimatorState:
   - {fileID: 4244001332035594501}
   m_StateMachineBehaviours:
   - {fileID: -6027342580772474479}
+  - {fileID: -1605703135194107977}
+  - {fileID: -7438770051758479499}
+  - {fileID: -4561350752118482130}
+  - {fileID: -31428782417437455}
+  - {fileID: -3794911999984519025}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1500,6 +2415,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &7668141650484887455
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk3
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &7668931009363597187
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1649,6 +2587,29 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 980, y: 170, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 5593306954591015595}
+--- !u!114 &8551448131496901265
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.48
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &8774596268770221145
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1674,3 +2635,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &8787718566853159713
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.345
+  eventType: 2
+  animationType: 4
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 15
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
