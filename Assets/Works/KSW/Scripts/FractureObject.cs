@@ -1,47 +1,106 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
-public class FractureObject : MonoBehaviour
+public class FractureObject : MonoBehaviourPun
 {
-    [SerializeField] MeshRenderer meshRenderer;
-    [SerializeField] GameObject frag;
-    // Start is called before the first frame update
-    void Start()
+    MeshRenderer meshRenderer;
+    
+    [SerializeField] MeshRenderer[] meshRenderers;
+    [SerializeField]Rigidbody[] rigidbodies;
+
+
+    [SerializeField] GameObject frags;
+    [SerializeField] GameObject[] otherObj;
+
+    [SerializeField] float forcePower;
+
+    WaitForSeconds fadeDelay = new WaitForSeconds(0.1f);
+
+    private void Awake()
     {
-        Debug.Log(frag.name);
         meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderers = GetComponentsInChildren<MeshRenderer>(true);
+        rigidbodies = GetComponentsInChildren<Rigidbody>(true);
     }
 
-    // Update is called once per frame
-    void Update()
+ 
+
+    private void OnTriggerEnter(Collider other)
     {
+     
+
+        if ((other.tag == "Enemy" && photonView.IsMine) || other.tag == "Hitbox")
+        {
+            if (other.TryGetComponent(out Hitbox hitbox))
+            {
+
+
+                if (!hitbox.GetAngleHit(transform))
+                {
+                    return;
+                }
+                hitbox.HitEffect(other.ClosestPoint(transform.position));
+
+
+            }
+            photonView.RPC(nameof(StartFadeOutRPC), RpcTarget.All);
+         
+        }
+    }
+
+
+
+    [PunRPC]
+     void StartFadeOutRPC()
+    {
+        for(int i = 0; i < otherObj.Length; i++)
+        {
+            otherObj[i].SetActive(false);
+        }
+
+        meshRenderer.enabled = false;
+        gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+        frags.SetActive(true);
         
-    }
+        for (int i = 0; i < rigidbodies.Length; i++)
+        {
+            Vector3 ranPos = Random.insideUnitSphere;
+            ranPos.y += 0.3f;
+            rigidbodies[i].AddForce(ranPos* forcePower, ForceMode.Impulse);
+           
+        }
 
-    public void StartFadeOut(Collider collider, GameObject obj, Vector3 vec )
-    {
-        Debug.Log(obj.name);
         StartCoroutine(FadeOut());
     }
-    
-    public void LLELEL(Collider collider, GameObject obj, Vector3 vec)
-    {
-        Debug.Log(frag.name);
-       frag.SetActive(true);
-        gameObject.SetActive(false);
-    }
-
+  
     IEnumerator FadeOut()
     {
-        while (true)
+        float alpha = 1;
+        Color color = meshRenderers[0].material.color;
+       
+        while (alpha > 0)
         {
-            Color color = meshRenderer.material.color;
-            color.a -= Time.deltaTime;
-            meshRenderer.material.color = color;
- 
-            yield return new WaitForSeconds(0.1f);
+            color.a = alpha;
+
+            foreach (MeshRenderer renderer in meshRenderers)
+            {
+                foreach (Material mat in renderer.materials)
+                {
+                    mat.color = color;
+                }
+
+              
+               
+
+            }
+            alpha -= 0.04f;
+            yield return fadeDelay;
 
         }
+
+        Destroy(gameObject);
     }
 }
