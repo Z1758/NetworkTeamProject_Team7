@@ -30,6 +30,7 @@ public class StaminaView : SliderView
 
         this.model = model;
         model.OnChangedStaminaEvent += SetSlider;
+        model.OnChangedMaxStaminaEvent += SetSliderMax;
         currentValue = model.MaxStamina;
         slider.maxValue = model.MaxStamina;
         slider.value = model.MaxStamina;
@@ -39,6 +40,7 @@ public class StaminaView : SliderView
     {
         if (model != null)
             model.OnChangedStaminaEvent -= SetSlider;
+            model.OnChangedMaxStaminaEvent -= SetSliderMax;
     }
 
   
