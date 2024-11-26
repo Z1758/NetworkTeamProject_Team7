@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TestGameScene : MonoBehaviourPunCallbacks
 {
-    public const string RoomName = "TestRoom";
+    public const string RoomName = "TestRoo";
 
     [SerializeField] List<GameObject> monsterPrefabs;
     [SerializeField] Queue<GameObject> monsterOrderQueue;
@@ -98,7 +98,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
 
-        PhotonNetwork.InstantiateRoomObject("GameObject/Boss4", randomPos, Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject("GameObject/Boss5", randomPos, Quaternion.identity);
 
     }
 

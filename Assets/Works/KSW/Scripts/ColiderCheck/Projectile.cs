@@ -17,7 +17,6 @@ public class Projectile : Hitbox
     [SerializeField] bool isAOE;
     [SerializeField] bool hasParent;
 
-
     WaitForSeconds returnTimeWFS;
     Coroutine returnTimeCoroutine;
 
@@ -80,8 +79,19 @@ public class Projectile : Hitbox
         gameObject.SetActive(false);
     }
 
+    public override void HitEffect(Vector3 vec)
+    {
+        if (effectName == null)
+            return;
 
+        if (effectPrefab == null)
+        {
+            effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
+        }
+        
+        Instantiate(effectPrefab, transform.position, transform.rotation);
 
+    }
     private void OnDisable()
     {
       

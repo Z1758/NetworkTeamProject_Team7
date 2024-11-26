@@ -489,7 +489,7 @@ public class PlayerController : MonoBehaviourPun
         Debug.Log("OUCH!!!!!!!!!!!!!!" + damage);
         model.HP -= damage;
 
-        if (model.HP < 0f)
+        if (model.HP <= 0f)
         {
             Dying();
             return;
