@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent(CustomManualInstantiationEventCode, data, raiseEventOptions, sendOptions);
+           
         }
         else
         {
