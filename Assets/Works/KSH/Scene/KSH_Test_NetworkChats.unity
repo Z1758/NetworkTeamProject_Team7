@@ -1271,9 +1271,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d6a59b4485d6b4e904054484dd5e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speechBubble: {fileID: 1566795581}
   _inputField: {fileID: 8592657807193142694}
   _outputText: {fileID: 8592657806889687459}
-  _speechBubble: {fileID: 1061361291}
+  _speechBubbleText: {fileID: 1061361291}
 --- !u!1 &8592657805381743544
 GameObject:
   m_ObjectHideFlags: 0

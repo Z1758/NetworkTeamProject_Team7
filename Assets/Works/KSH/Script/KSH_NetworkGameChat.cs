@@ -14,9 +14,12 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     private string _currentChannelName;  // 현재 채팅 채널 이름
     private string _privateReceiver = "";    // 개인 메시지 수신자
 
+    private PhotonView myView;
+
     [SerializeField] GameObject _speechBubble;  // 말풍선 게임 오브젝트
     private Coroutine _speechBubbleCoroutine;   // 말풍선 코르틴;
 
+    [SerializeField] GameObject _networkChat;       // 네트워크 채팅 오브젝트
     [SerializeField] TMP_InputField _inputField;  // 유저가 메시지를 입력하는 InputField UI 요소
     [SerializeField] Text _outputText;        // 메시지가 출력되는 Text UI 요소
     [SerializeField] Text _speechBubbleText;        // 말풍선에 메시지 출력
@@ -69,13 +72,49 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
 
     private void Start()
     {
+        myView = GetComponent<PhotonView>();    // 
         _speechBubble.SetActive(false);         // 오브젝트 비활성화
+        _networkChat.SetActive(false);          
     }
 
     private void Update()
     {
         // 서버에 연결을 유지하고 지속적으로 호출하여 수신 메세지를 받습니다.
         _chatClient.Service();
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (_networkChat.activeSelf)
+            {
+                // 채팅창을 닫기
+                _networkChat.SetActive(false);
+                if (_inputField.text.Length > 0)
+                {
+                    if (_chatClient.State == ChatState.ConnectedToFrontEnd)
+                    {
+                        SubmitPublicChatOnClick();
+                        SubmitPrivateChatOnClick();
+
+                        // 채팅 메시지를 다른 사람에게 보냄
+                        myView.RPC("OpenChatBox", RpcTarget.AllBuffered);
+                        _inputField.text = "";
+                        if (_speechBubbleCoroutine != null)
+                        {
+                            StopCoroutine(_speechBubbleCoroutine);
+                        }
+                        // 새로 Coroutine 시작
+                        _speechBubbleCoroutine = StartCoroutine(DisplaySpeechBubble());
+                    }
+                }
+            }
+            else
+            {
+                // 채팅창 활성화
+                _networkChat.SetActive(true);
+                _inputField.ActivateInputField(); // 입력 필드 활성화
+                _inputField.Select(); // 입력 필드에 포커스 설정
+            }
+        }
     }
 
 
@@ -116,15 +155,11 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     // 전체 채팅을 제출하는 함수
     public void SubmitPublicChatOnClick()
     {
-
         // 개인 메시지가 아니라면 공개 채팅으로 처리
         if (_privateReceiver == "")
         {
             // 채널에 메시지를 전송
             _chatClient.PublishMessage(_currentChannelName, _inputField.text);
-
-            // 메시지 입력 필드 초기화
-            _inputField.text = "";
         }
 
     }
@@ -137,7 +172,6 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
         if (_privateReceiver != "") // 수신자가 지정되어 있으면
         {
             _chatClient.SendPrivateMessage(_privateReceiver, _inputField.text); // 해당 수신자에게 개인 메시지 전송
-            _inputField.text = ""; // 입력 필드 초기화
         }
     }
 
@@ -197,10 +231,6 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
         for (int i = 0; i < messages.Length; i++)
         {
             AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
-            if (senders[i] == _userName)
-            {
-                _speechBubbleText.text += messages[i] + "\r\n";
-            }
         }
     }
 
@@ -255,30 +285,31 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     }
 
 
-    // 인 게임 말풍선 효과
-    public void SpeechBubble(string lineString)
+    private IEnumerator DisplaySpeechBubble()
     {
-        if (_speechBubbleCoroutine != null)
-        {
-            StopCoroutine(_speechBubbleCoroutine);
-        }
+        // 3초 동안 대기
+        yield return new WaitForSeconds(3);
 
-        // 새로 Coroutine 시작
-        _speechBubbleCoroutine = StartCoroutine(DisplaySpeechBubble(lineString));
+        // 3초 후에 말풍선 숨기기
+        myView.RPC("CloseChatBox", RpcTarget.AllBuffered);
     }
 
-    private IEnumerator DisplaySpeechBubble(string lineString)
+    [PunRPC]
+    public void OpenChatBox()
     {
         // 말풍선 표시
         _speechBubble.SetActive(true);
 
+        // 말풍선 메시지 내용 초기화
+        _speechBubbleText.text = "";
+
         // 말풍선 텍스트 설정
-        _speechBubbleText.text += lineString + "\r\n";
+        _speechBubbleText.text = _inputField.text;
+    }
 
-        // 3초 동안 대기
-        yield return new WaitForSeconds(3f);
-
-        // 3초 후에 말풍선 숨기기
+    [PunRPC]
+    public void CloseChatBox()
+    {
         _speechBubble.SetActive(false);
     }
 }
