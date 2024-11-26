@@ -38,9 +38,10 @@ public class StaminaView : SliderView
 
     private void OnDisable()
     {
-        if (model != null)
-            model.OnChangedStaminaEvent -= SetSlider;
-            model.OnChangedMaxStaminaEvent -= SetSliderMax;
+        if (model != null) { 
+        model.OnChangedStaminaEvent -= SetSlider;
+        model.OnChangedMaxStaminaEvent -= SetSliderMax;
+      }
     }
 
   
