@@ -158,7 +158,7 @@ public class AudioManager : MonoBehaviour
         monsterSoundDic.TryGetValue(resultStr, out AudioClip clip);
         if (clip == null)
         {
-            Debug.Log("몬스터 사운드 초기화");
+            Debug.Log($"{resultStr} 몬스터 사운드 초기화");
             monsterSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
            clip = monsterSoundDic[resultStr];
         }

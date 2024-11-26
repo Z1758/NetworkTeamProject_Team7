@@ -25,8 +25,8 @@ public class Hitbox : MonoBehaviourPun
 
     [SerializeField] HitboxType hitboxType;
    
-    [SerializeField] GameObject effectPrefab;
-    [SerializeField] string effectName;
+    [SerializeField] protected GameObject effectPrefab;
+    [SerializeField] protected string effectName;
     [SerializeField] AudioClip hitSound;
     [SerializeField] string soundName;
 
@@ -46,8 +46,11 @@ public class Hitbox : MonoBehaviourPun
     }
 
 
-    public void HitEffect(Vector3 vec)
+    public virtual void HitEffect(Vector3 vec)
     {
+        if (effectName == null)
+            return;
+
         if (effectPrefab == null)
         {
             effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
@@ -63,6 +66,9 @@ public class Hitbox : MonoBehaviourPun
 
     public GameObject HitEffect()
     {
+        if (effectName == null)
+            return null;
+
         if (effectPrefab == null)
         {
             effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);

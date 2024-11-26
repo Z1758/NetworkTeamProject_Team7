@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster5Voice
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster5Voice
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 707947f98b05e594daf69bdd7c1c0985
+  m_SerializeEntries:
+  - m_GUID: 0dcd7ec5597e8ec46bb57ed21385486c
+    m_Address: Monster5/Atk5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15912ee621157ef45a257778d2cc0752
+    m_Address: Monster5/Run
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 263ce3fe5aef5eb4ea3a006d8524413e
+    m_Address: Monster5/Death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d84eab2491430f4a99d6741fabc0d70
+    m_Address: Monster5/Atk2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67006a1259ff28f4188ad19bd994d574
+    m_Address: Monster5/UltraAtk1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7349e1f7232b3344a9f1629f60c8acf2
+    m_Address: Monster5/UltraAtk2_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85da252a8cf4c1c4ea7ceefc2c16f1d5
+    m_Address: Monster5/UltraAtk2_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bd516170a2b83046a9975d877147798
+    m_Address: Monster5/Atk1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f36bb0b918e0b7488b44d03058e0bcc
+    m_Address: Monster5/Furious
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0bfd4120e91ddd41ab1568dcd9a4779
+    m_Address: Monster5/Atk4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc2d354010da23548bf8a15bdd34bc6f
+    m_Address: Monster5/UltraAtk2_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db2f90196c795924ba71e8369989bb06
+    m_Address: Monster5/Ready
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc87bb691cf19f048a0c5c687afd391d
+    m_Address: Monster5/Atk3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster5Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 71098046cdb2f5f449e28287cac50f8a, type: 2}
+    - {fileID: 11400000, guid: 2fd99d00c5780064d924696bb2daa250, type: 2}
