@@ -10,7 +10,6 @@ public class WHS_InventoryUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI potionCountText;
     // TODO : 버튼 물약이미지
     [SerializeField] Button potionButton;
-    [SerializeField] GameObject hpPotionPrefab;
     private int potionCount;
     private WHS_Inventory inventory;
 
@@ -68,7 +67,6 @@ public class WHS_InventoryUI : MonoBehaviour
     {
         if (potionCount > 0)
         {
-            Debug.Log("포션 사용");
             inventory.UseItem(ItemType.HP);
         }
         else
