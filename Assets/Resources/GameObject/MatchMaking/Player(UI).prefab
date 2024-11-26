@@ -496,11 +496,13 @@ MonoBehaviour:
   hp: 1000
   maxStamina: 100
   stamina: 100
-  consumStamina: 30
+  consumStamina: 0
   recoveryStaminaMag: 5
-  attack: 100
+  attack: 0
   attackSpeed: 1
   moveSpeed: 10
+  criticalRate: 0
+  criticalDamageRate: 0
   skillCoolTime:
   - 5
   - 6
