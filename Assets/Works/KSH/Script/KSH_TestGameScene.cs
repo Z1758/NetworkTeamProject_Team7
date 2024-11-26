@@ -67,6 +67,7 @@ public class KSH_TestGameScene : MonoBehaviourPunCallbacks
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
         PhotonNetwork.Instantiate("GameObject/Player2", randomPos, Quaternion.identity);
+        PhotonNetwork.Instantiate("GameObject/TestGameChat", randomPos, Quaternion.identity);
 
     }
 

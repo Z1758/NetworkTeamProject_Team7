@@ -6,13 +6,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
+public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunObservable
 {
     private ChatClient _chatClient;  // Photon Chat 클라이언트 객체
 
     private string _userName;        // 사용자 이름
     private string _currentChannelName;  // 현재 채팅 채널 이름
     private string _privateReceiver = "";    // 개인 메시지 수신자
+    private bool isWhispering = false;  // 귓말 모드인지 여부
+    [SerializeField] TMP_InputField _privateInputField; // 개인 메시지 대상자 이름 입력
 
     private PhotonView myView;
 
@@ -74,7 +76,7 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     {
         myView = GetComponent<PhotonView>();    // 
         _speechBubble.SetActive(false);         // 오브젝트 비활성화
-        _networkChat.SetActive(false);          
+        _networkChat.SetActive(false);
     }
 
     private void Update()
@@ -82,7 +84,7 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
         // 서버에 연결을 유지하고 지속적으로 호출하여 수신 메세지를 받습니다.
         _chatClient.Service();
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (photonView.IsMine && Input.GetKeyDown(KeyCode.Return))
         {
             if (_networkChat.activeSelf)
             {
@@ -114,6 +116,12 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
                 _inputField.ActivateInputField(); // 입력 필드 활성화
                 _inputField.Select(); // 입력 필드에 포커스 설정
             }
+        }
+
+        // 탭 키를 눌러 입력란 전환
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleInputField();
         }
     }
 
@@ -311,5 +319,35 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     public void CloseChatBox()
     {
         _speechBubble.SetActive(false);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)  // 내가 데이터를 보낼 때
+        {
+            stream.SendNext(_speechBubbleText.text);  // 채팅 메시지 전송
+        }
+        else if (stream.IsReading) // 내가 데이터를 받을 때
+        {
+            _speechBubbleText.text = (string)stream.ReceiveNext();  // 채팅 메시지 수신
+        }
+    }
+
+    // 채팅 입력란과 귓말 입력란을 전환
+    private void ToggleInputField()
+    {
+        if (isWhispering)
+        {
+            // 귓말 모드에서 채팅 모드로 전환
+            _inputField.Select(); // 채팅 입력란 포커스
+        }
+        else
+        {
+            // 채팅 모드에서 귓말 모드로 전환
+            _privateInputField.Select(); // 귓말 대상자 입력란 포커스
+        }
+
+        // 귓말 모드 여부 토글
+        isWhispering = !isWhispering;
     }
 }
