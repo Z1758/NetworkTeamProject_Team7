@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class MKH_ServerEntry : MonoBehaviour
 {
-    [SerializeField] TMP_Text roomName;
+    [SerializeField] TMP_Text serverName;
     [SerializeField] TMP_Text currentPlayer;
     [SerializeField] Button joinRoomButton;
 
-    public void SetRoomInfo(RoomInfo info)
+    public void SetServerInfo(RoomInfo info)
     {
-        roomName.text = info.Name;
+        serverName.text = info.Name;
         currentPlayer.text = $"{info.PlayerCount} / {info.MaxPlayers}";
         joinRoomButton.interactable = info.PlayerCount < info.MaxPlayers;
     }
@@ -22,6 +22,6 @@ public class MKH_ServerEntry : MonoBehaviour
     public void JoinRoom()
     {
         PhotonNetwork.LeaveLobby();
-        PhotonNetwork.JoinRoom(roomName.text);
+        PhotonNetwork.JoinRoom(serverName.text);
     }
 }
