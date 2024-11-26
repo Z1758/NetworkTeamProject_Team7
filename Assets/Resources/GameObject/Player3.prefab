@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 136452348}
   m_Layer: 31
   m_Name: Atk5Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 367543206}
   m_Layer: 31
   m_Name: Atk3Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 377143214}
   m_Layer: 31
   m_Name: Atk4Hitbox1
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 479269232}
   m_Layer: 31
   m_Name: Atk4Hitbox2
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 1000105282}
   m_Layer: 31
   m_Name: Atk2Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 1900771702}
   m_Layer: 31
   m_Name: Atk1Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 1223334873559968911}
   m_Layer: 31
   m_Name: Skill3Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2083,7 +2083,7 @@ GameObject:
   - component: {fileID: 5848917852271171194}
   m_Layer: 31
   m_Name: Skill1Hitbox1
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2244,7 +2244,7 @@ GameObject:
   - component: {fileID: 1301235873300912754}
   m_Layer: 31
   m_Name: Skill1Hitbox2
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3042,6 +3042,8 @@ MonoBehaviour:
   attack: 100
   attackSpeed: 1
   moveSpeed: 10
+  criticalRate: 0
+  criticalDamageRate: 0
   skillCoolTime:
   - 7
   - 8
@@ -3206,7 +3208,7 @@ GameObject:
   - component: {fileID: 6410574328470331076}
   m_Layer: 31
   m_Name: Skill2Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3922,7 +3924,7 @@ GameObject:
   - component: {fileID: 3490696312097058049}
   m_Layer: 31
   m_Name: Skill4Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

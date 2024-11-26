@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7812939625791838464}
   m_Layer: 31
   m_Name: Atk2Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -991,7 +991,7 @@ GameObject:
   - component: {fileID: 3928811968660073858}
   m_Layer: 31
   m_Name: Atk3ProjectileHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 7250202434429620212}
   m_Layer: 7
   m_Name: Boss4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1956,6 +1956,8 @@ MonoBehaviour:
   attack: 200
   attackSpeed: 1
   moveSpeed: 7
+  criticalRate: 0
+  criticalDamageRate: 0
   skillCoolTime: []
 --- !u!135 &7250202434429620212
 SphereCollider:
@@ -1983,7 +1985,7 @@ GameObject:
   - component: {fileID: 8531451522036747644}
   m_Layer: 31
   m_Name: Atk1Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2397,7 +2399,7 @@ GameObject:
   - component: {fileID: 4732215762982588696}
   m_Layer: 31
   m_Name: Atk5Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2497,7 +2499,7 @@ GameObject:
   - component: {fileID: 4453040121675194962}
   m_Layer: 31
   m_Name: Atk3HitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2716,7 +2718,7 @@ GameObject:
   - component: {fileID: 1952618936340488900}
   m_Layer: 31
   m_Name: Skill4ProjectileHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2997,7 +2999,7 @@ GameObject:
   - component: {fileID: 3807473340570938518}
   m_Layer: 31
   m_Name: Atk4Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3644,7 +3646,7 @@ GameObject:
   - component: {fileID: 2951770623271251472}
   m_Layer: 31
   m_Name: Atk5Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3840,7 +3842,7 @@ GameObject:
   - component: {fileID: 3516265565056037053}
   m_Layer: 31
   m_Name: Skill3ProjectileHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4663,7 +4665,7 @@ GameObject:
   - component: {fileID: 5562557562473569856}
   m_Layer: 31
   m_Name: Atk4Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4794,7 +4796,7 @@ GameObject:
   - component: {fileID: 7582663422321787352}
   m_Layer: 31
   m_Name: UltraAtk2Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

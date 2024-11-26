@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8290439797460572438}
   m_Layer: 31
   m_Name: Atk5Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1111784778303138396}
   m_Layer: 31
   m_Name: Atk3HitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 4227900609836383867}
   m_Layer: 7
   m_Name: Boss3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -609,6 +609,8 @@ MonoBehaviour:
   attack: 200
   attackSpeed: 1
   moveSpeed: 7
+  criticalRate: 0
+  criticalDamageRate: 0
   skillCoolTime: []
 --- !u!65 &4227900609836383867
 BoxCollider:
@@ -636,7 +638,7 @@ GameObject:
   - component: {fileID: 4955217212819735922}
   m_Layer: 31
   m_Name: Atk1Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,7 +705,7 @@ GameObject:
   - component: {fileID: 2733896202964492469}
   m_Layer: 31
   m_Name: Atk2Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,7 +808,7 @@ GameObject:
   - component: {fileID: 6600783972981295574}
   m_Layer: 31
   m_Name: UltraAtk2Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,7 +875,7 @@ GameObject:
   - component: {fileID: 9192856850810574414}
   m_Layer: 31
   m_Name: Atk4Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -999,7 +1001,7 @@ GameObject:
   - component: {fileID: 79637593}
   m_Layer: 31
   m_Name: UltraAtk1Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
