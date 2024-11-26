@@ -82,10 +82,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     // 획득한 아이템 스탯 적용 호출
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
-        if (photonView != null)
-        {
-            photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, (int)item.type, item.value);
-        }
+        photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, (int)item.type, item.value);
     }
 
     // 각 플레이어 획득한 아이템 스탯 적용

@@ -26,17 +26,19 @@ public class WHS_Inventory : MonoBehaviourPun
         }
     }
 
-    // 해당 아이템 사용
+    // 아이템 사용 호출
     public void UseItem(ItemType type)
     {
         if (items.ContainsKey(type) && items[type] > 0)
         {
             items[type]--;
 
-            photonView.RPC(nameof(UseItemRPC), RpcTarget.All, type, statusModel.photonView.ViewID);
+            photonView.RPC(nameof(UseItemRPC), RpcTarget.MasterClient, type, statusModel.photonView.ViewID);
         }
     }
 
+    // 아이템 사용
+    // TODO : 물약 애니메이션이나 이펙트
     [PunRPC]
     private void UseItemRPC(ItemType type, int playerViewID)
     {
@@ -47,16 +49,13 @@ public class WHS_Inventory : MonoBehaviourPun
 
             if (WHS_ItemManager.Instance.itemData.TryGetValue(type, out WHS_Item item))
             {
-                Debug.Log($"아이템 {item.type}, {item.value}");
-
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
-
+                Debug.Log($"아이템 {item.type}, {item.value}");
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
             }
         }
     }
     
-
     // 아이템 개수 출력
     public int GetItemCount(ItemType type)
     {

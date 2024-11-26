@@ -33,7 +33,7 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
             StatusModel statusModel = collision.gameObject.GetComponent<StatusModel>();
             WHS_Inventory inventory = collision.gameObject.GetComponent<WHS_Inventory>();
 
-            if (statusModel.photonView != null && statusModel.photonView.IsMine && inventory != null)
+            if (statusModel.photonView.IsMine && statusModel.photonView != null && inventory != null)
             {
                 if (type == ItemType.HP)
                 {

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class WHS_InventoryUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI potionCountText;
+    // TODO : 버튼 물약이미지
     [SerializeField] Button potionButton;
     [SerializeField] GameObject hpPotionPrefab;
     private int potionCount;
