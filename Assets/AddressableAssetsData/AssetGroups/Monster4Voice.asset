@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster4Voice
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster4Voice
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e39130448876ae14b80219ecb24fccd0
+  m_SerializeEntries:
+  - m_GUID: 1101b38f4b6763d4d80c0bdb7f4b1c9a
+    m_Address: Monster4/Run
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e41b2ec60eb344f4ab166f5b477f2913
+    m_Address: Monster4/Ready
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster4Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2d6b34783e259c54a8103ea09fdf6503, type: 2}
+    - {fileID: 11400000, guid: 327f4973b401fe646b6e36a60ba59d42, type: 2}

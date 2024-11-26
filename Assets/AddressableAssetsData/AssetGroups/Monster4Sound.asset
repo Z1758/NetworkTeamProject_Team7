@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster4Sound
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster4Sound
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e5378f2bfdc4a744198b47203d93b665
+  m_SerializeEntries:
+  - m_GUID: 3b1f14b5866b0b0448f4cffe05d350e1
+    m_Address: Monster4/Hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player4Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 558c28fa3dc15be419d7ab1ab07a6e7b
+    m_Address: Monster4/FootStep2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster4Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee5de0bf9aae536469df66e8e2712c25
+    m_Address: Monster4/FootStep1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster4Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d02a1d68941b9684493d87d80d82e8ef, type: 2}
+    - {fileID: 11400000, guid: 063f6cc4e0a62794f92c3eeb8fe7ef3d, type: 2}

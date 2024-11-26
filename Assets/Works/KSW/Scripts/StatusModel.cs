@@ -29,6 +29,10 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     [SerializeField] private float attackSpeed;
     [Header("이동 속도")]
     [SerializeField] private float moveSpeed;
+    [Header("치명타 확률")]
+    [SerializeField] private float criticalRate;
+    [Header("치명타 데미지 배율")]
+    [SerializeField] private float criticalDamageRate;
     [Header("스킬 쿨타임")]
     [SerializeField] private float[] skillCoolTime;
     private float[] currentSkillCoolTime = new float[4];
@@ -39,16 +43,24 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
 
     public float Stamina { get { return stamina; } set { stamina = value; OnChangedStaminaEvent?.Invoke(stamina); } }
 
-    public float MaxStamina { get { return maxStamina; } }
-    public float ConsumStamina { get { return consumStamina; } }
+    public float MaxStamina { get { return maxStamina; } set { stamina = value; OnChangedMaxStaminaEvent?.Invoke(maxStamina); } }
+    public float ConsumStamina { get { return consumStamina; } set { consumStamina = value;  } }
 
-    public float RecoveryStaminaMag { get { return recoveryStaminaMag; } }
+    public float RecoveryStaminaMag { get { return recoveryStaminaMag; } set { recoveryStaminaMag = value; } }
 
-    public float Attack { get { return attack; } }
+    public float Attack { get { return attack; } set { attack = value; } }
     public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
     public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
+    public float CriticalRate { get { return criticalRate; } set { criticalRate = value; } }
 
+    public float CriticalDamageRate { get { return criticalDamageRate; } set { criticalDamageRate = value; } }
     public float[] SkillCoolTime{ get { return skillCoolTime; } }
+
+    public void SetSkillCoolTime(int num, float time)
+    {
+        skillCoolTime[num] = time;
+    }
+
     public void SetCurrentSkillCoolTime(int num, float value)
     {
         currentSkillCoolTime[num] = value;
@@ -63,6 +75,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public UnityAction<float> OnChangedMaxHpEvent;
     public UnityAction<float> OnChangedHpEvent;
     public UnityAction<float> OnChangedStaminaEvent;
+    public UnityAction<float> OnChangedMaxStaminaEvent;
     public UnityAction<int,float> OnChangedCoolTimeEvent;
     private void OnDisable()
     {
@@ -70,6 +83,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         OnChangedHpEvent = null;
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
+        OnChangedMaxStaminaEvent = null;
     }
 
     private void Start()
@@ -78,6 +92,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         OnChangedHpEvent = null;
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
+        OnChangedMaxStaminaEvent = null;
         switch (type) {
                 case ModelType.PLAYER:
                     if (photonView.IsMine)

@@ -83,6 +83,16 @@ public class AnimationEventReceiver : MonoBehaviourPun
 
     }
 
+    public void OnAnimationEventTriggered(EventType eventType)
+    {
+
+        animationEvents[(int)eventType-1].OnAnimationEvent?.Invoke();
+
+      
+
+    }
+
+
     public void ControllMoveAnimation(float speed)
     {
         rigid.velocity = objectTransform.forward * speed * model.AttackSpeed;
@@ -118,6 +128,8 @@ public class AnimationEventReceiver : MonoBehaviourPun
         {
             hitbox.layer = colliderDisableLayer;
         }
+        if (model.ModelType == ModelType.ENEMY)
+            hurtbox.layer =  hurtboxLayer;
     }
 
     private void SetProjectileLayer()

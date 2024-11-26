@@ -1,11 +1,15 @@
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TestGameScene : MonoBehaviourPunCallbacks
 {
     public const string RoomName = "TestRoom";
+
+    [SerializeField] List<GameObject> monsterPrefabs;
+    [SerializeField] Queue<GameObject> monsterOrderQueue;
 
     private void Update()
     {
@@ -21,6 +25,19 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LocalPlayer.NickName = $"Player {Random.Range(1000, 10000)}";
         PhotonNetwork.ConnectUsingSettings();
+
+
+        // 랜덤 순서 초기화
+          monsterOrderQueue = new Queue<GameObject>();
+
+        while (monsterPrefabs.Count > 0)
+        {
+            int ran = Random.Range(0, monsterPrefabs.Count);
+
+            monsterOrderQueue.Enqueue(monsterPrefabs[ran]);
+            monsterPrefabs.Remove(monsterPrefabs[ran]);
+
+        }
     }
 
     public override void OnConnectedToMaster()
@@ -61,22 +78,27 @@ public class TestGameScene : MonoBehaviourPunCallbacks
            
         }
     }
-
+  
+   
     private void PlayerSpawn()
     {
+        
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
-  
-        PhotonNetwork.Instantiate("GameObject/Player3", randomPos, Quaternion.identity);
+
+   
+
+        PhotonNetwork.Instantiate("GameObject/Player2", randomPos, Quaternion.identity);
         
     }
 
     private void BossSpawn()
     {
+      
 
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
 
-        PhotonNetwork.InstantiateRoomObject("GameObject/Boss3", randomPos, Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject("GameObject/Boss4", randomPos, Quaternion.identity);
 
     }
 

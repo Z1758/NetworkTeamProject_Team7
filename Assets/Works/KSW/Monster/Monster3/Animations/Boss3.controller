@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk2
   commonAudio: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Ready
   commonAudio: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: FootStep
   triggerTime: 0.052
+  eventType: 0
   animationType: 8
   audioName: FootStep2
   commonAudio: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.458
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -157,6 +157,7 @@ AnimatorState:
   - {fileID: -217258530405686352}
   - {fileID: -3945460875929124424}
   - {fileID: -4820793130005500918}
+  - {fileID: 1122918175085271933}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -216,6 +217,11 @@ AnimatorState:
   - {fileID: 4387192361818921612}
   - {fileID: -4690387257579337717}
   - {fileID: 6233949862396674802}
+  - {fileID: 3587590902008266570}
+  - {fileID: -1221593569356640288}
+  - {fileID: 33973157130056013}
+  - {fileID: -315809091425456216}
+  - {fileID: 3490757719997653756}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -242,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: FootStep
   triggerTime: 0.5
+  eventType: 0
   animationType: 8
   audioName: FootStep1
   commonAudio: 0
@@ -293,8 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.593
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -316,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Furious
   commonAudio: 0
@@ -419,8 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.632
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -442,8 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.07
+  eventType: 0
   animationType: 192
   audioName: 
   commonAudio: 0
@@ -465,8 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -513,8 +519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.414
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -536,8 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -559,8 +565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -582,8 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk3
   commonAudio: 0
@@ -605,8 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.43
+  eventType: 0
   animationType: 256
   audioName: 
   commonAudio: 0
@@ -628,8 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: UltraAtk1
   commonAudio: 0
@@ -651,8 +657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.339
+  eventType: 0
   animationType: 8
   audioName: Atk4
   commonAudio: 0
@@ -674,8 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.644
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -697,8 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.393
+  eventType: 0
   animationType: 64
   audioName: 
   commonAudio: 0
@@ -733,6 +739,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-3710425784575225048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.426
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 3
+  isLoop: 0
+  shakeTime: 0
 --- !u!1102 &-3636975172919318762
 AnimatorState:
   serializedVersion: 6
@@ -785,6 +814,7 @@ AnimatorState:
   - {fileID: -6016694738084148342}
   - {fileID: -4951338015606654876}
   - {fileID: -7609657864603598361}
+  - {fileID: 1798497083932837179}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -811,8 +841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.376
+  eventType: 2
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -841,6 +871,9 @@ AnimatorState:
   - {fileID: -3200827413162335594}
   - {fileID: -1534811517284463122}
   - {fileID: -2168272564962300570}
+  - {fileID: 4368960455920539917}
+  - {fileID: 330198959265755672}
+  - {fileID: 2095620432038747195}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -867,8 +900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Death
   commonAudio: 0
@@ -890,8 +923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -994,8 +1027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk5
   commonAudio: 0
@@ -1013,7 +1046,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UltraAtk2
-  m_Speed: 1
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1024373229200917107}
@@ -1022,6 +1055,7 @@ AnimatorState:
   - {fileID: 7267090583150479649}
   - {fileID: 158658580312247201}
   - {fileID: 6389835740057353859}
+  - {fileID: -3710425784575225048}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1073,8 +1107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.607
+  eventType: 3
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -1082,6 +1116,52 @@ MonoBehaviour:
   colliderNum: 0
   colliderActive: 0
   effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-1221593569356640288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.499
+  eventType: 0
+  animationType: 8
+  audioName: FootStep2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-315809091425456216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.339
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 1
   isLoop: 0
   shakeTime: 0
 --- !u!114 &-217258530405686352
@@ -1096,8 +1176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.825
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1214,6 +1294,29 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &33973157130056013
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.601
+  eventType: 0
+  animationType: 8
+  audioName: Swing1
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!1101 &122220026835957409
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1251,8 +1354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.445
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1260,6 +1363,29 @@ MonoBehaviour:
   colliderNum: 5
   colliderActive: 0
   effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &330198959265755672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.47
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 2
   isLoop: 0
   shakeTime: 0
 --- !u!114 &913118122467485277
@@ -1274,11 +1400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.568
-  animationType: 32
-  audioName: 
-  commonAudio: 0
+  eventType: 0
+  animationType: 40
+  audioName: Impact4
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -1360,6 +1486,52 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &1122918175085271933
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk1Cast
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &1798497083932837179
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.069
+  eventType: 0
+  animationType: 8
+  audioName: FuriousStart
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &1901964592645926295
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1372,8 +1544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -1395,8 +1567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.68
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1404,6 +1576,29 @@ MonoBehaviour:
   colliderNum: 0
   colliderActive: 0
   effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &2095620432038747195
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.63
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 2
   isLoop: 0
   shakeTime: 0
 --- !u!1101 &2279333139426259100
@@ -1443,8 +1638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk1
   commonAudio: 0
@@ -1491,8 +1686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.58
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1539,10 +1734,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3490757719997653756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.588
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 1
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3587590902008266570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.331
+  eventType: 0
+  animationType: 8
+  audioName: FootStep1
   commonAudio: 0
   moveVelocity: 0
   colliderNum: 0
@@ -1575,6 +1816,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &4368960455920539917
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.632
+  eventType: 0
+  animationType: 8
+  audioName: Impact5
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &4387192361818921612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1587,8 +1851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OffMoveAni
   triggerTime: 0.657
+  eventType: 3
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -1610,8 +1874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.619
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1717,8 +1981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: Atk4_0
   commonAudio: 0
@@ -1765,8 +2029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0
+  eventType: 0
   animationType: 8
   audioName: UltraAtk2
   commonAudio: 0
@@ -1844,8 +2108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -1892,11 +2156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.414
-  animationType: 1
-  audioName: 
-  commonAudio: 0
+  eventType: 0
+  animationType: 9
+  audioName: Impact5
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 5
   colliderActive: 1
@@ -1915,8 +2179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: OnMoveAni
   triggerTime: 0.226
+  eventType: 2
   animationType: 4
   audioName: 
   commonAudio: 0
@@ -1969,8 +2233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.381
+  eventType: 0
   animationType: 1
   audioName: 
   commonAudio: 0
@@ -1992,8 +2256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
   triggerTime: 0.322
+  eventType: 0
   animationType: 8
   audioName: Cast1
   commonAudio: 1
@@ -2015,8 +2279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.97
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0
@@ -2038,8 +2302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: EndAni
   triggerTime: 0.063
+  eventType: 1
   animationType: 16
   audioName: 
   commonAudio: 0

@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 5612456238972113234}
   m_Layer: 7
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,7 +511,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6565441163601852315}
-  pc_s: []
   rigid: {fileID: -2810973816032400335}
   audioSource: {fileID: 0}
   model: {fileID: 5612456238972113234}
@@ -666,6 +665,8 @@ MonoBehaviour:
   attack: 200
   attackSpeed: 1
   moveSpeed: 15
+  criticalRate: 0
+  criticalDamageRate: 0
   skillCoolTime: []
 --- !u!1 &525219418336961288
 GameObject:
@@ -680,7 +681,7 @@ GameObject:
   - component: {fileID: 6539376566281195135}
   m_Layer: 31
   m_Name: RightHandHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1117,7 +1118,7 @@ GameObject:
   - component: {fileID: 3389975625851241844}
   m_Layer: 31
   m_Name: LeftHandRangeHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1464,7 +1465,7 @@ GameObject:
   - component: {fileID: 4477314050378773051}
   m_Layer: 31
   m_Name: RangeAtkHitBox2
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1660,7 +1661,7 @@ GameObject:
   - component: {fileID: 1539626788303389781}
   m_Layer: 31
   m_Name: TwoHandHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2202,7 +2203,7 @@ GameObject:
   - component: {fileID: 467030062830966101}
   m_Layer: 31
   m_Name: RightHandRangeHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2493,7 +2494,7 @@ GameObject:
   - component: {fileID: 5017983455917706272}
   m_Layer: 31
   m_Name: RangeAtkHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2928,7 +2929,7 @@ GameObject:
   - component: {fileID: 870194514431381558}
   m_Layer: 31
   m_Name: LeftHandHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4554,7 +4555,7 @@ GameObject:
   - component: {fileID: 5953416018278006697}
   m_Layer: 31
   m_Name: FowardRangeAtkHitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

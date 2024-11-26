@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 178681894}
   m_Layer: 31
   m_Name: WeaponHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,13 +149,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curState: 0
   playerHurtbox: {fileID: 6389341127001229001}
-  animator: {fileID: 5944556669101705825}
   animatorParameterHash: 
   skillNumberHash: 0
   skillNumber: 0
   rotateSpeed: 15
   isFixed: 0
   isMoveAni: 0
+  animator: {fileID: 5944556669101705825}
   rigid: {fileID: 928105611069765242}
   model: {fileID: 1077324688}
   playerCamera: {fileID: 0}
@@ -232,6 +232,8 @@ MonoBehaviour:
   attack: 100
   attackSpeed: 1
   moveSpeed: 10
+  criticalRate: 0
+  criticalDamageRate: 0
   skillCoolTime:
   - 5
   - 6
@@ -266,7 +268,7 @@ GameObject:
   - component: {fileID: 9034979598909790347}
   m_Layer: 31
   m_Name: WeaponHitboxAtk4
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,7 +433,7 @@ GameObject:
   - component: {fileID: 4095994980701035112}
   m_Layer: 31
   m_Name: WeaponSkillHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -623,7 +625,7 @@ GameObject:
   - component: {fileID: 951795956697150902}
   m_Layer: 31
   m_Name: ProjectileHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -810,7 +812,7 @@ GameObject:
   - component: {fileID: 7225500216722436685}
   m_Layer: 31
   m_Name: LegHitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4806,22 +4808,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventName: EndAtk
-    OnAnimationEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4781700257810552691}
-          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-          m_MethodName: AttackEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventName: OnMoveAni
     OnAnimationEvent:
       m_PersistentCalls:
@@ -4845,6 +4831,22 @@ MonoBehaviour:
         - m_Target: {fileID: 4781700257810552691}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: EndMoveAni
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: EndAtk
+    OnAnimationEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4781700257810552691}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: AttackEnd
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
