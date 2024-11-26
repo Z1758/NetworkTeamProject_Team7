@@ -9,7 +9,6 @@ public class MKH_PlayerEntry : MonoBehaviour
     [SerializeField] TMP_Text readyText;
     [SerializeField] TMP_Text nameText;
     [SerializeField] Button readyButton;
-    //[SerializeField] GameObject play;
 
     public void SetPlayer(Player player)
     {
@@ -26,7 +25,6 @@ public class MKH_PlayerEntry : MonoBehaviour
             nameText.text = player.NickName;
         }
 
-        //play.SetActive(true);
         // 레디버튼 활성화
         readyButton.gameObject.SetActive(true);
         // 나 자신이면 레디버튼 클릭 가능
@@ -46,7 +44,6 @@ public class MKH_PlayerEntry : MonoBehaviour
         readyText.text = "";
         nameText.text = "None";
         readyButton.gameObject.SetActive(false);
-        //play.SetActive(false);
     }
 
     public void Ready()
