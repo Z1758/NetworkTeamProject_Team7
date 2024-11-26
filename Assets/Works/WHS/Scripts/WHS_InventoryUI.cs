@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class WHS_InventoryUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI potionCountText;
+    // TODO : 버튼 물약이미지
     [SerializeField] Button potionButton;
     [SerializeField] GameObject hpPotionPrefab;
     private int potionCount;
@@ -31,17 +33,26 @@ public class WHS_InventoryUI : MonoBehaviour
         }
     }
 
-    // 인벤토리 컴포넌트를 가진 플레이어 찾기
+    // 인벤토리를 가진 플레이어 찾기
     IEnumerator FindPlayer()
     {
         while (inventory == null)
         {
             yield return new WaitForSeconds(1f);
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+
+            foreach (PhotonView photonView in PhotonNetwork.PhotonViewCollection)
             {
-                inventory = player.GetComponent<WHS_Inventory>();
-                Debug.Log("인벤토리 등록");
+                if (photonView.IsMine)
+                {
+                    GameObject player = photonView.gameObject;
+                    inventory = player.GetComponent<WHS_Inventory>();
+
+                    if (inventory != null)
+                    {
+                        Debug.Log($"인벤토리 등록 완료 {photonView.ViewID}");
+                        break;
+                    }
+                }
             }
         }
     }

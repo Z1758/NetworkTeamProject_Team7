@@ -33,20 +33,20 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
             StatusModel statusModel = collision.gameObject.GetComponent<StatusModel>();
             WHS_Inventory inventory = collision.gameObject.GetComponent<WHS_Inventory>();
 
-            if (statusModel.photonView != null && statusModel.photonView.IsMine && inventory != null)
+            if (statusModel.photonView.IsMine && statusModel.photonView != null && inventory != null)
             {
                 if (type == ItemType.HP)
                 {
                     inventory.AddItem(type, 1);
                     Debug.Log($"{statusModel.photonView.Owner.NickName}이 {type} 아이템 획득");
-                    Debug.Log($"현재 보유 수량 : {inventory.GetItemCount(ItemType.HP)}");
+                    Debug.Log($"현재 보유 수량 : {inventory.GetItemCount(ItemType.HP)}");                    
                 }
                 else
                 {
                     WHS_ItemManager.Instance.ApplyItem(statusModel, this);
                 }
 
-                photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
+                photonView.RPC(nameof(DestroyItemObj), RpcTarget.AllBuffered);
             }
         }
     }
