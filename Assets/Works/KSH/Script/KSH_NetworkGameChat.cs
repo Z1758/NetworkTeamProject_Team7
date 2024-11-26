@@ -199,7 +199,7 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
             AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
             if (senders[i] == _userName)
             {
-                _speechBubbleText.text += messages[i] + "\r\n";
+                SpeechBubble(messages[i].ToString());
             }
         }
     }
@@ -271,6 +271,9 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     {
         // 말풍선 표시
         _speechBubble.SetActive(true);
+
+        // 말풍선 메시지 내용 초기화
+        _speechBubbleText.text = "";
 
         // 말풍선 텍스트 설정
         _speechBubbleText.text += lineString + "\r\n";
