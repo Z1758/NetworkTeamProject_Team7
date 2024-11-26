@@ -25,9 +25,9 @@ public class Hitbox : MonoBehaviourPun
 
     [SerializeField] HitboxType hitboxType;
    
-    [SerializeField] protected GameObject effectPrefab;
+    protected GameObject effectPrefab;
     [SerializeField] protected string effectName;
-    [SerializeField] AudioClip hitSound;
+    AudioClip hitSound;
     [SerializeField] string soundName;
 
     [Header("FOV")]
@@ -39,7 +39,7 @@ public class Hitbox : MonoBehaviourPun
 
     private void Awake()
     {
-        if (model == null)
+        if (model)
             model = GetComponentInParent<StatusModel>();
 
 
@@ -51,7 +51,7 @@ public class Hitbox : MonoBehaviourPun
         if (effectName == null)
             return;
 
-        if (effectPrefab == null)
+        if (effectPrefab is null)
         {
             effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
         }
@@ -66,10 +66,10 @@ public class Hitbox : MonoBehaviourPun
 
     public GameObject HitEffect()
     {
-        if (effectName == null)
+        if (effectName == "")
             return null;
 
-        if (effectPrefab == null)
+        if (effectPrefab is null)
         {
             effectPrefab = EffectManager.GetInstance().GetEffectDic(effectName);
         }
@@ -100,7 +100,7 @@ public class Hitbox : MonoBehaviourPun
         {
             return null;
         }
-        if (hitSound == null)
+        if (hitSound is null)
         {
             if (model.ModelType == ModelType.PLAYER)
             {

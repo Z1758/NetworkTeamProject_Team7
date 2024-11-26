@@ -117,8 +117,7 @@ public class PlayerController : MonoBehaviourPun
     private void SetCamera()
     {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
-        playerCamera.target = transform;
-        playerCamera.pc = this;
+        playerCamera.SetComponent(this);
         playerCamera.SetOffset();
     }
 
@@ -192,7 +191,7 @@ public class PlayerController : MonoBehaviourPun
 
         }
 
-      
+     
         ChangeCoolTime();
       
             if (isFixed)

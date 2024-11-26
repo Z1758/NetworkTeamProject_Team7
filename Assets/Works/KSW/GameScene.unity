@@ -16870,6 +16870,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 482620283}
+    - target: {fileID: 8281341668675533857, guid: ea9ed218774983c4fbf16d9f5988cdcc, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8727002596064655982, guid: ea9ed218774983c4fbf16d9f5988cdcc, type: 3}
       propertyPath: m_Name
       value: Candle

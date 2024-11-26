@@ -13,7 +13,7 @@ public class FractureObject : MonoBehaviourPun
 
 
     [SerializeField] GameObject frags;
-    [SerializeField] GameObject[] otherObj;
+    [SerializeField] GameObject otherObj;
 
     [SerializeField] float forcePower;
 
@@ -32,7 +32,7 @@ public class FractureObject : MonoBehaviourPun
     {
      
 
-        if ((other.tag == "Enemy" && photonView.IsMine) || other.tag == "Hitbox")
+        if ((other.CompareTag("Enemy") && photonView.IsMine) || other.CompareTag("Hitbox"))
         {
             if (other.TryGetComponent(out Hitbox hitbox))
             {
@@ -56,10 +56,13 @@ public class FractureObject : MonoBehaviourPun
     [PunRPC]
      void StartFadeOutRPC()
     {
-        for(int i = 0; i < otherObj.Length; i++)
+       
+        if (otherObj)
         {
-            otherObj[i].SetActive(false);
+            otherObj.SetActive(false);
+
         }
+       
 
         meshRenderer.enabled = false;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;

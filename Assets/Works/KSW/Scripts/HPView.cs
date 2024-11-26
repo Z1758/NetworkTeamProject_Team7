@@ -10,7 +10,7 @@ public class HPView : SliderView
 {
     private void Update()
     {
-        if (model == null)
+        if (!isEndLoading)
             return;
 
 
@@ -45,11 +45,12 @@ public class HPView : SliderView
         slider.maxValue = model.MaxHP;
         currentValue = model.MaxHP;
         slider.value = model.MaxHP;
+        isEndLoading = true;
     }
 
     private void OnDisable()
     {
-        if (model != null)
+        if (model)
         {
             model.OnChangedHpEvent -= SetSlider;
             model.OnChangedMaxHpEvent -= SetSliderMax;

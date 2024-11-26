@@ -28,7 +28,7 @@ public class PlayerHurtbox : MonoBehaviourPun, IPunObservable
 
     private void Awake()
     {
-        if(pc == null)
+        if(pc)
              pc = GetComponentInParent<PlayerController>();
 
         

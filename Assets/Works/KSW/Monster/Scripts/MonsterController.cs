@@ -117,7 +117,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         pc_s.Clear();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
-
+       
         foreach (GameObject obj in objects)
         {
             if (obj.layer != (int)LayerEnum.DISABLE_BOX)
@@ -139,7 +139,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         int ran = Random.Range(0, pc_s.Count);
         if (pc_s.Count == 0)
             return;
-        if (pc_s[ran] == null)
+        if (pc_s[ran] is null)
         {
             return;
         }
@@ -234,7 +234,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             return;
         }
 
-        // ±¤ÆøÈ­ ½ÃÀÛ
+        // ±¤ÆøÈ­ Ã¼Å©
         if (model.HP <= model.MaxHP * 0.5 && isFurious == false)
         {
             Furious();
@@ -248,7 +248,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
       
 
         // Å¸°Ù Ã£±â
-        if (target == null)
+        if (target is null)
         {
             FindPlayers();
             return;

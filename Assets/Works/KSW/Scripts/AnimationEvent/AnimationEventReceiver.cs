@@ -233,7 +233,7 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
         if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
-            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player"))
             {
                 vec = hit.transform.position;
             }
@@ -263,7 +263,7 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
         if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
-            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player"))
             {
                 vec = hit.transform.position;
             }
