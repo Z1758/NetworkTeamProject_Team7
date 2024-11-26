@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MKH_LoginScene : MonoBehaviourPunCallbacks
+public class MKH_ServerManager : MonoBehaviourPunCallbacks
 {
     public enum Panel { Login, Server, List }
 
