@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
+public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunObservable
 {
     private ChatClient _chatClient;  // Photon Chat 클라이언트 객체
 
@@ -74,7 +74,7 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     {
         myView = GetComponent<PhotonView>();    // 
         _speechBubble.SetActive(false);         // 오브젝트 비활성화
-        _networkChat.SetActive(false);          
+        _networkChat.SetActive(false);
     }
 
     private void Update()
@@ -311,5 +311,17 @@ public class KSH_NetworkGameChat : MonoBehaviour, IChatClientListener
     public void CloseChatBox()
     {
         _speechBubble.SetActive(false);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)  // 내가 데이터를 보낼 때
+        {
+            stream.SendNext(_speechBubbleText.text);  // 채팅 메시지 전송
+        }
+        else if (stream.IsReading) // 내가 데이터를 받을 때
+        {
+            _speechBubbleText.text = (string)stream.ReceiveNext();  // 채팅 메시지 수신
+        }
     }
 }
