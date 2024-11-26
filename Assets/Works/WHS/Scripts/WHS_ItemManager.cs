@@ -107,13 +107,22 @@ public class WHS_ItemManager : MonoBehaviourPun
                 switch (itemType)
                 {
                     case ItemType.HP:
-                        statusModel.HP += itemValue;
-                        Debug.Log($"체력 {itemValue} 회복");
+                        if(statusModel.HP + itemValue <= statusModel.MaxHP)
+                        {
+                            statusModel.HP += itemValue;
+                            Debug.Log($"체력 {itemValue} 회복");
+                        }
+                        else if(statusModel.HP + itemValue > statusModel.MaxHP)
+                        {
+                            statusModel.HP = statusModel.MaxHP;
+                            Debug.Log($"체력 {itemValue} 회복");
+                        }
                         break;
 
                     // TODO : 체력 외 다른 스탯 증가?
                     case ItemType.MaxHP:
                         statusModel.MaxHP += itemValue;
+                        // statusModel.HP += itemValue;
                         Debug.Log($"최대 체력 {itemValue} 증가");
                         break;
                     case ItemType.Attack:
@@ -162,6 +171,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         chests.Clear();
     }
 
+    // 인벤토리에 줄 아이템 정보 초기화
     private void InitItemData()
     {
         foreach(ItemPrefab itemPrefab in itemPrefabs)
@@ -176,11 +186,8 @@ public class WHS_ItemManager : MonoBehaviourPun
                 {
                     itemData[item.type] = item;
                 }
-                else
-                {
-                    Debug.Log("WHS_Item없음");
-                }
             }
+
             Debug.Log("프리팹을 찾을 수 없음" + itemPath);
         }
     }

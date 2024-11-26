@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,8 +40,13 @@ public class WHS_Inventory : MonoBehaviourPun
     {
         if (items.ContainsKey(type) && items[type] > 0)
         {
-            items[type]--;
+            if (statusModel.HP == statusModel.MaxHP)
+            {
+                Debug.Log("체력이 최대입니다.");
+                return;
+            }
 
+            items[type]--;
             photonView.RPC(nameof(UseItemRPC), RpcTarget.MasterClient, type, statusModel.photonView.ViewID);
         }
     }
@@ -58,7 +64,6 @@ public class WHS_Inventory : MonoBehaviourPun
             if (WHS_ItemManager.Instance.itemData.TryGetValue(type, out WHS_Item item))
             {
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
-                Debug.Log($"아이템 {item.type}, {item.value}");
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
             }
         }
