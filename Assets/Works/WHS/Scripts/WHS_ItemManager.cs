@@ -38,6 +38,14 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
+    private void Start()
+    {
+        if (photonView.IsMine)
+        {
+            InitItemData();
+        }
+    }
+
     private void Update()
     {
         if (PhotonNetwork.IsMasterClient == false)
@@ -75,8 +83,6 @@ public class WHS_ItemManager : MonoBehaviourPun
 
         GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position, rotation);
         WHS_Item item = itemObj.GetComponent<WHS_Item>();
-
-        itemData[item.type] = item;
     }
 
     // 획득한 아이템 스탯 적용 호출
@@ -154,5 +160,28 @@ public class WHS_ItemManager : MonoBehaviourPun
             }
         }
         chests.Clear();
+    }
+
+    private void InitItemData()
+    {
+        foreach(ItemPrefab itemPrefab in itemPrefabs)
+        {
+            string itemPath = "GameObject/Items/" + itemPrefab.prefab.name;
+            GameObject prefab = Resources.Load<GameObject>(itemPath);
+
+            if(prefab != null)
+            {
+                WHS_Item item = prefab.GetComponent<WHS_Item>();
+                if(item != null)
+                {
+                    itemData[item.type] = item;
+                }
+                else
+                {
+                    Debug.Log("WHS_Item없음");
+                }
+            }
+            Debug.Log("프리팹을 찾을 수 없음" + itemPath);
+        }
     }
 }

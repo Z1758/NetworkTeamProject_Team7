@@ -13,6 +13,14 @@ public class WHS_Inventory : MonoBehaviourPun
         statusModel = GetComponent<StatusModel>();
     }
 
+    private void Start()
+    {
+        if (photonView.IsMine)
+        {
+            InitInventory();
+        }
+    }
+
     // 아이템 추가
     public void AddItem(ItemType type, int amount)
     {
@@ -60,5 +68,11 @@ public class WHS_Inventory : MonoBehaviourPun
     public int GetItemCount(ItemType type)
     {
         return items.ContainsKey(type) ? items[type] : 0;
+    }
+
+    // 시작 시 포션 3개 보유
+    private void InitInventory()
+    {
+        AddItem(ItemType.HP, 3);
     }
 }
