@@ -82,7 +82,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     // 획득한 아이템 스탯 적용 호출
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
-        if (photonView != null && photonView.ViewID != 0)
+        if (photonView != null)
         {
             photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, (int)item.type, item.value);
         }
@@ -110,8 +110,8 @@ public class WHS_ItemManager : MonoBehaviourPun
 
                     // TODO : 체력 외 다른 스탯 증가?
                     case ItemType.MaxHP:
-                        Debug.Log($"최대 체력 {itemValue} 증가");
                         statusModel.MaxHP += itemValue;
+                        Debug.Log($"최대 체력 {itemValue} 증가");
                         break;
                     case ItemType.Attack:
                         Debug.Log($"공격력 {itemValue} 증가");
@@ -120,6 +120,7 @@ public class WHS_ItemManager : MonoBehaviourPun
             }
         }
     }
+
 
     // 마스터 클라이언트에서만 상자 생성
     private void SpawnChest(Vector3 position)
@@ -145,9 +146,9 @@ public class WHS_ItemManager : MonoBehaviourPun
     // 직접 부순 상자 외 다른 상자 제거
     public void DestroyAllChests(WHS_Chest destroyedChest)
     {
-        foreach(WHS_Chest chest in chests)
+        foreach (WHS_Chest chest in chests)
         {
-            if(chest != destroyedChest)
+            if (chest != destroyedChest)
             {
                 if (PhotonNetwork.IsMasterClient)
                 {

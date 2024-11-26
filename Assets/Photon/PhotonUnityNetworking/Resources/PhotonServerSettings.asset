@@ -49,6 +49,8 @@ MonoBehaviour:
   - SetItemValue
   - SpawnChestRPC
   - DestroyChestRPC
+  - UseItemRPC
+  - AddItemRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
