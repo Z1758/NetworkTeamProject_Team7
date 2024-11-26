@@ -69,11 +69,4 @@ public class MKH_LoginPanel : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
         }
     }
-
-    public override void OnConnectedToMaster()
-    {
-        Debug.Log("접속에 성공했다!");
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-        PhotonNetwork.LoadLevel("MKH_WaitingScene");
-    }
 }
