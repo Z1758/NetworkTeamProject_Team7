@@ -3242,7 +3242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.37
   eventType: 0
-  animationType: 65
+  animationType: 321
   audioName: 
   commonAudio: 0
   moveVelocity: 0
@@ -3250,7 +3250,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 1
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!114 &8497589879913831420
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -730,9 +730,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 0
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -1167,9 +1165,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -1514,9 +1510,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -1710,9 +1704,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -2252,9 +2244,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -2543,9 +2533,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -2724,7 +2712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38046c8e217086a408b929c33d584244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 0}
+  monster: {fileID: 754269761348012592}
 --- !u!136 &2703129245039726262
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2978,9 +2966,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 0
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0
@@ -4604,9 +4590,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: BossAttackHit1
   radius: 0
   angle: 0

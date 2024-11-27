@@ -29,7 +29,7 @@ public class MonsterHurtBox : MonoBehaviour
 
     private void Awake()
     {
-        if (monster)
+        if (!monster)
             monster = GetComponentInParent<MonsterController>();
 
 

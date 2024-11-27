@@ -89,18 +89,26 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             hasLoopTriggered = true;
         }
 
-        if (!hasTriggered && currentTime >= triggerTime)
+        if(currentTime >= triggerTime)
         {
-            NotifyReceiver(animator);
-            hasTriggered = true;
-           
-        }else if (hasLoopTriggered && currentTime >= triggerTime)
-        {
-            NotifyReceiver(animator);
-            hasLoopTriggered = false;
-       
+            if (hasTriggered == false)
+            {
+                if (isLoop == false)
+                    NotifyReceiver(animator);
 
+                hasTriggered = true;
+
+            }
+            else if (hasLoopTriggered)
+            {
+                NotifyReceiver(animator);
+                hasLoopTriggered = false;
+
+
+            }
         }
+
+       
 
     }
 

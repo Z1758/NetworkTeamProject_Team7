@@ -39,7 +39,7 @@ public class Hitbox : MonoBehaviourPun
 
     private void Awake()
     {
-        if (model)
+        if (!model)
             model = GetComponentInParent<StatusModel>();
 
 
@@ -48,7 +48,7 @@ public class Hitbox : MonoBehaviourPun
 
     public virtual void HitEffect(Vector3 vec)
     {
-        if (effectName == null)
+        if (effectName == "")
             return;
 
         if (effectPrefab is null)
@@ -96,8 +96,10 @@ public class Hitbox : MonoBehaviourPun
 
     public AudioClip GetSoundEffect()
     {
+       
         if (soundName == "")
         {
+           
             return null;
         }
         if (hitSound is null)
@@ -110,9 +112,8 @@ public class Hitbox : MonoBehaviourPun
             {
                 hitSound = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, soundName);
             }
-
+         
         }
-        
 
         return hitSound;
     }

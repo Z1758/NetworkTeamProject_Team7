@@ -207,6 +207,7 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
             clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
         }
         audioSource.PlayOneShot(clip);
+       
         
     }
 
