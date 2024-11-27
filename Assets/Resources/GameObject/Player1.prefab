@@ -61,9 +61,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
-  effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
-  effectName: 
-  hitSound: {fileID: 0}
+  effectName: SlashHitEffect1
   soundName: SwordAttackHit1
   radius: 0
   angle: 0
@@ -316,9 +314,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 0
-  effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
-  effectName: 
-  hitSound: {fileID: 0}
+  effectName: SlashHitEffect1
   soundName: SwordAttackHit1
   radius: 0
   angle: 0
@@ -481,9 +477,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
-  effectPrefab: {fileID: 7904408003085059917, guid: 76f52a2fa033cf649a1453a40143d1b6, type: 3}
-  effectName: 
-  hitSound: {fileID: 0}
+  effectName: SlashHitEffect1
   soundName: Skill1Hit
   radius: 0
   angle: 0
@@ -690,9 +684,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 2
-  effectPrefab: {fileID: 0}
   effectName: HitEffect2
-  hitSound: {fileID: 0}
   soundName: Skill3Hit
   radius: 0
   angle: 0
@@ -861,9 +853,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: Skill2Hit
   radius: 0
   angle: 0

@@ -29,7 +29,7 @@ public class MonsterHurtBox : MonoBehaviour
 
     private void Awake()
     {
-        if (monster == null)
+        if (!monster)
             monster = GetComponentInParent<MonsterController>();
 
 
@@ -41,15 +41,18 @@ public class MonsterHurtBox : MonoBehaviour
         if (other.TryGetComponent(out Hitbox hitbox))
         {
             //hitbox.ChangeLayer();
-            if(!hitbox.GetAngleHit(transform))
+
+            if (hitbox.gameObject.layer == (int)LayerEnum.OTHER_CLIENT_PLAYER_COLLIDER)
+                return;
+
+            if (!hitbox.GetAngleHit(transform))
             {
                 return;
             }
             hitbox.HitEffect(other.ClosestPoint(transform.position));
             hitbox.AttackFriction();
 
-            if (hitbox.gameObject.layer == (int)LayerEnum.OTHER_CLIENT_PLAYER_COLLIDER)
-                return;
+           
             
             monster.TakeDamage(hitbox.GetAtk(), hitbox.GetSoundEffect());
         }

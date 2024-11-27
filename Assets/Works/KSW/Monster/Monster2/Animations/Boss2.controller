@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.395
   eventType: 0
-  animationType: 40
+  animationType: 296
   audioName: Hit2
   commonAudio: 0
   moveVelocity: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!114 &-7132795457367215819
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.422
   eventType: 0
-  animationType: 40
+  animationType: 296
   audioName: Hit2
   commonAudio: 0
   moveVelocity: 0
@@ -834,7 +834,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!1102 &-5082559383359954891
 AnimatorState:
   serializedVersion: 6
@@ -915,7 +915,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0.5
+  shakeTime: 0.8
 --- !u!114 &-4833993176387519935
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.223
   eventType: 0
-  animationType: 9
+  animationType: 265
   audioName: Impact2
   commonAudio: 1
   moveVelocity: 0
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!114 &-1563227133869373158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.645
   eventType: 0
-  animationType: 40
+  animationType: 296
   audioName: Hit2
   commonAudio: 0
   moveVelocity: 0
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!114 &606621855715201278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.522
   eventType: 0
-  animationType: 40
+  animationType: 296
   audioName: Hit2
   commonAudio: 0
   moveVelocity: 0
@@ -2447,7 +2447,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!1101 &3196503382923626198
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.472
   eventType: 0
-  animationType: 73
+  animationType: 329
   audioName: Impact3
   commonAudio: 1
   moveVelocity: 0
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 2
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.8
 --- !u!1102 &5226164416618881927
 AnimatorState:
   serializedVersion: 6
@@ -3046,7 +3046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.595
   eventType: 0
-  animationType: 9
+  animationType: 265
   audioName: Impact4
   commonAudio: 1
   moveVelocity: 0
@@ -3054,7 +3054,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!1102 &6410827153050578351
 AnimatorState:
   serializedVersion: 6

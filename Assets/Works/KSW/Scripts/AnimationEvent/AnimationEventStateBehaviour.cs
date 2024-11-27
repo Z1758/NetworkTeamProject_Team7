@@ -67,11 +67,17 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
     AnimationEventReceiver receiver;
 
+    
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        hasTriggered = false;
         
+        if (receiver is null)
+        {
+            receiver = animator.GetComponent<AnimationEventReceiver>();
+      
+        }
+        hasTriggered = false;
 
     }
 
@@ -83,24 +89,32 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             hasLoopTriggered = true;
         }
 
-        if (!hasTriggered && currentTime >= triggerTime)
+        if(currentTime >= triggerTime)
         {
-            NotifyReceiver(animator);
-            hasTriggered = true;
-           
-        }else if (hasLoopTriggered && currentTime >= triggerTime)
-        {
-            NotifyReceiver(animator);
-            hasLoopTriggered = false;
-       
+            if (hasTriggered == false)
+            {
+                if (isLoop == false)
+                    NotifyReceiver(animator);
 
+                hasTriggered = true;
+
+            }
+            else if (hasLoopTriggered)
+            {
+                NotifyReceiver(animator);
+                hasLoopTriggered = false;
+
+
+            }
         }
+
+       
 
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-      
+       
         /*
          if (animationType.HasFlag(AnimationType.END))
          {
@@ -113,22 +127,15 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
     void NotifyReceiver(Animator animator)
     {
+        
        
-
-        if (receiver == null)
-        {
-            receiver = animator.GetComponent<AnimationEventReceiver>();
-        }
-
-        if (receiver != null)
-        {
             /*
             if(eventName !=null)
             receiver.OnAnimationEventTriggered(eventName);
 
             */
-        
-            if(eventType > 0)
+
+            if (eventType > 0)
             {
                 receiver.OnAnimationEventTriggered(eventType);
 
@@ -190,6 +197,6 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
                 receiver.ShakeCamera(shakeTime);
             }
 
-        }
+        
     }
 }

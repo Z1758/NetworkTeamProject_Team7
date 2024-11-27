@@ -12,7 +12,7 @@ public class SkillView : MonoBehaviour
 
     [SerializeField] Image[] cooltimeBackgroundImage;
     [SerializeField] Image[] cooltimeImage;
-    [SerializeField] StatusModel model;
+    StatusModel model;
 
     public List<string> uiKeys = new List<string>() { "UI" };
     AsyncOperationHandle<IList<Sprite>> uiLoadHandle;
@@ -83,7 +83,7 @@ public class SkillView : MonoBehaviour
 
     private void OnDisable()
     {
-        if (model != null)
+        if (model)
             model.OnChangedCoolTimeEvent -= SetSkillImage;
     }
 

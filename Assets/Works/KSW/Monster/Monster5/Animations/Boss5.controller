@@ -562,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.426
   eventType: 0
-  animationType: 1
+  animationType: 257
   audioName: 
   commonAudio: 0
   moveVelocity: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.7
 --- !u!1101 &-6603864043749192616
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -831,7 +831,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0.5
+  shakeTime: 0.8
 --- !u!114 &-4321253213541403083
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.337
   eventType: 0
-  animationType: 1
+  animationType: 257
   audioName: 
   commonAudio: 0
   moveVelocity: 0
@@ -923,7 +923,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!114 &-3794911999984519025
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1718,7 +1718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.65
   eventType: 0
-  animationType: 9
+  animationType: 265
   audioName: UltraAtk2_3
   commonAudio: 0
   moveVelocity: 0
@@ -1726,7 +1726,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 1
 --- !u!114 &1861525827339637720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,7 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerTime: 0.97
+  triggerTime: 0.96
   eventType: 1
   animationType: 16
   audioName: 
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.413
   eventType: 0
-  animationType: 1
+  animationType: 257
   audioName: 
   commonAudio: 0
   moveVelocity: 0
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   colliderActive: 1
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 2.8
 --- !u!114 &7676909905894730545
 MonoBehaviour:
   m_ObjectHideFlags: 1

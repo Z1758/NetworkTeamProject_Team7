@@ -1,0 +1,2228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9034250665296303308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Ready
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &-9000875309349325478
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Wait
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5593306954591015595}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-8987986378359022654
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk4
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8101173048660030154}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1102 &-8661229191162848335
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UltraAtk1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 6698180517172000209}
+  m_StateMachineBehaviours:
+  - {fileID: 1901964592645926295}
+  - {fileID: 665757530963437452}
+  - {fileID: 3980915163230135422}
+  - {fileID: 6721561130610854686}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: cca1578ec33557845b3f1d801bf558db, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &-8635526160247304420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.548
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 1
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &-8504611729826543974
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk5
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2980017348721549176}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &-8406647793486493824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.356
+  eventType: 0
+  animationType: 8
+  audioName: Swing3
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-8217368636109665984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk3_1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &-8200760952709714606
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk2
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 6410827153050578351}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1102 &-8101173048660030154
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atk4
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -968932948050641496}
+  m_StateMachineBehaviours:
+  - {fileID: 7676909905894730545}
+  - {fileID: -4169861081455036988}
+  - {fileID: -6972795086430759942}
+  - {fileID: -5903415490143055474}
+  - {fileID: -7135534227122658569}
+  - {fileID: -8406647793486493824}
+  - {fileID: 428686187311066392}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e2588961b49e3c040be6ad286db54e3b, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-7869562026170352115
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours:
+  - {fileID: -2872279738669576739}
+  - {fileID: 7804678559708925485}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 4ae7b2377a09c1a45bb4a09bbac795c0, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1101 &-7502972431586807009
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UltraAtk2
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6837992955008161515}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &-7480710989416313330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7438770051758479499
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.522
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7135534227122658569
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.34
+  eventType: 0
+  animationType: 8
+  audioName: Impact5
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7109429468429500367
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.61
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 1
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6972795086430759942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.571
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1102 &-6837992955008161515
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ReadyAction
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 843239645036437794}
+  - {fileID: -5864174903533125188}
+  m_StateMachineBehaviours:
+  - {fileID: -9034250665296303308}
+  - {fileID: 7668931009363597187}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e9b125bc9e6dd254f8ed108e14488b7e, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &-6410798860397216370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.4
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 2
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6385996953279288827
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6027342580772474479
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-6016694738084148342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-5903415490143055474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk4
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &-5864174903533125188
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UltraAtk2
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2151410576422898063}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.87903225
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-5750379841408234596
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk2
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 6410827153050578351}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-5049421498766653361
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UltraAtk1
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6837992955008161515}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-4967607956051875806
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.95033115
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &-4951338015606654876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.43
+  eventType: 0
+  animationType: 256
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0.8
+--- !u!1101 &-4797723142286298652
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5593306954591015595}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &-4320357870134151332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.477
+  eventType: 0
+  animationType: 8
+  audioName: Impact1
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-4169861081455036988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.358
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 3
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-3794911999984519025
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1102 &-3636975172919318762
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Run
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -9000875309349325478}
+  - {fileID: -5049421498766653361}
+  - {fileID: -7502972431586807009}
+  - {fileID: -1069889440535967031}
+  - {fileID: -5750379841408234596}
+  - {fileID: -3478253251633946489}
+  - {fileID: 5458788286871586802}
+  - {fileID: -8504611729826543974}
+  m_StateMachineBehaviours:
+  - {fileID: 5497887294353833358}
+  - {fileID: 4419335297256012179}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: b75f34b13247f784fa99f0a0feed0e94, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-3560041851246830672
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Furious
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -4797723142286298652}
+  m_StateMachineBehaviours:
+  - {fileID: -6016694738084148342}
+  - {fileID: -4951338015606654876}
+  - {fileID: 3430889733452434086}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 1c7114f22fa9e2848bca455b81dc6738, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1101 &-3478253251633946489
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk3
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2257700212957109360}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-3213768315529559340
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9506579
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-3213404334940272133
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk1
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 7593481188550044864}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1102 &-2980017348721549176
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atk5
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 2734356272844706662}
+  m_StateMachineBehaviours:
+  - {fileID: -6385996953279288827}
+  - {fileID: 7673268940630359127}
+  - {fileID: 2383466213364004326}
+  - {fileID: 2350997010225718240}
+  - {fileID: -1981264359727324769}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: d4d0732185710c54aaa2ed5314217fc2, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &-2872279738669576739
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Death
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-2760548731218136382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-2689107009961086679
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.443
+  eventType: 0
+  animationType: 8
+  audioName: Swing1
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1102 &-2257700212957109360
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atk3
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -3213768315529559340}
+  m_StateMachineBehaviours:
+  - {fileID: -2760548731218136382}
+  - {fileID: -6410798860397216370}
+  - {fileID: 7668141650484887455}
+  - {fileID: -8217368636109665984}
+  - {fileID: 3990679888560831702}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: a6919a3f8a8a5c2488e87b11e06d2556, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-2151410576422898063
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UltraAtk2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -4967607956051875806}
+  m_StateMachineBehaviours:
+  - {fileID: 3334406994043199500}
+  - {fileID: 1853589620357898727}
+  - {fileID: 3134246419218813928}
+  - {fileID: 4336815871328582007}
+  - {fileID: -4320357870134151332}
+  - {fileID: 3222695767190115588}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 8ff5888b303d27f4795c20350c18802d, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &-1981264359727324769
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.454
+  eventType: 0
+  animationType: 72
+  audioName: Impact6
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 1
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-1605703135194107977
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.436
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &-1069889440535967031
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk1
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 7593481188550044864}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-968932948050641496
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.93801653
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-118823056606667232
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk3
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2257700212957109360}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!91 &9100000
+AnimatorController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Boss6
+  serializedVersion: 5
+  m_AnimatorParameters:
+  - m_Name: Atk1
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Atk2
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Atk3
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Atk4
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Atk5
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: UltraAtk1
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: UltraAtk2
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Run
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Wait
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: AtkEnd
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  m_AnimatorLayers:
+  - serializedVersion: 5
+    m_Name: Base Layer
+    m_StateMachine: {fileID: 8395237259317594690}
+    m_Mask: {fileID: 0}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 0
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+--- !u!114 &428686187311066392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.471
+  eventType: 0
+  animationType: 8
+  audioName: Swing3
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &665757530963437452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk1_1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &843239645036437794
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UltraAtk1
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8661229191162848335}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.87903225
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &875069241695974780
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UltraAtk1
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6837992955008161515}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &1853589620357898727
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.486
+  eventType: 0
+  animationType: 257
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 6
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 1
+--- !u!114 &1901964592645926295
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &2239723106381380436
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk5
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2980017348721549176}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &2350997010225718240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Atk5
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &2383466213364004326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.486
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &2570066315681893218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.629
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 2
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1101 &2734356272844706662
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.95033115
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &3134246419218813928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.529
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 6
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3222695767190115588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.477
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 2
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3334406994043199500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3430889733452434086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: Furious
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3980915163230135422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.393
+  eventType: 2
+  animationType: 13
+  audioName: UltraAtk1_2
+  commonAudio: 0
+  moveVelocity: 20
+  colliderNum: 5
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &3990679888560831702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.4
+  eventType: 0
+  animationType: 72
+  audioName: Atk3_2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &4336815871328582007
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0
+  eventType: 0
+  animationType: 8
+  audioName: UltraAtk2
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &4419335297256012179
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.521
+  eventType: 0
+  animationType: 8
+  audioName: Run
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 1
+  shakeTime: 0
+--- !u!1101 &4649748062387760735
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.8770492
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &5458788286871586802
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Atk4
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8101173048660030154}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.81707317
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &5497887294353833358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.657
+  eventType: 0
+  animationType: 8
+  audioName: FootStep1
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 1
+  shakeTime: 0
+--- !u!1102 &5593306954591015595
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Wait
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 6424527013160408931}
+  - {fileID: 875069241695974780}
+  - {fileID: 8547258787805652050}
+  - {fileID: -3213404334940272133}
+  - {fileID: -8200760952709714606}
+  - {fileID: -118823056606667232}
+  - {fileID: -8987986378359022654}
+  - {fileID: 2239723106381380436}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 398e08712ff12674988e098665ce17a7, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &6410827153050578351
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atk2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 8619233247335289312}
+  m_StateMachineBehaviours:
+  - {fileID: 7070494091596148273}
+  - {fileID: -8635526160247304420}
+  - {fileID: -7109429468429500367}
+  - {fileID: -7480710989416313330}
+  - {fileID: 2570066315681893218}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 482e8e2101396d54180f3ffd72990c79, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1101 &6424527013160408931
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Run
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -3636975172919318762}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &6698180517172000209
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.95341617
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &6721561130610854686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.521
+  eventType: 3
+  animationType: 12
+  audioName: UltraAtk1_3
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 5
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &7070494091596148273
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1102 &7593481188550044864
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atk1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 4649748062387760735}
+  m_StateMachineBehaviours:
+  - {fileID: -6027342580772474479}
+  - {fileID: -1605703135194107977}
+  - {fileID: -7438770051758479499}
+  - {fileID: -3794911999984519025}
+  - {fileID: -2689107009961086679}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 6c0547dce913f3243b7a60a23e541fc2, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &7668141650484887455
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.821
+  eventType: 0
+  animationType: 1
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 2
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &7668931009363597187
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.322
+  eventType: 0
+  animationType: 8
+  audioName: Cast1
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &7673268940630359127
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.457
+  eventType: 0
+  animationType: 257
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 4
+  colliderActive: 1
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0.7
+--- !u!114 &7676909905894730545
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.97
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &7804678559708925485
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.063
+  eventType: 1
+  animationType: 16
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!1107 &8395237259317594690
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Base Layer
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 5593306954591015595}
+    m_Position: {x: 290, y: 110, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -3636975172919318762}
+    m_Position: {x: 570, y: 110, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -3560041851246830672}
+    m_Position: {x: 290, y: -70, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7869562026170352115}
+    m_Position: {x: 30, y: -70, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7593481188550044864}
+    m_Position: {x: 440, y: 250, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 6410827153050578351}
+    m_Position: {x: 440, y: 310, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2257700212957109360}
+    m_Position: {x: 440, y: 370, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8101173048660030154}
+    m_Position: {x: 440, y: 430, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2980017348721549176}
+    m_Position: {x: 440, y: 490, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -6837992955008161515}
+    m_Position: {x: 570, y: -70, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8661229191162848335}
+    m_Position: {x: 570, y: -270, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2151410576422898063}
+    m_Position: {x: 790, y: -270, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 980, y: 170, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 5593306954591015595}
+--- !u!1101 &8547258787805652050
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UltraAtk2
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6837992955008161515}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9385246
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &8619233247335289312
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AtkEnd
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.87903225
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1

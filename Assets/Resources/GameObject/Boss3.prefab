@@ -80,9 +80,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 9
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -179,9 +177,7 @@ MonoBehaviour:
   animator: {fileID: 5115916310978515702}
   model: {fileID: 5764941787318514751}
   hitboxType: 3
-  effectPrefab: {fileID: 0}
   effectName: HitEffect2
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -673,9 +669,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 8
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -740,9 +734,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 8
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -843,9 +835,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 9
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -910,9 +900,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 9
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -1037,9 +1025,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 1
-  effectPrefab: {fileID: 0}
   effectName: HitEffect1
-  hitSound: {fileID: 0}
   soundName: 
   radius: 0
   angle: 0
@@ -1626,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4499496318329798048, guid: c16a510eef2e50748a2df7abed622c70, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5258564933786212390, guid: c16a510eef2e50748a2df7abed622c70, type: 3}
       propertyPath: m_RootOrder

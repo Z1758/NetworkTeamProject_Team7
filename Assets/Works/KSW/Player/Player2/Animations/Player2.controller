@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.669
   eventType: 0
-  animationType: 40
+  animationType: 296
   audioName: Skill4Shot
   commonAudio: 0
   moveVelocity: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!114 &-8663107564252873298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.645
   eventType: 0
-  animationType: 40
+  animationType: 296
   audioName: Skill3
   commonAudio: 0
   moveVelocity: 0
@@ -1702,7 +1702,7 @@ MonoBehaviour:
   colliderActive: 0
   effectNum: 0
   isLoop: 0
-  shakeTime: 0
+  shakeTime: 0.5
 --- !u!1101 &6003195164725602629
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

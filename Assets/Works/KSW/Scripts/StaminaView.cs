@@ -8,7 +8,7 @@ public class StaminaView : SliderView
 
     private void Update()
     {
-        if (model == null)
+        if (!isEndLoading)
             return;
 
         if (slider.value > currentValue)
@@ -34,13 +34,15 @@ public class StaminaView : SliderView
         currentValue = model.MaxStamina;
         slider.maxValue = model.MaxStamina;
         slider.value = model.MaxStamina;
+        isEndLoading = true;
     }
 
     private void OnDisable()
     {
-        if (model != null)
-            model.OnChangedStaminaEvent -= SetSlider;
-            model.OnChangedMaxStaminaEvent -= SetSliderMax;
+        if (model) { 
+        model.OnChangedStaminaEvent -= SetSlider;
+        model.OnChangedMaxStaminaEvent -= SetSliderMax;
+      }
     }
 
   

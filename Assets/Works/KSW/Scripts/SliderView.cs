@@ -7,7 +7,11 @@ using UnityEngine.UI;
 public class SliderView : MonoBehaviour
 {
     [SerializeField] protected Slider slider;
-    [SerializeField] protected StatusModel model;
+    protected StatusModel model;
+
+    // 캐릭터 생성 체크
+    protected bool isEndLoading;
+
 
     protected float currentValue;
  
@@ -21,6 +25,7 @@ public class SliderView : MonoBehaviour
     {
 
         this.model = model;
+        isEndLoading = true;
     }
 
     public void SetSlider(float value)

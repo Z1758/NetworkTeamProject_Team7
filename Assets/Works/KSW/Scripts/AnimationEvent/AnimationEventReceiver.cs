@@ -1,11 +1,12 @@
 
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 
-public class AnimationEventReceiver : MonoBehaviourPun
+public class AnimationEventReceiver : MonoBehaviourPunCallbacks
 {
     [Header("필수 컴포넌트")]
     [SerializeField] StatusModel model;
@@ -58,7 +59,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
     private void Start()
     {
         SetCamera();
-        SetProjectileLayer();
+        SetLayerAndTag();
     }
 
     private void SetCamera()
@@ -132,7 +133,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
             hurtbox.layer =  hurtboxLayer;
     }
 
-    private void SetProjectileLayer()
+    private void SetLayerAndTag()
     {
 
         for (int i = 0; i < projectiles.Length; i++)
@@ -142,23 +143,55 @@ public class AnimationEventReceiver : MonoBehaviourPun
                 if (model.ModelType == ModelType.PLAYER)
                 {
                     projectiles[i].layer = (int)LayerEnum.OTHER_CLIENT_PLAYER_COLLIDER;
+                    
                 }
                 else if (model.ModelType == ModelType.ENEMY)
                 {
                     projectiles[i].layer = (int)LayerEnum.OTHER_CLIENT_MONSTER_COLLIDER;
+                   
                 }
+                projectiles[i].tag = "Untagged";
             }
             else
             {
                 if (model.ModelType == ModelType.PLAYER)
                 {
                     projectiles[i].layer = (int)LayerEnum.PLAYER_PROJECTILE;
+                    projectiles[i].tag = "Hitbox";
                 }
                 else if (model.ModelType == ModelType.ENEMY)
                 {
                     projectiles[i].layer = (int)LayerEnum.MONSTER_PROJECTILE;
+                    projectiles[i].tag = "Enemy";
                 }
             }
+        }
+        for (int i = 0; i < hitboxes.Length; i++)
+        {
+            if (photonView.IsMine)
+            {
+                if (model.ModelType == ModelType.PLAYER)
+                {
+                    hitboxes[i].tag = "Hitbox";
+                }
+                else if (model.ModelType == ModelType.ENEMY)
+                {
+                    hitboxes[i].tag = "Enemy";
+                   
+                }
+            }
+            else
+            {
+                    hitboxes[i].tag = "Untagged";
+                  
+            }
+        }
+        if (model.ModelType == ModelType.ENEMY)
+        {
+            if (photonView.IsMine)
+                hurtbox.tag = "Enemy";
+            else
+               hurtbox.tag = "Untagged";
         }
     }
 
@@ -174,6 +207,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
             clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
         }
         audioSource.PlayOneShot(clip);
+       
         
     }
 
@@ -200,7 +234,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
         if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
-            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player"))
             {
                 vec = hit.transform.position;
             }
@@ -230,7 +264,7 @@ public class AnimationEventReceiver : MonoBehaviourPun
         if (Physics.Raycast(transform.position + Vector3.up * 2, objectTransform.forward, out hit, 20f, aoeRayMask))
         {
             Vector3 vec;
-            if (hit.collider.tag == "Enemy" || hit.collider.tag == "Player")
+            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player"))
             {
                 vec = hit.transform.position;
             }
@@ -260,5 +294,13 @@ public class AnimationEventReceiver : MonoBehaviourPun
     public void ShakeCamera(float time)
     {
         playerCamera.StartShake(time);
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        if (newMasterClient.IsLocal)
+        {
+            SetLayerAndTag();
+        }
     }
 }

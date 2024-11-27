@@ -117,8 +117,7 @@ public class PlayerController : MonoBehaviourPun
     private void SetCamera()
     {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
-        playerCamera.target = transform;
-        playerCamera.pc = this;
+        playerCamera.SetComponent(this);
         playerCamera.SetOffset();
     }
 
@@ -192,7 +191,7 @@ public class PlayerController : MonoBehaviourPun
 
         }
 
-      
+     
         ChangeCoolTime();
       
             if (isFixed)
@@ -523,6 +522,7 @@ public class PlayerController : MonoBehaviourPun
         animator.Play("Death");
         playerHurtbox.layer = (int)LayerEnum.DISABLE_BOX;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+        rigid.velocity = Vector3.zero;
     }
 
     

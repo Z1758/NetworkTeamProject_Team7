@@ -5,14 +5,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] public PlayerController pc;
-    [SerializeField] public Transform target;
     [SerializeField] private Transform mainCamera;
 
+    private PlayerController pc;
+    private Transform target;
+   
+    Vector3 offset;
 
-    [SerializeField] Vector3 offset;
 
-
+    // 캐릭터 생성 체크
+    bool isEndLoading;
   
 
 
@@ -25,8 +27,8 @@ public class PlayerCamera : MonoBehaviour
     Vector3 mainCameraOffSet;
     Vector3 zoomOffSet;
 
-    [Header("화면 흔들림")]
-    [SerializeField] bool isShake;
+    // 화면 흔들림
+    bool isShake;
     Coroutine shakeRoutine;
     float shakeTime;
 
@@ -38,6 +40,11 @@ public class PlayerCamera : MonoBehaviour
        
     }
 
+    public void SetComponent(PlayerController playerController)
+    {
+        target = playerController.transform;
+        pc = playerController;
+    }
     public void SetOffset()
     {
         offset = transform.position - target.position;
@@ -47,12 +54,13 @@ public class PlayerCamera : MonoBehaviour
         mainCameraOffSet = mainCamera.localPosition;
         zoomOffSet = mainCameraOffSet +  new Vector3(0, -1, 4f);
 
+        isEndLoading = true;
     }
 
     public void LookAround(InputAction.CallbackContext value)
     {
         
-        if (target == null)
+        if (!isEndLoading)
             return;
         mouseDelta = value.ReadValue<Vector2>();
         Vector3 angle = transform.rotation.eulerAngles;
@@ -100,11 +108,9 @@ public class PlayerCamera : MonoBehaviour
     private void Update()
     {
         
-        if (target == null)
+        if (!isEndLoading)
             return;
 
-
-       
 
         //화면 흔들림
         if (isShake)
@@ -136,7 +142,9 @@ public class PlayerCamera : MonoBehaviour
     {
         isShake = true;
         shakeTime = time;
-        if (shakeRoutine  != null)
+
+
+        if (shakeRoutine  is not null)
         {
             StopCoroutine(shakeRoutine);
         }
