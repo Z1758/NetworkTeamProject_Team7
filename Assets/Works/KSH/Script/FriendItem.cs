@@ -21,6 +21,7 @@ public class FriendItem : MonoBehaviour
         UpdateStatus(initialStatus); // 초기 상태 설정
 
         _lobbyChat = lobbyChat;
+        // UI 이벤트 등록 AddListener
         _removeButton.onClick.AddListener(OnRemoveButtonClicked);
     }
 
