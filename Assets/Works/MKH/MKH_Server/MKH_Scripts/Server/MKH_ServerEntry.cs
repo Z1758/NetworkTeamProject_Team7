@@ -23,5 +23,6 @@ public class MKH_ServerEntry : MonoBehaviour
     {
         PhotonNetwork.LeaveLobby();
         PhotonNetwork.JoinRoom(serverName.text);
+        //PhotonNetwork.LoadLevel(serverName.text);
     }
 }
