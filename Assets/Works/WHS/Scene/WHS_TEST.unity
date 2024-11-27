@@ -6051,7 +6051,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionCountText: {fileID: 593859976}
   potionButton: {fileID: 1242794656}
-  hpPotionPrefab: {fileID: 3464571292550342384, guid: 68ebe8f671df0c14596396f259a1f963, type: 3}
 --- !u!1001 &1299409008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11765,12 +11764,14 @@ MonoBehaviour:
   soundSource: {fileID: 2019877273}
   bgmSource: {fileID: 2019877272}
   voiceSource: {fileID: 2019877271}
-  monsterKeys:
-  - Monster1Voice
-  - Monster1Sound
   commonKeys:
   - MonsterCommonSound
   playerKeys:
+  - num: 0
+    keys: []
+  - num: 0
+    keys: []
+  monsterKeys:
   - num: 0
     keys: []
   - num: 0

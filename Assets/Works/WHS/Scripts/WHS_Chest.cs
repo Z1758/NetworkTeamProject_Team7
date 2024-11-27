@@ -31,7 +31,7 @@ public class WHS_Chest : MonoBehaviourPun
         {
             if (photonView.IsMine)
             {
-                WHS_ItemManager.Instance.DestroyAllChests(this);
+                // WHS_ItemManager.Instance.DestroyAllChests(this);
 
                 Vector3 spawnPos = transform.position;
                 spawnPos.y += 1f;
