@@ -16,11 +16,10 @@ public class WHS_ItemManager : MonoBehaviourPun
     }
 
     [SerializeField] ItemPrefab[] itemPrefabs;
-    [SerializeField] GameObject chestPrefab;
-    [SerializeField] float chestDistance;
-
+    [SerializeField] GameObject chestPrefab;    
     [SerializeField] Vector3 chestPos;
-    private List<WHS_Chest> chests = new List<WHS_Chest>();
+    //[SerializeField] float chestDistance;
+    // private List<WHS_Chest> chests = new List<WHS_Chest>();
 
     public Dictionary<ItemType, WHS_Item> itemData = new Dictionary<ItemType, WHS_Item>();
 
@@ -82,7 +81,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
 
         GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position, rotation);
-        WHS_Item item = itemObj.GetComponent<WHS_Item>();
+        // WHS_Item item = itemObj.GetComponent<WHS_Item>();
     }
 
     // 획득한 아이템 스탯 적용 호출
@@ -137,24 +136,28 @@ public class WHS_ItemManager : MonoBehaviourPun
     // 마스터 클라이언트에서만 상자 생성
     private void SpawnChest(Vector3 position)
     {
+        /*
         for (int i = 0; i < 3; i++)
         {
             Vector3 spawnPos = position + Vector3.right * (i - 1) * chestDistance;
             photonView.RPC(nameof(SpawnChestRPC), RpcTarget.MasterClient, spawnPos);
         }
+        */
+        photonView.RPC(nameof(SpawnChestRPC), RpcTarget.MasterClient, position);
     }
 
-    // 상자 생성, 배열에 추가
+    // 상자 생성
     [PunRPC]
     private void SpawnChestRPC(Vector3 position)
     {
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
         string chestPath = "GameObject/Items/" + chestPrefab.name;
         GameObject chestObj = PhotonNetwork.Instantiate(chestPath, position, rotation);
-        WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
-        chests.Add(chest);
+        // WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
+        // chests.Add(chest);
     }
 
+    /*
     // 직접 부순 상자 외 다른 상자 제거
     public void DestroyAllChests(WHS_Chest destroyedChest)
     {
@@ -170,6 +173,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
         chests.Clear();
     }
+    */
 
     // 인벤토리에 줄 아이템 정보 초기화
     private void InitItemData()
