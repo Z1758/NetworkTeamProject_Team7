@@ -12,14 +12,16 @@ public class MKH_MainPanel : MonoBehaviour
     [SerializeField] TMP_InputField roomNameInputField;
     [SerializeField] TMP_InputField maxPlayerInputField;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         // 처음부터 방만들기 패널 만들기 방지
         createRoomPanel.SetActive(false);
     }
 
-    public void CreateRoomMenu() 
+    public void CreateRoomMenu()
     {
+        PhotonNetwork.LeaveRoom();
+
         // 방 만들기 기초 설정
         createRoomPanel.SetActive(true);
 
@@ -34,7 +36,7 @@ public class MKH_MainPanel : MonoBehaviour
     {
         string roomName = roomNameInputField.text;
         // 방 이름이 없을 시
-        if (roomName == "") 
+        if (roomName == "")
         {
             Debug.LogWarning("방 이름을 지정해야 방을 생성할 수 있습니다.");
             return;
@@ -51,7 +53,7 @@ public class MKH_MainPanel : MonoBehaviour
 
     // 방 만들기 취소
     public void CreateRoomCancel()
-    { 
+    {
         createRoomPanel.SetActive(false);
     }
 
@@ -59,25 +61,40 @@ public class MKH_MainPanel : MonoBehaviour
     public void RandomMatching()
     {
         Debug.Log("랜덤 매칭 요청");
+        PhotonNetwork.LeaveRoom();
 
         // 비어 있는 방이 없으면 새로 방을 만들어서 들어가는 방식
         string name = $"Room {Random.Range(1000, 10000)}";
         RoomOptions options = new RoomOptions() { MaxPlayers = 4 };
-        PhotonNetwork.JoinRandomOrCreateRoom(roomName : name, roomOptions : options);
+        PhotonNetwork.JoinRandomOrCreateRoom(roomName: name, roomOptions: options);
     }
 
     // 로비 들어가기
-    public void JoinLobby() 
+    public void JoinLobby()
     {
         Debug.Log("로비 입장 요청");
         PhotonNetwork.JoinLobby();
     }
 
-    // 나가기
-    public void Logout() 
+    public void Server()
+    {
+        Debug.Log("서버선택지로 이동");
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel("MKH_ServerScene");
+    }
+
+    // 로그아웃
+    public void Logout()
     {
         Debug.Log("로그아웃 요청");
         PhotonNetwork.Disconnect();
+        PhotonNetwork.LoadLevel("MKH_ServerScene");
+    }
+
+    // 나가기
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     // 유저 데이터 삭제
