@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using ExitGames.Client.Photon;
 using Photon.Chat;
 using Photon.Pun;
-using ExitGames.Client.Photon;
-using UnityEngine.UI;
+using System.Collections.Generic;
 using TMPro;
-using Photon.Chat.Demo;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
 {
@@ -18,9 +16,11 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     [SerializeField] TMP_InputField _inputField;  // 유저가 메시지를 입력하는 InputField UI 요소
     [SerializeField] Text _outputText;        // 메시지가 출력되는 Text UI 요소
 
-    // 친구 목록
-    private List<string> _friendList = new List<string>();
-    // 친구 상태
+    private string _friendInputField; // 친구 이름 입력 필드
+    [SerializeField] GameObject _friendListContent; // 친구 목록이 표시될 Scroll View의 Content
+    [SerializeField] GameObject _friendItemPrefab; // 친구 항목에 사용할 Prefab
+
+    // 친구 상태를 저장하는 딕셔너리 (친구 이름 -> 상태)
     private Dictionary<string, string> _friendStatuses = new Dictionary<string, string>();
 
     private string _chatID;
@@ -84,44 +84,60 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
         }
     }
 
-    // 친구 추가 기능
-    public void AddFriend(string friendName)
+    // 친구 추가 메서드
+    public void AddFriend()
     {
-        if (_chatClient != null)
-        {
-            _chatClient.AddFriends(new string[] { friendName }); // 친구 추가
-            _friendList.Add(friendName); // 친구 목록에 추가
-            AddLine($"친구 추가: {friendName}");
-        }
+        // 입력된 친구 이름 가져오기
+        string friendName = _friendInputField;
+
+        // 이름이 비어 있으면 반환
+        if (string.IsNullOrEmpty(friendName)) return;
+
+        // 친구 유효성 검사 후 추가
+        //if ( TODO 포톤 챗에 사용자들 정보 불러오기 필요)
+        //{
+        //    AddLine($"친구 '{friendName}'이(가) 존재하지 않거나 오프라인입니다.");
+        //    return;
+        //}
+
+        // Photon Chat에 친구 추가 요청
+        _chatClient.AddFriends(new string[] { friendName });
+
+        // UI에 친구 항목 추가
+        GameObject friendItemObject = Instantiate(_friendItemPrefab, _friendListContent.transform);
+        FriendItem friendItem = friendItemObject.GetComponent<FriendItem>();
+        friendItem.Setup(friendName, "대기 중", this); // 메인 스크립트(this)를 전달
+
+        // 상태를 딕셔너리에 저장
+        _friendStatuses[friendName] = "대기 중";
+
+        // 입력 필드 초기화
+        _friendInputField = "";
     }
 
-    // 친구 제거 기능
+    // 친구 제거 메서드
     public void RemoveFriend(string friendName)
     {
-        if (_chatClient != null)
+        // Photon Chat에서 친구 제거 요청
+        _chatClient.RemoveFriends(new string[] { friendName });
+
+        // UI에서 친구 항목 제거
+        foreach (Transform child in _friendListContent.transform)
         {
-            _chatClient.RemoveFriends(new string[] { friendName }); // 친구 제거
-            _friendList.Remove(friendName); // 친구 목록에서 제거
-            _friendStatuses.Remove(friendName); // 상태 목록에서 제거
-            AddLine($"친구 제거: {friendName}");
+            FriendItem friendItem = child.GetComponent<FriendItem>();
+            if (friendItem != null && friendItem.FriendName == friendName)
+            {
+                Destroy(child.gameObject); // UI 항목 삭제
+                break;
+            }
+        }
+
+        // 딕셔너리에서도 상태 삭제
+        if (_friendStatuses.ContainsKey(friendName))
+        {
+            _friendStatuses.Remove(friendName);
         }
     }
-
-    //// 친구 상태 확인
-    //public void CheckFriendStatus()
-    //{
-    //    foreach (var friend in _friendList)
-    //    {
-    //        if (_friendStatuses.ContainsKey(friend))
-    //        {
-    //            AddLine($"친구 {friend} 상태: {_friendStatuses[friend]}");
-    //        }
-    //        else
-    //        {
-    //            AddLine($"친구 {friend} 상태를 확인할 수 없습니다.");
-    //        }
-    //    }
-    //}
 
     public void AddLine(string lineString)
     {
@@ -132,6 +148,13 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     public void ReceiverOnValueChange(string valueIn)
     {
         _privateReceiver = valueIn; // 입력된 값을 privateReceiver에 저장
+    }
+
+
+    // 친구 추가 이름 설정
+    public void FriendName(string valueIn)
+    {
+        _friendInputField = valueIn; // 입력된 값을 privateReceiver에 저장
     }
 
 
@@ -253,8 +276,9 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     // 현재 상태 코드 1 = 온라인, 0 = 오프라인
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)
     {
-        string statusMessage;
+        string statusMessage; // 상태 메시지를 저장할 변수
 
+        // 상태 코드에 따라 상태 메시지 설정
         switch (status)
         {
             case ChatUserStatus.Online:
@@ -268,21 +292,34 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
                 break;
         }
 
+        // 추가 메시지가 있으면 상태 메시지에 포함
         if (message != null)
         {
             statusMessage += $" (메시지: {message})";
         }
 
-        // 상태를 업데이트하고 출력
+        // UI에서 상태 업데이트
+        foreach (Transform child in _friendListContent.transform)
+        {
+            FriendItem friendItem = child.GetComponent<FriendItem>();
+            if (friendItem != null && friendItem.FriendName == user)
+            {
+                friendItem.UpdateStatus(statusMessage); // 상태를 UI에 반영
+                break; // 해당 친구를 찾았으므로 루프 종료
+            }
+        }
+
+        // 딕셔너리에서 상태 업데이트
         if (_friendStatuses.ContainsKey(user))
         {
-            _friendStatuses[user] = statusMessage;
+            _friendStatuses[user] = statusMessage; // 기존 상태를 업데이트
         }
         else
         {
-            _friendStatuses.Add(user, statusMessage);
+            _friendStatuses.Add(user, statusMessage); // 새로운 상태를 추가
         }
 
+        // 디버그 출력 또는 로그 UI에 추가
         AddLine($"친구 {user} 상태 업데이트: {statusMessage}");
     }
 
