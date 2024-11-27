@@ -46,6 +46,7 @@ public class HPView : SliderView
         currentValue = model.MaxHP;
         slider.value = model.MaxHP;
         isEndLoading = true;
+        
     }
 
     private void OnDisable()
