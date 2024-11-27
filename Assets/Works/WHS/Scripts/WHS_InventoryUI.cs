@@ -35,6 +35,11 @@ public class WHS_InventoryUI : MonoBehaviour
             {
                 UsePotion();
             }
+
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                inventory.UpgradePotion();
+            }
         }
     }
 

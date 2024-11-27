@@ -75,6 +75,7 @@ public class WHS_Inventory : MonoBehaviourPun
                 if(item is WHS_HPPotion hpPotion)
                 {
                     hpPotion.UpdateGrade(hpPotionGrade);
+                    item.value = hpPotion.value;
                 }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
@@ -98,17 +99,21 @@ public class WHS_Inventory : MonoBehaviourPun
 
     public void UpgradePotion()
     {
-        if (photonView.IsMine)
-        {
-            photonView.RPC(nameof(UpgradePotionRPC), RpcTarget.All);
-        }
+        photonView.RPC(nameof(UpgradePotionRPC), RpcTarget.All);
     }
 
     [PunRPC]
     private void UpgradePotionRPC()
     {
-        hpPotionGrade++;
-        WHS_ItemManager.Instance.UpdatePotionPrefab(hpPotionGrade);
+        if (hpPotionGrade < WHS_ItemManager.Instance.hpPotionPrefabs.Length)
+        {
+            hpPotionGrade++;
+            WHS_ItemManager.Instance.UpgradePotion();            
+        }
+        else
+        {
+            Debug.Log("이미 최대등급입니다");
+        }
     }
 
     private void UpdatePotionGrade(int grade)
