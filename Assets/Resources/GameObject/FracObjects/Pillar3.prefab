@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 3149243430057300761}
   - component: {fileID: 4436193502096558565}
   m_Layer: 29
-  m_Name: Pillar03
+  m_Name: Pillar3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1074,7 +1074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177198927043232556}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -39.759098, y: -1.6999998, z: 30.83691}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1174,8 +1174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73eb9e4605e5845428c373456bdc4af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderers: []
-  rigidbodies: []
   frags: {fileID: 9079325932453494422}
   otherObj: {fileID: 0}
   particleObj: {fileID: 9109778610765479886}
