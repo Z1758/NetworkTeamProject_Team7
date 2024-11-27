@@ -47,14 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefabs:
   - type: 0
-    prefab: {fileID: 3464571292550342384, guid: 68ebe8f671df0c14596396f259a1f963, type: 3}
+    prefab: {fileID: 100000, guid: e9ace6940410afd4f89f33d251426237, type: 3}
   - type: 1
     prefab: {fileID: 3323670622729539595, guid: 3b5d2e25931285741baf5c795080fa9b, type: 3}
   - type: 2
     prefab: {fileID: 5312765511768575065, guid: 670a85ea56b2323419cc901a5f7bad92, type: 3}
   chestPrefab: {fileID: 2885670934856364096, guid: d8829a77203d6784f91a522f8bd5a75c, type: 3}
-  chestDistance: 6
   chestPos: {x: 3, y: 0, z: 0}
+  hpPotionPrefabs:
+  - {fileID: 100000, guid: e9ace6940410afd4f89f33d251426237, type: 3}
+  - {fileID: 100000, guid: 1cad88a63b1a53e4e910296422dce2d4, type: 3}
+  - {fileID: 100000, guid: d45e0312343688242b4f1c355700c85b, type: 3}
+  - {fileID: 100000, guid: 25a38199a89f1d44cbb32c6a3c6809e9, type: 3}
+  - {fileID: 100000, guid: 5792cc3e78e9e2545a904b9f40a46dc3, type: 3}
 --- !u!114 &-7188270497949898526
 MonoBehaviour:
   m_ObjectHideFlags: 0

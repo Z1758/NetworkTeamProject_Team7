@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Pun.Demo.Cockpit;
 using static UnityEditor.Progress;
+using UnityEngine.Events;
 
 public class WHS_ItemManager : MonoBehaviourPun
 {
@@ -20,6 +21,11 @@ public class WHS_ItemManager : MonoBehaviourPun
     [SerializeField] Vector3 chestPos;
     //[SerializeField] float chestDistance;
     // private List<WHS_Chest> chests = new List<WHS_Chest>();
+
+    [SerializeField] private GameObject[] hpPotionPrefabs;
+    public UnityAction<int> OnPotionGradeChanged;
+    private int hpPotionGrade = 1;
+
 
     public Dictionary<ItemType, WHS_Item> itemData = new Dictionary<ItemType, WHS_Item>();
 
@@ -62,7 +68,12 @@ public class WHS_ItemManager : MonoBehaviourPun
         {
             SpawnChest(chestPos);
         }
-    }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            UpgradePotion();
+        }
+}
 
     // 마스터 클라이언트에서만 아이템 생성 호출
     public void SpawnItem(Vector3 position)
@@ -191,8 +202,45 @@ public class WHS_ItemManager : MonoBehaviourPun
                     itemData[item.type] = item;
                 }
             }
-
-            Debug.Log("프리팹을 찾을 수 없음" + itemPath);
         }
+    }
+
+    public void UpgradePotion()
+    {
+        hpPotionGrade++;
+        if (hpPotionGrade > hpPotionPrefabs.Length)
+        {
+            Debug.Log("이미 포션이 최대등급이다");
+            return;
+        }
+        Debug.Log($"포션 업그레이드 {hpPotionGrade}");
+
+        UpdatePotionPrefab(hpPotionGrade);
+    }
+
+    public void UpdatePotionPrefab(int grade)
+    {
+        for(int i=0; i<itemPrefabs.Length; i++)
+        {
+            if (itemPrefabs[i].type == ItemType.HP)
+            {
+                itemPrefabs[i].prefab = hpPotionPrefabs[grade - 1];
+                if(itemData.TryGetValue(ItemType.HP, out WHS_Item item))
+                {
+                    if(item is WHS_HPPotion hpPotion)
+                    {
+                        hpPotion.UpdateGrade(grade);
+                    }
+                }
+
+                OnPotionGradeChanged?.Invoke(grade);
+                break;
+            }
+        }
+    }
+
+    public int GetPotionGrade()
+    {
+        return hpPotionGrade;
     }
 }

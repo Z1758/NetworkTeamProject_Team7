@@ -25,10 +25,10 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         transform.Rotate(Vector3.up, 90f * Time.deltaTime, 0);
     }
 
-    
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             StatusModel statusModel = collision.gameObject.GetComponent<StatusModel>();
             WHS_Inventory inventory = collision.gameObject.GetComponent<WHS_Inventory>();
@@ -39,14 +39,14 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
                 {
                     inventory.AddItem(type, 1);
                     Debug.Log($"{statusModel.photonView.Owner.NickName}이 {type} 아이템 획득");
-                    Debug.Log($"현재 보유 수량 : {inventory.GetItemCount(ItemType.HP)}");                    
+                    Debug.Log($"현재 보유 수량 : {inventory.GetItemCount(ItemType.HP)}");
                 }
                 else
                 {
                     WHS_ItemManager.Instance.ApplyItem(statusModel, this);
                 }
 
-                photonView.RPC(nameof(DestroyItemObj), RpcTarget.AllBuffered);
+                photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
             }
         }
     }
@@ -76,7 +76,7 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
     */
 
     [PunRPC]
-    private void DestroyItemObj()
+    protected virtual void DestroyItemObj()
     {
         Destroy(gameObject);
     }

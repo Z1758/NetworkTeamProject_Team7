@@ -8,6 +8,7 @@ public class WHS_Inventory : MonoBehaviourPun
 {
     private Dictionary<ItemType, int> items = new Dictionary<ItemType, int>();
     private StatusModel statusModel;
+    private int hpPotionGrade = 1;
 
     private void Awake()
     {
@@ -18,7 +19,15 @@ public class WHS_Inventory : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            InitInventory();
+            InitInventory();            
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (photonView.IsMine)
+        {
+            WHS_ItemManager.Instance.OnPotionGradeChanged -= UpdatePotionGrade;
         }
     }
 
@@ -63,6 +72,10 @@ public class WHS_Inventory : MonoBehaviourPun
 
             if (WHS_ItemManager.Instance.itemData.TryGetValue(type, out WHS_Item item))
             {
+                if(item is WHS_HPPotion hpPotion)
+                {
+                    hpPotion.UpdateGrade(hpPotionGrade);
+                }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
                 Debug.Log($"{statusModel.photonView.ViewID}°¡ {item.value} È¸º¹");
             }
@@ -79,5 +92,28 @@ public class WHS_Inventory : MonoBehaviourPun
     private void InitInventory()
     {
         AddItem(ItemType.HP, 3);
+        WHS_ItemManager.Instance.OnPotionGradeChanged += UpdatePotionGrade;
     }
+
+
+    public void UpgradePotion()
+    {
+        if (photonView.IsMine)
+        {
+            photonView.RPC(nameof(UpgradePotionRPC), RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    private void UpgradePotionRPC()
+    {
+        hpPotionGrade++;
+        WHS_ItemManager.Instance.UpdatePotionPrefab(hpPotionGrade);
+    }
+
+    private void UpdatePotionGrade(int grade)
+    {
+        hpPotionGrade = grade;
+    }
+
 }
