@@ -12,7 +12,10 @@ public class HPView : SliderView
     {
         if (!isEndLoading)
             return;
-
+        if (currentValue != model.HP)
+        {
+            currentValue = model.HP;
+        }
 
         if (slider.value > currentValue)
         {

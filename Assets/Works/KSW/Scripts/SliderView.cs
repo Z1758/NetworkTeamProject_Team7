@@ -14,7 +14,7 @@ public class SliderView : MonoBehaviour
     protected bool isEndLoading;
 
 
-    protected float currentValue;
+    [SerializeField]protected float currentValue;
  
     
 

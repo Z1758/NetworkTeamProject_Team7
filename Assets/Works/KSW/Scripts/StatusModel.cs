@@ -125,8 +125,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         {
 
             hp = (float)stream.ReceiveNext();
-
-
+         
         }
     }
 }

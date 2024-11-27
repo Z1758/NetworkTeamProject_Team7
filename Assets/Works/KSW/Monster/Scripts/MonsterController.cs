@@ -139,7 +139,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         int ran = Random.Range(0, pc_s.Count);
         if (pc_s.Count == 0)
             return;
-        if (pc_s[ran] is null)
+        if (!pc_s[ran])
         {
             return;
         }
@@ -168,9 +168,16 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
-
+      
         if (isDie)
+        {
+            rigid.velocity = Vector3.zero;
             return;
+        }
+        if (model.HP <= 0)
+        {
+            Dying();
+        }
 
         TraceMonster();
 
@@ -248,7 +255,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
       
 
         // 타겟 찾기
-        if (target is null)
+        if (!target)
         {
             FindPlayers();
             return;
@@ -364,7 +371,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             stream.SendNext(isFixed);
             stream.SendNext(aniStateTime);
-
+            
         }
 
         else if (stream.IsReading)
@@ -372,7 +379,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
             isFixed = (bool)stream.ReceiveNext();
             aniStateTime = (float)stream.ReceiveNext();
-
+           
         }
 
     }
@@ -395,11 +402,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         Debug.Log("HIT!!!!!!!!!!!!!!" + damage);
         model.HP -= (float)damage;
 
-        if (model.HP <= 0)
-        {
-            Dying();
-        }
-
+   
     }
 
 
@@ -412,6 +415,10 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;
 
         rigid.velocity = Vector3.zero;
+
+   
+        //임시
+        GameObject.Find("TestGameScene").GetComponent<TestGameScene>().ClearBoss(gameObject);
        
     }
 
