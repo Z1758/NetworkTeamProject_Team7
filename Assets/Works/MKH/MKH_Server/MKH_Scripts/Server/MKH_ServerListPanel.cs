@@ -22,19 +22,19 @@ public class MKH_ServerListPanel : MonoBehaviour
         foreach (RoomInfo info in serverList)
         {
 
-            // 방이 사라진 경우 + 방이 비공개인 경우 + 입장이 불가능한 방인 경우
-            if (info.RemovedFromList == true || info.IsVisible == false || info.IsOpen == false)
-            {
-                // 예외 상황 : 로비 들어가자마자 사라지는 방인 경우
-                if (serverDictionary.ContainsKey(info.Name) == false)     // room목록에 추가한 적이 없는 방
-                    continue;                                           // 다른 방 처리를 위한 continue
+            //// 방이 사라진 경우 + 방이 비공개인 경우 + 입장이 불가능한 방인 경우
+            //if (info.RemovedFromList == true || info.IsVisible == false || info.IsOpen == false)
+            //{
+            //    // 예외 상황 : 로비 들어가자마자 사라지는 방인 경우
+            //    if (serverDictionary.ContainsKey(info.Name) == false)     // room목록에 추가한 적이 없는 방
+            //        continue;                                           // 다른 방 처리를 위한 continue
 
-                Destroy(serverDictionary[info.Name].gameObject);          // 사라진 방
-                serverDictionary.Remove(info.Name);                       // 딕셔너에서 제거
-            }
+            //    Destroy(serverDictionary[info.Name].gameObject);          // 사라진 방
+            //    serverDictionary.Remove(info.Name);                       // 딕셔너에서 제거
+            //}
 
             // 새로운 방이 생성된 경우
-            else if (serverDictionary.ContainsKey(info.Name) == false)
+            if (serverDictionary.ContainsKey(info.Name) == false)
             {
                 MKH_ServerEntry serverEntry = Instantiate(serverEntryPrefab, serverContent);    // 방 생성
                 serverDictionary.Add(info.Name, serverEntry);                           // 생성된 방 딕셔너리로 추가

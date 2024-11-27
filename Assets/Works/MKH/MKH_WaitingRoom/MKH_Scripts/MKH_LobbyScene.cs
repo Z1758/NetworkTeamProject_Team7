@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MKH_LobbyScene : MonoBehaviourPunCallbacks
 {
-    public enum Panel { Menu, Lobby, Room, WaitingRoom}
+    public enum Panel { Menu, Lobby, Room, Waiting }
 
     [SerializeField] MKH_MainPanel mainPanel;
     [SerializeField] MKH_RoomPanel roomPanel;
@@ -18,19 +18,10 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
         // 방장과 같은 씬으로 이동
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        if (PhotonNetwork.InRoom)
-        {
-            SetActivePanel(Panel.Room);
-        }
-        else if (PhotonNetwork.InLobby)
-        {
-            SetActivePanel(Panel.Lobby);
-        }
-        else if (PhotonNetwork.IsConnected)
-        {
-            SetActivePanel(Panel.WaitingRoom);
-            SetActivePanel(Panel.Menu);
-        }
+
+        SetActivePanel(Panel.Waiting);
+        //PlayerSpawn();
+
     }
 
     // 서버 접속
@@ -69,7 +60,8 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("방 입장 성공");
-        SetActivePanel(Panel.Room);
+        //SetActivePanel(Panel.Room);
+        SetActivePanel(Panel.Menu);
     }
 
     // 방 입장 실패
@@ -95,7 +87,7 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         waitingPanel.EnterPlayer(newPlayer);
-        roomPanel.EnterPlayer(newPlayer);
+        //roomPanel.EnterPlayer(newPlayer);
     }
 
     // 플레이어 업데이트
@@ -108,7 +100,7 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         waitingPanel.EnterPlayer(otherPlayer);
-        roomPanel.ExitPlayer(otherPlayer);
+        //roomPanel.ExitPlayer(otherPlayer);
     }
     #endregion
 
@@ -142,28 +134,13 @@ public class MKH_LobbyScene : MonoBehaviourPunCallbacks
         mainPanel.gameObject.SetActive(panel == Panel.Menu);
         roomPanel.gameObject.SetActive(panel == Panel.Room);
         lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
-        waitingPanel.gameObject.SetActive(panel == Panel.WaitingRoom);
+        waitingPanel.gameObject.SetActive(panel == Panel.Waiting);
     }
 
-    private void Menu()
+    private void PlayerSpawn()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (mainPanel.gameObject.activeSelf == false)
-            {
-                Debug.Log("1");
-                mainPanel.gameObject.SetActive(true);
-                SetActivePanel(Panel.Menu);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else if (mainPanel.gameObject.activeSelf == true)
-            {
-                Debug.Log("2");
-                mainPanel.gameObject.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-        }
+        Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+
+        PhotonNetwork.Instantiate("GameObject/MatchMaking/Player(UI)", randomPos, Quaternion.identity);
     }
 }

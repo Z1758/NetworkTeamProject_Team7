@@ -8728,7 +8728,7 @@ GameObject:
   - component: {fileID: 2203302151837001548}
   - component: {fileID: 2203302151837001549}
   m_Layer: 5
-  m_Name: MainPanel
+  m_Name: ServerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9758,7 +9758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverContent: {fileID: 6502158250057303575}
-  serverEntryPrefab: {fileID: 0}
+  serverEntryPrefab: {fileID: -6961599031218911308, guid: 877a400fcdcc2cf4592a32e52dca21ba, type: 3}
 --- !u!222 &5056307176935577356
 CanvasRenderer:
   m_ObjectHideFlags: 0

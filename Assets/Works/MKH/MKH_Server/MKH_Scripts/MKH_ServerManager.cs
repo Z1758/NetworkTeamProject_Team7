@@ -1,6 +1,5 @@
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,22 +15,7 @@ public class MKH_ServerManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        if (PhotonNetwork.InRoom)
-        {
-            PhotonNetwork.LoadLevel("MKH_WaitingScene");
-        }
-        else if (PhotonNetwork.InLobby)
-        {
-            SetActivePanel(Panel.List);
-        }
-        else if (PhotonNetwork.IsConnected)
-        {
-            SetActivePanel(Panel.Server);
-        }
-        else
-        {
-            SetActivePanel(Panel.Login);
-        }
+        SetActivePanel(Panel.Login);
     }
 
     public override void OnConnectedToMaster()      // 마스터 서버에 접속을 완료 했을 때
