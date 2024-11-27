@@ -18,6 +18,11 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     [SerializeField] TMP_InputField _inputField;  // 유저가 메시지를 입력하는 InputField UI 요소
     [SerializeField] Text _outputText;        // 메시지가 출력되는 Text UI 요소
 
+    // 친구 목록
+    private List<string> _friendList = new List<string>();
+    // 친구 상태
+    private Dictionary<string, string> _friendStatuses = new Dictionary<string, string>();
+
     private string _chatID;
     public string ChatID { get { return _chatID; } }
     public TMP_InputField InputField { get { return _inputField; } }
@@ -79,6 +84,44 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
         }
     }
 
+    // 친구 추가 기능
+    public void AddFriend(string friendName)
+    {
+        if (_chatClient != null)
+        {
+            _chatClient.AddFriends(new string[] { friendName }); // 친구 추가
+            _friendList.Add(friendName); // 친구 목록에 추가
+            AddLine($"친구 추가: {friendName}");
+        }
+    }
+
+    // 친구 제거 기능
+    public void RemoveFriend(string friendName)
+    {
+        if (_chatClient != null)
+        {
+            _chatClient.RemoveFriends(new string[] { friendName }); // 친구 제거
+            _friendList.Remove(friendName); // 친구 목록에서 제거
+            _friendStatuses.Remove(friendName); // 상태 목록에서 제거
+            AddLine($"친구 제거: {friendName}");
+        }
+    }
+
+    //// 친구 상태 확인
+    //public void CheckFriendStatus()
+    //{
+    //    foreach (var friend in _friendList)
+    //    {
+    //        if (_friendStatuses.ContainsKey(friend))
+    //        {
+    //            AddLine($"친구 {friend} 상태: {_friendStatuses[friend]}");
+    //        }
+    //        else
+    //        {
+    //            AddLine($"친구 {friend} 상태를 확인할 수 없습니다.");
+    //        }
+    //    }
+    //}
 
     public void AddLine(string lineString)
     {
@@ -167,6 +210,7 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
 
         // 연결된 후, 채널에 가입
         _chatClient.Subscribe(new string[] { _currentChannelName }, 0);  // 채널에 가입
+        _chatClient.SetOnlineStatus(ChatUserStatus.Online);
     }
 
 
@@ -178,6 +222,7 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
         // 연결 끊어진 이유 확인을 위한 로그 추가
         Debug.Log("디스커넥트 이유: " + _chatClient.DebugOut.ToString());
         AddLine("서버에 연결이 끊어졌습니다.");  // 연결 끊어짐 메시지 출력
+        _chatClient.SetOnlineStatus(ChatUserStatus.Offline);
     }
 
 
@@ -204,10 +249,41 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
 
 
     // 사용자 상태 업데이트가 있을 때 호출되는 콜백
+    // string user (사용자 ID), int status(현재 상태 코드), bool gotMessage(사용자 정의 메세지 보낼지 여부), object message(상태 변경 시 사용자 정의 메세지)
+    // 현재 상태 코드 1 = 온라인, 0 = 오프라인
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)
     {
-        Debug.Log("status : " + string.Format("{0} is {1}, Msg : {2} ", user, status, message));
-        // 상태 변경에 대한 로그 출력
+        string statusMessage;
+
+        switch (status)
+        {
+            case ChatUserStatus.Online:
+                statusMessage = "온라인";
+                break;
+            case ChatUserStatus.Offline:
+                statusMessage = "오프라인";
+                break;
+            default:
+                statusMessage = $"상태 코드: {status}";
+                break;
+        }
+
+        if (message != null)
+        {
+            statusMessage += $" (메시지: {message})";
+        }
+
+        // 상태를 업데이트하고 출력
+        if (_friendStatuses.ContainsKey(user))
+        {
+            _friendStatuses[user] = statusMessage;
+        }
+        else
+        {
+            _friendStatuses.Add(user, statusMessage);
+        }
+
+        AddLine($"친구 {user} 상태 업데이트: {statusMessage}");
     }
 
 
