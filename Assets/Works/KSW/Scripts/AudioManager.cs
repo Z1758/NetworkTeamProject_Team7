@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
                   soundStringBuilder.Clear();
                   soundStringBuilder.Append($"Player{key.num}/");
 
-                  if (addressable != null)
+                  if (addressable)
                   {
                       soundStringBuilder.Append(addressable.name);
                       playerSoundDic.Add(soundStringBuilder.ToString(), addressable);
@@ -105,7 +105,7 @@ public class AudioManager : MonoBehaviour
                   soundStringBuilder.Clear();
                   soundStringBuilder.Append($"Monster{key.num}/");
 
-                  if (addressable != null)
+                  if (addressable)
                   {
                       soundStringBuilder.Append(addressable.name);
                       monsterSoundDic.Add(soundStringBuilder.ToString(), addressable);
@@ -132,7 +132,7 @@ public class AudioManager : MonoBehaviour
                 //추후에 변경
                 soundStringBuilder.Append("Common/");
 
-                if (addressable != null)
+                if (addressable)
                 {
                     soundStringBuilder.Append(addressable.name);
                     commonSoundDic.Add(soundStringBuilder.ToString(), addressable);

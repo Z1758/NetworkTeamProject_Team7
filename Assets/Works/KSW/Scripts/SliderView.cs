@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SliderView : MonoBehaviour
 {
     [SerializeField] protected Slider slider;
+
     protected StatusModel model;
 
     // 캐릭터 생성 체크
@@ -15,6 +16,8 @@ public class SliderView : MonoBehaviour
 
     protected float currentValue;
  
+    
+
     private void Awake()
     {
         slider = GetComponent<Slider>();
