@@ -8,15 +8,21 @@ using UnityEngine.UI;
 public class WHS_InventoryUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI potionCountText;
-    // TODO : 버튼 물약이미지
     [SerializeField] Button potionButton;
     private int potionCount;
     private WHS_Inventory inventory;
+
+    [SerializeField] Image potionImage;
+    [SerializeField] Sprite[] potionSprites;
 
     private void Start()
     {
         potionButton.onClick.AddListener(UsePotion);
         StartCoroutine(FindPlayer());
+
+        WHS_ItemManager.Instance.OnPotionGradeChanged += UpdatePotionImage;
+
+        UpdatePotionImage(WHS_ItemManager.Instance.GetPotionGrade());
     }
 
     private void Update()
@@ -72,6 +78,18 @@ public class WHS_InventoryUI : MonoBehaviour
         else
         {
             Debug.Log("보유중인 포션이 없습니다.");
+        }
+    }
+
+    private void UpdatePotionImage(int grade)
+    {
+        if (grade - 1 < potionSprites.Length)
+        {
+            potionImage.sprite = potionSprites[grade - 1];
+        }
+        else
+        {
+            return;
         }
     }
 }
