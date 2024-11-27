@@ -156,7 +156,7 @@ public class AudioManager : MonoBehaviour
         string resultStr = soundStringBuilder.ToString();
 
         monsterSoundDic.TryGetValue(resultStr, out AudioClip clip);
-        if (clip == null)
+        if (clip is null)
         {
             Debug.Log($"{resultStr} 몬스터 사운드 초기화");
             monsterSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
@@ -176,7 +176,7 @@ public class AudioManager : MonoBehaviour
         string resultStr = soundStringBuilder.ToString();
 
         playerSoundDic.TryGetValue(resultStr, out AudioClip clip);
-        if (clip == null)
+        if (clip is null)
         {
             Debug.Log("플레이어 사운드 초기화");
             playerSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());
@@ -196,7 +196,7 @@ public class AudioManager : MonoBehaviour
         string resultStr = soundStringBuilder.ToString();
 
         commonSoundDic.TryGetValue(resultStr, out AudioClip clip);
-        if (clip == null)
+        if (clip is null)
         {
             Debug.Log("일반 사운드 초기화");
             commonSoundDic.Add(resultStr, Addressables.LoadAssetAsync<AudioClip>(resultStr).WaitForCompletion());

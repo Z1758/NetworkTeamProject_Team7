@@ -146,14 +146,16 @@ public class Hitbox : MonoBehaviourPun
 
     public bool GetAngleHit(Transform hit)
     {
-        if (hitboxType.HasFlag(HitboxType.FOV_ATTACK))
+        if (CheckFOVType())
         {
             Vector3 target = (hit.transform.position - transform.position).normalized;
+           
             if (Vector3.Angle(transform.forward, target) < angle / 2)
             {
-               //  float distance = Vector3.Distance(transform.position, target);
+ 
+                 float distance = Vector3.Distance(transform.position, target);
 
-               // Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
+                Debug.DrawRay(transform.position + Vector3.up, target * distance, Color.red, 1.0f);
 
 
             }
@@ -164,6 +166,11 @@ public class Hitbox : MonoBehaviourPun
         }
 
         return true;
+    }
+
+    public bool CheckFOVType()
+    {
+        return hitboxType.HasFlag(HitboxType.FOV_ATTACK);
     }
 
     // 에디터 그리기용

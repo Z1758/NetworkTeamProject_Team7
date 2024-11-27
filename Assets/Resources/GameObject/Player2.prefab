@@ -118,8 +118,8 @@ MonoBehaviour:
   hitboxType: 6
   effectName: HitEffect1
   soundName: Atk1Hit
-  radius: 11
-  angle: 80
+  radius: 12
+  angle: 100
 --- !u!135 &5399086713049952294
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 11
+  m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &40066518991079196
 GameObject:

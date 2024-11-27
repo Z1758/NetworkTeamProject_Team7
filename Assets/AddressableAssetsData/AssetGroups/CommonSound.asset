@@ -29,6 +29,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - CommonSound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19f4b33bedbcfbe408ec9c0faf72c4f2
+    m_Address: Common/Hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f6ea6aaa3b2fd448f6da5871432aad
     m_Address: Common/Impact2
     m_ReadOnly: 0
@@ -91,6 +97,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3ca55167298d654f99a5d2346594763
     m_Address: Common/Cast1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dde7e1187f29985478dabcf804f5a891
+    m_Address: Common/Hit1
     m_ReadOnly: 0
     m_SerializedLabels:
     - CommonSound

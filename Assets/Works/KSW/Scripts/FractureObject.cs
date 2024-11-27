@@ -8,14 +8,18 @@ public class FractureObject : MonoBehaviourPun
 {
     MeshRenderer meshRenderer;
     
-    [SerializeField] MeshRenderer[] meshRenderers;
-    [SerializeField]Rigidbody[] rigidbodies;
+    MeshRenderer[] meshRenderers;
+    Rigidbody[] rigidbodies;
+
 
 
     [SerializeField] GameObject frags;
     [SerializeField] GameObject otherObj;
+    [SerializeField] GameObject particleObj;
 
     [SerializeField] float forcePower;
+
+    [SerializeField] string audioName;
 
     WaitForSeconds fadeDelay = new WaitForSeconds(0.1f);
 
@@ -38,7 +42,7 @@ public class FractureObject : MonoBehaviourPun
             {
 
 
-                if (!hitbox.GetAngleHit(transform))
+                if (hitbox.GetAngleHit(transform) == false)
                 {
                     return;
                 }
@@ -48,21 +52,35 @@ public class FractureObject : MonoBehaviourPun
             }
             photonView.RPC(nameof(StartFadeOutRPC), RpcTarget.All);
          
+
         }
     }
 
+    public void CalledBindObj()
+    {
+        photonView.RPC(nameof(StartFadeOutRPC), RpcTarget.All);
+    }
 
 
     [PunRPC]
      void StartFadeOutRPC()
     {
-       
         if (otherObj)
         {
             otherObj.SetActive(false);
 
         }
-       
+        if (particleObj)
+        {
+            particleObj.transform.SetParent(null);
+            particleObj.SetActive(true);
+            
+        }
+        
+
+
+        if (audioName != "")
+        AudioManager.GetInstance().PlaySound(AudioManager.GetInstance().GetCommonSoundDic(audioName));
 
         meshRenderer.enabled = false;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;

@@ -522,6 +522,7 @@ public class PlayerController : MonoBehaviourPun
         animator.Play("Death");
         playerHurtbox.layer = (int)LayerEnum.DISABLE_BOX;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+        rigid.velocity = Vector3.zero;
     }
 
     
