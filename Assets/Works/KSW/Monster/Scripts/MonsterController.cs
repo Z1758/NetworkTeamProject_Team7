@@ -59,7 +59,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     WaitForSeconds cooldown = new WaitForSeconds(0.5f);
     Coroutine cooldownCoroutine;
 
-    WaitForSeconds lagWFS = new WaitForSeconds(0.05f);
+    WaitForSeconds lagWFS = new WaitForSeconds(0.08f);
 
     private void Awake()
     {
@@ -192,7 +192,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             yield return lagWFS;
 
-            if (Mathf.Abs(lag) > 0.05f)
+            if (Mathf.Abs(lag) > 0.08f)
             {
                 if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
                 {

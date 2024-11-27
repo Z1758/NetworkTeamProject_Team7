@@ -12,30 +12,26 @@ public class HPView : SliderView
     {
         if (!isEndLoading)
             return;
-        if (currentValue != model.HP)
-        {
-            currentValue = model.HP;
-        }
-
-        if (slider.value > currentValue)
+       
+        if (slider.value > model.HP)
         {
             slider.value -= Time.deltaTime * (model.MaxHP * 0.5f);
-            if (slider.value < currentValue)
+            if (slider.value < model.HP)
             {
-                slider.value = currentValue;
+                slider.value = model.HP;
             }
         }
-        else if (slider.value < currentValue)
+        else if (slider.value < currentValue && model.ModelType == ModelType.PLAYER)
         {
-            slider.value += Time.deltaTime * (model.MaxHP * 0.3f);
-            if (slider.value > currentValue)
+            if (model.ModelType == ModelType.PLAYER)
             {
-                slider.value = currentValue;
+
+                slider.value += Time.deltaTime * (model.MaxHP * 0.3f);
+                if (slider.value > currentValue)
+                {
+                    slider.value = currentValue;
+                }
             }
-        }
-        else
-        {
-            slider.value = currentValue;
         }
     }
 
