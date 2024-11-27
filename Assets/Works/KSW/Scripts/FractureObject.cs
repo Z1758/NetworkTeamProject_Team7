@@ -31,7 +31,7 @@ public class FractureObject : MonoBehaviourPun
     }
 
  
-
+    
     private void OnTriggerEnter(Collider other)
     {
      
@@ -55,7 +55,28 @@ public class FractureObject : MonoBehaviourPun
 
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((collision.gameObject.CompareTag("Enemy") && photonView.IsMine) || collision.gameObject.CompareTag("Hitbox"))
+        {
+            if (collision.gameObject.TryGetComponent(out Hitbox hitbox))
+            {
 
+
+                if (hitbox.GetAngleHit(transform) == false)
+                {
+                    return;
+                }
+              
+                hitbox.HitEffect(collision.contacts[0].point);
+
+
+            }
+            photonView.RPC(nameof(StartFadeOutRPC), RpcTarget.All);
+
+
+        }
+    }
     public void CalledBindObj()
     {
         photonView.RPC(nameof(StartFadeOutRPC), RpcTarget.All);

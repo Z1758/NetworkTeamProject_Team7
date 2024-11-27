@@ -46,18 +46,20 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
     //   [Header("애니메이션 해싱")]
-    int[] animtionHash;
+   // int[] animtionHash;
     int[] animatorParameterHash;
 
     int runParameterHash;
     int waitParameterHash;
     int atkEndParameterHash;
 
+    int currentHash;
+
     // 코루틴 캐싱
     WaitForSeconds cooldown = new WaitForSeconds(0.5f);
     Coroutine cooldownCoroutine;
 
-    WaitForSeconds lagWFS = new WaitForSeconds(0.1f);
+    WaitForSeconds lagWFS = new WaitForSeconds(0.05f);
 
     private void Awake()
     {
@@ -82,11 +84,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void SetAniHash()
     {
-        animtionHash = new int[patterns.Length];
+     //   animtionHash = new int[patterns.Length];
         animatorParameterHash = new int[patterns.Length];
         for (int i = 0; i < patterns.Length; i++)
         {
-            animtionHash[i] = Animator.StringToHash(patterns[i].pattern);
+      //      animtionHash[i] = Animator.StringToHash(patterns[i].pattern);
 
             AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
             animatorParameterHash[i] = animatorControllerParameter.nameHash;
@@ -168,7 +170,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
-      
         if (isDie)
         {
             rigid.velocity = Vector3.zero;
@@ -191,23 +192,32 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             yield return lagWFS;
 
-            if (Mathf.Abs(lag) > 0.5f)
+            if (Mathf.Abs(lag) > 0.05f)
             {
-
-            }
+                if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+                {
+                    Debug.Log("동기화");
+                    animator.Play(currentHash  ,0, aniStateTime);
+                }
+            }/*
             else if (Mathf.Abs(lag) > 0.05f)
             {
                 Debug.Log("렉 발생");
                 for (int i = 0; i < patterns.Length; i++)
                 {
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName(patterns[i].pattern))
+                    
+
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName(patterns[i].pattern) )
                     {
                         animator.Play(animtionHash[i], 0, aniStateTime);
+                    }else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Furious"))
+                    {
+                        animator.Play("Furious", 0, aniStateTime);
                     }
 
                 }
 
-            }
+            }*/
 
 
         }
@@ -225,7 +235,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         time = 0;
         lag = 0;
         aniStateTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-
+        currentHash = animator.GetCurrentAnimatorStateInfo(0).fullPathHash;
     }
 
     public void TraceMonster()
@@ -371,6 +381,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             stream.SendNext(isFixed);
             stream.SendNext(aniStateTime);
+            stream.SendNext(currentHash);
             
         }
 
@@ -379,7 +390,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
             isFixed = (bool)stream.ReceiveNext();
             aniStateTime = (float)stream.ReceiveNext();
-           
+           currentHash = (int)stream.ReceiveNext(); 
         }
 
     }
@@ -416,7 +427,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         rigid.velocity = Vector3.zero;
 
-   
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject obj in objects)
+        {
+            
+                obj.GetComponent<PlayerController>().Revive();
+
+            
+        }
+
+
         //임시
         GameObject.Find("TestGameScene").GetComponent<TestGameScene>().ClearBoss(gameObject);
        
