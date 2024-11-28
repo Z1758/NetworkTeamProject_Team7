@@ -2963,6 +2963,9 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 5441437242760826938}
   inputSystem: {fileID: 2948661918679160786}
+  weapon:
+  - {fileID: 316367543836340479}
+  - {fileID: 571308906420713842}
   freezingCnt: 0
   dodgeFreezingCnt: 0
 --- !u!54 &3657568929032751903
@@ -6451,6 +6454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53a4050b8aad8d743816603756448210, type: 3}
+--- !u!1 &316367543836340479 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 53a4050b8aad8d743816603756448210, type: 3}
+  m_PrefabInstance: {fileID: 622234843956039086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1092164924188371525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53a4050b8aad8d743816603756448210, type: 3}
@@ -6778,6 +6786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0502b4b7dc22204c9ab04ad15a0304e, type: 3}
+--- !u!1 &571308906420713842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0502b4b7dc22204c9ab04ad15a0304e, type: 3}
+  m_PrefabInstance: {fileID: 805260040539997219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &911524555431437256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0502b4b7dc22204c9ab04ad15a0304e, type: 3}

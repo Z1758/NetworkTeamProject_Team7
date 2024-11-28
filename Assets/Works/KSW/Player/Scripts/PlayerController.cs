@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] PlayerCamera playerCamera;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
+    [SerializeField] GameObject[] weapon;
     WHS_Inventory inventory;
 
     Vector3 dir;
@@ -130,6 +131,11 @@ public class PlayerController : MonoBehaviourPun
         for (int i = 0; i < animatorParameterHash.Length; i++)
         {
             animator.SetBool(animatorParameterHash[i], false);
+        }
+
+        for(int i = 0; i < weapon.Length; i++)
+        {
+            weapon[i].SetActive(false);
         }
 
         rigid.velocity = Vector3.zero;

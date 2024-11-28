@@ -80,6 +80,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 9
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   animator: {fileID: 5115916310978515702}
   model: {fileID: 5764941787318514751}
   hitboxType: 3
+  multiplier: 1
   effectName: HitEffect2
   soundName: Hit2
   radius: 0
@@ -600,7 +602,7 @@ MonoBehaviour:
   hp: 1000
   maxStamina: 0
   stamina: 0
-  consumStamina: 0
+  consumetamina: 0
   recoveryStaminaMag: 0
   attack: 200
   attackSpeed: 1
@@ -669,6 +671,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 8
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -734,6 +737,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 8
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -835,6 +839,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 9
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -900,6 +905,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 9
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -1025,6 +1031,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5764941787318514751}
   hitboxType: 1
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit2
   radius: 0

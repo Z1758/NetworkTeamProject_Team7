@@ -161,6 +161,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   audioSource: {fileID: 7079407250204562785}
   inputSystem: {fileID: 1641774034918779575}
+  weapon:
+  - {fileID: 5364494408336484401}
   freezingCnt: 0
   dodgeFreezingCnt: 0
 --- !u!54 &928105611069765242
@@ -5010,6 +5012,11 @@ Transform:
 --- !u!4 &3924408666776160936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3847085089755528536, guid: 1ec826201bbfaae488b88dbd34a2cd8c, type: 3}
+  m_PrefabInstance: {fileID: 222324972645529584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5364494408336484401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3934078582236962879, guid: 1ec826201bbfaae488b88dbd34a2cd8c, type: 3}
   m_PrefabInstance: {fileID: 222324972645529584}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5782460313754306617 stripped

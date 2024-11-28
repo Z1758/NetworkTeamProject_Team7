@@ -25,6 +25,8 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     [SerializeField] GameObject startPoint;
     [SerializeField] Transform[] endPoint;
     [SerializeField] GameObject resultCamera;
+    [SerializeField] GameObject uiCanvas;
+ 
     public List<PlayerController> players = new List<PlayerController>();
 
     [SerializeField] int monsterCount;
@@ -233,6 +235,8 @@ public class TestGameScene : MonoBehaviourPunCallbacks
             Destroy(currentBoss);
             currentBoss = null;
         }
+
+        uiCanvas.SetActive(false);
 
     }
 
