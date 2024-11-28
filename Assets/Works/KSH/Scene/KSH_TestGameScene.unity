@@ -602,12 +602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3d08e3efcc58d4fa5bbdf0138b75a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pc: {fileID: 0}
-  target: {fileID: 0}
   mainCamera: {fileID: 780331213}
-  offset: {x: 0, y: 0, z: 0}
   rotateSpeed: 40
-  isShake: 0
 --- !u!4 &195292496
 Transform:
   m_ObjectHideFlags: 0
@@ -1034,7 +1030,6 @@ MonoBehaviour:
   - {fileID: 948443478}
   - {fileID: 1918472194}
   - {fileID: 650102537}
-  model: {fileID: 0}
   uiKeys:
   - UI
 --- !u!114 &378326463
@@ -3700,6 +3695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d6a59b4485d6b4e904054484dd5e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _privateInputField: {fileID: 0}
   _speechBubble: {fileID: 1749925553}
   _networkChat: {fileID: 1311787110}
   _inputField: {fileID: 102652560}
@@ -4817,6 +4813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeline: {fileID: 1384412911}
+  bossSpawnPoint: {fileID: 0}
+  fractureObjectManager: {fileID: 0}
 --- !u!114 &1384412914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5153,7 +5151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  model: {fileID: 0}
+  currentValue: 0
 --- !u!114 &1601505293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5892,7 +5890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  model: {fileID: 0}
+  currentValue: 0
 --- !u!1 &1748616958
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,6 +6846,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 906055979, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058991289671525368, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102245723997289952, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654204208146445857, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654204208376187155, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654204208852733426, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654204208886568816, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2588764049045512296, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -6892,17 +6918,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099723889266921734, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296984260956993798, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436193501273348848, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5103553570151017409, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391273296900614190, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5665043540556257694, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6648806701565223896, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912638761962550447, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922952244935225690, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922952245083937137, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922952245928617155, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956108815699448058, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240235052108289596, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8407327691403971386, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593184764016813045, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787484894329475366, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
+      propertyPath: sceneViewId
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d9711396d50eda42abe4f808ad583c8, type: 3}
@@ -7480,7 +7558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  model: {fileID: 0}
+  currentValue: 0
 --- !u!1 &483817602491507803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6114281333731111892, guid: 4ec89fb3fc98b2b4389c1279bb9c80f3, type: 3}
