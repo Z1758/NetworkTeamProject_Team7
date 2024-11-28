@@ -96,7 +96,7 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
 
     public void ControllMoveAnimation(float speed)
     {
-        rigid.velocity = objectTransform.forward * speed * model.AttackSpeed;
+        rigid.velocity = objectTransform.forward * speed * model.AttackSpeed ;
 
     }
 
@@ -120,6 +120,7 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
 
     public void ActiveProjectileAnimation(int num)
     {
+        projectiles[num].SetActive(false);
         projectiles[num].SetActive(true);
     }
 
