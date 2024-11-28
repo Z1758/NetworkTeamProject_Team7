@@ -203,10 +203,10 @@ public class WHS_ItemManager : MonoBehaviourPun
     // HP포션 업그레이드
     public void UpgradePotion()
     {
-        if (hpPotionGrade < hpPotionPrefabs.Length)
+        int newGrade = hpPotionGrade + 1;
+        if (newGrade <= hpPotionPrefabs.Length)
         {
-            hpPotionGrade++;
-            photonView.RPC(nameof(UpdatePotionRPC), RpcTarget.All, hpPotionGrade);
+            photonView.RPC(nameof(UpdatePotionRPC), RpcTarget.All, newGrade);
         }
     }
 
@@ -236,11 +236,10 @@ public class WHS_ItemManager : MonoBehaviourPun
                             hpPotion.UpdateGrade(grade);
                         }
                     }
-
-                    OnPotionGradeChanged?.Invoke(grade);
                     break;
                 }
             }
+            OnPotionGradeChanged?.Invoke(grade);
         }
     }
 

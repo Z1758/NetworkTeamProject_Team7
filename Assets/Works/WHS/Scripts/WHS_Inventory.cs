@@ -106,15 +106,6 @@ public class WHS_Inventory : MonoBehaviourPun
         }
     }
 
-    [PunRPC]
-    private void UpgradePotionRPC(int grade)
-    {
-        hpPotionGrade = grade;
-        WHS_ItemManager.Instance.UpdatePotion(hpPotionGrade);
-
-        WHS_ItemManager.Instance.OnPotionGradeChanged?.Invoke(hpPotionGrade);
-    }
-
     // 아이템매니저에서 포션 등급 변경되면 갱신
     private void UpdatePotionGrade(int grade)
     {

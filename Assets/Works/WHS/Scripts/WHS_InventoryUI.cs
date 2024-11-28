@@ -43,6 +43,7 @@ public class WHS_InventoryUI : MonoBehaviour
         }
     }
 
+
     // 인벤토리를 가진 플레이어 찾기
     IEnumerator FindPlayer()
     {
