@@ -411,7 +411,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void TakeDamage(float damage, AudioClip clip)
     {
-        if (clip != null)
+        if (clip)
             audioSource.PlayOneShot(clip);
         //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage);

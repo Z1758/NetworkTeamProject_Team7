@@ -234,8 +234,8 @@ MonoBehaviour:
   attack: 100
   attackSpeed: 1
   moveSpeed: 10
-  criticalRate: 0
-  criticalDamageRate: 0
+  criticalRate: 10
+  criticalDamageRate: 0.5
   skillCoolTime:
   - 5
   - 6

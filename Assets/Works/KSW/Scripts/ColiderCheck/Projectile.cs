@@ -23,8 +23,15 @@ public class Projectile : Hitbox
     private void Awake()
     {
         returnTimeWFS = new WaitForSeconds(returnTime);
- 
-    
+
+        if (!model)
+            model = GetComponentInParent<StatusModel>();
+
+        if (model.ModelType == ModelType.PLAYER)
+        {
+            criticalEffectPrefab = EffectManager.GetInstance().GetEffectDic("CriticalEffect");
+            criticalSound = AudioManager.GetInstance().GetCommonSoundDic("Critical");
+        }
     }
 
     private void OnEnable()
