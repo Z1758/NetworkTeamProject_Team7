@@ -86,6 +86,7 @@ public class WHS_InventoryUI : MonoBehaviour
         }
     }
 
+    // 업그레이드된 물약 이미지 교체
     private void UpdatePotionImage(int grade)
     {
         if (grade - 1 < potionSprites.Length)

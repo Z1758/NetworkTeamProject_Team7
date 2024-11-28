@@ -200,7 +200,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
-    // 포션 업그레이드 메서드
+    // HP포션 업그레이드
     public void UpgradePotion()
     {
         if (hpPotionGrade < hpPotionPrefabs.Length)
@@ -210,13 +210,16 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
+    // HP포션 업그레이드 호출
     [PunRPC]
     private void UpdatePotionRPC(int newGrade)
     {
         hpPotionGrade = newGrade;
+        UpdatePotion(hpPotionGrade);
         OnPotionGradeChanged?.Invoke(hpPotionGrade);
     }
 
+    // 업그레이드한 hp포션 프리팹 갱신
     public void UpdatePotion(int grade)
     {
         if (grade - 1 < hpPotionPrefabs.Length)
