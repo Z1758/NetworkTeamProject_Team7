@@ -97,24 +97,16 @@ public class WHS_Inventory : MonoBehaviourPun
         AddItem(ItemType.HP, 3);
     }
 
+
     public void UpgradePotion()
     {
-        if (hpPotionGrade < WHS_ItemManager.Instance.hpPotionPrefabs.Length)
+        if (photonView.IsMine)
         {
-            hpPotionGrade++;
-            photonView.RPC(nameof(UpgradePotionRPC), RpcTarget.All, hpPotionGrade);
+            WHS_ItemManager.Instance.UpgradePotion();       
         }
     }
 
-    [PunRPC]
-    private void UpgradePotionRPC(int grade)
-    {
-        hpPotionGrade = grade;
-        WHS_ItemManager.Instance.UpdatePotion(hpPotionGrade);
-
-        WHS_ItemManager.Instance.OnPotionGradeChanged?.Invoke(hpPotionGrade);
-    }
-
+    // 아이템매니저에서 포션 등급 변경되면 갱신
     private void UpdatePotionGrade(int grade)
     {
         hpPotionGrade = grade;
