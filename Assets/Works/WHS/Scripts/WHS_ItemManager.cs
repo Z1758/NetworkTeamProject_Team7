@@ -179,7 +179,7 @@ public class WHS_ItemManager : MonoBehaviourPun
 
 
     // 마스터 클라이언트에서만 상자 생성
-    private void SpawnChest(Vector3 position)
+    public void SpawnChest(Vector3 position)
     {
         /*
         for (int i = 0; i < 3; i++)

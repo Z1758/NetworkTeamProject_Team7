@@ -445,6 +445,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void Furious()
     {
+        if (isDie)
+            return;
+
         foreach(Material mat in furiousRenderer.materials)
         {
             mat.EnableKeyword("_EMISSION");
