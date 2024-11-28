@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] PlayerCamera playerCamera;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
+    WHS_Inventory inventory;
 
     Vector3 dir;
 
@@ -81,15 +82,22 @@ public class PlayerController : MonoBehaviourPun
         SetAnimationHash();
         if (photonView.IsMine == false)
             return;
+
+        SetComponent();
+        SetCamera();
+
+        SetStates();
+
+    }
+
+    private void SetComponent()
+    {
         inputSystem = GetComponent<PlayerInputSystem>();
         model = GetComponent<StatusModel>();
         rigid = GetComponent<Rigidbody>();
         audioSource = GetComponentInChildren<AudioSource>();
         gameObject.AddComponent<AudioListener>();
-        SetCamera();
-
-        SetStates();
-
+        inventory = GetComponent<WHS_Inventory>();
     }
 
    
@@ -281,7 +289,7 @@ public class PlayerController : MonoBehaviourPun
     }
     public void DodgeInput(InputAction.CallbackContext value)
     {
-        if ( model.Stamina < model.ConsumStamina)
+        if ( model.Stamina < model.ConsumeStamina)
         {
             return;
         }
@@ -349,7 +357,7 @@ public class PlayerController : MonoBehaviourPun
     {
        
         isFixed = false;
-        animator.SetFloat("Speed", model.AttackSpeed);
+        ResetAtkSpeed();
 
         if (down)
         {
@@ -426,6 +434,10 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    public void ResetAtkSpeed()
+    {
+        animator.SetFloat("Speed", model.AttackSpeed);
+    }
 
     public void MoveAni()
     {
@@ -529,6 +541,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void Revive()
     {
+        inventory.UpgradePotion();
+
         if (model.HP > 0f)
             return;
         model.HP = model.MaxHP* 0.5f;
@@ -591,7 +605,8 @@ public class PlayerController : MonoBehaviourPun
 
     void FreezingOut()
     {
-        animator.SetFloat("Speed", model.AttackSpeed);
+        ResetAtkSpeed();
+        
         isFixed = false;
         ChangeState(PlayerState.Wait, false);
     }

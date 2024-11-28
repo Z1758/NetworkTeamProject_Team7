@@ -100,6 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aff34ac1a6733944a2487c44b719611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  additionalItemValue:
+  - type: 1
+    value: 100
+  - type: 5
+    value: 10
+  - type: 3
+    value: 0.1
+  - type: 4
+    value: 1
+  - type: 7
+    value: 1
   type: 2
   value: 100
 --- !u!114 &5107606774061986889

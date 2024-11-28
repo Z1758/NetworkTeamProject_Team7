@@ -174,8 +174,11 @@ public class TestGameScene : MonoBehaviourPunCallbacks
 
     public void ClearBoss(GameObject obj)
     {
+     
         AudioManager.GetInstance().StopBGM();
         currentBoss = obj;
+        WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
+
         startPoint.SetActive(true);
     }
 
