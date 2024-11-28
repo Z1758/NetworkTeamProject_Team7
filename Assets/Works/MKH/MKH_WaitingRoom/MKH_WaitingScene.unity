@@ -3449,7 +3449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd5247c2cb5ba24280d3e90d7200413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuPanel: {fileID: 0}
 --- !u!224 &7559282395197010133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3620,6 +3619,7 @@ MonoBehaviour:
   - {fileID: 2092899229639667494}
   - {fileID: 4457520171530166473}
   - {fileID: 8876144341944968959}
+  playerManagers: []
   startButton: {fileID: 6891390877136764866}
 --- !u!222 &8128263913685557290
 CanvasRenderer:
