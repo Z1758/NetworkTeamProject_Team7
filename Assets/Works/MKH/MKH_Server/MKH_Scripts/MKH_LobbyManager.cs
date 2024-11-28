@@ -3,13 +3,13 @@ using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MKH_ServerManager : MonoBehaviourPunCallbacks
+public class MKH_LobbyManager : MonoBehaviourPunCallbacks
 {
-    public enum Panel { Login, Server, List }
+    public enum Panel { Login, Menu, Lobby }
 
     [SerializeField] MKH_LoginPanel loginPanel;
-    [SerializeField] MKH_ServerPanel serverPanel;
-    [SerializeField] MKH_ServerListPanel listPanel;
+    [SerializeField] MKH_MainPanel menuPanel;
+    [SerializeField] MKH_LobbyPanel lobbyPanel;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class MKH_ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("접속에 성공했다!");
         Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-        SetActivePanel(Panel.Server);
+        SetActivePanel(Panel.Menu);
     }
 
     public override void OnDisconnected(DisconnectCause cause)      // 접속을 끊었을 시
@@ -33,7 +33,7 @@ public class MKH_ServerManager : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()        // 방 생성 성공 시
     {
-        Debug.Log("서버 생성 성공");
+        Debug.Log("룸 생성 성공");
     }
 
     public override void OnJoinedRoom()
@@ -45,7 +45,7 @@ public class MKH_ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinRoomFailed(short returnCode, string message)         // 방 입장 실패 시
     {
         Debug.Log($"서버 입장 실패, 사유 : {message}");
-        SetActivePanel(Panel.Server);
+        SetActivePanel(Panel.Menu);
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)       // 랜덤 방 입장 실패 시
@@ -56,14 +56,14 @@ public class MKH_ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("로비 입장 성공");
-        SetActivePanel(Panel.List);
+        SetActivePanel(Panel.Lobby);
     }
 
     public override void OnLeftLobby()
     {
         Debug.Log("로비 퇴장 성공");
-        listPanel.ClearServerEntries();          // 딕셔너리 방 목록 삭제
-        SetActivePanel(Panel.Server);
+        lobbyPanel.ClearRoomEntries();          // 딕셔너리 방 목록 삭제
+        SetActivePanel(Panel.Menu);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> serverList)
@@ -72,13 +72,13 @@ public class MKH_ServerManager : MonoBehaviourPunCallbacks
         // 주의 사항
         // 1. 처음 로비 입장 시 : 모든 방 목록을 전달
         // 2. 입장 중 방 목록이 변경되는 경우 : 변경된 방 목록만 전달
-        listPanel.UpdateServerList(serverList);
+        lobbyPanel.UpdateRoomList(serverList);
     }
 
     private void SetActivePanel(Panel panel)
     {
         loginPanel.gameObject.SetActive(panel == Panel.Login);
-        serverPanel.gameObject.SetActive(panel == Panel.Server);
-        listPanel.gameObject.SetActive(panel == Panel.List);
+        menuPanel.gameObject.SetActive(panel == Panel.Menu);
+        lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
     }
 }

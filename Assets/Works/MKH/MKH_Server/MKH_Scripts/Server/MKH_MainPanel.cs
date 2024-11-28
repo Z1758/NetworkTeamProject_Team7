@@ -20,8 +20,6 @@ public class MKH_MainPanel : MonoBehaviour
 
     public void CreateRoomMenu()
     {
-        PhotonNetwork.LeaveRoom();
-
         // 방 만들기 기초 설정
         createRoomPanel.SetActive(true);
 
@@ -54,6 +52,7 @@ public class MKH_MainPanel : MonoBehaviour
     // 방 만들기 취소
     public void CreateRoomCancel()
     {
+
         createRoomPanel.SetActive(false);
     }
 
@@ -67,6 +66,7 @@ public class MKH_MainPanel : MonoBehaviour
         string name = $"Room {Random.Range(1000, 10000)}";
         RoomOptions options = new RoomOptions() { MaxPlayers = 4 };
         PhotonNetwork.JoinRandomOrCreateRoom(roomName: name, roomOptions: options);
+       
     }
 
     // 로비 들어가기
@@ -76,9 +76,25 @@ public class MKH_MainPanel : MonoBehaviour
         PhotonNetwork.JoinLobby();
     }
 
-    public void Server()
+    public void Select()
     {
-        Debug.Log("서버선택지로 이동");
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                string CharacterName = hit.collider.name;
+                PlayerPrefs.SetString("CharacterName", CharacterName);
+                Debug.Log(CharacterName);
+            }
+        }
+    }
+
+    public void Room()
+    {
+        Debug.Log("방으로 이동");
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("MKH_ServerScene");
     }
