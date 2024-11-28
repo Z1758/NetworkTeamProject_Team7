@@ -26,18 +26,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource voiceSource;
 
     public List<string> commonKeys = new List<string>() { "CommonSound"};
-
+    public List<string> bgmKey = new List<string>() { "BGM" };
     [SerializeField] SoundKeys[] playerKeys;
     [SerializeField] SoundKeys[] monsterKeys;
 
     AsyncOperationHandle<IList<AudioClip>> playerSoundLoadHandle;
     AsyncOperationHandle<IList<AudioClip>> monsterSoundLoadHandle;
     AsyncOperationHandle<IList<AudioClip>> commonSoundLoadHandle;
+    AsyncOperationHandle<IList<AudioClip>> bgmSoundLoadHandle;
 
     [SerializeField] public Dictionary<string, AudioClip> monsterSoundDic;
     [SerializeField] public Dictionary<string, AudioClip> playerSoundDic;
     [SerializeField] public Dictionary<string, AudioClip> commonSoundDic;
-
+    [SerializeField] public Dictionary<string, AudioClip> bgmDic;
 
     StringBuilder soundStringBuilder = new StringBuilder();
     public static AudioManager GetInstance()
@@ -55,11 +56,12 @@ public class AudioManager : MonoBehaviour
             monsterSoundDic = new Dictionary<string, AudioClip>();
             playerSoundDic = new Dictionary<string, AudioClip>();
             commonSoundDic = new Dictionary<string, AudioClip>();
+            bgmDic = new Dictionary<string, AudioClip>();
 
-        
             LoadPlayerSounds();
             LoadMonsterSounds();
             LoadCommonSounds();
+            LoadBGM();
         }
         else
         {
@@ -144,6 +146,33 @@ public class AudioManager : MonoBehaviour
         commonSoundLoadHandle.Completed += LoadSoundHandle_Completed;
 
     }
+
+    public void LoadBGM()
+    {
+
+        bgmSoundLoadHandle = Addressables.LoadAssetsAsync<AudioClip>(
+            bgmKey,
+            addressable =>
+            {
+
+                soundStringBuilder.Clear();
+               
+
+                if (addressable)
+                {
+              
+                    soundStringBuilder.Append(addressable.name);
+                    
+                    bgmDic.Add(soundStringBuilder.ToString(), addressable);
+                }
+
+            }, Addressables.MergeMode.Union,
+            false);
+        bgmSoundLoadHandle.Completed += LoadSoundHandle_Completed;
+
+       
+
+    }
     #endregion
 
     #region 사운드 파일 전달
@@ -217,6 +246,8 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning("사운드 에셋 로딩 완료");
         }
+
+ 
     }
     private void OnDestroy()
     {
@@ -242,5 +273,16 @@ public class AudioManager : MonoBehaviour
     {
         bgmSource.clip = clip;
         bgmSource.Play();
+    }
+
+    public void PlayBGM(int num)
+    {
+        bgmSource.clip = bgmDic[$"Stage{num}"];
+        bgmSource.Play();
+    }
+
+    public void StopBGM()
+    {
+        bgmSource.Stop();
     }
 }

@@ -22,9 +22,13 @@ public class Hitbox : MonoBehaviourPun
     [SerializeField] Animator animator;
     [SerializeField] StatusModel model;
 
-
+    [Header("히트박스 타입")]
     [SerializeField] HitboxType hitboxType;
-   
+
+    [Header("공격력 배율")]
+    [SerializeField] float multiplier = 1.0f;
+
+
     protected GameObject effectPrefab;
     [SerializeField] protected string effectName;
     AudioClip hitSound;
@@ -133,7 +137,7 @@ public class Hitbox : MonoBehaviourPun
         }
 
 
-            return model.Attack;
+            return model.Attack * multiplier;
     }
     public bool GetDown()
     {

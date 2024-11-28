@@ -80,6 +80,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 10
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkAxeHit1
   radius: 0
@@ -145,6 +146,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkAxeHit2
   radius: 0
@@ -277,6 +279,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: 
   radius: 0
@@ -374,6 +377,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkAxeHit1
   radius: 0
@@ -672,6 +676,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 10
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkAxeHit2
   radius: 0
@@ -737,6 +742,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 0
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: Skill4Hit
   radius: 0
@@ -802,6 +808,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkAxeHit1
   radius: 0
@@ -1053,6 +1060,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 0
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkAxeHit2
   radius: 0

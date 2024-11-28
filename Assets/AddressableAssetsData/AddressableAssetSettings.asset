@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: a55ce97359019ea47943bf1ebd5c3319
   m_currentHash:
     serializedVersion: 2
-    Hash: 627321ef70d1c397f16971fa90260a57
+    Hash: 9eb7bc20179b220f1fa610ec25f1c8fa
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac7a67c19e1bca04298143ac11d50b5e, type: 2}
   - {fileID: 11400000, guid: f7767410306ce374689fcad2476968d4, type: 2}
   - {fileID: 11400000, guid: 993265fe498da9b4a80294cb46060e84, type: 2}
+  - {fileID: 11400000, guid: d79f7877d28a08548bbdcd97030100f9, type: 2}
   - {fileID: 11400000, guid: 1548f477c689a1a40b1dc92a72bacb27, type: 2}
   - {fileID: 11400000, guid: cd7cd1023308b134bbd1bfa34a9f5b40, type: 2}
   - {fileID: 11400000, guid: 38a7d48ffbe19624680220f1443b0d66, type: 2}
@@ -133,6 +134,7 @@ MonoBehaviour:
     - Monster5Sound
     - Monster6Voice
     - Monster6Sound
+    - BGM
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: dbdeb77a3a308e046a40c70f3c9cdfc0, type: 2}
