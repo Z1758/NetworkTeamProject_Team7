@@ -9,13 +9,19 @@ using UnityEngine.UI;
 public class MKH_RoomPanel : MonoBehaviour
 {
     [SerializeField] MKH_PlayerEntry[] playerEntries;
+    [SerializeField] MKH_PlayerManager[] playerManagers;
     [SerializeField] Button startButton;
+
+    private void Start()
+    {
+        
+    }
 
     // 방에 들어왔을 때
     private void OnEnable()
     {
         UpdatePlayers();
-
+        PlayerSpawn();
         // 플레이어 넘버링 업데이트
         PlayerNumbering.OnPlayerNumberingChanged += UpdatePlayers;
 
@@ -111,5 +117,13 @@ public class MKH_RoomPanel : MonoBehaviour
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+    }
+
+    private void PlayerSpawn()
+    {
+        Debug.Log("1");
+        Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+
+        PhotonNetwork.Instantiate("GameObject/MatchMaking/Player", randomPos, Quaternion.identity);
     }
 }
