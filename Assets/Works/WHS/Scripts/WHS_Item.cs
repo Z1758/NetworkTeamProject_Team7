@@ -2,11 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
 
-public enum ItemType { HP, MaxHP, Attack, }
+public enum ItemType { 
+    HP ,
+    MaxHP, 
+    Attack,
+    AtkSpeed,
+    MoveSpeed ,
+    MaxStamina,
+    ConsumeStamina,
+    RecoveryStaminaMag,
+    CriticalRate ,
+    CriticalDamageRate,
+    SkillCoolTime,
+}
 
 public class WHS_Item : MonoBehaviourPun, IPunObservable
 {
+    [Serializable]
+    public struct AdditionalItemInfo
+    {
+        public ItemType type;
+        public float value;
+
+    }
+
+    public AdditionalItemInfo[] additionalItemValue;
+
     public ItemType type;
     public float value;
 

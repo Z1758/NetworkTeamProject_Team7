@@ -218,12 +218,13 @@ public class DodgeState : State
     {
         controller.ImmediateRotate();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], true);
-        controller.model.Stamina -= controller.model.ConsumStamina;
+        controller.model.Stamina -= controller.model.ConsumeStamina;
 
     }
 
     public override void ExitState()
     {
+        controller.ResetAtkSpeed();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], false);
     }
 

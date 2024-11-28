@@ -20,7 +20,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     [SerializeField] private float maxStamina;
     [SerializeField] private float stamina;
     [Header("소비 스태미나")]
-    [SerializeField] private float consumStamina;
+    [SerializeField] private float consumetamina;
     [Header("스태미나 회복력")]
     [SerializeField] private float recoveryStaminaMag;
     [Header("공격력")]
@@ -43,8 +43,8 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
 
     public float Stamina { get { return stamina; } set { stamina = value; OnChangedStaminaEvent?.Invoke(stamina); } }
 
-    public float MaxStamina { get { return maxStamina; } set { stamina = value; OnChangedMaxStaminaEvent?.Invoke(maxStamina); } }
-    public float ConsumStamina { get { return consumStamina; } set { consumStamina = value;  } }
+    public float MaxStamina { get { return maxStamina; } set { maxStamina = value; OnChangedMaxStaminaEvent?.Invoke(maxStamina); } }
+    public float ConsumeStamina { get { return consumetamina; } set { consumetamina = value;  } }
 
     public float RecoveryStaminaMag { get { return recoveryStaminaMag; } set { recoveryStaminaMag = value; } }
 
@@ -56,9 +56,13 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public float CriticalDamageRate { get { return criticalDamageRate; } set { criticalDamageRate = value; } }
     public float[] SkillCoolTime{ get { return skillCoolTime; } }
 
-    public void SetSkillCoolTime(int num, float time)
+    public void SetSkillCoolTime(float value)
     {
-        skillCoolTime[num] = time;
+        for (int i = 0; i < skillCoolTime.Length; i++)
+        {
+            skillCoolTime[i] = skillCoolTime[i] - (skillCoolTime[i] * value);
+
+        }
     }
 
     public void SetCurrentSkillCoolTime(int num, float value)

@@ -281,7 +281,7 @@ public class PlayerController : MonoBehaviourPun
     }
     public void DodgeInput(InputAction.CallbackContext value)
     {
-        if ( model.Stamina < model.ConsumStamina)
+        if ( model.Stamina < model.ConsumeStamina)
         {
             return;
         }
@@ -349,7 +349,7 @@ public class PlayerController : MonoBehaviourPun
     {
        
         isFixed = false;
-        animator.SetFloat("Speed", model.AttackSpeed);
+        ResetAtkSpeed();
 
         if (down)
         {
@@ -426,6 +426,10 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    public void ResetAtkSpeed()
+    {
+        animator.SetFloat("Speed", model.AttackSpeed);
+    }
 
     public void MoveAni()
     {
@@ -591,7 +595,8 @@ public class PlayerController : MonoBehaviourPun
 
     void FreezingOut()
     {
-        animator.SetFloat("Speed", model.AttackSpeed);
+        ResetAtkSpeed();
+        
         isFixed = false;
         ChangeState(PlayerState.Wait, false);
     }

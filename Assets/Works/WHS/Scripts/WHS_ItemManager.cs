@@ -1,10 +1,6 @@
-using System.Collections;
+using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Pun.UtilityScripts;
-using Photon.Pun.Demo.Cockpit;
-using static UnityEditor.Progress;
 using UnityEngine.Events;
 
 public class WHS_ItemManager : MonoBehaviourPun
@@ -17,7 +13,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     }
 
     [SerializeField] ItemPrefab[] itemPrefabs;
-    [SerializeField] GameObject chestPrefab;    
+    [SerializeField] GameObject chestPrefab;
     [SerializeField] Vector3 chestPos;
     //[SerializeField] float chestDistance;
     // private List<WHS_Chest> chests = new List<WHS_Chest>();
@@ -68,7 +64,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         {
             SpawnChest(chestPos);
         }
-}
+    }
 
     // 마스터 클라이언트에서만 아이템 생성 호출
     public void SpawnItem(Vector3 position)
@@ -94,6 +90,12 @@ public class WHS_ItemManager : MonoBehaviourPun
     public void ApplyItem(StatusModel statusModel, WHS_Item item)
     {
         photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, (int)item.type, item.value);
+
+        for (int i = 0; i < item.additionalItemValue.Length; i++)
+        {
+
+            photonView.RPC(nameof(ApplyItemRPC), RpcTarget.All, statusModel.photonView.ViewID, (int)item.additionalItemValue[i].type, item.additionalItemValue[i].value);
+        }
     }
 
     // 각 플레이어 획득한 아이템 스탯 적용
@@ -109,31 +111,68 @@ public class WHS_ItemManager : MonoBehaviourPun
 
             if (statusModel != null)
             {
+
                 switch (itemType)
+
                 {
                     case ItemType.HP:
-                        if(statusModel.HP + itemValue <= statusModel.MaxHP)
+                        if (statusModel.HP + itemValue <= statusModel.MaxHP)
                         {
                             statusModel.HP += itemValue;
                             Debug.Log($"체력 {itemValue} 회복");
                         }
-                        else if(statusModel.HP + itemValue > statusModel.MaxHP)
+                        else if (statusModel.HP + itemValue > statusModel.MaxHP)
                         {
                             statusModel.HP = statusModel.MaxHP;
                             Debug.Log($"체력 {itemValue} 회복");
                         }
-                        break;
 
-                    // TODO : 체력 외 다른 스탯 증가?
+                        break;
                     case ItemType.MaxHP:
                         statusModel.MaxHP += itemValue;
                         // statusModel.HP += itemValue;
                         Debug.Log($"최대 체력 {itemValue} 증가");
                         break;
                     case ItemType.Attack:
+                        statusModel.Attack += itemValue;
                         Debug.Log($"공격력 {itemValue} 증가");
                         break;
+                    case ItemType.AtkSpeed:
+                        statusModel.AttackSpeed += itemValue;
+                        Debug.Log($"공격 속도 {itemValue} 증가");
+                        break;
+                    case ItemType.MoveSpeed:
+                        statusModel.MoveSpeed += itemValue;
+                        Debug.Log($"이동 속도 {itemValue} 증가");
+                        break;
+                    case ItemType.MaxStamina:
+                        statusModel.MaxStamina += itemValue;
+                        Debug.Log($"최대 스태미나 {itemValue} 증가");
+                        break;
+                    case ItemType.ConsumeStamina:
+                        statusModel.ConsumeStamina -= itemValue;
+                        Debug.Log($"스태미나 소비 {itemValue} 감소");
+                        break;
+                    case ItemType.RecoveryStaminaMag:
+                        statusModel.RecoveryStaminaMag += itemValue;
+                        Debug.Log($"스태미나 회복 속도 {itemValue} 증가");
+                        break;
+                    case ItemType.CriticalRate:
+                        statusModel.CriticalRate += itemValue;
+                        Debug.Log($"치명타 확률 {itemValue} 증가");
+                        break;
+                    case ItemType.CriticalDamageRate:
+                        statusModel.CriticalDamageRate += itemValue;
+                        Debug.Log($"치명타 데미지 {itemValue} 증가");
+                        break;
+                    case ItemType.SkillCoolTime:
+                        statusModel.SetSkillCoolTime(itemValue);
+                        Debug.Log($"스킬 쿨타임 {itemValue} 감소");
+                        break;
+
                 }
+
+
             }
         }
     }
@@ -184,15 +223,15 @@ public class WHS_ItemManager : MonoBehaviourPun
     // 인벤토리에 줄 아이템 정보 초기화
     private void InitItemData()
     {
-        foreach(ItemPrefab itemPrefab in itemPrefabs)
+        foreach (ItemPrefab itemPrefab in itemPrefabs)
         {
             string itemPath = "GameObject/Items/" + itemPrefab.prefab.name;
             GameObject prefab = Resources.Load<GameObject>(itemPath);
 
-            if(prefab != null)
+            if (prefab != null)
             {
                 WHS_Item item = prefab.GetComponent<WHS_Item>();
-                if(item != null)
+                if (item != null)
                 {
                     itemData[item.type] = item;
                 }
