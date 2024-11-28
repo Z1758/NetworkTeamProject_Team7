@@ -21,6 +21,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     GameObject currentBoss;
  
     public int readyPlayer = 0;
+    public int currentStage;
 
     private void Update()
     {
@@ -124,7 +125,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
    
     public void PlayerSpawn(int num)
     {
-        AudioManager.GetInstance().PlayBGM();
+      
         Cursor.lockState = CursorLockMode.Locked;
 
         Cursor.visible = false;
@@ -141,8 +142,8 @@ public class TestGameScene : MonoBehaviourPunCallbacks
 
     private void BossSpawn()
     {
-      
 
+       
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
 
@@ -153,13 +154,27 @@ public class TestGameScene : MonoBehaviourPunCallbacks
  
     public void StartStage()
     {
-    
-        if(monsterOrderQueue.Count > 0) 
-             timeline.StartTimeline(monsterOrderQueue.Dequeue());
+        readyPlayer = 0;
+        currentStage++;
+        startPoint.SetActive(false);
+        if (currentBoss is not null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+        }
+
+        if (monsterOrderQueue.Count > 0)
+        {
+            int orderNum = monsterOrderQueue.Dequeue();
+            AudioManager.GetInstance().PlayBGM(currentStage);
+            timeline.StartTimeline(orderNum);
+
+        }
     }
 
     public void ClearBoss(GameObject obj)
     {
+        AudioManager.GetInstance().StopBGM();
         currentBoss = obj;
         startPoint.SetActive(true);
     }
@@ -182,13 +197,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
             if(readyPlayer >= PhotonNetwork.PlayerList.Count())
             {
                 StartStage();
-                readyPlayer=0;
-                startPoint.SetActive(false);
-                if (currentBoss is not null)
-                {
-                    Destroy(currentBoss);
-                    currentBoss = null;
-                }
+                
             }
 
 

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BGM
+  m_EditorClassIdentifier: 
+  m_GroupName: BGM
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bf9e5b5ba9ddb7f46a3bf8a33d6f8f9c
+  m_SerializeEntries:
+  - m_GUID: 0937a7f369b79af4ca9fea7e1f00fd51
+    m_Address: Assets/Imports/SoundAssets/BGM/Stage4.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BGM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3019b8a34db38564190bda01f61212a5
+    m_Address: Assets/Imports/SoundAssets/BGM/Stage5.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BGM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f59278afb947204da9f7f534bf0575b
+    m_Address: Assets/Imports/SoundAssets/BGM/Stage1.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BGM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b12f60e932e930e4cbce97c4fd7fc64c
+    m_Address: Assets/Imports/SoundAssets/BGM/Stage2.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BGM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe17feb096834d049908c8375292ddad
+    m_Address: Assets/Imports/SoundAssets/BGM/Stage3.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BGM
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c268b592965c6104596cc97bc4193a8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cebd23ecacf7fa843afe914810f7e46c, type: 2}
+    - {fileID: 11400000, guid: 64fb3256bb3f5944db436e0d3b6a24bb, type: 2}

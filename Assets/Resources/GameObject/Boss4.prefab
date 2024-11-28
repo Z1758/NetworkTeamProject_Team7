@@ -271,6 +271,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 0
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -561,6 +562,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 9
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -1115,6 +1117,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 0
+  multiplier: 1
   effectName: HitEffect2
   soundName: Hit1
   radius: 0
@@ -2086,6 +2089,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 0
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -2848,6 +2852,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 1
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -3493,6 +3498,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 1
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0
@@ -4483,6 +4489,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 7106832196951751729}
   hitboxType: 1
+  multiplier: 1
   effectName: HitEffect1
   soundName: Hit1
   radius: 0

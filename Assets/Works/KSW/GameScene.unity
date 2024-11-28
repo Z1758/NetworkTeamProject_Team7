@@ -2748,6 +2748,7 @@ MonoBehaviour:
   monsterPrefabsNumber: 
   timeline: {fileID: 1384412913}
   readyPlayer: 0
+  currentStage: 0
 --- !u!4 &954547369
 Transform:
   m_ObjectHideFlags: 0
@@ -7231,6 +7232,8 @@ MonoBehaviour:
   voiceSource: {fileID: 2019877271}
   commonKeys:
   - CommonSound
+  bgmKey:
+  - BGM
   playerKeys:
   - num: 1
     keys:
@@ -7394,7 +7397,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 204fb12858496e04684f5311e4f36d8b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -7402,7 +7405,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 115
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -7492,7 +7495,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.933
   m_Pitch: 1
   Loop: 0
   Mute: 0
