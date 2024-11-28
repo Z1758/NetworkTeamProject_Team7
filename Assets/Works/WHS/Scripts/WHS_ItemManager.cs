@@ -22,7 +22,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     //[SerializeField] float chestDistance;
     // private List<WHS_Chest> chests = new List<WHS_Chest>();
 
-    [SerializeField] private GameObject[] hpPotionPrefabs;
+    [SerializeField] public GameObject[] hpPotionPrefabs;
     public UnityAction<int> OnPotionGradeChanged;
     private int hpPotionGrade = 1;
 
@@ -67,11 +67,6 @@ public class WHS_ItemManager : MonoBehaviourPun
         if (Input.GetKeyDown(KeyCode.K))
         {
             SpawnChest(chestPos);
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            UpgradePotion();
         }
 }
 
@@ -205,36 +200,43 @@ public class WHS_ItemManager : MonoBehaviourPun
         }
     }
 
+    // 포션 업그레이드 메서드
     public void UpgradePotion()
     {
-        hpPotionGrade++;
-        if (hpPotionGrade > hpPotionPrefabs.Length)
+        if (hpPotionGrade < hpPotionPrefabs.Length)
         {
-            Debug.Log("이미 포션이 최대등급이다");
-            return;
+            hpPotionGrade++;
+            photonView.RPC(nameof(UpdatePotionRPC), RpcTarget.All, hpPotionGrade);
         }
-        Debug.Log($"포션 업그레이드 {hpPotionGrade}");
-
-        UpdatePotionPrefab(hpPotionGrade);
     }
 
-    public void UpdatePotionPrefab(int grade)
+    [PunRPC]
+    private void UpdatePotionRPC(int newGrade)
     {
-        for(int i=0; i<itemPrefabs.Length; i++)
-        {
-            if (itemPrefabs[i].type == ItemType.HP)
-            {
-                itemPrefabs[i].prefab = hpPotionPrefabs[grade - 1];
-                if(itemData.TryGetValue(ItemType.HP, out WHS_Item item))
-                {
-                    if(item is WHS_HPPotion hpPotion)
-                    {
-                        hpPotion.UpdateGrade(grade);
-                    }
-                }
+        hpPotionGrade = newGrade;
+        OnPotionGradeChanged?.Invoke(hpPotionGrade);
+    }
 
-                OnPotionGradeChanged?.Invoke(grade);
-                break;
+    public void UpdatePotion(int grade)
+    {
+        if (grade - 1 < hpPotionPrefabs.Length)
+        {
+            for (int i = 0; i < itemPrefabs.Length; i++)
+            {
+                if (itemPrefabs[i].type == ItemType.HP)
+                {
+                    itemPrefabs[i].prefab = hpPotionPrefabs[grade - 1];
+                    if (itemData.TryGetValue(ItemType.HP, out WHS_Item item))
+                    {
+                        if (item is WHS_HPPotion hpPotion)
+                        {
+                            hpPotion.UpdateGrade(grade);
+                        }
+                    }
+
+                    OnPotionGradeChanged?.Invoke(grade);
+                    break;
+                }
             }
         }
     }

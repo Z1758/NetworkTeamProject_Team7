@@ -19,7 +19,9 @@ public class WHS_Inventory : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            InitInventory();            
+            InitInventory();
+
+            WHS_ItemManager.Instance.OnPotionGradeChanged += UpdatePotionGrade;
         }
     }
 
@@ -66,22 +68,23 @@ public class WHS_Inventory : MonoBehaviourPun
     private void UseItemRPC(ItemType type, int playerViewID)
     {
         PhotonView playerPV = PhotonView.Find(playerViewID);
-        if(playerPV != null)
+        if (playerPV != null)
         {
             StatusModel statusModel = playerPV.GetComponent<StatusModel>();
 
             if (WHS_ItemManager.Instance.itemData.TryGetValue(type, out WHS_Item item))
             {
-                if(item is WHS_HPPotion hpPotion)
+                if (item is WHS_HPPotion hpPotion)
                 {
-                    hpPotion.UpdateGrade(hpPotionGrade);
+                    hpPotion.UpdateGrade(WHS_ItemManager.Instance.GetPotionGrade());
+                    item.value = hpPotion.value;
                 }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
             }
         }
     }
-    
+
     // 아이템 개수 출력
     public int GetItemCount(ItemType type)
     {
@@ -92,23 +95,24 @@ public class WHS_Inventory : MonoBehaviourPun
     private void InitInventory()
     {
         AddItem(ItemType.HP, 3);
-        WHS_ItemManager.Instance.OnPotionGradeChanged += UpdatePotionGrade;
     }
-
 
     public void UpgradePotion()
     {
-        if (photonView.IsMine)
+        if (hpPotionGrade < WHS_ItemManager.Instance.hpPotionPrefabs.Length)
         {
-            photonView.RPC(nameof(UpgradePotionRPC), RpcTarget.All);
+            hpPotionGrade++;
+            photonView.RPC(nameof(UpgradePotionRPC), RpcTarget.All, hpPotionGrade);
         }
     }
 
     [PunRPC]
-    private void UpgradePotionRPC()
+    private void UpgradePotionRPC(int grade)
     {
-        hpPotionGrade++;
-        WHS_ItemManager.Instance.UpdatePotionPrefab(hpPotionGrade);
+        hpPotionGrade = grade;
+        WHS_ItemManager.Instance.UpdatePotion(hpPotionGrade);
+
+        WHS_ItemManager.Instance.OnPotionGradeChanged?.Invoke(hpPotionGrade);
     }
 
     private void UpdatePotionGrade(int grade)
