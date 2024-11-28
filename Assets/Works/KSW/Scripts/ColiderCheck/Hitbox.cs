@@ -164,7 +164,7 @@ public class Hitbox : MonoBehaviourPun
 
             AudioManager.GetInstance().PlaySound(criticalSound);
 
-            return model.Attack * multiplier * model.CriticalDamageRate;
+            return (model.Attack +  (model.Attack* model.CriticalDamageRate)) * multiplier;
         }
 
 

@@ -208,15 +208,18 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     {
      
         AudioManager.GetInstance().StopBGM();
+       
         currentBoss = obj;
-        WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
+
 
         if (currentStage < 5)
         {
+            WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
             startPoint.SetActive(true);
         }
         else
         {
+
             Debug.Log("Å¬¸®¾î");
             GameClear();
         }
@@ -224,6 +227,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
 
     public void GameClear()
     {
+        AudioManager.GetInstance().PlayClearBGM();
         resultCamera.SetActive(true);
         for (int i = 0; i<players.Count ; i++)
         {
