@@ -17,8 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b302bb8a48c582c4686e421c4129df42
   m_SerializeEntries:
+  - m_GUID: 0b213e2907068944c9c582d10986936c
+    m_Address: Monster6/Hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster6Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 216fd12f20d658e459219287f0c2a265
     m_Address: Monster6/FootStep1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster6Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cc598f37a283c64d871c84c2b721c65
+    m_Address: Monster6/Hit2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Monster6Sound

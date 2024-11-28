@@ -81,7 +81,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 9
   effectName: HitEffect1
-  soundName: 
+  soundName: Hit1
   radius: 0
   angle: 0
 --- !u!65 &8290439797460572438
@@ -178,7 +178,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 3
   effectName: HitEffect2
-  soundName: 
+  soundName: Hit2
   radius: 0
   angle: 0
   projectilePoint: {fileID: 0}
@@ -670,7 +670,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 8
   effectName: HitEffect1
-  soundName: 
+  soundName: Hit1
   radius: 0
   angle: 0
 --- !u!65 &4955217212819735922
@@ -735,7 +735,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 8
   effectName: HitEffect1
-  soundName: 
+  soundName: Hit1
   radius: 0
   angle: 0
 --- !u!135 &2733896202964492469
@@ -836,7 +836,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 9
   effectName: HitEffect1
-  soundName: 
+  soundName: Hit1
   radius: 0
   angle: 0
 --- !u!65 &6600783972981295574
@@ -901,7 +901,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 9
   effectName: HitEffect1
-  soundName: 
+  soundName: Hit1
   radius: 0
   angle: 0
 --- !u!65 &9192856850810574414
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   model: {fileID: 5764941787318514751}
   hitboxType: 1
   effectName: HitEffect1
-  soundName: 
+  soundName: Hit2
   radius: 0
   angle: 0
 --- !u!65 &79637593

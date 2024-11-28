@@ -527,7 +527,15 @@ public class PlayerController : MonoBehaviourPun
 
     
 
-
+    public void Revive()
+    {
+        if (model.HP > 0f)
+            return;
+        model.HP = model.MaxHP* 0.5f;
+        animator.Play("StandUp");
+        playerHurtbox.layer = (int)LayerEnum.PLAYER_HURT_BOX;
+        gameObject.layer = (int)LayerEnum.PLAYER;
+    }
 
     // 애니메이션 프리징 예외 처리
 

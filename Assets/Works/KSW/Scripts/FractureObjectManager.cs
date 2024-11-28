@@ -10,7 +10,7 @@ public class FractureObjectManager : MonoBehaviour
 {
     [SerializeField] float spawnX;
     [SerializeField] float spawnZ;
-
+    [SerializeField] int spawnCount;
 
 
     [SerializeField] List<string> objList ;
@@ -27,9 +27,12 @@ public class FractureObjectManager : MonoBehaviour
 
     public void SpawnObject()
     {
-        Vector3 randomPos = new Vector3(Random.Range(-spawnX, spawnX) ,0, Random.Range(-spawnZ, spawnZ));
+        for (int i = 0; i < spawnCount; i++)
+        {
+            Vector3 randomPos = new Vector3(Random.Range(-spawnX, spawnX), 0, Random.Range(-spawnZ, spawnZ));
 
-        PhotonNetwork.Instantiate($"GameObject/FracObjects/{objList[Random.Range(0,objList.Count)]}", randomPos, Quaternion.Euler( -90, Random.Range(0, 360)  , 0 ));
+            PhotonNetwork.Instantiate($"GameObject/FracObjects/{objList[Random.Range(0, objList.Count)]}", randomPos, Quaternion.Euler(-90, Random.Range(0, 360), 0));
+        }
     }
 
   

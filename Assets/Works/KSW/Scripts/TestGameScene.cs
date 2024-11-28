@@ -2,14 +2,24 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class TestGameScene : MonoBehaviourPunCallbacks
 {
     public const string RoomName = "TestRoom";
+    [SerializeField] GameObject startPoint;
 
-    [SerializeField] List<GameObject> monsterPrefabs;
-    [SerializeField] Queue<GameObject> monsterOrderQueue;
+    [SerializeField] int monsterCount;
+    [SerializeField] List<int> monsterPrefabsNumber;
+    [SerializeField] Queue<int> monsterOrderQueue = new Queue<int>();
+
+    [SerializeField] TimelineBoss timeline;
+
+    GameObject currentBoss;
+ 
+    public int readyPlayer = 0;
 
     private void Update()
     {
@@ -19,6 +29,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
                 return;
             BossSpawn();
         }
+      
     }
 
     private void Start()
@@ -26,19 +37,46 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.NickName = $"Player {Random.Range(1000, 10000)}";
         PhotonNetwork.ConnectUsingSettings();
 
-
-        // 랜덤 순서 초기화
-          monsterOrderQueue = new Queue<GameObject>();
-
-        while (monsterPrefabs.Count > 0)
-        {
-            int ran = Random.Range(0, monsterPrefabs.Count);
-
-            monsterOrderQueue.Enqueue(monsterPrefabs[ran]);
-            monsterPrefabs.Remove(monsterPrefabs[ran]);
-
+        for (int i = 0; i < monsterCount; i++) {
+            monsterPrefabsNumber.Add(i+1);
         }
+
+
+
     }
+
+    // 모든 플레이어가 로딩 완료 됐을때 호출 하도록 변경
+    private void SetMonster()
+    {
+        // 랜덤 순서 초기화
+       
+        if (photonView.IsMine)
+        {
+            
+            while (monsterPrefabsNumber.Count >0)
+            {
+
+
+                int ran = Random.Range(0, monsterPrefabsNumber.Count);
+                
+                photonView.RPC(nameof(SetMonsterOrder), RpcTarget.All, ran);
+
+
+
+            }
+        }
+
+       
+    }
+
+    [PunRPC]
+    public void SetMonsterOrder(int num)
+    {
+        monsterOrderQueue.Enqueue(monsterPrefabsNumber[num]);
+        monsterPrefabsNumber.Remove(monsterPrefabsNumber[num]);
+    }
+
+
 
     public override void OnConnectedToMaster()
     {
@@ -47,6 +85,8 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         options.IsVisible = false;
         PhotonNetwork.JoinOrCreateRoom(RoomName, options, TypedLobby.Default);
     }
+
+
 
     public override void OnJoinedRoom()
     {
@@ -98,8 +138,76 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
 
-        PhotonNetwork.InstantiateRoomObject("GameObject/Boss2", randomPos, Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject("GameObject/Boss6", randomPos, Quaternion.identity);
 
     }
+
+ 
+    public void StartStage()
+    {
+    
+        if(monsterOrderQueue.Count > 0) 
+             timeline.StartTimeline(monsterOrderQueue.Dequeue());
+    }
+
+    public void ClearBoss(GameObject obj)
+    {
+        currentBoss = obj;
+        startPoint.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            readyPlayer++;
+
+            //임시 방편
+            if (monsterPrefabsNumber.Count > 0)
+            {
+                if(photonView.IsMine)
+                    SetMonster();
+            }
+            Debug.Log($"준비 {readyPlayer}/{PhotonNetwork.PlayerList.Count()} ");
+
+            // 스테이지 시작 호출
+            if(readyPlayer >= PhotonNetwork.PlayerList.Count())
+            {
+                StartStage();
+                readyPlayer=0;
+                startPoint.SetActive(false);
+                if (currentBoss is not null)
+                {
+                    Destroy(currentBoss);
+                    currentBoss = null;
+                }
+            }
+
+
+        }
+
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            readyPlayer--;
+
+       
+
+            Debug.Log($"준비 {readyPlayer}/{PhotonNetwork.PlayerList.Count()} ");
+        }
+
+       
+
+    }
+
+    private void OnDisable()
+    {
+        readyPlayer = 0;
+    }
+
 
 }
