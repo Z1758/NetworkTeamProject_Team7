@@ -2874,6 +2874,7 @@ GameObject:
   - component: {fileID: 4287850532488228489}
   - component: {fileID: 4477423199602759413}
   - component: {fileID: 2948661918679160786}
+  - component: {fileID: 4570370907165767618}
   m_Layer: 3
   m_Name: Player3
   m_TagString: Player
@@ -3047,6 +3048,18 @@ MonoBehaviour:
   atk: {fileID: 6298375363570842354, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
   skill: {fileID: -3306358822428908550, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
   dodge: {fileID: -7178746385847757148, guid: 58582b0db6cd7eb478d3197f13b93017, type: 3}
+--- !u!114 &4570370907165767618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217012507161561427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af46fbde57492f844ac062cad8356665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4220731834403899168
 GameObject:
   m_ObjectHideFlags: 0
