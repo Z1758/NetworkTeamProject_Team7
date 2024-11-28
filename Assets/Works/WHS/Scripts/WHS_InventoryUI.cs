@@ -92,9 +92,5 @@ public class WHS_InventoryUI : MonoBehaviour
         {
             potionImage.sprite = potionSprites[grade - 1];
         }
-        else
-        {
-            return;
-        }
     }
 }
