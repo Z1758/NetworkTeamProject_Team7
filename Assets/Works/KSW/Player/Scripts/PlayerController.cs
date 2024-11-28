@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public enum PlayerAnimationHashNumber
 {
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviourPun
     }
 
    
-    private void SetInputSystem(bool active)
+    public void SetInputSystem(bool active)
     {
         if (active)
         {
@@ -122,6 +123,24 @@ public class PlayerController : MonoBehaviourPun
             inputSystem.dodge.action.started -= DodgeInput;
         }
     }
+
+    public void Victory(Transform point)
+    {
+        isFixed = true;
+        for (int i = 0; i < animatorParameterHash.Length; i++)
+        {
+            animator.SetBool(animatorParameterHash[i], false);
+        }
+
+        rigid.velocity = Vector3.zero;
+        animator.Play("Victory");
+        transform.SetPositionAndRotation(point.position, point.rotation);
+        
+        SetInputSystem(false);
+      
+
+    }
+
     private void SetCamera()
     {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
@@ -155,12 +174,15 @@ public class PlayerController : MonoBehaviourPun
 
     private void Start()
     {
-
+      
+        
+          TestGameScene.Instance.players.Add(this);
         if (photonView.IsMine == false)
             return;
         states[(int)curState].EnterState();
       
-        Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerNumber());
+       
+      
 
         freezingCheckCoroutine = StartCoroutine(DodgeFreezingCheck());
       
@@ -541,6 +563,7 @@ public class PlayerController : MonoBehaviourPun
 
     public void Revive()
     {
+        if(photonView.IsMine)
         inventory.UpgradePotion();
 
         if (model.HP > 0f)

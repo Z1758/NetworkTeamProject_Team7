@@ -439,7 +439,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
         //юс╫ц
-        GameObject.Find("TestGameScene").GetComponent<TestGameScene>().ClearBoss(gameObject);
+        TestGameScene.Instance.ClearBoss(gameObject);
        
     }
 

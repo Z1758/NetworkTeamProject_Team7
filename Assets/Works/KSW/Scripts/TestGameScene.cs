@@ -8,13 +8,28 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class TestGameScene : MonoBehaviourPunCallbacks
 {
+    private static TestGameScene instance;
+
+
+    public static TestGameScene Instance 
+    {
+        get
+        {
+            return instance;
+
+        }
+    }
+
     public const string RoomName = "TestRoom";
     [SerializeField] GameObject characterSelectUI;
     [SerializeField] GameObject startPoint;
+    [SerializeField] Transform[] endPoint;
+    [SerializeField] GameObject resultCamera;
+    public List<PlayerController> players = new List<PlayerController>();
 
     [SerializeField] int monsterCount;
-    [SerializeField] List<int> monsterPrefabsNumber;
-    [SerializeField] Queue<int> monsterOrderQueue = new Queue<int>();
+     List<int> monsterPrefabsNumber = new List<int>();
+    Queue<int> monsterOrderQueue = new Queue<int>();
 
     [SerializeField] TimelineBoss timeline;
 
@@ -22,6 +37,21 @@ public class TestGameScene : MonoBehaviourPunCallbacks
  
     public int readyPlayer = 0;
     public int currentStage;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+
+            instance = this;
+
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
 
     private void Update()
     {
@@ -179,7 +209,31 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         currentBoss = obj;
         WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
 
-        startPoint.SetActive(true);
+        if (currentStage < 5)
+        {
+            startPoint.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Å¬¸®¾î");
+            GameClear();
+        }
+    }
+
+    public void GameClear()
+    {
+        resultCamera.SetActive(true);
+        for (int i = 0; i<players.Count ; i++)
+        {
+            players[i].Victory(endPoint[i]);
+
+        }
+        if (currentBoss is not null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
