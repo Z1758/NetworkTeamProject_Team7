@@ -9,6 +9,7 @@ public class TimelineBoss : MonoBehaviourPun
 {
     [SerializeField] PlayableDirector timeline;
     [SerializeField] Transform bossSpawnPoint;
+    [SerializeField] FractureObjectManager fractureObjectManager;
 
     private void Awake()
     {
@@ -40,7 +41,10 @@ public class TimelineBoss : MonoBehaviourPun
         timeline.Play();
 
         if (PhotonNetwork.IsMasterClient)
+        {
             PhotonNetwork.InstantiateRoomObject($"GameObject/Boss{num}", bossSpawnPoint.position, Quaternion.identity);
+            fractureObjectManager.SpawnObject();
+        }
         Time.timeScale = 0;
     }
 
