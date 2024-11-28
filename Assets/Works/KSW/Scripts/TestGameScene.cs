@@ -9,6 +9,7 @@ using UnityEngine.InputSystem.LowLevel;
 public class TestGameScene : MonoBehaviourPunCallbacks
 {
     public const string RoomName = "TestRoom";
+    [SerializeField] GameObject characterSelectUI;
     [SerializeField] GameObject startPoint;
 
     [SerializeField] int monsterCount;
@@ -102,7 +103,8 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     public void TestGameStart()
     {
         Debug.Log("게임 시작");
-        PlayerSpawn();
+        characterSelectUI.SetActive(true);
+    
 
         // 방장만 진행하는 코드
 
@@ -120,14 +122,20 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     }
   
    
-    private void PlayerSpawn()
+    public void PlayerSpawn(int num)
     {
-        
+        AudioManager.GetInstance().PlayBGM();
+        Cursor.lockState = CursorLockMode.Locked;
+
+        Cursor.visible = false;
+
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
    
 
-        PhotonNetwork.Instantiate("GameObject/Player3", randomPos, Quaternion.identity);
+        PhotonNetwork.Instantiate($"GameObject/Player{num}", randomPos, Quaternion.identity);
+
+        characterSelectUI.SetActive(false);
         
     }
 

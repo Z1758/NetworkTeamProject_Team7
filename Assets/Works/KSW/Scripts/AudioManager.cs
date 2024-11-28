@@ -243,4 +243,9 @@ public class AudioManager : MonoBehaviour
         bgmSource.clip = clip;
         bgmSource.Play();
     }
+
+    public void PlayBGM()
+    {
+        bgmSource.Play();
+    }
 }

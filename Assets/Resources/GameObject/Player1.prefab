@@ -61,6 +61,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: SwordAttackHit1
   radius: 0
@@ -327,6 +328,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 0
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: SwordAttackHit1
   radius: 0
@@ -490,6 +492,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: Skill1Hit
   radius: 0
@@ -697,6 +700,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 2
+  multiplier: 1
   effectName: HitEffect2
   soundName: Skill3Hit
   radius: 0
@@ -866,6 +870,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
+  multiplier: 1
   effectName: HitEffect1
   soundName: Skill2Hit
   radius: 0

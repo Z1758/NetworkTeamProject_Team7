@@ -61,6 +61,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 0
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -191,6 +193,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -256,6 +259,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -353,6 +357,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -418,6 +423,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -777,6 +783,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 0
+  multiplier: 0.5
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -2117,6 +2124,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -2276,6 +2284,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0
@@ -3251,6 +3260,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 8
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkCriticalHit
   radius: 0
@@ -3952,6 +3962,7 @@ MonoBehaviour:
   animator: {fileID: 1596147993227803519}
   model: {fileID: 4477423199602759413}
   hitboxType: 2
+  multiplier: 1
   effectName: SlashHitEffect1
   soundName: AtkSliceHit
   radius: 0

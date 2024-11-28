@@ -32,13 +32,6 @@ public class PlayerCamera : MonoBehaviour
     Coroutine shakeRoutine;
     float shakeTime;
 
-    void Awake()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-
-        Cursor.visible = false;
-       
-    }
 
     public void SetComponent(PlayerController playerController)
     {

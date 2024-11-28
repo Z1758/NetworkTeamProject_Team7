@@ -39,7 +39,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public int CharacterNumber { get { return characterNumber; } }
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 
-    public float MaxHP { get { return maxHP; } set { maxHP = value; OnChangedMaxHpEvent?.Invoke(hp); } }
+    public float MaxHP { get { return maxHP; } set { maxHP = value; OnChangedMaxHpEvent?.Invoke(maxHP); } }
 
     public float Stamina { get { return stamina; } set { stamina = value; OnChangedStaminaEvent?.Invoke(stamina); } }
 
