@@ -184,9 +184,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
+
+        SetAniTime();
+
         if (isDie)
         {
-            Synchronization();
+            SynchronizationDeath();
 
             rigid.velocity = Vector3.zero;
             return;
@@ -199,7 +202,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         TraceMonster();
 
 
-        SetAniTime();
+     
     }
 
     IEnumerator CheckAniLag()
@@ -207,7 +210,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         while (true)
         {
             yield return lagWFS;
-            Synchronization();
+            SynchronizationChechk();
 /*
             else if (Mathf.Abs(lag) > 0.05f)
             {
@@ -242,6 +245,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         }
         
+    }
+    public void SynchronizationDeath()
+    {
+        if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+        {
+            Debug.Log("µø±‚»≠");
+
+            animator.Play("Death", 0, aniStateTime);
+
+        }
+
     }
     public void SynchronizationChechk()
     {
