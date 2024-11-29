@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1820938395800547918}
   - component: {fileID: 4704706834854289514}
   - component: {fileID: 2160469049947681038}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Item_hpPotion1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -137,5 +137,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   additionalItemValue: []
   type: 0
-  value: 300
-  grade: 5
+  value: 100
+  grade: 1

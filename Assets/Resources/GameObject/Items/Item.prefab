@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1706693094119780584}
   - component: {fileID: 3543424564095562908}
   - component: {fileID: 5075225012366053122}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Item
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aff34ac1a6733944a2487c44b719611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  additionalItemValue: []
   type: 0
   value: 500
 --- !u!114 &5075225012366053122
@@ -131,7 +132,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 3543424564095562908}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
