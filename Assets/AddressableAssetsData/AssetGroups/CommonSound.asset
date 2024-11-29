@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 17648ac495671354a902915760dbe95c
   m_SerializeEntries:
+  - m_GUID: 0112a6dadb1675044ac25e22769c0009
+    m_Address: Common/FootStep3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14ba3ef310ebc234aa486c821ede40cc
     m_Address: Common/Cast3
     m_ReadOnly: 0
@@ -53,8 +59,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - CommonSound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 624a671a1f1ad514387f852bdc905aa6
+    m_Address: Common/FootStep4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 640cd71e8f1c3804581b70d49cefb8de
     m_Address: Common/Impact6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d6b730fab2fd5b458b9684d9bdc4027
+    m_Address: Common/FootStep1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonSound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 933864b704f3eb84faaa7e3fee6591d0
+    m_Address: Common/FootStep2
     m_ReadOnly: 0
     m_SerializedLabels:
     - CommonSound

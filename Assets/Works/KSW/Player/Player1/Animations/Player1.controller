@@ -244,6 +244,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
+--- !u!114 &-8230659127185072303
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.609
+  eventType: 0
+  animationType: 8
+  audioName: FootStep2
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 1
+  shakeTime: 0
 --- !u!1102 &-7947379095175057404
 AnimatorState:
   serializedVersion: 6
@@ -1986,6 +2009,29 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &2423776190748765828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.104
+  eventType: 0
+  animationType: 8
+  audioName: FootStep1
+  commonAudio: 1
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 1
+  shakeTime: 0
 --- !u!114 &2615409912223861672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3122,7 +3168,9 @@ AnimatorState:
   - {fileID: -1936153115257400463}
   - {fileID: -8348945558536673484}
   - {fileID: 8890968630721496184}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 2423776190748765828}
+  - {fileID: -8230659127185072303}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
