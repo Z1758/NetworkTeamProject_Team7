@@ -1296,6 +1296,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5393760063448969863, guid: 7c34cd4ad64d63f41b6d8951cf2db716, type: 3}
+      propertyPath: sceneViewId
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 6964971408786309671, guid: 7c34cd4ad64d63f41b6d8951cf2db716, type: 3}
       propertyPath: sceneViewId
       value: 3
@@ -5017,6 +5021,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverButton: {fileID: 616763497}
   countDownText: {fileID: 164300415}
+  characterSelectUI: {fileID: 0}
+  startPoint: {fileID: 0}
+  endPoint: []
+  resultCamera: {fileID: 0}
+  uiCanvas: {fileID: 0}
+  monsterCount: 0
+  players: []
+  timeline: {fileID: 0}
+  readyPlayer: 0
+  currentStage: 0
 --- !u!4 &1598611021
 Transform:
   m_ObjectHideFlags: 0
@@ -7018,9 +7032,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundSource: {fileID: 2019877273}
   bgmSource: {fileID: 2019877272}
-  voiceSource: {fileID: 2019877271}
   commonKeys:
   - CommonSound
+  bgmKey:
+  - BGM
   playerKeys:
   - num: 1
     keys:
