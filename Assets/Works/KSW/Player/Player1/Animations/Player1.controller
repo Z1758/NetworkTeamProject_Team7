@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.609
   eventType: 0
-  animationType: 8
+  animationType: 520
   audioName: FootStep2
   commonAudio: 1
   moveVelocity: 0
@@ -369,6 +369,29 @@ MonoBehaviour:
   animationType: 4
   audioName: 
   commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 0
+  isLoop: 0
+  shakeTime: 0
+--- !u!114 &-7568924026291360808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.252
+  eventType: 0
+  animationType: 8
+  audioName: Step3
+  commonAudio: 1
   moveVelocity: 0
   colliderNum: 0
   colliderActive: 0
@@ -536,6 +559,7 @@ AnimatorState:
   - {fileID: -7475964457495735708}
   - {fileID: -905305412201016847}
   - {fileID: -4825408463333259223}
+  - {fileID: -7568924026291360808}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2023,7 +2047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTime: 0.104
   eventType: 0
-  animationType: 8
+  animationType: 520
   audioName: FootStep1
   commonAudio: 1
   moveVelocity: 0

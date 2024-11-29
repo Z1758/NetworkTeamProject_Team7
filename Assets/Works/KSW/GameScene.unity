@@ -8156,7 +8156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundSource: {fileID: 2019877273}
   bgmSource: {fileID: 2019877272}
-  voiceSource: {fileID: 2019877271}
   commonKeys:
   - CommonSound
   bgmKey:
@@ -8323,7 +8322,7 @@ AudioSource:
   m_GameObject: {fileID: 2019877268}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2554224474233710169, guid: a3805f4be186b574f9d107129ac040e4, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8419,7 +8418,7 @@ AudioSource:
   m_GameObject: {fileID: 2019877268}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8054330417442097867, guid: a3805f4be186b574f9d107129ac040e4, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.933

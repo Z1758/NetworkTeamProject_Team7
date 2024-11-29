@@ -207,7 +207,9 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
         {
             clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
         }
-        audioSource.PlayOneShot(clip);
+
+        AudioManager.GetInstance().PlaySound(clip);
+      //  audioSource.PlayOneShot(clip);
        
         
     }
@@ -216,6 +218,21 @@ public class AnimationEventReceiver : MonoBehaviourPunCallbacks
     {
         AudioClip clip = null;
         clip = AudioManager.GetInstance().GetCommonSoundDic(str);
+        AudioManager.GetInstance().PlaySound(clip);
+     //   audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayFootStepSound(string str)
+    {
+        AudioClip clip = null;
+        if (model.ModelType == ModelType.PLAYER)
+        {
+            clip = AudioManager.GetInstance().GetCommonSoundDic(str);
+        }
+        else
+        {
+            clip = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, str);
+        }
         audioSource.PlayOneShot(clip);
     }
 

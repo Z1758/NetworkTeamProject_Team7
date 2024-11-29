@@ -1281,7 +1281,7 @@ AudioSource:
   m_GameObject: {fileID: 1184598612274681396}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2744354120097659381, guid: a3805f4be186b574f9d107129ac040e4, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1328,7 +1328,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2963,7 +2963,6 @@ MonoBehaviour:
   rigid: {fileID: 3657568929032751903}
   model: {fileID: 4477423199602759413}
   playerCamera: {fileID: 0}
-  audioSource: {fileID: 5441437242760826938}
   inputSystem: {fileID: 2948661918679160786}
   weapon:
   - {fileID: 316367543836340479}
@@ -7804,6 +7803,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2017675033342826821, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2017675034135338208, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7851,6 +7854,18 @@ PrefabInstance:
     - target: {fileID: 2017675034135338210, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Name
       value: TestGameChat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017675034281602438, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017675034281602438, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017675034281602438, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
