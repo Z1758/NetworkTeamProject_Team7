@@ -33,18 +33,18 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()        // 방 생성 성공 시
     {
-        Debug.Log("룸 생성 성공");
+        Debug.Log("방 생성 성공");
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("서버 입장 성공");
+        Debug.Log("방 입장 성공");
         PhotonNetwork.LoadLevel("MKH_WaitingScene");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)         // 방 입장 실패 시
     {
-        Debug.Log($"서버 입장 실패, 사유 : {message}");
+        Debug.Log($"방 입장 실패, 사유 : {message}");
         SetActivePanel(Panel.Menu);
     }
 
@@ -66,13 +66,13 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
         SetActivePanel(Panel.Menu);
     }
 
-    public override void OnRoomListUpdate(List<RoomInfo> serverList)
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         // 방의 목록이 변경이 있는 경우 서버에서 보내는 정보들
         // 주의 사항
         // 1. 처음 로비 입장 시 : 모든 방 목록을 전달
         // 2. 입장 중 방 목록이 변경되는 경우 : 변경된 방 목록만 전달
-        lobbyPanel.UpdateRoomList(serverList);
+        lobbyPanel.UpdateRoomList(roomList);
     }
 
     private void SetActivePanel(Panel panel)

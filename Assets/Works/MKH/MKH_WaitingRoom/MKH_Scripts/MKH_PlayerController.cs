@@ -3,23 +3,25 @@ using UnityEngine;
 
 public class MKH_PlayerController : MonoBehaviourPun
 {
-    [SerializeField] Camera _camera;
+    [SerializeField] GameObject _camera;
+
     [SerializeField] CharacterController controller;
     [SerializeField] float moveSpeed;
-
 
     private Vector3 inputDir;
 
     private void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+       //Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
         inputDir.x = Input.GetAxisRaw("Horizontal");
         inputDir.z = Input.GetAxisRaw("Vertical");
+
+        transform.forward = _camera.transform.forward;
     }
 
     private  void FixedUpdate()
@@ -33,8 +35,9 @@ public class MKH_PlayerController : MonoBehaviourPun
 
         inputDir *= moveSpeed;
 
-        controller.Move(inputDir * Time.fixedDeltaTime);
-        transform.forward = _camera.transform.forward;
+        controller.Move(inputDir.z * _camera.transform.forward * Time.fixedDeltaTime);
+        controller.Move(inputDir.x * _camera.transform.right * Time.fixedDeltaTime);
+
     }
 
 }
