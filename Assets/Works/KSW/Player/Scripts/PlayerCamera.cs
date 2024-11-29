@@ -104,7 +104,6 @@ public class PlayerCamera : MonoBehaviour
         if (!isEndLoading)
             return;
 
-
         //È­¸é Èçµé¸²
         if (isShake)
         {
@@ -112,6 +111,8 @@ public class PlayerCamera : MonoBehaviour
         }
         else
         {
+            if (!target)
+                return;
             transform.position = target.position + offset ;
         }
 

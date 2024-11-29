@@ -54,6 +54,7 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        
         if (instance == null)
         {
 
@@ -70,23 +71,35 @@ public class GameScene : MonoBehaviourPunCallbacks
     private void Start()
     {
         PhotonNetwork.LocalPlayer.SetLoad(true);
-
-       
+        StartCoroutine(StartDelayRoutine());
     }
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, PhotonHashtable changedProps)
+
+   
+
+    IEnumerator StartDelayRoutine()
     {
-        if (changedProps.ContainsKey(CustomProperty.LOAD))
+        WaitForSeconds waitForSeconds = new WaitForSeconds(0.1f);
+        while (true)
         {
-            Debug.Log($"{targetPlayer.NickName} 이 로딩이 완료되었다.");
+            yield return waitForSeconds; // 네트워크 준비에 필요한 시간 살짝 주기
+
             bool allLoaded = CheckAllLoad();
             Debug.Log($"모든 플레이어가 로딩 완료되었는가 : {allLoaded}");
             if (allLoaded)
             {
+                
                 SetMonster();
                 characterSelectUI.SetActive(true);
+                break;
             }
         }
+       
+
     }
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, PhotonHashtable changedProps)
+    {
+    }
+
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
@@ -126,6 +139,7 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
+        PhotonNetwork.DestroyAll();
         PhotonNetwork.LeaveRoom();
     }
 
@@ -172,7 +186,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     // 버튼 연동
     public void PlayerSpawn(int num)
     {
-
+        
         Cursor.lockState = CursorLockMode.Locked;
 
         Cursor.visible = false;
@@ -193,8 +207,10 @@ public class GameScene : MonoBehaviourPunCallbacks
     {
         foreach(Player player in PhotonNetwork.PlayerList)
         {
+           
             if (player.GetLoad() == false)
             {
+                
                 return false;   
             }
 
@@ -318,4 +334,5 @@ public class GameScene : MonoBehaviourPunCallbacks
         readyPlayer = 0;
     }
 
+   
 }
