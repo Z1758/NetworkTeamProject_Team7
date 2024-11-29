@@ -51,8 +51,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     int waitParameterHash;
     int atkEndParameterHash;
 
-    int deathHash;
-
     int currentHash;
 
     // 코루틴 캐싱
@@ -129,7 +127,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         }
 
-        deathHash = Animator.StringToHash("Death");
     }
 
     public void FindPlayers()
@@ -189,11 +186,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         if (isDie)
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash != deathHash)
-            {
-                Debug.Log("사망 동기화");
-                animator.Play(deathHash, 0, aniStateTime);
-            }
+            Synchronization();
 
             rigid.velocity = Vector3.zero;
             return;
@@ -214,15 +207,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         while (true)
         {
             yield return lagWFS;
-
-            if (Mathf.Abs(lag) > 0.08f)
-            {
-                if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
-                {
-                    Debug.Log("동기화");
-                    animator.Play(currentHash  ,0, aniStateTime);
-                }
-            }/*
+            Synchronization();
+/*
             else if (Mathf.Abs(lag) > 0.05f)
             {
                 Debug.Log("렉 발생");
@@ -246,6 +232,24 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         }
     }
 
+    public void Synchronization()
+    {
+        if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+        {
+            Debug.Log("동기화");
+
+            animator.Play(currentHash, 0, aniStateTime);
+
+        }
+        
+    }
+    public void SynchronizationChechk()
+    {
+        if (Mathf.Abs(lag) > 0.08f)
+        {
+            Synchronization();
+        }
+    }
     public void SetAniTime()
     {
 
