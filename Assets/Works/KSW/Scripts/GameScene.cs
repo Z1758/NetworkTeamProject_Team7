@@ -107,12 +107,12 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        PhotonNetwork.LoadLevel("LobbyScene");
+        PhotonNetwork.LoadLevel("MKH_ServerScene");
     }
 
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel("LobbyScene");
+        PhotonNetwork.LoadLevel("MKH_ServerScene");
     }
 
     public void GameOver()
@@ -121,7 +121,7 @@ public class GameScene : MonoBehaviourPunCallbacks
             return;
 
         PhotonNetwork.CurrentRoom.IsOpen = true;
-        PhotonNetwork.LoadLevel("LobbyScene");
+        PhotonNetwork.LoadLevel("MKH_WaitingScene");
     }
 
     public void LeaveRoom()
@@ -263,6 +263,11 @@ public class GameScene : MonoBehaviourPunCallbacks
 
         uiCanvas.SetActive(false);
         resultCanvas.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
+
     }
 
     private void OnTriggerEnter(Collider other)
