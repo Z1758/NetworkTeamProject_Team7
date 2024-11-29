@@ -168,6 +168,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
 
         PhotonNetwork.Instantiate($"GameObject/Player{num}", randomPos, Quaternion.identity);
 
+     
         characterSelectUI.SetActive(false);
         
     }

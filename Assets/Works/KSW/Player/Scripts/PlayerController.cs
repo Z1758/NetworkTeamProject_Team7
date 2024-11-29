@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviourPun
     [Header("디버그 확인")]
     [SerializeField] public bool isFixed;
     [SerializeField] bool isMoveAni;
+    [SerializeField] bool isOnChat;
 
     [Header("필수 컴포넌트")]
     [SerializeField] public Animator animator;
@@ -91,6 +93,8 @@ public class PlayerController : MonoBehaviourPun
         SetStates();
 
     }
+
+    
 
     private void SetComponent()
     {
@@ -183,12 +187,12 @@ public class PlayerController : MonoBehaviourPun
       
         
           TestGameScene.Instance.players.Add(this);
+       
         if (photonView.IsMine == false)
             return;
         states[(int)curState].EnterState();
-      
-       
-      
+     
+
 
         freezingCheckCoroutine = StartCoroutine(DodgeFreezingCheck());
       
@@ -225,6 +229,16 @@ public class PlayerController : MonoBehaviourPun
             rigid.velocity = Vector3.zero;
             return;
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            isOnChat = !isOnChat;
+        }
+
+        if(isOnChat)
+        {
+            return;
         }
 
      
@@ -268,6 +282,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void SkillInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
 
         skillNumber = value.action.GetBindingIndexForControl(value.control);
 
@@ -306,6 +322,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void AttackInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
         if (PlayerState.InputWait == curState)
         {
                 isFixed = false;
@@ -317,6 +335,8 @@ public class PlayerController : MonoBehaviourPun
     }
     public void DodgeInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
         if ( model.Stamina < model.ConsumeStamina)
         {
             return;
@@ -326,6 +346,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void MoveInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
         moveInputVec = value.ReadValue<Vector2>();
         InputDir();
 
@@ -335,7 +357,7 @@ public class PlayerController : MonoBehaviourPun
     
     public void MoveCancleInput(InputAction.CallbackContext value)
     {
-
+       
         moveInputVec = value.ReadValue<Vector2>();
         InputDir();
         if (moveInputVec == Vector2.zero)

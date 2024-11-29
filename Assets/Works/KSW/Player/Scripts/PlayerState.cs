@@ -45,7 +45,7 @@ public class WaitState : State
             controller.animator.SetBool(controller.animatorParameterHash[i], false);
         }
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait] , true);
-
+        controller.rigid.velocity = Vector3.zero;
     }
 
     public override void ExitState()
