@@ -151,7 +151,7 @@ public class Hitbox : MonoBehaviourPun
             ChangeLayer();
         }
 
-        if (model.CriticalRate < UnityEngine.Random.Range(1, 101))
+        if (model.CriticalRate >= UnityEngine.Random.Range(1, 101))
         {
 
            

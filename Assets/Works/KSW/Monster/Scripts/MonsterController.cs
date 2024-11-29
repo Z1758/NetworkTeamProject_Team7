@@ -74,8 +74,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void SetStatus()
     {
-       // int stage = GameScene.Instance.currentStage - 1;
-        int stage = TestGameScene.Instance.currentStage - 1;
+        int stage = GameScene.Instance.currentStage - 1;
+        //int stage = TestGameScene.Instance.currentStage - 1;
         model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
         model.HP = model.MaxHP;
         model.Attack = model.Attack + (model.Attack * 0.3f * stage);
@@ -455,8 +455,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
         //юс╫ц
-        TestGameScene.Instance.ClearBoss(gameObject);
-        //GameScene.Instance.ClearBoss(gameObject);
+        //TestGameScene.Instance.ClearBoss(gameObject);
+       GameScene.Instance.ClearBoss(gameObject);
     }
 
     public void Furious()
