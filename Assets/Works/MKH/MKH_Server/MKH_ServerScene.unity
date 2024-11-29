@@ -11995,6 +11995,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 33992057620103173, guid: e4097f586fdb4da46b7372a082d0abe0, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4087689512071394276, guid: e4097f586fdb4da46b7372a082d0abe0, type: 3}
       propertyPath: m_Name
       value: Player4
@@ -12117,6 +12121,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5778515409442920076, guid: 3134f563578c28346ad5d0666a402a09, type: 3}
+      propertyPath: sceneViewId
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8158452268532631919, guid: 3134f563578c28346ad5d0666a402a09, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -12190,6 +12198,10 @@ PrefabInstance:
     - target: {fileID: 2292826407914442756, guid: 7c34cd4ad64d63f41b6d8951cf2db716, type: 3}
       propertyPath: sceneViewId
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393760063448969863, guid: 7c34cd4ad64d63f41b6d8951cf2db716, type: 3}
+      propertyPath: sceneViewId
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6808245791456778769, guid: 7c34cd4ad64d63f41b6d8951cf2db716, type: 3}
       propertyPath: m_Enabled
@@ -12284,6 +12296,10 @@ PrefabInstance:
     - target: {fileID: 4864129654016933797, guid: c0d40ad83c955b04e898be2ef5d80709, type: 3}
       propertyPath: sceneViewId
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359392876103866617, guid: c0d40ad83c955b04e898be2ef5d80709, type: 3}
+      propertyPath: sceneViewId
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0d40ad83c955b04e898be2ef5d80709, type: 3}
