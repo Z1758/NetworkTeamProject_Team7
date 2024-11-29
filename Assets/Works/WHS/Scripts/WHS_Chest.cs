@@ -25,10 +25,6 @@ public class WHS_Chest : MonoBehaviourPun
             {
                 gameObject.layer = (int)LayerEnum.DISABLE_BOX;
                 StartCoroutine(DestroyChest());
-                
-                //WHS_ItemManager.Instance.DestroyAllChests(this);
-
-            
             }
         }
     }
@@ -47,23 +43,4 @@ public class WHS_Chest : MonoBehaviourPun
         yield return wait;
         PhotonNetwork.Destroy(gameObject);
     }
-
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            if (photonView.IsMine)
-            {
-                // WHS_ItemManager.Instance.DestroyAllChests(this);
-
-                Vector3 spawnPos = transform.position;
-                spawnPos.y += 1f;
-
-                WHS_ItemManager.Instance.SpawnItem(spawnPos);
-                PhotonNetwork.Destroy(gameObject);
-            }
-        }
-    }
-    */
 }

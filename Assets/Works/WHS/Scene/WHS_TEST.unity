@@ -793,6 +793,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5741769511849828552, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
+      propertyPath: itemPrefabs.Array.data[0].dropRate
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741769511849828552, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
+      propertyPath: itemPrefabs.Array.data[1].dropRate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741769511849828552, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
+      propertyPath: itemPrefabs.Array.data[2].dropRate
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6689600637617303038, guid: 4f31b32ff26a3fe44bafa39b5b4616c3, type: 3}
       propertyPath: m_RootOrder
       value: 15
