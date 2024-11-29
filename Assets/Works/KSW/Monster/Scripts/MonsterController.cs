@@ -91,7 +91,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator = GetComponent<Animator>();
         pc_s = new List<PlayerController>();
         rigid = GetComponent<Rigidbody>();
-        monsterHurtBox = GetComponentInParent<MonsterHurtBox>();
+        monsterHurtBox = GetComponentInChildren<MonsterHurtBox>();
         model = GetComponent<StatusModel>();
     }
 
