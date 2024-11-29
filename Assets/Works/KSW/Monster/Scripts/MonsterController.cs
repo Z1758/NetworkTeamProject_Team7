@@ -51,6 +51,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     int waitParameterHash;
     int atkEndParameterHash;
 
+    int deathHash;
+
     int currentHash;
 
     // ÄÚ·çÆ¾ Ä³½Ì
@@ -126,6 +128,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             }
 
         }
+
+        deathHash = Animator.StringToHash("Death");
     }
 
     public void FindPlayers()
@@ -185,6 +189,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         if (isDie)
         {
+            if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash != deathHash)
+            {
+                Debug.Log("»ç¸Á µ¿±âÈ­");
+                animator.Play(deathHash, 0, aniStateTime);
+            }
+
             rigid.velocity = Vector3.zero;
             return;
         }
@@ -445,10 +455,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
 
+       
+
         foreach (GameObject obj in objects)
         {
-            
-                obj.GetComponent<PlayerController>().Revive();
+            obj.GetComponent<PlayerController>().Revive();
 
             
         }
