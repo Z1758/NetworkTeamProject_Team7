@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3835110704936603808}
   - component: {fileID: 6604588578532627058}
   - component: {fileID: -8956339978840103900}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Item_Critical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   additionalItemValue:
   - type: 9
-    value: 25
+    value: 0.25
   type: 8
   value: 25
 --- !u!114 &-8956339978840103900

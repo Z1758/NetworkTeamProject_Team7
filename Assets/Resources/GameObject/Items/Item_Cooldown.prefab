@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 487632483569005801}
   - component: {fileID: -5150516908567749454}
   - component: {fileID: -6471635006478511960}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Item_Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   - type: 6
     value: 5
   type: 10
-  value: 1
+  value: 0.1
 --- !u!114 &-6471635006478511960
 MonoBehaviour:
   m_ObjectHideFlags: 0

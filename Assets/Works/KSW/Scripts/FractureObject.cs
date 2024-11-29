@@ -73,7 +73,7 @@ public class FractureObject : MonoBehaviourPun
 
             }
             photonView.RPC(nameof(StartFadeOutRPC), RpcTarget.All);
-
+        
 
         }
     }
@@ -102,6 +102,9 @@ public class FractureObject : MonoBehaviourPun
 
         if (audioName != "")
         AudioManager.GetInstance().PlaySound(AudioManager.GetInstance().GetCommonSoundDic(audioName));
+
+        if(Random.Range(1,101) > 70)
+        WHS_ItemManager.Instance.SpawnItem(transform.position);
 
         meshRenderer.enabled = false;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;

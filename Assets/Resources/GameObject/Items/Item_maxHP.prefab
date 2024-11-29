@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
       propertyPath: m_Name
-      value: Item_MaxHP
+      value: Item_maxHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
+      propertyPath: m_Layer
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
       propertyPath: m_RootOrder
