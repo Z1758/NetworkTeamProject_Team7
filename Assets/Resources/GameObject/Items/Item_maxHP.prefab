@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
       propertyPath: m_Name
-      value: Item_maxHP
+      value: Item_MaxHP
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
       propertyPath: m_RootOrder
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 823086acd2ecfdc409e5b9c60eb7893c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -124,9 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   additionalItemValue:
-  - type: 10
-    value: 0.1
-  - type: 4
-    value: 3
+  - type: 0
+    value: 200
   type: 1
-  value: 300
+  value: 200

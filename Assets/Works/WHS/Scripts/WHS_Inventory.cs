@@ -3,12 +3,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static WHS_ItemManager;
 
 public class WHS_Inventory : MonoBehaviourPun
 {
     private Dictionary<ItemType, int> items = new Dictionary<ItemType, int>();
     private StatusModel statusModel;
     private int hpPotionGrade = 1;
+
+    private GameObject healEffectPrefab;
 
     private void Awake()
     {
@@ -59,6 +62,8 @@ public class WHS_Inventory : MonoBehaviourPun
 
             items[type]--;
             photonView.RPC(nameof(UseItemRPC), RpcTarget.MasterClient, type, statusModel.photonView.ViewID);
+
+            photonView.RPC(nameof(HealEffectRPC), RpcTarget.All, transform.position);
         }
     }
 
@@ -80,6 +85,7 @@ public class WHS_Inventory : MonoBehaviourPun
                     item.value = hpPotion.value;
                 }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
+
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
             }
         }
@@ -95,6 +101,9 @@ public class WHS_Inventory : MonoBehaviourPun
     private void InitInventory()
     {
         AddItem(ItemType.HP, 3);
+
+        string itemPath = "GameObject/Items/" + "FX_Heal_01";
+        healEffectPrefab = Resources.Load<GameObject>(itemPath);
     }
 
 
@@ -102,7 +111,7 @@ public class WHS_Inventory : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            WHS_ItemManager.Instance.UpgradePotion();       
+            WHS_ItemManager.Instance.UpgradePotion();
         }
     }
 
@@ -110,6 +119,24 @@ public class WHS_Inventory : MonoBehaviourPun
     private void UpdatePotionGrade(int grade)
     {
         hpPotionGrade = grade;
+    }
+
+    // 회복 이펙트 호출
+    [PunRPC]
+    private void HealEffectRPC(Vector3 position)
+    {
+        if (healEffectPrefab == null)
+        {
+            string itemPath = "GameObject/Items/FX_Heal_01";
+            healEffectPrefab = Resources.Load<GameObject>(itemPath);
+        }
+
+        else if (healEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(healEffectPrefab, position, Quaternion.identity);
+            effect.transform.SetParent(transform);
+            Destroy(effect, 2.0f);
+        }
     }
 
 }

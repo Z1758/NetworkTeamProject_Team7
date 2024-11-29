@@ -10,6 +10,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     {
         public ItemType type;
         public GameObject prefab;
+        public float dropRate;
     }
 
     [SerializeField] ItemPrefab[] itemPrefabs;
@@ -76,8 +77,12 @@ public class WHS_ItemManager : MonoBehaviourPun
     [PunRPC]
     private void SpawnItemRPC(Vector3 position)
     {
-        int randomIndex = Random.Range(0, itemPrefabs.Length);
-        ItemPrefab selectedItem = itemPrefabs[randomIndex];
+        ItemPrefab selectedItem = GetRandomItem();
+        if(selectedItem == null)
+        {
+            Debug.Log("아이템 확률 에러");
+            return;
+        }
 
         string itemPath = "GameObject/Items/" + selectedItem.prefab.name;
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
@@ -198,27 +203,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
         string chestPath = "GameObject/Items/" + chestPrefab.name;
         GameObject chestObj = PhotonNetwork.Instantiate(chestPath, position, rotation);
-        // WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
-        // chests.Add(chest);
     }
-
-    /*
-    // 직접 부순 상자 외 다른 상자 제거
-    public void DestroyAllChests(WHS_Chest destroyedChest)
-    {
-        foreach (WHS_Chest chest in chests)
-        {
-            if (chest != destroyedChest)
-            {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    PhotonNetwork.Destroy(chest.gameObject);
-                }
-            }
-        }
-        chests.Clear();
-    }
-    */
 
     // 인벤토리에 줄 아이템 정보 초기화
     private void InitItemData()
@@ -285,5 +270,30 @@ public class WHS_ItemManager : MonoBehaviourPun
     public int GetPotionGrade()
     {
         return hpPotionGrade;
+    }
+
+    // 랜덤 아이템 생성
+    private ItemPrefab GetRandomItem()
+    {
+        float totalRate = 0f;
+
+        foreach(ItemPrefab item in itemPrefabs)
+        {
+            totalRate += item.dropRate;
+        }
+
+        float randomValue = Random.Range(0f, totalRate);
+        float curRate = 0f;
+
+        foreach (ItemPrefab item in itemPrefabs)
+        {
+            curRate += item.dropRate;
+            if(randomValue <= curRate)
+            {
+                return item;
+            }
+        }
+
+        return null;
     }
 }

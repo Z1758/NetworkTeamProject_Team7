@@ -74,30 +74,6 @@ public class WHS_Item : MonoBehaviourPun, IPunObservable
         }
     }
 
-
-    // ¾ÆÀÌÅÛ È¹µæ ¹× Àû¿ë
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            StatusModel statusModel = other.GetComponent<StatusModel>();
-            WHS_Inventory inventory = other.GetComponent<WHS_Inventory>();
-
-            if (statusModel.photonView != null && statusModel.photonView.IsMine && inventory != null)
-            {
-                if(type == ItemType.HP)
-                {
-                    inventory.AddItem(type, 1);
-                    Debug.Log("HPÆ÷¼Ç È¹µæ");
-                }
-                WHS_ItemManager.Instance.ApplyItem(statusModel, this);
-                photonView.RPC(nameof(DestroyItemObj), RpcTarget.All);
-            }
-        }
-    }
-    */
-
     [PunRPC]
     protected virtual void DestroyItemObj()
     {
