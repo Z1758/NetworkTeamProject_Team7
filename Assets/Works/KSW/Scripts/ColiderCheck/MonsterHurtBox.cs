@@ -49,12 +49,13 @@ public class MonsterHurtBox : MonoBehaviour
             {
                 return;
             }
-            hitbox.HitEffect(other.ClosestPoint(transform.position));
+            Vector3 triggerPoint = other.ClosestPoint(transform.position);
+            hitbox.HitEffect(triggerPoint);
             hitbox.AttackFriction();
 
            
             
-            monster.TakeDamage(hitbox.GetAtk(), hitbox.GetSoundEffect());
+            monster.TakeDamage(hitbox.GetAtk(triggerPoint), hitbox.GetSoundEffect());
         }
 
     }

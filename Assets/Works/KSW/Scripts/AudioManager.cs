@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
@@ -278,6 +279,12 @@ public class AudioManager : MonoBehaviour
     public void PlayBGM(int num)
     {
         bgmSource.clip = bgmDic[$"Stage{num}"];
+        bgmSource.Play();
+    }
+
+    public void PlayClearBGM()
+    {
+        bgmSource.clip = bgmDic["Victory"];
         bgmSource.Play();
     }
 

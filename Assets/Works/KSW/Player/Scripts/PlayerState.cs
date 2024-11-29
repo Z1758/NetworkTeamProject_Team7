@@ -45,11 +45,13 @@ public class WaitState : State
             controller.animator.SetBool(controller.animatorParameterHash[i], false);
         }
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait] , true);
-
+        controller.rigid.velocity = Vector3.zero;
     }
 
     public override void ExitState()
     {
+
+        controller.ResetAtkSpeed();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait], false);
     }
 
@@ -224,7 +226,6 @@ public class DodgeState : State
 
     public override void ExitState()
     {
-        controller.ResetAtkSpeed();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Dodge], false);
     }
 

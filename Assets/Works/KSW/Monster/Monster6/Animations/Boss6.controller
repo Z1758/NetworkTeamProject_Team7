@@ -1664,7 +1664,7 @@ MonoBehaviour:
   animationType: 13
   audioName: UltraAtk1_2
   commonAudio: 0
-  moveVelocity: 20
+  moveVelocity: 30
   colliderNum: 5
   colliderActive: 1
   effectNum: 0
@@ -1940,7 +1940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerTime: 0.521
+  triggerTime: 0.5
   eventType: 3
   animationType: 12
   audioName: UltraAtk1_3

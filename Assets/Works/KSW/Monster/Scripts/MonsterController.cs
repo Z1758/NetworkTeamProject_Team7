@@ -68,8 +68,22 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         FindPlayers();
 
         SetAniHash();
+        SetStatus();
+       
 
+        animator.speed = model.AttackSpeed;
+    }
 
+    private void SetStatus()
+    {
+        int stage = TestGameScene.Instance.currentStage - 1;
+        model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
+        model.HP = model.MaxHP;
+        model.Attack = model.Attack + (model.Attack * 0.3f * stage);
+        model.MoveSpeed = model.MoveSpeed + (model.MoveSpeed * 0.05f * stage);
+  
+        model.AttackSpeed = model.AttackSpeed + (0.05f * stage);
+        
         animator.speed = model.AttackSpeed;
     }
 
@@ -397,7 +411,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void TakeDamage(float damage, AudioClip clip)
     {
-        if (clip != null)
+        if (clip)
             audioSource.PlayOneShot(clip);
         //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage);
@@ -439,7 +453,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
         //юс╫ц
-        GameObject.Find("TestGameScene").GetComponent<TestGameScene>().ClearBoss(gameObject);
+        TestGameScene.Instance.ClearBoss(gameObject);
        
     }
 

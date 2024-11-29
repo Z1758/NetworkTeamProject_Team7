@@ -20,7 +20,7 @@ public class Hitbox : MonoBehaviourPun
 {
     [Header("필수 컴포넌트")]
     [SerializeField] Animator animator;
-    [SerializeField] StatusModel model;
+    [SerializeField] protected StatusModel model;
 
     [Header("히트박스 타입")]
     [SerializeField] HitboxType hitboxType;
@@ -28,6 +28,8 @@ public class Hitbox : MonoBehaviourPun
     [Header("공격력 배율")]
     [SerializeField] float multiplier = 1.0f;
 
+    protected GameObject criticalEffectPrefab;
+    protected AudioClip criticalSound;
 
     protected GameObject effectPrefab;
     [SerializeField] protected string effectName;
@@ -46,7 +48,11 @@ public class Hitbox : MonoBehaviourPun
         if (!model)
             model = GetComponentInParent<StatusModel>();
 
-
+        if (model.ModelType == ModelType.PLAYER)
+        {
+            criticalEffectPrefab = EffectManager.GetInstance().GetEffectDic("CriticalEffect");
+            criticalSound = AudioManager.GetInstance().GetCommonSoundDic("Critical");
+        }
     }
 
 
@@ -136,9 +142,37 @@ public class Hitbox : MonoBehaviourPun
             ChangeLayer();
         }
 
-
             return model.Attack * multiplier;
     }
+    public float GetAtk(Vector3 vec)
+    {
+        if (hitboxType.HasFlag(HitboxType.ONCE_HIT))
+        {
+            ChangeLayer();
+        }
+
+        if (model.CriticalRate < UnityEngine.Random.Range(1, 101))
+        {
+
+           
+            if (vec.y < 1f)
+            {
+                vec.y += 1.5f;
+            }
+
+            Instantiate(criticalEffectPrefab, vec, transform.rotation);
+
+            AudioManager.GetInstance().PlaySound(criticalSound);
+
+            return (model.Attack +  (model.Attack* model.CriticalDamageRate)) * multiplier;
+        }
+
+
+
+        return model.Attack * multiplier;
+    }
+
+
     public bool GetDown()
     {
         return hitboxType.HasFlag(HitboxType.DOWN_ATTACK);

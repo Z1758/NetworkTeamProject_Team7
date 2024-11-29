@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -7,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public enum PlayerAnimationHashNumber
 {
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviourPun
     [Header("디버그 확인")]
     [SerializeField] public bool isFixed;
     [SerializeField] bool isMoveAni;
+    [SerializeField] bool isOnChat;
 
     [Header("필수 컴포넌트")]
     [SerializeField] public Animator animator;
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] PlayerCamera playerCamera;
     [SerializeField] AudioSource audioSource;
     [SerializeField] PlayerInputSystem inputSystem;
+    [SerializeField] GameObject[] weapon;
     WHS_Inventory inventory;
 
     Vector3 dir;
@@ -90,6 +94,8 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    
+
     private void SetComponent()
     {
         inputSystem = GetComponent<PlayerInputSystem>();
@@ -101,7 +107,7 @@ public class PlayerController : MonoBehaviourPun
     }
 
    
-    private void SetInputSystem(bool active)
+    public void SetInputSystem(bool active)
     {
         if (active)
         {
@@ -122,6 +128,29 @@ public class PlayerController : MonoBehaviourPun
             inputSystem.dodge.action.started -= DodgeInput;
         }
     }
+
+    public void Victory(Transform point)
+    {
+        isFixed = true;
+        for (int i = 0; i < animatorParameterHash.Length; i++)
+        {
+            animator.SetBool(animatorParameterHash[i], false);
+        }
+
+        for(int i = 0; i < weapon.Length; i++)
+        {
+            weapon[i].SetActive(false);
+        }
+
+        rigid.velocity = Vector3.zero;
+        animator.Play("Victory");
+        transform.SetPositionAndRotation(point.position, point.rotation);
+        
+        SetInputSystem(false);
+      
+
+    }
+
     private void SetCamera()
     {
         playerCamera = Camera.main.GetComponentInParent<PlayerCamera>();
@@ -155,12 +184,15 @@ public class PlayerController : MonoBehaviourPun
 
     private void Start()
     {
-
+      
+        
+          TestGameScene.Instance.players.Add(this);
+       
         if (photonView.IsMine == false)
             return;
         states[(int)curState].EnterState();
-      
-        Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerNumber());
+     
+
 
         freezingCheckCoroutine = StartCoroutine(DodgeFreezingCheck());
       
@@ -197,6 +229,16 @@ public class PlayerController : MonoBehaviourPun
             rigid.velocity = Vector3.zero;
             return;
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            isOnChat = !isOnChat;
+        }
+
+        if(isOnChat)
+        {
+            return;
         }
 
      
@@ -240,6 +282,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void SkillInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
 
         skillNumber = value.action.GetBindingIndexForControl(value.control);
 
@@ -278,6 +322,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void AttackInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
         if (PlayerState.InputWait == curState)
         {
                 isFixed = false;
@@ -289,6 +335,8 @@ public class PlayerController : MonoBehaviourPun
     }
     public void DodgeInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
         if ( model.Stamina < model.ConsumeStamina)
         {
             return;
@@ -298,6 +346,8 @@ public class PlayerController : MonoBehaviourPun
 
     public void MoveInput(InputAction.CallbackContext value)
     {
+        if (isOnChat)
+            return;
         moveInputVec = value.ReadValue<Vector2>();
         InputDir();
 
@@ -307,7 +357,7 @@ public class PlayerController : MonoBehaviourPun
     
     public void MoveCancleInput(InputAction.CallbackContext value)
     {
-
+       
         moveInputVec = value.ReadValue<Vector2>();
         InputDir();
         if (moveInputVec == Vector2.zero)
@@ -541,6 +591,7 @@ public class PlayerController : MonoBehaviourPun
 
     public void Revive()
     {
+        if(photonView.IsMine)
         inventory.UpgradePotion();
 
         if (model.HP > 0f)
