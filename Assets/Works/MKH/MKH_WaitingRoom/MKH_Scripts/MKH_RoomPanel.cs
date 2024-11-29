@@ -20,6 +20,7 @@ public class MKH_RoomPanel : MonoBehaviourPun
         PlayerNumbering.OnPlayerNumberingChanged += UpdatePlayers;
 
         PhotonNetwork.LocalPlayer.SetReady(false);
+        PhotonNetwork.LocalPlayer.SetLoad(false);
     }
 
     // 방에 나갔을 때
