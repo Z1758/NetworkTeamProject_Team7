@@ -29,7 +29,7 @@ public class MKH_PlayerEntry : MonoBehaviour
         readyButton.gameObject.SetActive(true);
         // 나 자신이면 레디버튼 클릭 가능
         readyButton.interactable = player == PhotonNetwork.LocalPlayer;
-        if(player.GetReady())
+        if (player.GetReady())
         {
             readyText.text = "Ready";
         }
@@ -60,13 +60,5 @@ public class MKH_PlayerEntry : MonoBehaviour
             PhotonNetwork.LocalPlayer.SetReady(true);
         }
 
-    }
-
-    private void PlayerSpawn()
-    {
-        Debug.Log("1");
-        Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
-
-        PhotonNetwork.Instantiate("GameObject/MatchMaking/Player", randomPos, Quaternion.identity);
     }
 }

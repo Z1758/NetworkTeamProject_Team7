@@ -1,7 +1,6 @@
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MKH_RoomManager : MonoBehaviourPunCallbacks
@@ -16,14 +15,7 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
 
         SetActivePanel(Panel.Room);
-    }
 
-    // 서버 접속
-    public override void OnConnectedToMaster()
-    {
-        Debug.Log("접속에 성공했다!");
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-        SetActivePanel(Panel.Room);
     }
 
     // 접속 종료
@@ -34,14 +26,17 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     }
 
 
-   
-
     #region 방 (입장, 퇴장, 플레이어 업데이트)
     // 방 입장 성공
     public override void OnJoinedRoom()
     {
         Debug.Log("방 입장 성공");
         SetActivePanel(Panel.Room);
+        if (PhotonNetwork.LocalPlayer != null)
+        {
+            PlayerSpawn();
+            Debug.Log("1");
+        }
     }
 
     // 방에서 퇴장
@@ -55,6 +50,11 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         roomPanel.EnterPlayer(newPlayer);
+        if (PhotonNetwork.LocalPlayer == newPlayer)
+        {
+            PlayerSpawn();
+            Debug.Log("1");
+        }
     }
 
     // 플레이어 업데이트
@@ -74,5 +74,12 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     private void SetActivePanel(Panel panel)
     {
         roomPanel.gameObject.SetActive(panel == Panel.Room);
+    }
+
+    private void PlayerSpawn()
+    {
+        Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+
+        PhotonNetwork.Instantiate("GameObject/MatchMaking/Player", randomPos, Quaternion.identity);
     }
 }
