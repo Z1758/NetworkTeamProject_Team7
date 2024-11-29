@@ -16,6 +16,15 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
 
         SetActivePanel(Panel.Room);
 
+        if (PhotonNetwork.LocalPlayer == PhotonNetwork.MasterClient)
+        {
+            PlayerSpawn();
+        }
+        else if(PhotonNetwork.LocalPlayer != PhotonNetwork.MasterClient)
+        {
+            return;
+        }
+
     }
 
     // 접속 종료
