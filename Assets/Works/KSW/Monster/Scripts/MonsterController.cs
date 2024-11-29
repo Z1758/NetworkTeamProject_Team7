@@ -44,7 +44,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
     //   [Header("애니메이션 해싱")]
-   // int[] animtionHash;
+    // int[] animtionHash;
     int[] animatorParameterHash;
 
     int runParameterHash;
@@ -67,7 +67,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         SetAniHash();
         SetStatus();
-       
+
 
         animator.speed = model.AttackSpeed;
     }
@@ -80,9 +80,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         model.HP = model.MaxHP;
         model.Attack = model.Attack + (model.Attack * 0.3f * stage);
         model.MoveSpeed = model.MoveSpeed + (model.MoveSpeed * 0.05f * stage);
-  
+
         model.AttackSpeed = model.AttackSpeed + (0.05f * stage);
-        
+
         animator.speed = model.AttackSpeed;
     }
 
@@ -91,17 +91,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator = GetComponent<Animator>();
         pc_s = new List<PlayerController>();
         rigid = GetComponent<Rigidbody>();
-     
+
         model = GetComponent<StatusModel>();
     }
 
     private void SetAniHash()
     {
-     //   animtionHash = new int[patterns.Length];
+        //   animtionHash = new int[patterns.Length];
         animatorParameterHash = new int[patterns.Length];
         for (int i = 0; i < patterns.Length; i++)
         {
-      //      animtionHash[i] = Animator.StringToHash(patterns[i].pattern);
+            //      animtionHash[i] = Animator.StringToHash(patterns[i].pattern);
 
             AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
             animatorParameterHash[i] = animatorControllerParameter.nameHash;
@@ -133,7 +133,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         pc_s.Clear();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
-       
+
         foreach (GameObject obj in objects)
         {
             if (obj.layer != (int)LayerEnum.DISABLE_BOX)
@@ -178,7 +178,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine == false)
             StartCoroutine(CheckAniLag());
 
-    
+
 
     }
 
@@ -202,7 +202,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         TraceMonster();
 
 
-     
+
     }
 
     IEnumerator CheckAniLag()
@@ -211,25 +211,25 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             yield return lagWFS;
             SynchronizationChechk();
-/*
-            else if (Mathf.Abs(lag) > 0.05f)
-            {
-                Debug.Log("렉 발생");
-                for (int i = 0; i < patterns.Length; i++)
-                {
-                    
+            /*
+                        else if (Mathf.Abs(lag) > 0.05f)
+                        {
+                            Debug.Log("렉 발생");
+                            for (int i = 0; i < patterns.Length; i++)
+                            {
 
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName(patterns[i].pattern) )
-                    {
-                        animator.Play(animtionHash[i], 0, aniStateTime);
-                    }else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Furious"))
-                    {
-                        animator.Play("Furious", 0, aniStateTime);
-                    }
 
-                }
+                                if (animator.GetCurrentAnimatorStateInfo(0).IsName(patterns[i].pattern) )
+                                {
+                                    animator.Play(animtionHash[i], 0, aniStateTime);
+                                }else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Furious"))
+                                {
+                                    animator.Play("Furious", 0, aniStateTime);
+                                }
 
-            }*/
+                            }
+
+                        }*/
 
 
         }
@@ -241,18 +241,21 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         {
             Debug.Log("동기화");
 
-            animator.Play(currentHash, 0, aniStateTime);
+            if (isDie)
+                animator.Play("Death");
+            else
+                animator.Play(currentHash, 0, aniStateTime);
 
         }
-        
+
     }
     public void SynchronizationDeath()
     {
         if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
         {
-            Debug.Log("동기화");
+            Debug.Log("사망 동기화");
 
-            animator.Play("Death", 0, aniStateTime);
+            animator.Play("Death");
 
         }
 
@@ -281,7 +284,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void TraceMonster()
     {
-        
+
         if (isFixed)
         {
             if (isMoveAni)
@@ -303,7 +306,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine == false)
             return;
 
-      
+
 
         // 타겟 찾기
         if (!target)
@@ -331,7 +334,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     }
 
     private bool MonsterCheckRange()
-    {     
+    {
         if ((target.position - transform.position).sqrMagnitude < patterns[nextPattern].range)
         {
             rigid.velocity = Vector3.zero;
@@ -423,7 +426,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
             stream.SendNext(isFixed);
             stream.SendNext(aniStateTime);
             stream.SendNext(currentHash);
-            
+
         }
 
         else if (stream.IsReading)
@@ -431,7 +434,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
             isFixed = (bool)stream.ReceiveNext();
             aniStateTime = (float)stream.ReceiveNext();
-           currentHash = (int)stream.ReceiveNext(); 
+            currentHash = (int)stream.ReceiveNext();
         }
 
     }
@@ -441,7 +444,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (clip)
         {
             AudioManager.GetInstance().PlaySound(clip);
-           // audioSource.PlayOneShot(clip);
+            // audioSource.PlayOneShot(clip);
         }
         //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage);
@@ -452,12 +455,13 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (model.HP <= 0)
         {
             Debug.Log("MonsterDeath");
+            return;
         }
 
         Debug.Log("HIT!!!!!!!!!!!!!!" + damage);
         model.HP -= (float)damage;
 
-   
+
     }
 
 
@@ -468,24 +472,24 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         PatternReset();
         isDie = true;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;
-      
+
         rigid.velocity = Vector3.zero;
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
 
-       
+
 
         foreach (GameObject obj in objects)
         {
             obj.GetComponent<PlayerController>().Revive();
 
-            
+
         }
 
 
         //임시
         //TestGameScene.Instance.ClearBoss(gameObject);
-       GameScene.Instance.ClearBoss(gameObject);
+        GameScene.Instance.ClearBoss(gameObject);
     }
 
     public void Furious()
@@ -493,11 +497,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (isDie)
             return;
 
-        foreach(Material mat in furiousRenderer.materials)
+        foreach (Material mat in furiousRenderer.materials)
         {
             mat.EnableKeyword("_EMISSION");
         }
-   
+
         isFixed = true;
         isFurious = true;
         rigid.velocity = Vector3.zero;
