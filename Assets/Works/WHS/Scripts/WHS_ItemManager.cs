@@ -198,27 +198,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
         string chestPath = "GameObject/Items/" + chestPrefab.name;
         GameObject chestObj = PhotonNetwork.Instantiate(chestPath, position, rotation);
-        // WHS_Chest chest = chestObj.GetComponent<WHS_Chest>();
-        // chests.Add(chest);
     }
-
-    /*
-    // 직접 부순 상자 외 다른 상자 제거
-    public void DestroyAllChests(WHS_Chest destroyedChest)
-    {
-        foreach (WHS_Chest chest in chests)
-        {
-            if (chest != destroyedChest)
-            {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    PhotonNetwork.Destroy(chest.gameObject);
-                }
-            }
-        }
-        chests.Clear();
-    }
-    */
 
     // 인벤토리에 줄 아이템 정보 초기화
     private void InitItemData()
