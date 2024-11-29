@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public StatusModel model;
     [SerializeField] PlayerCamera playerCamera;
-    [SerializeField] AudioSource audioSource;
+    
     [SerializeField] PlayerInputSystem inputSystem;
     [SerializeField] GameObject[] weapon;
     WHS_Inventory inventory;
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviourPun
         inputSystem = GetComponent<PlayerInputSystem>();
         model = GetComponent<StatusModel>();
         rigid = GetComponent<Rigidbody>();
-        audioSource = GetComponentInChildren<AudioSource>();
+       
         gameObject.AddComponent<AudioListener>();
         inventory = GetComponent<WHS_Inventory>();
     }
@@ -186,8 +186,9 @@ public class PlayerController : MonoBehaviourPun
     {
       
         
-          TestGameScene.Instance.players.Add(this);
-       
+        TestGameScene.Instance.players.Add(this);
+      //  GameScene.Instance.players.Add(this);
+
         if (photonView.IsMine == false)
             return;
         states[(int)curState].EnterState();
@@ -535,7 +536,8 @@ public class PlayerController : MonoBehaviourPun
         }
         if (hitSound != null)
         {
-            audioSource.PlayOneShot(hitSound);
+            AudioManager.GetInstance().PlaySound(hitSound);
+           // audioSource.PlayOneShot(hitSound);
             if (hurtEffectPos.y < 1f)
             {
                 hurtEffectPos.y += 1.5f;

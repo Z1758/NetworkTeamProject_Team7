@@ -8,17 +8,68 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 public class GameScene : MonoBehaviourPunCallbacks
 {
     [SerializeField] Button gameOverButton;
     [SerializeField] TMP_Text countDownText;
+
+
+    private static GameScene instance;
+
+    [SerializeField] GameObject characterSelectUI;
+    [SerializeField] GameObject startPoint;
+    [SerializeField] Transform[] endPoint;
+    [SerializeField] GameObject resultCamera;
+    [SerializeField] GameObject uiCanvas;
+
+    // 최대 몬스터 수
+    [SerializeField] int monsterCount;
+
+    public List<PlayerController> players = new List<PlayerController>();
+
+ 
+    List<int> monsterPrefabsNumber = new List<int>();
+    Queue<int> monsterOrderQueue = new Queue<int>();
+
+    [SerializeField] TimelineBoss timeline;
+
+    GameObject currentBoss;
+
+    public int readyPlayer = 0;
+    public int currentStage;
+
+    public static GameScene Instance
+    {
+        get
+        {
+            return instance;
+
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+
+            instance = this;
+
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
+
     private void Start()
     {
         PhotonNetwork.LocalPlayer.SetLoad(true);
 
        
-        SetGameOverButton();
     }
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, PhotonHashtable changedProps)
     {
@@ -29,7 +80,8 @@ public class GameScene : MonoBehaviourPunCallbacks
             Debug.Log($"모든 플레이어가 로딩 완료되었는가 : {allLoaded}");
             if (allLoaded)
             {
-                GameStart();
+                SetMonster();
+                characterSelectUI.SetActive(true);
             }
         }
     }
@@ -77,23 +129,57 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public void GameStart()
     {
-        StartCoroutine(CountDownRoutine());
+       
     }
-
-    IEnumerator CountDownRoutine()
+    private void SetMonster()
     {
-       for(int i = 3; i >0; i--)
-        {
-            countDownText.text = i.ToString();
-            yield return new WaitForSeconds(1f);
+        // 랜덤 순서 초기화
 
+        if (photonView.IsMine)
+        {
+
+            while (monsterPrefabsNumber.Count > 0)
+            {
+
+
+                int ran = UnityEngine.Random.Range(0, monsterPrefabsNumber.Count);
+
+                photonView.RPC(nameof(SetMonsterOrder), RpcTarget.All, ran);
+
+
+
+            }
         }
 
-        Debug.Log("게임 시작!");
-        countDownText.text = "Game Start!";
-        yield return new WaitForSeconds(1f);
-        countDownText.gameObject.SetActive(false);
+
     }
+    [PunRPC]
+    public void SetMonsterOrder(int num)
+    {
+        monsterOrderQueue.Enqueue(monsterPrefabsNumber[num]);
+        monsterPrefabsNumber.Remove(monsterPrefabsNumber[num]);
+    }
+
+
+    // 버튼 연동
+    public void PlayerSpawn(int num)
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        Cursor.visible = false;
+
+        Vector3 randomPos = new Vector3(UnityEngine.Random.Range(-5f, 5f), 0, UnityEngine.Random.Range(-5f, 5f));
+
+
+
+        PhotonNetwork.Instantiate($"GameObject/Player{num}", randomPos, Quaternion.identity);
+
+
+        characterSelectUI.SetActive(false);
+
+    }
+
 
     private bool CheckAllLoad()
     {
@@ -108,4 +194,114 @@ public class GameScene : MonoBehaviourPunCallbacks
         }
         return true;
     }
+
+
+
+    public void StartStage()
+    {
+        readyPlayer = 0;
+        currentStage++;
+        startPoint.SetActive(false);
+        if (currentBoss is not null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+        }
+
+        if (monsterOrderQueue.Count > 0)
+        {
+            int orderNum = monsterOrderQueue.Dequeue();
+            AudioManager.GetInstance().PlayBGM(currentStage);
+            timeline.StartTimeline(orderNum);
+
+        }
+    }
+
+    public void ClearBoss(GameObject obj)
+    {
+
+        AudioManager.GetInstance().StopBGM();
+
+        currentBoss = obj;
+
+
+        if (currentStage < 5)
+        {
+            WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
+            startPoint.SetActive(true);
+        }
+        else
+        {
+
+            Debug.Log("클리어");
+            GameClear();
+        }
+    }
+
+    public void GameClear()
+    {
+        AudioManager.GetInstance().PlayClearBGM();
+        resultCamera.SetActive(true);
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].Victory(endPoint[i]);
+
+        }
+        if (currentBoss is not null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+        }
+
+        uiCanvas.SetActive(false);
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            readyPlayer++;
+
+            //임시 방편
+            if (monsterPrefabsNumber.Count > 0)
+            {
+                if (photonView.IsMine)
+                    SetMonster();
+            }
+            Debug.Log($"준비 {readyPlayer}/{PhotonNetwork.PlayerList.Count()} ");
+
+            // 스테이지 시작 호출
+            if (readyPlayer >= PhotonNetwork.PlayerList.Count())
+            {
+                StartStage();
+
+            }
+
+
+        }
+
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            readyPlayer--;
+
+
+
+            Debug.Log($"준비 {readyPlayer}/{PhotonNetwork.PlayerList.Count()} ");
+        }
+
+
+
+    }
+
+    private void OnDisable()
+    {
+        readyPlayer = 0;
+    }
+
 }

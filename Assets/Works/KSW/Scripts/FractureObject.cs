@@ -21,6 +21,7 @@ public class FractureObject : MonoBehaviourPun
 
     [SerializeField] string audioName;
 
+
     WaitForSeconds fadeDelay = new WaitForSeconds(0.1f);
 
     private void Awake()
@@ -30,8 +31,7 @@ public class FractureObject : MonoBehaviourPun
         rigidbodies = GetComponentsInChildren<Rigidbody>(true);
     }
 
- 
-    
+   
     private void OnTriggerEnter(Collider other)
     {
      

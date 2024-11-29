@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource soundSource;
     [SerializeField] AudioSource bgmSource;
-    [SerializeField] AudioSource voiceSource;
+   
 
     public List<string> commonKeys = new List<string>() { "CommonSound"};
     public List<string> bgmKey = new List<string>() { "BGM" };
@@ -263,11 +263,6 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         soundSource.PlayOneShot(clip);
-    }
-
-    public void PlayVoice(AudioClip clip)
-    {
-        voiceSource.PlayOneShot(clip);
     }
 
     public void PlayBGM(AudioClip clip)

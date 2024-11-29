@@ -41,12 +41,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Player1Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 859cac1e0a9b8cb4c8c69f51efc89460
-    m_Address: Player1/Atk1Swing
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Player1Sound
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a729482686259342b2c7956527091d8
     m_Address: Player1/Skill2Hit
     m_ReadOnly: 0
@@ -97,6 +91,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db2b636daba679341b8aeff7bc5cf8d1
     m_Address: Player1/Skill1Hit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player1Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f72e8338773c6f147911d6e80add374d
+    m_Address: Player1/Atk1Swing
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player1Sound

@@ -17,8 +17,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     [SerializeField] Animator animator;
     List<PlayerController> pc_s;
     [SerializeField] Rigidbody rigid;
-    [SerializeField] AudioSource audioSource;
-
     [SerializeField] StatusModel model;
 
 
@@ -76,6 +74,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void SetStatus()
     {
+       // int stage = GameScene.Instance.currentStage - 1;
         int stage = TestGameScene.Instance.currentStage - 1;
         model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
         model.HP = model.MaxHP;
@@ -92,7 +91,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator = GetComponent<Animator>();
         pc_s = new List<PlayerController>();
         rigid = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+     
         model = GetComponent<StatusModel>();
     }
 
@@ -412,7 +411,10 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     public void TakeDamage(float damage, AudioClip clip)
     {
         if (clip)
-            audioSource.PlayOneShot(clip);
+        {
+            AudioManager.GetInstance().PlaySound(clip);
+           // audioSource.PlayOneShot(clip);
+        }
         //  photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage);
         photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage);
     }
@@ -438,7 +440,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         PatternReset();
         isDie = true;
         gameObject.layer = (int)LayerEnum.DISABLE_BOX;
-
+      
         rigid.velocity = Vector3.zero;
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
@@ -454,7 +456,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         //юс╫ц
         TestGameScene.Instance.ClearBoss(gameObject);
-       
+        //GameScene.Instance.ClearBoss(gameObject);
     }
 
     public void Furious()

@@ -12,7 +12,8 @@ public enum AnimationType
     PROJECTILE = 1 << 5,
     EFFECT = 1 << 6,
     AOE = 1 << 7,
-    SHAKE_CAMERA = 1 << 8
+    SHAKE_CAMERA = 1 << 8,
+    FOOT_STEP = 1 << 9
 
 }
 
@@ -20,12 +21,12 @@ public enum AnimationType
 public enum EventType
 {
     NONE,
-    END_ANI ,
+    END_ANI,
     START_MOVE_ANI,
-    END_MOVE_ANI ,
+    END_MOVE_ANI,
     ATTACK_END,
-    DODGE_END ,
-    FREEZING_CHECK ,
+    DODGE_END,
+    FREEZING_CHECK,
     DOWN_TRIGGER_ANI,
     HIT_TRIGGER_ANI
 
@@ -39,9 +40,9 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
     [Range(0f, 1f)] public float triggerTime;
 
     [Header("이벤트 타입")]
-    [SerializeField] EventType eventType =0;
+    [SerializeField] EventType eventType = 0;
 
-   
+
 
     [Header("애니메이션 타입")]
     [SerializeField] AnimationType animationType;
@@ -67,15 +68,15 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
     AnimationEventReceiver receiver;
 
-    
+
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+
         if (receiver is null)
         {
             receiver = animator.GetComponent<AnimationEventReceiver>();
-      
+
         }
         hasTriggered = false;
 
@@ -89,7 +90,7 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             hasLoopTriggered = true;
         }
 
-        if(currentTime >= triggerTime)
+        if (currentTime >= triggerTime)
         {
             if (hasTriggered == false)
             {
@@ -108,13 +109,13 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
             }
         }
 
-       
+
 
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+
         /*
          if (animationType.HasFlag(AnimationType.END))
          {
@@ -127,76 +128,81 @@ public class AnimationEventStateBehaviour : StateMachineBehaviour
 
     void NotifyReceiver(Animator animator)
     {
-        
-       
-            /*
-            if(eventName !=null)
-            receiver.OnAnimationEventTriggered(eventName);
-
-            */
-
-            if (eventType > 0)
-            {
-                receiver.OnAnimationEventTriggered(eventType);
-
-            }
 
 
-         
-            if (animationType.HasFlag(AnimationType.HITBOX))
+        /*
+        if(eventName !=null)
+        receiver.OnAnimationEventTriggered(eventName);
+
+        */
+
+        if (eventType > 0)
+        {
+            receiver.OnAnimationEventTriggered(eventType);
+
+        }
+
+
+
+        if (animationType.HasFlag(AnimationType.HITBOX))
+        {
+            receiver.ActiveHitboxAnimation(colliderNum, colliderActive);
+        }
+        if (animationType.HasFlag(AnimationType.HURTBOX))
+        {
+            receiver.ActiveHurtboxAnimation(colliderActive);
+        }
+        if (animationType.HasFlag(AnimationType.AUDIO))
+        {
+            if (animationType.HasFlag(AnimationType.FOOT_STEP))
             {
-                receiver.ActiveHitboxAnimation(colliderNum, colliderActive);
+                receiver.PlayFootStepSound(audioName);
             }
-            if (animationType.HasFlag(AnimationType.HURTBOX))
+            else if (commonAudio)
             {
-                receiver.ActiveHurtboxAnimation(colliderActive);
+                receiver.PlayCommonSound(audioName);
+                
             }
-            if (animationType.HasFlag(AnimationType.AUDIO))
+            else
             {
-                if (commonAudio)
-                {
-                    receiver.PlayCommonSound(audioName);
-                }
-                else
-                {
-                    receiver.PlaySound(audioName);
-                }
-               
-            }
-         
-            if (animationType.HasFlag(AnimationType.MOVE))
-            {
-                receiver.ControllMoveAnimation(moveVelocity);
-            }
-            if (animationType.HasFlag(AnimationType.COLLIDER_RESET))
-            {
-                receiver.ResetColider();
-            }
-            if (animationType.HasFlag(AnimationType.AOE))
-            {
-                receiver.AOERayCast(colliderNum);
-            }
-            // 범위 공격 준비
-            if (animationType.HasFlag(AnimationType.AOE)&& animationType.HasFlag(AnimationType.EFFECT))
-            {
-                receiver.AOERayCast(colliderNum, effectNum);
-            }
-            else if (animationType.HasFlag(AnimationType.EFFECT))
-            {
-                receiver.ActiveEffect(effectNum);
+                receiver.PlaySound(audioName);
             }
 
-         
-            if (animationType.HasFlag(AnimationType.PROJECTILE))
-            {
-                receiver.ActiveProjectileAnimation(colliderNum);
-            }
+        }
 
-            if (animationType.HasFlag(AnimationType.SHAKE_CAMERA))
-            {
-                receiver.ShakeCamera(shakeTime);
-            }
+        if (animationType.HasFlag(AnimationType.MOVE))
+        {
+            receiver.ControllMoveAnimation(moveVelocity);
+        }
+        if (animationType.HasFlag(AnimationType.COLLIDER_RESET))
+        {
+            receiver.ResetColider();
+        }
+        if (animationType.HasFlag(AnimationType.AOE))
+        {
+            receiver.AOERayCast(colliderNum);
+        }
+        // 범위 공격 준비
+        if (animationType.HasFlag(AnimationType.AOE) && animationType.HasFlag(AnimationType.EFFECT))
+        {
+            receiver.AOERayCast(colliderNum, effectNum);
+        }
+        else if (animationType.HasFlag(AnimationType.EFFECT))
+        {
+            receiver.ActiveEffect(effectNum);
+        }
 
-        
+
+        if (animationType.HasFlag(AnimationType.PROJECTILE))
+        {
+            receiver.ActiveProjectileAnimation(colliderNum);
+        }
+
+        if (animationType.HasFlag(AnimationType.SHAKE_CAMERA))
+        {
+            receiver.ShakeCamera(shakeTime);
+        }
+
+
     }
 }
