@@ -131,6 +131,11 @@ public class PlayerController : MonoBehaviourPun
 
     public void Victory(Transform point)
     {
+        isFixed = false;
+        ChangeState(PlayerState.Wait, true);
+
+
+
         isFixed = true;
         for (int i = 0; i < animatorParameterHash.Length; i++)
         {
@@ -141,6 +146,8 @@ public class PlayerController : MonoBehaviourPun
         {
             weapon[i].SetActive(false);
         }
+
+
 
         rigid.velocity = Vector3.zero;
         animator.Play("Victory");

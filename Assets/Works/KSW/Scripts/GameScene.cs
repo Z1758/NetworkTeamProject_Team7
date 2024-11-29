@@ -25,6 +25,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     [SerializeField] Transform[] endPoint;
     [SerializeField] GameObject resultCamera;
     [SerializeField] GameObject uiCanvas;
+    [SerializeField] GameObject resultCanvas;
 
     // 최대 몬스터 수
     [SerializeField] int monsterCount;
@@ -261,7 +262,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         }
 
         uiCanvas.SetActive(false);
-
+        resultCanvas.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
