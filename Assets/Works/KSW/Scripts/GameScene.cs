@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class GameScene : MonoBehaviourPunCallbacks
 {
@@ -127,12 +128,17 @@ public class GameScene : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
-    public void GameStart()
-    {
-       
-    }
+   
     private void SetMonster()
     {
+        for (int i = 0; i < monsterCount; i++)
+        {
+            monsterPrefabsNumber.Add(i + 1);
+        }
+
+
+
+        Debug.Log("셋업");
         // 랜덤 순서 초기화
 
         if (photonView.IsMine)
@@ -156,6 +162,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     [PunRPC]
     public void SetMonsterOrder(int num)
     {
+        Debug.Log(monsterPrefabsNumber[num]);
         monsterOrderQueue.Enqueue(monsterPrefabsNumber[num]);
         monsterPrefabsNumber.Remove(monsterPrefabsNumber[num]);
     }
@@ -207,9 +214,9 @@ public class GameScene : MonoBehaviourPunCallbacks
             Destroy(currentBoss);
             currentBoss = null;
         }
-
         if (monsterOrderQueue.Count > 0)
         {
+          
             int orderNum = monsterOrderQueue.Dequeue();
             AudioManager.GetInstance().PlayBGM(currentStage);
             timeline.StartTimeline(orderNum);
@@ -262,13 +269,14 @@ public class GameScene : MonoBehaviourPunCallbacks
         if (other.CompareTag("Player"))
         {
             readyPlayer++;
-
+            /*
             //임시 방편
             if (monsterPrefabsNumber.Count > 0)
             {
                 if (photonView.IsMine)
                     SetMonster();
             }
+            */
             Debug.Log($"준비 {readyPlayer}/{PhotonNetwork.PlayerList.Count()} ");
 
             // 스테이지 시작 호출
