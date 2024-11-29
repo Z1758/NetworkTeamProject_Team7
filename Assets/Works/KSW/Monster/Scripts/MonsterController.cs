@@ -18,7 +18,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     List<PlayerController> pc_s;
     [SerializeField] Rigidbody rigid;
     [SerializeField] StatusModel model;
-
+    [SerializeField] MonsterHurtBox monsterHurtBox;
 
     [Header("ป๓ลย")]
     [SerializeField] bool isFixed;
@@ -91,7 +91,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         animator = GetComponent<Animator>();
         pc_s = new List<PlayerController>();
         rigid = GetComponent<Rigidbody>();
-
+        monsterHurtBox = GetComponentInParent<MonsterHurtBox>();
         model = GetComponent<StatusModel>();
     }
 
@@ -190,7 +190,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         if (isDie)
         {
             SynchronizationDeath();
-
+            monsterHurtBox.gameObject.layer = (int)LayerEnum.DISABLE_BOX;
             rigid.velocity = Vector3.zero;
             return;
         }
