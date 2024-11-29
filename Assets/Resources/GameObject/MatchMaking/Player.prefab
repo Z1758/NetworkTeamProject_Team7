@@ -293,8 +293,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 1
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 0
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 2, z: 0}
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a04ad00dd007b4ba5cf76c37bea80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 1746960994538222208}
+  _camera: {fileID: 3707516615310884437}
   controller: {fileID: 344082898536438239}
   moveSpeed: 5
 --- !u!1 &7679567401680900765
