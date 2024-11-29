@@ -275,15 +275,15 @@ public class WHS_ItemManager : MonoBehaviourPun
     // 랜덤 아이템 생성
     private ItemPrefab GetRandomItem()
     {
-        float totalRate = 0;
+        float totalRate = 0f;
 
         foreach(ItemPrefab item in itemPrefabs)
         {
             totalRate += item.dropRate;
         }
 
-        float randomValue = Random.Range(0, totalRate);
-        float curRate = 0;
+        float randomValue = Random.Range(0f, totalRate);
+        float curRate = 0f;
 
         foreach (ItemPrefab item in itemPrefabs)
         {

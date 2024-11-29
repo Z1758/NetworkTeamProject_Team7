@@ -48,10 +48,25 @@ MonoBehaviour:
   itemPrefabs:
   - type: 0
     prefab: {fileID: 100000, guid: e9ace6940410afd4f89f33d251426237, type: 3}
+    dropRate: 1
   - type: 1
     prefab: {fileID: 3323670622729539595, guid: 3b5d2e25931285741baf5c795080fa9b, type: 3}
+    dropRate: 1
   - type: 2
     prefab: {fileID: 5312765511768575065, guid: 670a85ea56b2323419cc901a5f7bad92, type: 3}
+    dropRate: 1
+  - type: 10
+    prefab: {fileID: 100000, guid: 77dac9a980b86fe498a47aefbaa5ec21, type: 3}
+    dropRate: 1
+  - type: 8
+    prefab: {fileID: 100000, guid: e655a6e20cf167f48938fef4aabf85ca, type: 3}
+    dropRate: 1
+  - type: 4
+    prefab: {fileID: 100000, guid: 0960dec23869af44aab6598a967de644, type: 3}
+    dropRate: 1
+  - type: 5
+    prefab: {fileID: 100000, guid: cfb64eee8c20dd34ca7fc835240dc3da, type: 3}
+    dropRate: 1
   chestPrefab: {fileID: 2885670934856364096, guid: d8829a77203d6784f91a522f8bd5a75c, type: 3}
   chestPos: {x: 3, y: 0, z: 0}
   hpPotionPrefabs:
