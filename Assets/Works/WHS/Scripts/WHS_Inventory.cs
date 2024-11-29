@@ -134,6 +134,7 @@ public class WHS_Inventory : MonoBehaviourPun
         else if (healEffectPrefab != null)
         {
             GameObject effect = Instantiate(healEffectPrefab, position, Quaternion.identity);
+            effect.transform.SetParent(transform);
             Destroy(effect, 2.0f);
         }
     }
