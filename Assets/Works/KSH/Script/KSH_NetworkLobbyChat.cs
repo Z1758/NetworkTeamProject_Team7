@@ -1,4 +1,6 @@
 using ExitGames.Client.Photon;
+using Firebase.Database;
+using Firebase.Extensions;
 using Photon.Chat;
 using Photon.Pun;
 using System.Collections.Generic;
@@ -20,6 +22,10 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     [SerializeField] GameObject _friendListContent; // 친구 목록이 표시될 Scroll View의 Content
     [SerializeField] GameObject _friendItemPrefab; // 친구 항목에 사용할 Prefab
 
+
+    DatabaseReference _userDataRef;
+    DatabaseReference _friend;
+
     // 친구 상태를 저장하는 딕셔너리 (친구 이름 -> 상태)
     private Dictionary<string, string> _friendStatuses = new Dictionary<string, string>();
 
@@ -27,6 +33,7 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
     public string ChatID { get { return _chatID; } }
     public TMP_InputField InputField { get { return _inputField; } }
     public Text OutputText { get { return _outputText; } }
+
 
     private void OnEnable()
     {
@@ -37,7 +44,7 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
 
         // 사용자 이름을 로컬플레이어 이름으로 설정
         _userName = PhotonNetwork.LocalPlayer.NickName;
-
+        
         // 설정 값 적용
         _chatID = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat;
 
@@ -56,6 +63,15 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
 
         // 연결 시도 메시지 출력 {0}에 부분에 nserName 표기
         AddLine(string.Format(" 연결시도 : {0}", _userName));
+
+        // 사용자 ID
+        string uid = BackendManager.Auth.CurrentUser.UserId;
+
+        // 데이터베이스 자료 위치 지정
+        _userDataRef = BackendManager.Database.RootReference.Child("UserData").Child(uid);
+        _friend = _userDataRef.Child("Friend");
+
+        LoadFriendsFromFirebase();
     }
 
     void OnDisable()
@@ -104,12 +120,13 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
         _chatClient.AddFriends(new string[] { friendName });
 
         // UI에 친구 항목 추가
-        GameObject friendItemObject = Instantiate(_friendItemPrefab, _friendListContent.transform);
-        FriendItem friendItem = friendItemObject.GetComponent<FriendItem>();
-        friendItem.Setup(friendName, "대기 중", this); // 메인 스크립트(this)를 전달
-
+        AddFriendToUI(friendName, "대기 중");
+        
         // 상태를 딕셔너리에 저장
         _friendStatuses[friendName] = "대기 중";
+
+        // Firebase에 친구 목록 저장
+        SaveFriendsToFirebase();
 
         // 입력 필드 초기화
         _friendInputField = "";
@@ -132,11 +149,93 @@ public class KSH_NetworkLobbyChat : MonoBehaviour, IChatClientListener
             }
         }
 
-        // 딕셔너리에서도 상태 삭제
-        if (_friendStatuses.ContainsKey(friendName))
+        // 로컬 상태 삭제
+        _friendStatuses.Remove(friendName);
+
+        // Firebase에서 친구 데이터 삭제
+        _friend.Child(friendName).RemoveValueAsync().ContinueWithOnMainThread(task =>
         {
-            _friendStatuses.Remove(friendName);
+            if (task.IsCompleted)
+            {
+                Debug.Log($"친구 {friendName} 데이터 삭제 성공!");
+            }
+            else
+            {
+                Debug.LogError($"친구 {friendName} 데이터 삭제 실패: {task.Exception}");
+            }
+        });
+    }
+
+    // Firebase에 친구 목록 저장
+    private void SaveFriendsToFirebase()
+    {
+        foreach (var friend in _friendStatuses)
+        {
+            // 친구 이름을 키로 사용하여 상태를 저장
+            _friend.Child(friend.Key).SetValueAsync(friend.Value).ContinueWithOnMainThread(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log($"친구 {friend.Key} 상태 저장 성공!");
+                }
+                else
+                {
+                    Debug.LogError($"친구 {friend.Key} 상태 저장 실패: {task.Exception}");
+                }
+            });
         }
+    }
+
+    // Firebase에서 친구 목록 불러오기
+    private void LoadFriendsFromFirebase()
+    {
+        _friend.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("GetValueAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            DataSnapshot snapshot = task.Result;
+
+            // 가져온 데이터가 존재하지 않는 경우 처리.
+            if (!snapshot.Exists)
+            {
+                Debug.Log("데이터가 존재하지 않습니다.");
+                return;
+            }
+
+            // 데이터가 존재하면 각 자식을 순회하여 처리.
+            foreach (DataSnapshot child in snapshot.Children)
+            {
+                string friendName = child.Key;       // 친구 이름(Key).
+                string friendStatus = child.Value.ToString(); // 친구 상태(Value).
+
+                // 이미 UI와 로컬 딕셔너리에 친구가 존재하는지 확인
+                if (_friendStatuses.ContainsKey(friendName))
+                {
+                    Debug.Log($"이미 로컬에 존재하는 친구: {friendName}, 상태: {friendStatus}");
+                    continue; // 이미 존재하는 경우 건너뜀
+                }
+
+                // UI에 친구 항목 추가.
+                AddFriendToUI(friendName, friendStatus);
+
+                // 로컬 딕셔너리에 친구 상태 저장.
+                _friendStatuses[friendName] = friendStatus;
+            }
+
+            Debug.Log("데이터 불러오기 성공");
+        });
+    }
+
+    // UI에 친구 추가
+    private void AddFriendToUI(string friendName, string status)
+    {
+        GameObject friendItemObject = Instantiate(_friendItemPrefab, _friendListContent.transform);
+        FriendItem friendItem = friendItemObject.GetComponent<FriendItem>();
+        friendItem.Setup(friendName, status, this); // 메인 스크립트(this)를 전달
     }
 
     public void AddLine(string lineString)
