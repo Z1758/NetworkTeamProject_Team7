@@ -186,8 +186,8 @@ public class PlayerController : MonoBehaviourPun
     {
       
         
-        TestGameScene.Instance.players.Add(this);
-      //  GameScene.Instance.players.Add(this);
+       // TestGameScene.Instance.players.Add(this);
+        GameScene.Instance.players.Add(this);
 
         if (photonView.IsMine == false)
             return;
