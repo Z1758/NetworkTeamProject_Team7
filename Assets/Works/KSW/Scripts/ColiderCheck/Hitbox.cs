@@ -89,6 +89,17 @@ public class Hitbox : MonoBehaviourPun
 
     }
 
+    public string HitEffectName()
+    {
+        if (effectName == "")
+            return null;
+
+       
+        return effectName;
+
+
+    }
+
     public void AttackFriction()
     {
         // 역경직 테스트
@@ -128,6 +139,18 @@ public class Hitbox : MonoBehaviourPun
         return hitSound;
     }
 
+    public string GetSoundEffectName()
+    {
+
+        if (soundName == "")
+        {
+
+            return null;
+        }
+       
+
+        return soundName;
+    }
     // 역경직 테스트
     IEnumerator SlowSpeed()
     {

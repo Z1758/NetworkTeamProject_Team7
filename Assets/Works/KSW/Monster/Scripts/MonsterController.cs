@@ -75,7 +75,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     private void SetStatus()
     {
         int stage = GameScene.Instance.currentStage - 1;
-        //int stage = TestGameScene.Instance.currentStage - 1;
+       // int stage = TestGameScene.Instance.currentStage - 1;
         model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
         model.HP = model.MaxHP;
         model.Attack = model.Attack + (model.Attack * 0.3f * stage);
@@ -237,16 +237,14 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void Synchronization()
     {
-        if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
-        {
             Debug.Log("µ¿±âÈ­");
-
+            
             if (isDie)
                 animator.Play("Death");
             else
                 animator.Play(currentHash, 0, aniStateTime);
-
-        }
+            
+        
 
     }
     public void SynchronizationDeath()
@@ -262,7 +260,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     }
     public void SynchronizationChechk()
     {
-        if (Mathf.Abs(lag) > 0.08f)
+        if(Mathf.Abs(lag) > 0.3f || currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+        {
+            Synchronization();
+        }
+        else if (Mathf.Abs(lag) > 0.08f )
         {
             Synchronization();
         }

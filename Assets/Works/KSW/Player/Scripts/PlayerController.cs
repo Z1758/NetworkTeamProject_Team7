@@ -193,7 +193,7 @@ public class PlayerController : MonoBehaviourPun
     {
       
         
-       // TestGameScene.Instance.players.Add(this);
+      //  TestGameScene.Instance.players.Add(this);
         GameScene.Instance.players.Add(this);
 
         if (photonView.IsMine == false)
@@ -230,7 +230,6 @@ public class PlayerController : MonoBehaviourPun
 
     private void Update()
     {
-  
 
         if (photonView.IsMine == false)
         {
@@ -512,21 +511,19 @@ public class PlayerController : MonoBehaviourPun
     AudioClip hitSound;
     GameObject hurtEffect;
     Vector3 hurtEffectPos;
-    public void TakeDamage(float damage, bool down, Vector3 target, AudioClip clip, GameObject effect, Vector3 effectPos)
+    public void TakeDamage(float damage, bool down, Vector3 target, string soundName, string effectName, Vector3 effectPos)
     {
-        if (photonView.IsMine)
-        {
-            hitSound = clip;
-            hurtEffect = effect;
-            hurtEffectPos = effectPos;
-        }
+        
+        
        // photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
-        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target);
+        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target, soundName, effectName, effectPos);
 
 
     }
+
+
     [PunRPC]
-    public void TakeDamageRPC(float damage, bool down, Vector3 target)
+    public void TakeDamageRPC(float damage, bool down, Vector3 target, string soundName, string effectName, Vector3 effectPos)
     {
         if (model.HP <= 0)
         {
@@ -540,6 +537,12 @@ public class PlayerController : MonoBehaviourPun
             hurtEffect = null;
             hurtEffectPos = Vector3.zero;
             return;
+        }
+        else
+        {
+            hitSound = AudioManager.GetInstance().GetMonsterSoundDic(model.CharacterNumber, soundName);
+            hurtEffect = EffectManager.GetInstance().GetEffectDic(effectName);
+            hurtEffectPos = effectPos;
         }
         if (hitSound != null)
         {
