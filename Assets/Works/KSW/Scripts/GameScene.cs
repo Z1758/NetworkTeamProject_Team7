@@ -259,7 +259,12 @@ public class GameScene : MonoBehaviourPunCallbacks
     IEnumerator DelayRemoveBoss()
     {
         yield return new WaitForSecondsRealtime(7.0f);
-        WHS_ItemManager.Instance.SpawnChest(currentBoss.transform.position);
+        Vector3 vec = currentBoss.transform.position;
+
+        vec.x = UnityEngine.Random.Range(-7f, 7f);
+        vec.z = UnityEngine.Random.Range(-7f, 7f);
+   
+        WHS_ItemManager.Instance.SpawnChest(vec);
         RemoveBoss();
         startPoint.SetActive(true);
     }
