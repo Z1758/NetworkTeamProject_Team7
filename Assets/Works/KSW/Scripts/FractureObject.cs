@@ -103,7 +103,7 @@ public class FractureObject : MonoBehaviourPun
         if (audioName != "")
         AudioManager.GetInstance().PlaySound(AudioManager.GetInstance().GetCommonSoundDic(audioName));
 
-        if(Random.Range(1,101) > 70)
+        if(Random.Range(1,101) > 60)
         WHS_ItemManager.Instance.SpawnItem(transform.position);
 
         meshRenderer.enabled = false;
