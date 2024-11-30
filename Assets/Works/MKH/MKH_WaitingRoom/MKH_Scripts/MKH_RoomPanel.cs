@@ -21,6 +21,9 @@ public class MKH_RoomPanel : MonoBehaviourPun
 
         PhotonNetwork.LocalPlayer.SetReady(false);
         PhotonNetwork.LocalPlayer.SetLoad(false);
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
     }
 
     // 방에 나갔을 때

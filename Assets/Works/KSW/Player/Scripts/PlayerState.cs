@@ -50,7 +50,7 @@ public class WaitState : State
 
     public override void ExitState()
     {
-
+        
         controller.ResetAtkSpeed();
         controller.animator.SetBool(controller.animatorParameterHash[(int)PlayerAnimationHashNumber.Wait], false);
     }

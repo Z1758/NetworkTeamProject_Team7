@@ -230,6 +230,11 @@ public class Hitbox : MonoBehaviourPun
         return true;
     }
 
+    public int GetModelNumber()
+    {
+        return model.CharacterNumber;
+    }
+
     public bool CheckFOVType()
     {
         return hitboxType.HasFlag(HitboxType.FOV_ATTACK);

@@ -74,7 +74,8 @@ public class GameScene : MonoBehaviourPunCallbacks
         StartCoroutine(StartDelayRoutine());
     }
 
-   
+
+    Coroutine setMonsterCoroutine;
 
     IEnumerator StartDelayRoutine()
     {
@@ -87,10 +88,12 @@ public class GameScene : MonoBehaviourPunCallbacks
             Debug.Log($"모든 플레이어가 로딩 완료되었는가 : {allLoaded}");
             if (allLoaded)
             {
-                
-                SetMonster();
-                characterSelectUI.SetActive(true);
-                break;
+                if (setMonsterCoroutine == null)
+                {
+                    setMonsterCoroutine = StartCoroutine(SetMonsterDelay());
+
+                    break;
+                }
             }
         }
        
@@ -133,15 +136,18 @@ public class GameScene : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient == false)
             return;
 
+        PhotonNetwork.DestroyAll();
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.LoadLevel("MKH_WaitingScene");
     }
 
     public void LeaveRoom()
     {
-        PhotonNetwork.DestroyAll();
+      //  PhotonNetwork.DestroyAll();
         PhotonNetwork.LeaveRoom();
     }
+
+
 
    
     private void SetMonster()
@@ -174,10 +180,17 @@ public class GameScene : MonoBehaviourPunCallbacks
 
 
     }
+
+    IEnumerator SetMonsterDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SetMonster();
+        characterSelectUI.SetActive(true);
+    }
+
     [PunRPC]
     public void SetMonsterOrder(int num)
     {
-        Debug.Log(monsterPrefabsNumber[num]);
         monsterOrderQueue.Enqueue(monsterPrefabsNumber[num]);
         monsterPrefabsNumber.Remove(monsterPrefabsNumber[num]);
     }
@@ -241,6 +254,26 @@ public class GameScene : MonoBehaviourPunCallbacks
         }
     }
 
+
+
+    IEnumerator DelayRemoveBoss()
+    {
+        yield return new WaitForSecondsRealtime(7.0f);
+        WHS_ItemManager.Instance.SpawnChest(currentBoss.transform.position);
+        RemoveBoss();
+        startPoint.SetActive(true);
+    }
+
+    void RemoveBoss()
+    {
+        if (currentBoss is not null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+
+        }
+
+    }
     public void ClearBoss(GameObject obj)
     {
 
@@ -249,10 +282,11 @@ public class GameScene : MonoBehaviourPunCallbacks
         currentBoss = obj;
 
 
+
         if (currentStage < 5)
         {
-            WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
-            startPoint.SetActive(true);
+
+            StartCoroutine(DelayRemoveBoss());
         }
         else
         {
@@ -271,19 +305,23 @@ public class GameScene : MonoBehaviourPunCallbacks
             players[i].Victory(endPoint[i]);
 
         }
-        if (currentBoss is not null)
-        {
-            Destroy(currentBoss);
-            currentBoss = null;
-        }
+        RemoveBoss();
+
 
         uiCanvas.SetActive(false);
-        resultCanvas.SetActive(true);
+        OnResultButton();
 
+      
+
+
+    }
+
+    public void OnResultButton()
+    {
+        resultCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
 
         Cursor.visible = true;
-
     }
 
     private void OnTriggerEnter(Collider other)

@@ -75,7 +75,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     private void SetStatus()
     {
         int stage = GameScene.Instance.currentStage - 1;
-       // int stage = TestGameScene.Instance.currentStage - 1;
+     //   int stage = TestGameScene.Instance.currentStage - 1;
         model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
         model.HP = model.MaxHP;
         model.Attack = model.Attack + (model.Attack * 0.3f * stage);
@@ -133,7 +133,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
         pc_s.Clear();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
-
+        
         foreach (GameObject obj in objects)
         {
             if (obj.layer != (int)LayerEnum.DISABLE_BOX)
@@ -142,6 +142,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
                 pc_s.Add(obj.GetComponent<PlayerController>());
 
             }
+        }
+
+        //게임오버시
+        if (pc_s.Count == 0)
+        {
+            GameScene.Instance.OnResultButton();
         }
         TargetChange();
 
@@ -491,8 +497,13 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         //임시
         //TestGameScene.Instance.ClearBoss(gameObject);
+
+ 
+
         GameScene.Instance.ClearBoss(gameObject);
     }
+
+
 
     public void Furious()
     {
