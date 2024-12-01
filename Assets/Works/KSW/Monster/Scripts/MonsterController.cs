@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [System.Serializable]
 public class MonsterPattern
@@ -82,9 +81,9 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     {
        int stage = GameScene.Instance.currentStage - 1;
       //  int stage = TestGameScene.Instance.currentStage - 1;
-        model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
+        model.MaxHP = model.MaxHP + (model.MaxHP * 1f * stage);
         model.HP = model.MaxHP;
-        model.Attack = model.Attack + (model.Attack * 0.3f * stage);
+        model.Attack = model.Attack + (model.Attack * 0.4f * stage);
         model.MoveSpeed = model.MoveSpeed + (model.MoveSpeed * 0.05f * stage);
 
         model.AttackSpeed = model.AttackSpeed + (0.05f * stage);

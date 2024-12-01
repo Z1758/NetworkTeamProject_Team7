@@ -79,7 +79,7 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     IEnumerator StartDelayRoutine()
     {
-        WaitForSeconds waitForSeconds = new WaitForSeconds(0.1f);
+        WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
         while (true)
         {
             yield return waitForSeconds; // 네트워크 준비에 필요한 시간 살짝 주기
