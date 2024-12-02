@@ -16,11 +16,11 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        if (PhotonNetwork.InLobby)
-        {
-            SetActivePanel(Panel.Lobby);
-        }
-        else if (PhotonNetwork.IsConnected)
+        //if (PhotonNetwork.InLobby)
+        //{
+        //    SetActivePanel(Panel.Lobby);
+        //}
+        if (PhotonNetwork.IsConnected)
         {
             SetActivePanel(Panel.Menu);
         }
@@ -101,5 +101,10 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
         loginPanel.gameObject.SetActive(panel == Panel.Login);
         menuPanel.gameObject.SetActive(panel == Panel.Menu);
         lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
