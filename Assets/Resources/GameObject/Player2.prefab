@@ -5245,6 +5245,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1223339550211903663, guid: e4fd5f1a74b438c4d8dd1376a261bdc0, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223339550211903663, guid: e4fd5f1a74b438c4d8dd1376a261bdc0, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 13.5
       objectReference: {fileID: 0}
@@ -5473,11 +5477,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Size
-      value: 0.012800003
+      value: 0.055800002
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Value
-      value: -0.000000015456633
+      value: -0.000000016160548
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032733076243, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5568,6 +5572,10 @@ PrefabInstance:
     - target: {fileID: 655182516566433831, guid: 0ec1940f69d8023428f19190becf1faa, type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655182516566433831, guid: 0ec1940f69d8023428f19190becf1faa, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2043722213126384176, guid: 0ec1940f69d8023428f19190becf1faa, type: 3}
       propertyPath: looping

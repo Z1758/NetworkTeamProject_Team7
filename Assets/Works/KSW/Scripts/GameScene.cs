@@ -65,6 +65,8 @@ public class GameScene : MonoBehaviourPunCallbacks
         {
             Destroy(this);
         }
+
+        Time.timeScale = 1.0f;
     }
 
 
@@ -161,6 +163,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient == false)
             return;
 
+        Time.timeScale = 1.0f;
         PhotonNetwork.DestroyAll();
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.LoadLevel("MKH_WaitingScene");
@@ -168,7 +171,8 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-      //  PhotonNetwork.DestroyAll();
+        //  PhotonNetwork.DestroyAll();
+        Time.timeScale = 1.0f;
         PhotonNetwork.LeaveRoom();
     }
 
