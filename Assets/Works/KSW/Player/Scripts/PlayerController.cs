@@ -251,7 +251,13 @@ public class PlayerController : MonoBehaviourPun
 
      
         ChangeCoolTime();
-      
+
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death") && model.HP > 0)
+        {
+            animator.Play("StandUp");
+        }
+
             if (isFixed)
         {
             if (isMoveAni)
