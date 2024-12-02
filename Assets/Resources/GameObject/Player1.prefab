@@ -512,7 +512,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
-  multiplier: 2.5
+  multiplier: 3
   effectName: SlashHitEffect1
   soundName: Skill1Hit
   radius: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   animator: {fileID: 5944556669101705825}
   model: {fileID: 1077324688}
   hitboxType: 8
-  multiplier: 1.5
+  multiplier: 2
   effectName: SlashHitEffect1
   soundName: Skill1Hit
   radius: 0
@@ -5698,11 +5698,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Size
-      value: 0.012800003
+      value: 0.055800002
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Value
-      value: -0.000000015456633
+      value: -0.000000016160548
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032733076243, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_AnchorMax.x

@@ -1,6 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -44,7 +42,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public float Stamina { get { return stamina; } set { stamina = value; OnChangedStaminaEvent?.Invoke(stamina); } }
 
     public float MaxStamina { get { return maxStamina; } set { maxStamina = value; OnChangedMaxStaminaEvent?.Invoke(maxStamina); } }
-    public float ConsumeStamina { get { return consumetamina; } set { consumetamina = value;  } }
+    public float ConsumeStamina { get { return consumetamina; } set { consumetamina = value; } }
 
     public float RecoveryStaminaMag { get { return recoveryStaminaMag; } set { recoveryStaminaMag = value; } }
 
@@ -54,7 +52,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public float CriticalRate { get { return criticalRate; } set { criticalRate = value; } }
 
     public float CriticalDamageRate { get { return criticalDamageRate; } set { criticalDamageRate = value; } }
-    public float[] SkillCoolTime{ get { return skillCoolTime; } }
+    public float[] SkillCoolTime { get { return skillCoolTime; } }
 
     public void SetSkillCoolTime(float value)
     {
@@ -80,7 +78,8 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public UnityAction<float> OnChangedHpEvent;
     public UnityAction<float> OnChangedStaminaEvent;
     public UnityAction<float> OnChangedMaxStaminaEvent;
-    public UnityAction<int,float> OnChangedCoolTimeEvent;
+    public UnityAction<int, float> OnChangedCoolTimeEvent;
+ 
     private void OnDisable()
     {
         OnChangedMaxHpEvent = null;
@@ -88,6 +87,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
         OnChangedMaxStaminaEvent = null;
+  
     }
 
     private void Start()
@@ -97,22 +97,26 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
         OnChangedMaxStaminaEvent = null;
-        switch (type) {
-                case ModelType.PLAYER:
-                    if (photonView.IsMine)
-                    {
-                        GameObject.Find("PlayerHPSlider").GetComponent<HPView>().SetModel(this);
-                        GameObject.Find("PlayerStaminaSlider").GetComponent<StaminaView>().SetModel(this);
-                        GameObject.Find("SkillPanel").GetComponent<SkillView>().SetModel(this);
-                }
-                    break;
-                case ModelType.ENEMY:
-                    GameObject.Find("MonsterHPSlider").GetComponent<HPView>().SetModel(this);
-                    break;
 
-            }
-     
-        
+        switch (type)
+        {
+            case ModelType.PLAYER:
+                if (photonView.IsMine)
+                {
+                    GameObject.Find("PlayerHPSlider").GetComponent<HPView>().SetModel(this);
+                    GameObject.Find("PlayerStaminaSlider").GetComponent<StaminaView>().SetModel(this);
+                    GameObject.Find("SkillPanel").GetComponent<SkillView>().SetModel(this);
+                    GameObject.Find("PlayerStatus").GetComponent<StatusView>().SetModel(this);
+                    Debug.Log("¿¡¿¨");
+                }
+                break;
+            case ModelType.ENEMY:
+                GameObject.Find("MonsterHPSlider").GetComponent<HPView>().SetModel(this);
+                break;
+
+        }
+
+
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -129,7 +133,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         {
 
             hp = (float)stream.ReceiveNext();
-         
+
         }
     }
 }

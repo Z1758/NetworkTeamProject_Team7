@@ -26,6 +26,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     [SerializeField] GameObject resultCamera;
     [SerializeField] GameObject uiCanvas;
     [SerializeField] GameObject resultCanvas;
+    [SerializeField] GameObject statusUI;
 
     // 최대 몬스터 수
     [SerializeField] int monsterCount;
@@ -82,14 +83,18 @@ public class GameScene : MonoBehaviourPunCallbacks
                 Cursor.lockState = CursorLockMode.Locked;
 
                 Cursor.visible = false;
+
+                statusUI.SetActive(!resultCanvas.activeSelf);
             }
             else
             {
                 Cursor.lockState = CursorLockMode.None;
 
                 Cursor.visible = true;
-            }
 
+                statusUI.SetActive(!resultCanvas.activeSelf);
+            }
+    
             resultCanvas.SetActive(!resultCanvas.activeSelf);
 
         }
@@ -356,6 +361,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         Cursor.lockState = CursorLockMode.None;
 
         Cursor.visible = true;
+        statusUI.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
