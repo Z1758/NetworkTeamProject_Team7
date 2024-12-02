@@ -37,21 +37,21 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public int CharacterNumber { get { return characterNumber; } }
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 
-    public float MaxHP { get { return maxHP; } set { maxHP = value; OnChangedMaxHpEvent?.Invoke(maxHP); } }
+    public float MaxHP { get { return maxHP; } set { maxHP = value; OnChangedMaxHpEvent?.Invoke(maxHP); OnChangedStatusEvent?.Invoke(); } }
 
     public float Stamina { get { return stamina; } set { stamina = value; OnChangedStaminaEvent?.Invoke(stamina); } }
 
-    public float MaxStamina { get { return maxStamina; } set { maxStamina = value; OnChangedMaxStaminaEvent?.Invoke(maxStamina); } }
-    public float ConsumeStamina { get { return consumetamina; } set { consumetamina = value; } }
+    public float MaxStamina { get { return maxStamina; } set { maxStamina = value; OnChangedMaxStaminaEvent?.Invoke(maxStamina); OnChangedStatusEvent?.Invoke(); } }
+    public float ConsumeStamina { get { return consumetamina; } set { consumetamina = value; OnChangedStatusEvent?.Invoke(); } }
 
-    public float RecoveryStaminaMag { get { return recoveryStaminaMag; } set { recoveryStaminaMag = value; } }
+    public float RecoveryStaminaMag { get { return recoveryStaminaMag; } set { recoveryStaminaMag = value; OnChangedStatusEvent?.Invoke();  } }
 
-    public float Attack { get { return attack; } set { attack = value; } }
-    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
-    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
-    public float CriticalRate { get { return criticalRate; } set { criticalRate = value; } }
+    public float Attack { get { return attack; } set { attack = value; OnChangedStatusEvent?.Invoke(); } }
+    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; OnChangedStatusEvent?.Invoke(); } }
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; OnChangedStatusEvent?.Invoke(); } }
+    public float CriticalRate { get { return criticalRate; } set { criticalRate = value; OnChangedStatusEvent?.Invoke();  } }
 
-    public float CriticalDamageRate { get { return criticalDamageRate; } set { criticalDamageRate = value; } }
+    public float CriticalDamageRate { get { return criticalDamageRate; } set { criticalDamageRate = value; OnChangedStatusEvent?.Invoke(); } }
     public float[] SkillCoolTime { get { return skillCoolTime; } }
 
     public void SetSkillCoolTime(float value)
@@ -79,7 +79,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     public UnityAction<float> OnChangedStaminaEvent;
     public UnityAction<float> OnChangedMaxStaminaEvent;
     public UnityAction<int, float> OnChangedCoolTimeEvent;
- 
+    public UnityAction OnChangedStatusEvent;
     private void OnDisable()
     {
         OnChangedMaxHpEvent = null;
@@ -87,7 +87,9 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
         OnChangedMaxStaminaEvent = null;
-  
+        OnChangedStatusEvent = null;
+
+
     }
 
     private void Start()
@@ -97,7 +99,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
         OnChangedCoolTimeEvent = null;
         OnChangedStaminaEvent = null;
         OnChangedMaxStaminaEvent = null;
-
+        OnChangedStatusEvent = null;
         switch (type)
         {
             case ModelType.PLAYER:
@@ -107,7 +109,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
                     GameObject.Find("PlayerStaminaSlider").GetComponent<StaminaView>().SetModel(this);
                     GameObject.Find("SkillPanel").GetComponent<SkillView>().SetModel(this);
                     GameObject.Find("PlayerStatus").GetComponent<StatusView>().SetModel(this);
-                    Debug.Log("¿¡¿¨");
+                  
                 }
                 break;
             case ModelType.ENEMY:

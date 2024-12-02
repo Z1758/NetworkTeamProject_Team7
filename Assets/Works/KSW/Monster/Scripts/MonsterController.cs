@@ -209,6 +209,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         if (isDie)
         {
+            StopAllCoroutines();
             SynchronizationDeath();
             monsterHurtBox.gameObject.layer = (int)LayerEnum.DISABLE_BOX;
             rigid.velocity = Vector3.zero;
@@ -545,6 +546,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Dying()
     {
+        StopAllCoroutines();
         animator.speed = 1.0f;
         animator.Play("Death");
         PatternReset();
@@ -591,5 +593,6 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         model.AttackSpeed += 0.2f;
         model.MoveSpeed += model.MoveSpeed * 0.3f;
         animator.speed = model.AttackSpeed;
+       
     }
 }
