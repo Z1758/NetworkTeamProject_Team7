@@ -1,6 +1,5 @@
 using ExitGames.Client.Photon;
 using Photon.Pun;
-using Photon.Pun.Demo.PunBasics;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using UnityEngine;
@@ -102,8 +101,9 @@ public class MKH_RoomPanel : MonoBehaviourPun
     // 게임 실행
     public void StartGame()
     {
+
         // TODO : 게임 시작 구현
-        PhotonNetwork.LoadLevel("GameScene");
+        MKH_LoadingSceneController.Instance.LoadScene("GameScene");
         // 게임 진행 중 들어오기 금지
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }
