@@ -26,6 +26,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     [SerializeField] GameObject resultCamera;
     [SerializeField] GameObject uiCanvas;
     [SerializeField] GameObject resultCanvas;
+    [SerializeField] GameObject statusUI;
 
     // 최대 몬스터 수
     [SerializeField] int monsterCount;
@@ -65,6 +66,8 @@ public class GameScene : MonoBehaviourPunCallbacks
         {
             Destroy(this);
         }
+
+        Time.timeScale = 1.0f;
     }
 
 
@@ -80,14 +83,18 @@ public class GameScene : MonoBehaviourPunCallbacks
                 Cursor.lockState = CursorLockMode.Locked;
 
                 Cursor.visible = false;
+
+                statusUI.SetActive(!resultCanvas.activeSelf);
             }
             else
             {
                 Cursor.lockState = CursorLockMode.None;
 
                 Cursor.visible = true;
-            }
 
+                statusUI.SetActive(!resultCanvas.activeSelf);
+            }
+    
             resultCanvas.SetActive(!resultCanvas.activeSelf);
 
         }
@@ -161,6 +168,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient == false)
             return;
 
+        Time.timeScale = 1.0f;
         PhotonNetwork.DestroyAll();
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.LoadLevel("MKH_WaitingScene");
@@ -168,7 +176,8 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-      //  PhotonNetwork.DestroyAll();
+        //  PhotonNetwork.DestroyAll();
+        Time.timeScale = 1.0f;
         PhotonNetwork.LeaveRoom();
     }
 
@@ -352,6 +361,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         Cursor.lockState = CursorLockMode.None;
 
         Cursor.visible = true;
+        statusUI.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
