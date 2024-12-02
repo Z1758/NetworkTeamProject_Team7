@@ -14,18 +14,22 @@ public class StatusView : MonoBehaviour
     public void SetModel(StatusModel model)
     {
         statusModel = model;
-      
+        statusModel.OnChangedStatusEvent += ChangeStatus;
+
+        ChangeStatus();
+        gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void OnEnable()
     {
         if (statusModel)
-        {
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                ChangeStatus();
-            }
-        }
+            statusModel.OnChangedStatusEvent += ChangeStatus;
+    }
+
+    private void OnDisable()
+    {
+        if(statusModel)
+            statusModel.OnChangedStatusEvent -= ChangeStatus;
     }
 
     public void ChangeStatus()
@@ -46,27 +50,27 @@ public class StatusView : MonoBehaviour
         sb.Append("\n");
 
         sb.Append("스태미나 회복력 : ");
-        sb.Append(statusModel.RecoveryStaminaMag);
+        sb.Append(string.Format("{0:N2}", statusModel.RecoveryStaminaMag));
         sb.Append("\n");
 
-        sb.Append("회피 소비 스태미나 : ");
-        sb.Append(statusModel.ConsumeStamina);
+        sb.Append($"회피 소비 스태미나 : ");
+        sb.Append(string.Format("{0:N2}", statusModel.ConsumeStamina));
         sb.Append("\n");
 
         sb.Append("공격속도 : ");
-        sb.Append(statusModel.AttackSpeed);
+        sb.Append(string.Format("{0:N2}", statusModel.AttackSpeed));
         sb.Append("\n");
 
         sb.Append("이동속도 : ");
-        sb.Append(statusModel.MoveSpeed);
+        sb.Append(string.Format("{0:N2}", statusModel.MoveSpeed));
         sb.Append("\n");
 
         sb.Append("치명타 확률 : ");
-        sb.Append(statusModel.CriticalRate);
+        sb.Append(string.Format("{0:N2}", statusModel.CriticalRate));
         sb.Append("\n");
 
         sb.Append("치명타 데미지 배율 : ");
-        sb.Append(statusModel.CriticalDamageRate);
+        sb.Append(string.Format("{0:N2}", statusModel.CriticalDamageRate));
         sb.Append("\n");
 
         statusText.text = sb.ToString();
