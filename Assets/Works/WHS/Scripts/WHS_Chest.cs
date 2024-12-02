@@ -1,7 +1,9 @@
 using Photon.Pun;
+using Photon.Voice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WHS_Chest : MonoBehaviourPun
 {
@@ -35,10 +37,22 @@ public class WHS_Chest : MonoBehaviourPun
         animator.Play("Open");
 
         yield return wait;
-        Vector3 spawnPos = transform.position;
-        spawnPos.y += 1f;
+        for (int i = 0; i < 10; i++)
+        {
+            Vector3 spawnPos = transform.position;
 
-        WHS_ItemManager.Instance.SpawnItem(spawnPos);
+            spawnPos.x = Random.Range(-5f, 5f);
+            spawnPos.z = Random.Range(-5f, 5f);
+            spawnPos.y += 1.5f;
+
+            WHS_ItemManager.Instance.SpawnItem(spawnPos);
+
+
+
+        }
+
+
+    
         
         yield return wait;
         PhotonNetwork.Destroy(gameObject);

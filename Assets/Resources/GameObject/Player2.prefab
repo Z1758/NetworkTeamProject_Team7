@@ -116,7 +116,7 @@ MonoBehaviour:
   animator: {fileID: 947654097071455769}
   model: {fileID: 6120082010212651789}
   hitboxType: 6
-  multiplier: 1
+  multiplier: 1.5
   effectName: HitEffect1
   soundName: Atk1Hit
   radius: 12
@@ -382,22 +382,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterNumber: 2
   type: 0
-  maxHP: 1000
-  hp: 1000
+  maxHP: 700
+  hp: 700
   maxStamina: 100
   stamina: 100
-  consumetamina: 40
+  consumetamina: 50
   recoveryStaminaMag: 6
-  attack: 100
+  attack: 60
   attackSpeed: 1
-  moveSpeed: 10
-  criticalRate: 10
-  criticalDamageRate: 0.5
+  moveSpeed: 9
+  criticalRate: 20
+  criticalDamageRate: 0.4
   skillCoolTime:
   - 7
-  - 8
   - 9
-  - 10
+  - 13
+  - 20
 --- !u!114 &2837830095976972728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,7 +912,7 @@ MonoBehaviour:
   animator: {fileID: 947654097071455769}
   model: {fileID: 6120082010212651789}
   hitboxType: 2
-  multiplier: 1
+  multiplier: 0.5
   effectName: HitEffect2
   soundName: Atk1Hit
   radius: 0
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   animator: {fileID: 947654097071455769}
   model: {fileID: 6120082010212651789}
   hitboxType: 2
-  multiplier: 1
+  multiplier: 2.5
   effectName: HitEffect2
   soundName: Atk1Hit
   radius: 0
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   animator: {fileID: 947654097071455769}
   model: {fileID: 6120082010212651789}
   hitboxType: 2
-  multiplier: 1
+  multiplier: 3.5
   effectName: HitEffect2
   soundName: Atk1Hit
   radius: 0
@@ -5458,6 +5458,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625097572905212261}
     m_Modifications:
+    - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_Size
+      value: 0.012800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_Value
+      value: -0.000000015456633
+      objectReference: {fileID: 0}
     - target: {fileID: 2017675032733076243, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

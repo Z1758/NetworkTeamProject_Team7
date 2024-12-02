@@ -80,7 +80,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 10
-  multiplier: 1
+  multiplier: 0.6
   effectName: SlashHitEffect1
   soundName: AtkAxeHit1
   radius: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
-  multiplier: 1
+  multiplier: 1.6
   effectName: SlashHitEffect1
   soundName: 
   radius: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
-  multiplier: 1
+  multiplier: 0.7
   effectName: SlashHitEffect1
   soundName: AtkAxeHit1
   radius: 0
@@ -587,22 +587,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterNumber: 4
   type: 0
-  maxHP: 1000
-  hp: 1000
+  maxHP: 1200
+  hp: 1200
   maxStamina: 100
   stamina: 100
   consumetamina: 40
-  recoveryStaminaMag: 5
-  attack: 100
+  recoveryStaminaMag: 6
+  attack: 130
   attackSpeed: 1
   moveSpeed: 8
-  criticalRate: 10
-  criticalDamageRate: 0.5
+  criticalRate: 40
+  criticalDamageRate: 0.7
   skillCoolTime:
+  - 10
   - 8
-  - 7
-  - 9
-  - 15
+  - 13
+  - 20
 --- !u!114 &3086220390598684005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,7 +745,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 0
-  multiplier: 1
+  multiplier: 1.2
   effectName: SlashHitEffect1
   soundName: Skill4Hit
   radius: 0
@@ -811,7 +811,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
-  multiplier: 1
+  multiplier: 0.65
   effectName: SlashHitEffect1
   soundName: AtkAxeHit1
   radius: 0
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 0
-  multiplier: 1
+  multiplier: 1.5
   effectName: SlashHitEffect1
   soundName: AtkAxeHit2
   radius: 0
@@ -1391,6 +1391,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4087689512071394279}
     m_Modifications:
+    - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_Size
+      value: 0.012800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
+      propertyPath: m_Value
+      value: -0.000000015456633
+      objectReference: {fileID: 0}
     - target: {fileID: 2017675032733076243, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

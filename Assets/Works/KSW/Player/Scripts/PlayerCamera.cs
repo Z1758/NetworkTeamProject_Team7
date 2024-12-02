@@ -98,9 +98,9 @@ public class PlayerCamera : MonoBehaviour
             mainCamera.localPosition = mainCameraOffSet;
     }
 
-    private void Update()
+
+    private void LateUpdate()
     {
-        
         if (!isEndLoading)
             return;
 
@@ -113,12 +113,10 @@ public class PlayerCamera : MonoBehaviour
         {
             if (!target)
                 return;
-            transform.position = target.position + offset ;
+            transform.position = target.position + offset;
         }
 
-       
     }
-
 
 
     private void Shake()

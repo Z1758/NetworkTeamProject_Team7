@@ -2401,7 +2401,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3019915263
+    m_Bits: 3019931647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5993,6 +5993,7 @@ MonoBehaviour:
   - {fileID: 1876233140}
   resultCamera: {fileID: 1702537821}
   uiCanvas: {fileID: 1236658233}
+  resultCanvas: {fileID: 0}
   monsterCount: 6
   players: []
   timeline: {fileID: 1384412913}

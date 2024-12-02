@@ -40,6 +40,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
     public int readyPlayer = 0;
     public int currentStage;
 
+
     private void Awake()
     {
         if (instance == null)
@@ -180,7 +181,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
 
-        PhotonNetwork.InstantiateRoomObject("GameObject/Boss4", randomPos, Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject("GameObject/Boss1", randomPos, Quaternion.identity);
 
     }
 
@@ -213,10 +214,12 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         currentBoss = obj;
 
 
+
         if (currentStage < 5)
         {
-            WHS_ItemManager.Instance.SpawnChest(obj.transform.position);
+            
             startPoint.SetActive(true);
+            StartCoroutine(DelayRemoveBoss());
         }
         else
         {
@@ -224,6 +227,25 @@ public class TestGameScene : MonoBehaviourPunCallbacks
             Debug.Log("Å¬¸®¾î");
             GameClear();
         }
+    }
+
+    IEnumerator DelayRemoveBoss()
+    {
+        yield return new WaitForSecondsRealtime(7.0f);
+        WHS_ItemManager.Instance.SpawnChest(currentBoss.transform.position);
+        RemoveBoss();
+
+    }
+
+    void RemoveBoss()
+    {
+        if (currentBoss is not null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+
+        }
+       
     }
 
     public void GameClear()
@@ -235,11 +257,7 @@ public class TestGameScene : MonoBehaviourPunCallbacks
             players[i].Victory(endPoint[i]);
 
         }
-        if (currentBoss is not null)
-        {
-            Destroy(currentBoss);
-            currentBoss = null;
-        }
+        RemoveBoss();
 
         uiCanvas.SetActive(false);
 

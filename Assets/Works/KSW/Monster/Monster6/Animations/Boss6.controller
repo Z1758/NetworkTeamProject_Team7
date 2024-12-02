@@ -1555,29 +1555,6 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
---- !u!114 &2570066315681893218
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerTime: 0.629
-  eventType: 0
-  animationType: 1
-  audioName: 
-  commonAudio: 0
-  moveVelocity: 0
-  colliderNum: 2
-  colliderActive: 1
-  effectNum: 0
-  isLoop: 0
-  shakeTime: 0
 --- !u!1101 &2734356272844706662
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1911,7 +1888,6 @@ AnimatorState:
   - {fileID: -8635526160247304420}
   - {fileID: -7109429468429500367}
   - {fileID: -7480710989416313330}
-  - {fileID: 2570066315681893218}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

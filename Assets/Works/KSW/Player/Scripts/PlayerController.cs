@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using static UnityEngine.GraphicsBuffer;
 
 public enum PlayerAnimationHashNumber
 {
@@ -211,7 +212,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if (photonView.IsMine == false)
             return;
-        states[(int)curState].ExitState();
+     
     }
 
 
@@ -230,7 +231,6 @@ public class PlayerController : MonoBehaviourPun
 
     private void Update()
     {
-  
 
         if (photonView.IsMine == false)
         {
@@ -512,22 +512,23 @@ public class PlayerController : MonoBehaviourPun
     AudioClip hitSound;
     GameObject hurtEffect;
     Vector3 hurtEffectPos;
-    public void TakeDamage(float damage, bool down, Vector3 target, AudioClip clip, GameObject effect, Vector3 effectPos)
+    public void TakeDamage(float damage, bool down, Vector3 target, string soundName, string effectName, Vector3 effectPos, int modelNumber)
     {
-        if (photonView.IsMine)
-        {
-            hitSound = clip;
-            hurtEffect = effect;
-            hurtEffectPos = effectPos;
-        }
+        
+        
        // photonView.RPC(nameof(TakeDamageRPC), RpcTarget.AllViaServer, damage, down, target);
-        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target);
+        photonView.RPC(nameof(TakeDamageRPC), RpcTarget.All, damage, down, target, soundName, effectName, effectPos , modelNumber);
 
 
     }
+
+
     [PunRPC]
-    public void TakeDamageRPC(float damage, bool down, Vector3 target)
+    public void TakeDamageRPC(float damage, bool down, Vector3 target, string soundName, string effectName, Vector3 effectPos, int modelNumber)
     {
+        if (photonView.IsMine == false)
+            return;
+
         if (model.HP <= 0)
         {
             Debug.Log("PlayerDeath");
@@ -541,6 +542,12 @@ public class PlayerController : MonoBehaviourPun
             hurtEffectPos = Vector3.zero;
             return;
         }
+        else
+        {
+            hitSound = AudioManager.GetInstance().GetMonsterSoundDic(modelNumber, soundName);
+            hurtEffect = EffectManager.GetInstance().GetEffectDic(effectName);
+            hurtEffectPos = effectPos;
+        }
         if (hitSound != null)
         {
             AudioManager.GetInstance().PlaySound(hitSound);
@@ -553,6 +560,17 @@ public class PlayerController : MonoBehaviourPun
             Instantiate(hurtEffect, hurtEffectPos, transform.rotation);
 
         }
+
+
+        photonView.RPC(nameof(TakeDamageResult), RpcTarget.All, damage, down, target);
+
+
+
+    }
+
+    [PunRPC]
+    void TakeDamageResult(float damage, bool down, Vector3 target)
+    {
         transform.LookAt(target);
 
         isFixed = false;
@@ -581,10 +599,7 @@ public class PlayerController : MonoBehaviourPun
             animator.SetTrigger(animatorParameterHash[(int)PlayerAnimationHashNumber.Hit]);
 
         }
-
-
     }
-     
 
     void Dying()
     {

@@ -513,6 +513,7 @@ MonoBehaviour:
   animator: {fileID: 6565441163601852315}
   rigid: {fileID: -2810973816032400335}
   model: {fileID: 5612456238972113234}
+  monsterHurtBox: {fileID: 0}
   isFixed: 0
   isMoveAni: 0
   isDie: 0
@@ -655,15 +656,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterNumber: 1
   type: 1
-  maxHP: 1000
-  hp: 1000
+  maxHP: 5000
+  hp: 5000
   maxStamina: 0
   stamina: 0
   consumetamina: 0
   recoveryStaminaMag: 0
-  attack: 200
+  attack: 100
   attackSpeed: 1
-  moveSpeed: 10
+  moveSpeed: 7
   criticalRate: 0
   criticalDamageRate: 0
   skillCoolTime: []
@@ -729,7 +730,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 0
-  multiplier: 1
+  multiplier: 0.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -1165,7 +1166,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  multiplier: 1
+  multiplier: 1.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -1511,7 +1512,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  multiplier: 1
+  multiplier: 2.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -1706,7 +1707,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  multiplier: 1
+  multiplier: 1.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -2247,7 +2248,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  multiplier: 1
+  multiplier: 1.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -2537,7 +2538,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  multiplier: 1
+  multiplier: 2
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -2971,7 +2972,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 0
-  multiplier: 1
+  multiplier: 0.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0
@@ -4596,7 +4597,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   model: {fileID: 5612456238972113234}
   hitboxType: 1
-  multiplier: 1
+  multiplier: 1.5
   effectName: HitEffect1
   soundName: BossAttackHit1
   radius: 0

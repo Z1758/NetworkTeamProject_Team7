@@ -52,7 +52,7 @@ public class PlayerHurtbox : MonoBehaviourPun, IPunObservable
 
 
 
-            pc.TakeDamage(hitbox.GetAtk(), hitbox.GetDown(), target, hitbox.GetSoundEffect(), hitbox.HitEffect(), other.ClosestPoint(transform.position));
+            pc.TakeDamage(hitbox.GetAtk(), hitbox.GetDown(), target, hitbox.GetSoundEffectName(), hitbox.HitEffectName(), other.ClosestPoint(transform.position), hitbox.GetModelNumber());
         }
 
     }

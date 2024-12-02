@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 [System.Serializable]
@@ -44,7 +45,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
     //   [Header("애니메이션 해싱")]
-    // int[] animtionHash;
+     int[] animtionHash;
+
+    int waitHash;
+    int runHash;
+    int readyHash;
     int[] animatorParameterHash;
 
     int runParameterHash;
@@ -74,11 +79,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void SetStatus()
     {
-        int stage = GameScene.Instance.currentStage - 1;
-        //int stage = TestGameScene.Instance.currentStage - 1;
-        model.MaxHP = model.MaxHP + (model.MaxHP * 0.5f * stage);
+       int stage = GameScene.Instance.currentStage - 1;
+      //  int stage = TestGameScene.Instance.currentStage - 1;
+        model.MaxHP = model.MaxHP + (model.MaxHP * 1f * stage);
         model.HP = model.MaxHP;
-        model.Attack = model.Attack + (model.Attack * 0.3f * stage);
+        model.Attack = model.Attack + (model.Attack * 0.4f * stage);
         model.MoveSpeed = model.MoveSpeed + (model.MoveSpeed * 0.05f * stage);
 
         model.AttackSpeed = model.AttackSpeed + (0.05f * stage);
@@ -97,11 +102,16 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void SetAniHash()
     {
-        //   animtionHash = new int[patterns.Length];
+           animtionHash = new int[patterns.Length];
         animatorParameterHash = new int[patterns.Length];
+
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < patterns.Length; i++)
         {
-            //      animtionHash[i] = Animator.StringToHash(patterns[i].pattern);
+            stringBuilder.Clear();
+            stringBuilder.Append("Base Layer.");
+            stringBuilder.Append(patterns[i].pattern);
+                  animtionHash[i] = Animator.StringToHash(stringBuilder.ToString());
 
             AnimatorControllerParameter animatorControllerParameter = animator.parameters[i];
             animatorParameterHash[i] = animatorControllerParameter.nameHash;
@@ -127,13 +137,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
         }
 
+        waitHash = Animator.StringToHash("Base Layer.Wait");
+        runHash = Animator.StringToHash("Base Layer.Run");
+        readyHash = Animator.StringToHash("Base Layer.ReadyAction");
+
     }
 
     public void FindPlayers()
     {
         pc_s.Clear();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
-
+        
         foreach (GameObject obj in objects)
         {
             if (obj.layer != (int)LayerEnum.DISABLE_BOX)
@@ -142,6 +156,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
                 pc_s.Add(obj.GetComponent<PlayerController>());
 
             }
+        }
+
+        //게임오버시
+        if (pc_s.Count == 0)
+        {
+            GameScene.Instance.OnResultButton();
         }
         TargetChange();
 
@@ -184,7 +204,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
-
+    
         SetAniTime();
 
         if (isDie)
@@ -237,16 +257,11 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     public void Synchronization()
     {
-        if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
-        {
-            Debug.Log("동기화");
-
-            if (isDie)
-                animator.Play("Death");
-            else
-                animator.Play(currentHash, 0, aniStateTime);
-
-        }
+          
+            
+            animator.Play(currentHash, 0, aniStateTime);
+            
+        
 
     }
     public void SynchronizationDeath()
@@ -262,10 +277,72 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     }
     public void SynchronizationChechk()
     {
-        if (Mathf.Abs(lag) > 0.08f)
+        /*
+        if(Mathf.Abs(lag) > 0.5f )
+        {
+            if (currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+            {
+                if(animator.GetCurrentAnimatorStateInfo(0).fullPathHash == furiHash)
+                {
+
+                }
+                if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == readyHash)
+                {
+
+                }
+              
+
+            }
+         //  Synchronization();
+        }
+        else if (Mathf.Abs(lag) > 0.06f && currentHash == animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
         {
             Synchronization();
+        }*/
+
+     
+        if (runHash == currentHash || waitHash == currentHash )
+        {
+            return;
         }
+
+
+
+        if (Mathf.Abs(lag) > 0.07f && currentHash == animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+        {
+
+            Debug.Log($"{lag} 동기화1");
+            Synchronization();
+        }
+        else if (Mathf.Abs(lag) > 0.3f && currentHash != animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+        {
+         
+            for (int i = 0; i < patterns.Length; i++)
+            {
+
+
+                if (animtionHash[i] == currentHash)
+                {
+                    if (readyHash == animator.GetCurrentAnimatorStateInfo(0).fullPathHash)
+                    {
+                        Debug.Log("레디 액션 동기화");
+                    
+                    }
+                    else
+                    {
+                        Debug.Log("공격 동기화 겹침!");
+                        return;
+                    }
+
+                  
+                }
+ 
+            }
+
+            Debug.Log($"{lag} 동기화2");
+            Synchronization();
+        }
+
     }
     public void SetAniTime()
     {
@@ -280,6 +357,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         lag = 0;
         aniStateTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         currentHash = animator.GetCurrentAnimatorStateInfo(0).fullPathHash;
+      
     }
 
     public void TraceMonster()
@@ -488,9 +566,12 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
 
         //임시
-        //TestGameScene.Instance.ClearBoss(gameObject);
+       // TestGameScene.Instance.ClearBoss(gameObject);
+
         GameScene.Instance.ClearBoss(gameObject);
     }
+
+
 
     public void Furious()
     {
