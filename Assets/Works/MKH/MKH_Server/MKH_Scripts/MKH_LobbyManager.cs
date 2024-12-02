@@ -60,7 +60,7 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("방 입장 성공");
-        PhotonNetwork.LoadLevel("MKH_WaitingScene");
+        MKH_LoadingSceneController.Instance.LoadScene("MKH_WaitingScene");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)         // 방 입장 실패 시
