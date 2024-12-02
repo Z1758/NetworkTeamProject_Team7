@@ -31,10 +31,16 @@ public class WHS_Chest : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
+    public void ChestAnimation()
+    {
+        animator.Play("Open");
+    }
+
     IEnumerator DestroyChest()
     {
         WaitForSeconds wait = new WaitForSeconds(1.0f);
-        animator.Play("Open");
+        photonView.RPC(nameof(ChestAnimation), RpcTarget.All);
 
         yield return wait;
         for (int i = 0; i < 10; i++)

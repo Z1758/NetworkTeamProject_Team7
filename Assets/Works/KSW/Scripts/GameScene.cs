@@ -68,6 +68,31 @@ public class GameScene : MonoBehaviourPunCallbacks
     }
 
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            
+            if (resultCanvas.activeSelf)
+            {
+              
+                Cursor.lockState = CursorLockMode.Locked;
+
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+
+                Cursor.visible = true;
+            }
+
+            resultCanvas.SetActive(!resultCanvas.activeSelf);
+
+        }
+    }
+
     private void Start()
     {
         PhotonNetwork.LocalPlayer.SetLoad(true);
