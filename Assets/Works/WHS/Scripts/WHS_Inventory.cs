@@ -52,6 +52,12 @@ public class WHS_Inventory : MonoBehaviourPun
     // 아이템 사용 호출
     public void UseItem(ItemType type)
     {
+        if (statusModel.HP <= 0)
+        {
+            Debug.Log("죽었습니다");
+            return;
+        }
+
         if (items.ContainsKey(type) && items[type] > 0)
         {
             if (statusModel.HP == statusModel.MaxHP)
@@ -85,6 +91,8 @@ public class WHS_Inventory : MonoBehaviourPun
                     item.value = hpPotion.value;
                 }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
+
+                PlayItemUseSound(type);
 
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
             }
@@ -139,4 +147,13 @@ public class WHS_Inventory : MonoBehaviourPun
         }
     }
 
+    // 아이템 효과음 재생
+    private void PlayItemUseSound(ItemType type)
+    {
+        if (type == ItemType.HP)
+        {
+            AudioClip clip = AudioManager.GetInstance().GetCommonSoundDic("HPPotion");
+            AudioManager.GetInstance().PlaySound(clip);
+        }
+    }
 }
