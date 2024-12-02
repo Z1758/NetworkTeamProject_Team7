@@ -23,7 +23,7 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
         if (this._recorder == null)
         {
             // Voice 오브젝트에 있는 Recorder 인스턴스 가져오기
-            this._recorder = FindObjectOfType<Recorder>();
+            this._recorder = this._punVoiceClient.PrimaryRecorder;
 
             if (this._recorder != null)
             {
@@ -52,7 +52,6 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
             {
                 // TransmitEnabled 상태를 토글
                 this._recorder.TransmitEnabled = !this._recorder.TransmitEnabled;
-                Debug.Log("마이크 상태: " + (this._recorder.TransmitEnabled ? "ON" : "OFF"));
             }
         }
     }
@@ -70,6 +69,24 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
         {
             // Voice 클라이언트가 초기화 상태이거나 연결되지 않았다면 서버에 연결하고 룸에 참여
             this._punVoiceClient.ConnectAndJoinRoom(); // 서버 연결 후 룸에 자동으로 입장
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.PeerCreated ||
+                 this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Disconnected)
+        {
+            // Voice 클라이언트가 초기화 상태이거나 연결되지 않았다면 서버에 연결하고 룸에 참여
+            this._punVoiceClient.ConnectAndJoinRoom(); // 서버 연결 후 룸에 자동으로 입장
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Joined)
+        {
+            this._punVoiceClient.Disconnect();
         }
     }
 }
