@@ -39,13 +39,14 @@ public class WHS_Chest : MonoBehaviourPun
     [PunRPC]
     private void DestroyChestRPC()
     {
-        gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+        
         StartCoroutine(DestroyChest());
     }
 
     [PunRPC]
     public void ChestAnimation()
     {
+        gameObject.layer = (int)LayerEnum.DISABLE_BOX;
         animator.Play("Open");
     }
 
