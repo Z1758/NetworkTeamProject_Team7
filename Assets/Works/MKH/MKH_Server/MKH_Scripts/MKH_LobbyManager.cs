@@ -10,12 +10,33 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] MKH_LoginPanel loginPanel;
     [SerializeField] MKH_MainPanel menuPanel;
     [SerializeField] MKH_LobbyPanel lobbyPanel;
+    [SerializeField] GameObject cover;
 
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        SetActivePanel(Panel.Login);
+        if (PhotonNetwork.InLobby)
+        {
+            SetActivePanel(Panel.Lobby);
+        }
+        else if (PhotonNetwork.IsConnected)
+        {
+            SetActivePanel(Panel.Menu);
+        }
+        else
+        {
+            SetActivePanel(Panel.Login);
+            cover.SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            cover.SetActive(false);
+        }
     }
 
     public override void OnConnectedToMaster()      // 마스터 서버에 접속을 완료 했을 때
