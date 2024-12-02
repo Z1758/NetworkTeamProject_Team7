@@ -71,6 +71,11 @@ public class WHS_Inventory : MonoBehaviourPun
 
             photonView.RPC(nameof(HealEffectRPC), RpcTarget.All, transform.position);
         }
+
+        if (photonView.IsMine)
+        {
+            PlayItemUseSound(type);
+        }
     }
 
     // 아이템 사용
@@ -92,7 +97,7 @@ public class WHS_Inventory : MonoBehaviourPun
                 }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
 
-                PlayItemUseSound(type);
+                // PlayItemUseSound(type);
 
                 Debug.Log($"{statusModel.photonView.ViewID}가 {item.value} 회복");
             }
