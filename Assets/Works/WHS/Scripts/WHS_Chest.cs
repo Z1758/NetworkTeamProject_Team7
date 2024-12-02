@@ -23,12 +23,22 @@ public class WHS_Chest : MonoBehaviourPun
     {
         if (other.CompareTag("Hitbox"))
         {
+            /*
             if (photonView.IsMine)
             {
                 gameObject.layer = (int)LayerEnum.DISABLE_BOX;
                 StartCoroutine(DestroyChest());
             }
+            */
+            gameObject.layer = (int)LayerEnum.DISABLE_BOX;
+            photonView.RPC(nameof(DestroyChestRPC), RpcTarget.MasterClient);
         }
+    }
+
+    [PunRPC]
+    private void DestroyChestRPC()
+    {
+        StartCoroutine(DestroyChest());
     }
 
     [PunRPC]

@@ -70,6 +70,11 @@ public class WHS_Inventory : MonoBehaviourPun
             photonView.RPC(nameof(UseItemRPC), RpcTarget.MasterClient, type, statusModel.photonView.ViewID);
 
             photonView.RPC(nameof(HealEffectRPC), RpcTarget.All, transform.position);
+
+            if (photonView.IsMine)
+            {
+                PlayItemUseSound(type);
+            }
         }
     }
 
@@ -92,7 +97,7 @@ public class WHS_Inventory : MonoBehaviourPun
                 }
                 WHS_ItemManager.Instance.ApplyItem(statusModel, item);
 
-                PlayItemUseSound(type);
+                // PlayItemUseSound(type);
 
                 Debug.Log($"{statusModel.photonView.ViewID}°¡ {item.value} È¸º¹");
             }
