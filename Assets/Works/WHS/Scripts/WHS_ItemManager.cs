@@ -78,7 +78,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     private void SpawnItemRPC(Vector3 position)
     {
         ItemPrefab selectedItem = GetRandomItem();
-        if(selectedItem == null)
+        if (selectedItem == null)
         {
             Debug.Log("æ∆¿Ã≈€ »Æ∑¸ ø°∑Ø");
             return;
@@ -87,8 +87,11 @@ public class WHS_ItemManager : MonoBehaviourPun
         string itemPath = "GameObject/Items/" + selectedItem.prefab.name;
         Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
 
-        GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position, rotation);
-        // WHS_Item item = itemObj.GetComponent<WHS_Item>();
+        float randomX = Random.Range(-1f, 1f);
+        float randomZ = Random.Range(-1f, 1f);
+        Vector3 offset = new Vector3(randomX, 0, randomZ);
+
+        GameObject itemObj = PhotonNetwork.Instantiate(itemPath, position + offset, rotation);
     }
 
     // »πµÊ«— æ∆¿Ã≈€ Ω∫≈» ¿˚øÎ »£√‚
@@ -277,7 +280,7 @@ public class WHS_ItemManager : MonoBehaviourPun
     {
         float totalRate = 0f;
 
-        foreach(ItemPrefab item in itemPrefabs)
+        foreach (ItemPrefab item in itemPrefabs)
         {
             totalRate += item.dropRate;
         }
@@ -288,7 +291,7 @@ public class WHS_ItemManager : MonoBehaviourPun
         foreach (ItemPrefab item in itemPrefabs)
         {
             curRate += item.dropRate;
-            if(randomValue <= curRate)
+            if (randomValue <= curRate)
             {
                 return item;
             }
