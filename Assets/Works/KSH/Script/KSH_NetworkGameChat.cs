@@ -98,14 +98,17 @@ public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunOb
                         SubmitPrivateChatOnClick();
 
                         // 채팅 메시지를 다른 사람에게 보냄
-                        myView.RPC("OpenChatBox", RpcTarget.AllBuffered);
-                        _inputField.text = "";
-                        if (_speechBubbleCoroutine != null)
+                        if (_privateReceiver == "")
                         {
-                            StopCoroutine(_speechBubbleCoroutine);
+                            myView.RPC("OpenChatBox", RpcTarget.AllBuffered);
+                            _inputField.text = "";
+                            if (_speechBubbleCoroutine != null)
+                            {
+                                StopCoroutine(_speechBubbleCoroutine);
+                            }
+                            // 새로 Coroutine 시작
+                            _speechBubbleCoroutine = StartCoroutine(DisplaySpeechBubble());
                         }
-                        // 새로 Coroutine 시작
-                        _speechBubbleCoroutine = StartCoroutine(DisplaySpeechBubble());
                     }
                 }
             }
