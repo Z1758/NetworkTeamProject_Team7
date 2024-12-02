@@ -9,7 +9,6 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
 {
     private PunVoiceClient _punVoiceClient;
     private Recorder _recorder;
-    [SerializeField] Button _voiceSwitch;
 
     private void Awake()
     {
@@ -37,21 +36,25 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
             }
         }
 
-        if (this._voiceSwitch != null)
-        {
-            this._voiceSwitch.onClick.AddListener(this.VoiceSwitchOnClick);
-        }
     }
 
     void Update()
     {
-        // 'T' 키로 마이크 ON/OFF 전환
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            if (this._recorder != null)
+            VoiceSwitchOnClick();
+        }
+
+        // 'T' 키로 마이크 ON/OFF 전환
+        if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Joined)
+        {
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                // TransmitEnabled 상태를 토글
-                this._recorder.TransmitEnabled = !this._recorder.TransmitEnabled;
+                if (this._recorder != null)
+                {
+                    // TransmitEnabled 상태를 토글
+                    this._recorder.TransmitEnabled = !this._recorder.TransmitEnabled;
+                }
             }
         }
     }
@@ -69,24 +72,6 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
         {
             // Voice 클라이언트가 초기화 상태이거나 연결되지 않았다면 서버에 연결하고 룸에 참여
             this._punVoiceClient.ConnectAndJoinRoom(); // 서버 연결 후 룸에 자동으로 입장
-        }
-    }
-
-    private void OnEnable()
-    {
-        if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.PeerCreated ||
-                 this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Disconnected)
-        {
-            // Voice 클라이언트가 초기화 상태이거나 연결되지 않았다면 서버에 연결하고 룸에 참여
-            this._punVoiceClient.ConnectAndJoinRoom(); // 서버 연결 후 룸에 자동으로 입장
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Joined)
-        {
-            this._punVoiceClient.Disconnect();
         }
     }
 }

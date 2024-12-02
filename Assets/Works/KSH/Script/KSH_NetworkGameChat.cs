@@ -39,8 +39,7 @@ public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunOb
         Application.runInBackground = true;
 
         // 사용자 이름을 로컬플레이어 이름으로 설정
-        // _userName = PhotonNetwork.LocalPlayer.NickName;
-        _userName = "MMSS";
+        _userName = PhotonNetwork.LocalPlayer.NickName;
 
         // 설정 값 적용
         _chatID = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat;
