@@ -798,6 +798,29 @@ MonoBehaviour:
   effectNum: 0
   isLoop: 0
   shakeTime: 0
+--- !u!114 &-5150086251424603866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.407
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 9
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &-5124413115394293672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,6 +1209,7 @@ AnimatorState:
   - {fileID: 7252982913649051236}
   - {fileID: 311376805022395075}
   - {fileID: -7657509884976016383}
+  - {fileID: 3645893021060432539}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1920,6 +1944,7 @@ AnimatorState:
   - {fileID: 5157923606092525497}
   - {fileID: -2154785060334758038}
   - {fileID: -6957083143168823718}
+  - {fileID: -5150086251424603866}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2269,6 +2294,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &3645893021060432539
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.123
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 8
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &3683299361794209780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2434,6 +2482,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &4472493944755180083
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73872a1a276dbb44d99875ef896a1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTime: 0.512
+  eventType: 0
+  animationType: 64
+  audioName: 
+  commonAudio: 0
+  moveVelocity: 0
+  colliderNum: 0
+  colliderActive: 0
+  effectNum: 7
+  isLoop: 0
+  shakeTime: 0
 --- !u!114 &4502008443123839462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2804,6 +2875,7 @@ AnimatorState:
   - {fileID: 8182605614544371096}
   - {fileID: 9051316643254415579}
   - {fileID: -8949072977583754088}
+  - {fileID: 4472493944755180083}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
