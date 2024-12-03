@@ -149,7 +149,7 @@ public class FractureObject : MonoBehaviourPun
             yield return fadeDelay;
 
         }
-
-        Destroy(gameObject);
+        if (photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject);
     }
 }
