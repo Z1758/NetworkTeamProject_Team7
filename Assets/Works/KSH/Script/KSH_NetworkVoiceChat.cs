@@ -8,7 +8,15 @@ using UnityEngine.UI;
 public class KSH_NetworkVoiceChat : MonoBehaviour
 {
     private PunVoiceClient _punVoiceClient;
+    private Photon.Realtime.ClientState _previousState;
     private Recorder _recorder;
+
+    [SerializeField] Image _voiceChatImage;
+    [SerializeField] Sprite[] _voiceimage = new Sprite[2];
+
+    [SerializeField] Image _mikeImage;
+    [SerializeField] Sprite[] _image = new Sprite[2];
+    private bool _isTransmitEnabled = false;
 
     private void Awake()
     {
@@ -40,6 +48,21 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
 
     void Update()
     {
+        if (_punVoiceClient.ClientState != _previousState)
+        {
+            _previousState = _punVoiceClient.ClientState;
+
+            if (_punVoiceClient.ClientState == Photon.Realtime.ClientState.Joined)
+            {
+                VoiceChatImage(0); // 보이스 챗 활성화 이미지
+            }
+            else if (_punVoiceClient.ClientState == Photon.Realtime.ClientState.PeerCreated ||
+                     _punVoiceClient.ClientState == Photon.Realtime.ClientState.Disconnected)
+            {
+                VoiceChatImage(1); // 보이스 챗 비활성화 이미지
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.F1))
         {
             VoiceSwitchOnClick();
@@ -57,6 +80,13 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
                 }
             }
         }
+
+        if (_recorder != null && _recorder.TransmitEnabled != _isTransmitEnabled)
+        {
+            _isTransmitEnabled = _recorder.TransmitEnabled;
+            // _isTransmitEnabled ? 0 : 1 = true 일때 0값, flase 일 때 1값 *삼항 연산자
+            MikeImage(_isTransmitEnabled ? 0 : 1);
+        }
     }
 
     private void VoiceSwitchOnClick()
@@ -73,5 +103,25 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
             // Voice 클라이언트가 초기화 상태이거나 연결되지 않았다면 서버에 연결하고 룸에 참여
             this._punVoiceClient.ConnectAndJoinRoom(); // 서버 연결 후 룸에 자동으로 입장
         }
+    }
+
+    private void OnDestroy()
+    {
+        // 현재 Photon Voice의 클라이언트 상태 확인
+        if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Joined)
+        {
+            // Voice 클라이언트가 현재 룸에 연결된 상태라면 연결 해제
+            this._punVoiceClient.Disconnect();
+        }
+    }
+
+    private void VoiceChatImage(int mike)
+    {
+        _voiceChatImage.sprite = _voiceimage[mike];
+    }
+
+    private void MikeImage(int mike)
+    {
+        _mikeImage.sprite = _image[mike];
     }
 }
