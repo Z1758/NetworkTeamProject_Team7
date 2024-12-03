@@ -70,7 +70,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
     }
 
     private void SetStatus()
-    {
+    {   
        int stage = GameScene.Instance.currentStage - 1;
       //  int stage = TestGameScene.Instance.currentStage - 1;
         model.MaxHP = model.MaxHP + (model.MaxHP * 1f * stage);

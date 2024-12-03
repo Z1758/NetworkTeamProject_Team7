@@ -233,7 +233,7 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     IEnumerator SetMonsterDelay()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(3.5f);
        // SetMonster();
         characterSelectUI.SetActive(true);
     }
@@ -295,35 +295,32 @@ public class GameScene : MonoBehaviourPunCallbacks
         readyPlayer = 0;
         currentStage++;
 
-        Debug.Log("----------" +currentStage);
         startPoint.SetActive(false);
         if (currentBoss is not null)
         {
             RemoveBoss();
             currentBoss = null;
         }
-        if (monsterOrderQueue.Count > 0)
-        {
-          
-            int orderNum = monsterOrderQueue.Dequeue();
-            AudioManager.GetInstance().PlayBGM(currentStage);
-            timeline.StartTimeline(orderNum);
+        AudioManager.GetInstance().PlayBGM(currentStage);
+        int orderNum = monsterOrderQueue.Dequeue();
 
-        }
+        timeline.StartTimeline(orderNum);
+    
     }
+    
+    
 
 
-
-    IEnumerator DelayRemoveBoss()
+    IEnumerator DelayRemoveBoss(Vector3 vec)
     {
         yield return new WaitForSecondsRealtime(7.0f);
-        Vector3 vec = currentBoss.transform.position;
+        if (photonView.IsMine)
+        {
 
-        vec.x = UnityEngine.Random.Range(-7f, 7f);
-        vec.z = UnityEngine.Random.Range(-7f, 7f);
-   
+            RemoveBoss();
+        }
+
         WHS_ItemManager.Instance.SpawnChest(vec);
-        RemoveBoss();
         startPoint.SetActive(true);
     }
 
@@ -349,8 +346,12 @@ public class GameScene : MonoBehaviourPunCallbacks
 
         if (currentStage < 5)
         {
+            Vector3 vec = currentBoss.transform.position;
 
-            StartCoroutine(DelayRemoveBoss());
+            vec.x = UnityEngine.Random.Range(-7f, 7f);
+            vec.z = UnityEngine.Random.Range(-7f, 7f);
+
+            StartCoroutine(DelayRemoveBoss(vec));
         }
         else
         {
