@@ -44,6 +44,9 @@ public class GameScene : MonoBehaviourPunCallbacks
     public int readyPlayer = 0;
     public int currentStage;
 
+
+    bool isLeft;
+
     public static GameScene Instance
     {
         get
@@ -55,7 +58,6 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        
         if (instance == null)
         {
 
@@ -68,6 +70,13 @@ public class GameScene : MonoBehaviourPunCallbacks
         }
 
         Time.timeScale = 1.0f;
+
+        for (int i = 0; i < monsterCount; i++)
+        {
+            monsterPrefabsNumber.Add(i + 1);
+        }
+
+
     }
 
 
@@ -115,7 +124,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         while (true)
         {
             yield return waitForSeconds; // 네트워크 준비에 필요한 시간 살짝 주기
-
+          
             bool allLoaded = CheckAllLoad();
             Debug.Log($"모든 플레이어가 로딩 완료되었는가 : {allLoaded}");
             if (allLoaded)
@@ -160,7 +169,11 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel("MKH_ServerScene");
+        if (isLeft)
+        {
+            PhotonNetwork.LoadLevel("MKH_ServerScene");
+            isLeft = false;
+        }
     }
 
     public void GameOver()
@@ -174,12 +187,15 @@ public class GameScene : MonoBehaviourPunCallbacks
         PhotonNetwork.DestroyAll();
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.LoadLevel("MKH_WaitingScene");
+        
+        Destroy(gameObject);
     }
 
     public void LeaveRoom()
     {
         //  PhotonNetwork.DestroyAll();
 
+        isLeft = true;
         PhotonNetwork.LocalPlayer.SetReady(false);
         PhotonNetwork.LocalPlayer.SetLoad(false);
         Time.timeScale = 1.0f;
@@ -191,12 +207,7 @@ public class GameScene : MonoBehaviourPunCallbacks
    
     private void SetMonster()
     {
-        for (int i = 0; i < monsterCount; i++)
-        {
-            monsterPrefabsNumber.Add(i + 1);
-        }
-
-
+       
 
         Debug.Log("셋업");
         // 랜덤 순서 초기화
@@ -230,6 +241,8 @@ public class GameScene : MonoBehaviourPunCallbacks
     [PunRPC]
     public void SetMonsterOrder(int num)
     {
+
+
         monsterOrderQueue.Enqueue(monsterPrefabsNumber[num]);
         monsterPrefabsNumber.Remove(monsterPrefabsNumber[num]);
     }
