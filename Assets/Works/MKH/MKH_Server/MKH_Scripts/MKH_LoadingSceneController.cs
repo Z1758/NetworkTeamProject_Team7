@@ -1,4 +1,3 @@
-using Photon.Pun;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
@@ -49,18 +48,15 @@ public class MKH_LoadingSceneController : MonoBehaviour
 
     private string loadSceneName;
 
-    private void Start()
-    {
-        StartCoroutine(LoadSceneProcess1());
-    }
-
     public void LoadScene(string sceneName)
     {
-        PhotonNetwork.LoadLevel(sceneName);
+        gameObject.SetActive(true);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        loadSceneName = sceneName;
+        StartCoroutine(LoadSceneProcess());
     }
 
-    #region 사용 X
-    /*
     private IEnumerator LoadSceneProcess()
     {
         loadingSlider.value = 0f;
@@ -99,8 +95,7 @@ public class MKH_LoadingSceneController : MonoBehaviour
         }
 
     }
- 
-    
+
     private IEnumerator Fade(bool isFadeIn)
     {
         float timer = 0f;
@@ -115,31 +110,5 @@ public class MKH_LoadingSceneController : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-    }
-    */
-    #endregion
-
-    private IEnumerator LoadSceneProcess1()
-    {
-        while (true)
-        {
-            yield return null;
-            if(PhotonNetwork.LevelLoadingProgress == 0 ||
-                PhotonNetwork.LevelLoadingProgress == 1)
-            {
-                //로딩 UI 안띄움
-                //투명하게
-                canvasGroup.alpha = 0f;
-            }
-            else
-            {
-                // 로딩 UI 띄움
-                // 안투명하게
-                canvasGroup.alpha = 1f;
-                loadingSlider.value = PhotonNetwork.LevelLoadingProgress;
-                
-            }
-        }
-
     }
 }
