@@ -1,3 +1,4 @@
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
@@ -15,11 +16,12 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
+        MKH_LoadingSceneController.Create();
 
-        //if (PhotonNetwork.InLobby)
-        //{
-        //    SetActivePanel(Panel.Lobby);
-        //}
+        if (PhotonNetwork.InLobby)
+        {
+            SetActivePanel(Panel.Lobby);
+        }
         if (PhotonNetwork.IsConnected)
         {
             SetActivePanel(Panel.Menu);
