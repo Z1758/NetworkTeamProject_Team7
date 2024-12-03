@@ -294,6 +294,8 @@ public class GameScene : MonoBehaviourPunCallbacks
     {
         readyPlayer = 0;
         currentStage++;
+
+        Debug.Log("----------" +currentStage);
         startPoint.SetActive(false);
         if (currentBoss is not null)
         {
@@ -425,11 +427,7 @@ public class GameScene : MonoBehaviourPunCallbacks
 
             }
 
-            foreach (int i in monsterOrderQueue)
-            {
-                Debug.Log("boss" + i);
-            }
-
+            
         }
 
     }
