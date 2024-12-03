@@ -9,7 +9,6 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     public enum Panel { Room }
 
     [SerializeField] MKH_RoomPanel roomPanel;
-    [SerializeField] GameObject obj;
 
 
     private void Start()
@@ -24,7 +23,7 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log($"Á¢¼ÓÀÌ ²÷Ä×´Ù. cause : {cause}");
-        PhotonNetwork.LoadLevel("MKH_ServerScene");
+        MKH_LoadingSceneController.Instance.LoadScene("MKH_ServerScene");
     }
 
 
@@ -74,7 +73,6 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.LocalPlayer.IsLocal)
         {
             PlayerSpawn();
-            Debug.Log("1");
             SetActivePanel(Panel.Room);
         }
     }

@@ -16,10 +16,8 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        //if (PhotonNetwork.InLobby)
-        //{
-        //    SetActivePanel(Panel.Lobby);
-        //}
+        MKH_LoadingSceneController.Create();
+
         if (PhotonNetwork.IsConnected)
         {
             SetActivePanel(Panel.Menu);
