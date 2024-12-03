@@ -168,6 +168,8 @@ public class GameScene : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient == false)
             return;
 
+        PhotonNetwork.LocalPlayer.SetReady(false);
+        PhotonNetwork.LocalPlayer.SetLoad(false);
         Time.timeScale = 1.0f;
         PhotonNetwork.DestroyAll();
         PhotonNetwork.CurrentRoom.IsOpen = true;

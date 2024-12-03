@@ -18,12 +18,10 @@ public class MKH_RoomPanel : MonoBehaviourPun
         // 플레이어 넘버링 업데이트
         PlayerNumbering.OnPlayerNumberingChanged += UpdatePlayers;
 
-        PhotonNetwork.LocalPlayer.SetReady(false);
-        PhotonNetwork.LocalPlayer.SetLoad(false);
-        Cursor.lockState = CursorLockMode.None;
-
-        Cursor.visible = true;
+    
+        
     }
+   
 
     // 방에 나갔을 때
     private void OnDisable()
@@ -68,7 +66,14 @@ public class MKH_RoomPanel : MonoBehaviourPun
     public void EnterPlayer(Player newPlayer)
     {
         Debug.Log($"{newPlayer.NickName} 입장!");
+
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
+        PhotonNetwork.LocalPlayer.SetReady(false);
+        PhotonNetwork.LocalPlayer.SetLoad(false);
         UpdatePlayers();
+
     }
 
     // 플레이어 퇴장
