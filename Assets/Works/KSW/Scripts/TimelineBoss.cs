@@ -17,14 +17,15 @@ public class TimelineBoss : MonoBehaviourPun
     }
 
     private void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (PhotonNetwork.IsMasterClient == false)
                 return;
-            photonView.RPC(nameof(PlayTimeLineRPC), RpcTarget.AllViaServer, 1);
+            photonView.RPC(nameof(PlayTimeLineRPC), RpcTarget.All, 1);
            
-        }
+        }*/
+
     }
 
     public void StartTimeline(int num)

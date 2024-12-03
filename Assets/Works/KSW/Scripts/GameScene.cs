@@ -233,7 +233,7 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     IEnumerator SetMonsterDelay()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(3.0f);
         SetMonster();
         characterSelectUI.SetActive(true);
     }
@@ -375,6 +375,22 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public void OnResultButton()
     {
+
+        resultCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
+        statusUI.SetActive(true);
+    }
+
+    public void GameOverResult()
+    {
+        photonView.RPC(nameof(ResultButtonRpc), RpcTarget.All);
+    }
+
+    [PunRPC]
+   void  ResultButtonRpc()
+    {
         resultCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
 
@@ -387,14 +403,14 @@ public class GameScene : MonoBehaviourPunCallbacks
         if (other.CompareTag("Player"))
         {
             readyPlayer++;
-            /*
+            
             //임시 방편
             if (monsterPrefabsNumber.Count > 0)
             {
                 if (photonView.IsMine)
                     SetMonster();
             }
-            */
+            
             Debug.Log($"준비 {readyPlayer}/{PhotonNetwork.PlayerList.Count()} ");
 
             // 스테이지 시작 호출
