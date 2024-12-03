@@ -1,7 +1,7 @@
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +17,11 @@ public class MKH_RoomPanel : MonoBehaviourPun
         UpdatePlayers();
         // 플레이어 넘버링 업데이트
         PlayerNumbering.OnPlayerNumberingChanged += UpdatePlayers;
+
+    
+        
     }
+   
 
     // 방에 나갔을 때
     private void OnDisable()
@@ -80,7 +84,7 @@ public class MKH_RoomPanel : MonoBehaviourPun
     }
 
     // 플레이어 업데이트
-    public void UpdatePlayerProperty(Player targetPlayer, ExitGames.Client.Photon.Hashtable properties)
+    public void UpdatePlayerProperty(Player targetPlayer, Hashtable properties)
     {
         // 레디 커스텀 프로퍼티를 변경한 경우면 READY 키가 있음
         if (properties.ContainsKey(CustomProperty.READY))
@@ -105,6 +109,7 @@ public class MKH_RoomPanel : MonoBehaviourPun
     // 게임 실행
     public void StartGame()
     {
+
         // TODO : 게임 시작 구현
         MKH_LoadingSceneController.Instance.LoadScene("GameScene");
         // 게임 진행 중 들어오기 금지
@@ -115,6 +120,5 @@ public class MKH_RoomPanel : MonoBehaviourPun
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        MKH_LoadingSceneController.Instance.LoadScene("MKH_ServerScene");
     }
 }
