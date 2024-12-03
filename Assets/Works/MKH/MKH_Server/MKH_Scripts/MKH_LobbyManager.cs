@@ -10,12 +10,33 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] MKH_LoginPanel loginPanel;
     [SerializeField] MKH_MainPanel menuPanel;
     [SerializeField] MKH_LobbyPanel lobbyPanel;
+    [SerializeField] GameObject cover;
 
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        SetActivePanel(Panel.Login);
+        //if (PhotonNetwork.InLobby)
+        //{
+        //    SetActivePanel(Panel.Lobby);
+        //}
+        if (PhotonNetwork.IsConnected)
+        {
+            SetActivePanel(Panel.Menu);
+        }
+        else
+        {
+            SetActivePanel(Panel.Login);
+            cover.SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            cover.SetActive(false);
+        }
     }
 
     public override void OnConnectedToMaster()      // 마스터 서버에 접속을 완료 했을 때
@@ -39,7 +60,7 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("방 입장 성공");
-        PhotonNetwork.LoadLevel("MKH_WaitingScene");
+        MKH_LoadingSceneController.Instance.LoadScene("MKH_WaitingScene");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)         // 방 입장 실패 시
@@ -80,5 +101,10 @@ public class MKH_LobbyManager : MonoBehaviourPunCallbacks
         loginPanel.gameObject.SetActive(panel == Panel.Login);
         menuPanel.gameObject.SetActive(panel == Panel.Menu);
         lobbyPanel.gameObject.SetActive(panel == Panel.Lobby);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
