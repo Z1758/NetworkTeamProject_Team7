@@ -2539,6 +2539,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1236658239}
+        m_TargetAssemblyTypeName: KSH_NetworkVoiceChat, Assembly-CSharp
+        m_MethodName: VoiceChatOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &616763498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5057,6 +5069,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1598611020}
         m_TargetAssemblyTypeName: GameScene, Assembly-CSharp
         m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236658239}
+        m_TargetAssemblyTypeName: KSH_NetworkVoiceChat, Assembly-CSharp
+        m_MethodName: VoiceChatOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
