@@ -5463,6 +5463,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11d7699e603f2c40a8fa2f0530b6276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _voiceChatImage: {fileID: 0}
+  _voiceimage:
+  - {fileID: 21300000, guid: 78e59649d98b5f54ab0e0167be1d0c84, type: 3}
+  - {fileID: 21300000, guid: f7ca3c223def25744babb7cdf7ce1862, type: 3}
+  _mikeImage: {fileID: 0}
+  _image:
+  - {fileID: 21300000, guid: 464883c791528804496b8c8ef7126e52, type: 3}
+  - {fileID: 21300000, guid: 89c869f76d8c0474a8da08e71510f0f2, type: 3}
 --- !u!1 &1257859095
 GameObject:
   m_ObjectHideFlags: 0
