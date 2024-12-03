@@ -9,7 +9,6 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     public enum Panel { Room }
 
     [SerializeField] MKH_RoomPanel roomPanel;
-    [SerializeField] GameObject obj;
 
 
     private void Start()
@@ -24,17 +23,10 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log($"접속이 끊켰다. cause : {cause}");
-        PhotonNetwork.LoadLevel("MKH_ServerScene");
     }
 
 
-    #region 방 (입장, 퇴장, 플레이어 업데이트)
-    // 방에서 퇴장
-    public override void OnLeftRoom()
-    {
-        Debug.Log("방 퇴장 성공");
-        MKH_LoadingSceneController.Instance.LoadScene("MKH_ServerScene");
-    }
+    #region 방 (플레이어 업데이트)
 
     // 플레이어 입장
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -64,6 +56,7 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
     private void PlayerSpawn()
     {
         Vector3 randPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+
         PhotonNetwork.Instantiate("GameObject/MatchMaking/Player", randPos, Quaternion.identity);
     }
 
@@ -74,7 +67,6 @@ public class MKH_RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.LocalPlayer.IsLocal)
         {
             PlayerSpawn();
-            Debug.Log("1");
             SetActivePanel(Panel.Room);
         }
     }

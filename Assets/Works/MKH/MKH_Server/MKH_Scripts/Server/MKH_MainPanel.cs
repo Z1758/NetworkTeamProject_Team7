@@ -64,7 +64,15 @@ public class MKH_MainPanel : MonoBehaviour
         string name = $"Room {Random.Range(1000, 10000)}";
         RoomOptions options = new RoomOptions() { MaxPlayers = 4 };
         PhotonNetwork.JoinRandomOrCreateRoom(roomName: name, roomOptions: options);
-       
+    }
+
+    public void Square()
+    {
+        Debug.Log("광장 입장 요청");
+
+        string name = $"Room {Random.Range(1, 100)}";
+        RoomOptions options = new RoomOptions() { MaxPlayers = 20 };
+        PhotonNetwork.JoinRandomOrCreateRoom(roomName: name, roomOptions: options);
     }
 
     // 로비 들어가기
