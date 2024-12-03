@@ -179,6 +179,9 @@ public class GameScene : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         //  PhotonNetwork.DestroyAll();
+
+        PhotonNetwork.LocalPlayer.SetReady(false);
+        PhotonNetwork.LocalPlayer.SetLoad(false);
         Time.timeScale = 1.0f;
         PhotonNetwork.LeaveRoom();
     }
