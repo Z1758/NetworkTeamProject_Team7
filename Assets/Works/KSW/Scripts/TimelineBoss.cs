@@ -39,14 +39,14 @@ public class TimelineBoss : MonoBehaviourPun
     public void PlayTimeLineRPC(int num)
     {
         timeline.playableAsset = Resources.Load<PlayableAsset>($"GameObject/Timeline/Boss{num}");
-        timeline.Play();
+        //timeline.Play();
 
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.InstantiateRoomObject($"GameObject/Boss{num}", bossSpawnPoint.position, Quaternion.identity);
             fractureObjectManager.SpawnObject();
         }
-        Time.timeScale = 0;
+       // Time.timeScale = 0;
     }
 
     public void ResumeGame()
