@@ -297,7 +297,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         startPoint.SetActive(false);
         if (currentBoss is not null)
         {
-            Destroy(currentBoss);
+            PhotonNetwork.Destroy(currentBoss);
             currentBoss = null;
         }
         if (monsterOrderQueue.Count > 0)
@@ -329,7 +329,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     {
         if (currentBoss is not null)
         {
-            Destroy(currentBoss);
+            PhotonNetwork.Destroy(currentBoss);
             currentBoss = null;
 
         }
