@@ -13,6 +13,11 @@ public class HPView : SliderView
         if (!isEndLoading)
             return;
        
+        if(model.MaxHP != slider.maxValue)
+        {
+            slider.maxValue = model.MaxHP;
+        }
+
         if (slider.value > model.HP)
         {
             slider.value -= Time.deltaTime * (model.MaxHP * 0.5f);

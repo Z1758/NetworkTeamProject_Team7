@@ -161,7 +161,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         //게임오버시
         if (pc_s.Count == 0)
         {
-            GameScene.Instance.OnResultButton();
+            GameScene.Instance.GameOverResult();
         }
         TargetChange();
 
