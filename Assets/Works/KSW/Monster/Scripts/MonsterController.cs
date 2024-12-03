@@ -66,15 +66,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Awake()
     {
-        SetComponent();
-
-        FindPlayers();
-
-        SetAniHash();
-        SetStatus();
-
-
-        animator.speed = model.AttackSpeed;
+       
     }
 
     private void SetStatus()
@@ -196,6 +188,17 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Start()
     {
+
+        SetComponent();
+
+        FindPlayers();
+
+        SetAniHash();
+        SetStatus();
+
+
+        animator.speed = model.AttackSpeed;
+
         SetNextPattern();
         if (photonView.IsMine == false)
             StartCoroutine(CheckAniLag());

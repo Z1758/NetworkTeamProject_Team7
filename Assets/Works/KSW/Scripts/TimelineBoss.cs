@@ -44,9 +44,15 @@ public class TimelineBoss : MonoBehaviourPun
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.InstantiateRoomObject($"GameObject/Boss{num}", bossSpawnPoint.position, Quaternion.identity);
-            fractureObjectManager.SpawnObject();
+            StartCoroutine(DelayObjectSpawn());
         }
         Time.timeScale = 0;
+    }
+
+    IEnumerator DelayObjectSpawn()
+    {
+        yield return new WaitForSeconds(1.0f);
+        fractureObjectManager.SpawnObject();
     }
 
     public void ResumeGame()
