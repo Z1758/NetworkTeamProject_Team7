@@ -367,6 +367,7 @@ public class GameScene : MonoBehaviourPunCallbacks
         resultCamera.SetActive(true);
         for (int i = 0; i < players.Count; i++)
         {
+            if(players[i])
             players[i].Victory(endPoint[i]);
 
         }
