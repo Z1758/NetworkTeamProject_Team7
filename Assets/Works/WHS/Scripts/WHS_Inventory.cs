@@ -60,11 +60,13 @@ public class WHS_Inventory : MonoBehaviourPun
 
         if (items.ContainsKey(type) && items[type] > 0)
         {
-            if (statusModel.HP == statusModel.MaxHP)
+            if (statusModel.HP >= statusModel.MaxHP)
             {
                 Debug.Log("체력이 최대입니다.");
                 return;
             }
+
+            if (Time.timeScale == 0) return;
 
             items[type]--;
             photonView.RPC(nameof(UseItemRPC), RpcTarget.MasterClient, type, statusModel.photonView.ViewID);
