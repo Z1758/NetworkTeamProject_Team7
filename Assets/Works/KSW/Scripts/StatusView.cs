@@ -23,7 +23,10 @@ public class StatusView : MonoBehaviour
     private void OnEnable()
     {
         if (statusModel)
+        {
             statusModel.OnChangedStatusEvent += ChangeStatus;
+            ChangeStatus();
+        }
     }
 
     private void OnDisable()
