@@ -216,7 +216,7 @@ public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunOb
         AddLine("서버에 연결되었습니다.");  // 연결 성공 메시지 출력
 
         // 채팅 채널을 Photon 방 이름으로 설정
-        // _currentChannelName = PhotonNetwork.CurrentRoom.Name;   *****
+        _currentChannelName = PhotonNetwork.CurrentRoom.Name;
 
         // 연결된 후, 채널에 가입
         _chatClient.Subscribe(new string[] { _currentChannelName }, 0);  // 채널에 가입

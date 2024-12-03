@@ -105,7 +105,7 @@ public class KSH_NetworkVoiceChat : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void VoiceChatOff()
     {
         // 현재 Photon Voice의 클라이언트 상태 확인
         if (this._punVoiceClient.ClientState == Photon.Realtime.ClientState.Joined)
