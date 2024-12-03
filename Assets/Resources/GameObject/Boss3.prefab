@@ -479,9 +479,9 @@ MonoBehaviour:
   aniStateTime: 0
   patterns:
   - pattern: Atk1
-    range: 70
+    range: 85
   - pattern: Atk2
-    range: 70
+    range: 85
   - pattern: Atk3
     range: 300
   - pattern: Atk4
@@ -491,7 +491,7 @@ MonoBehaviour:
   - pattern: UltraAtk1
     range: 300
   - pattern: UltraAtk2
-    range: 70
+    range: 85
   nextPattern: 0
   furiousRenderer: {fileID: 1944537371438991582}
 --- !u!114 &1699536488020111198
