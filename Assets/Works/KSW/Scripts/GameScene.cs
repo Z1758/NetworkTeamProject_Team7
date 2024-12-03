@@ -33,8 +33,9 @@ public class GameScene : MonoBehaviourPunCallbacks
 
     public List<PlayerController> players = new List<PlayerController>();
 
- 
-    List<int> monsterPrefabsNumber = new List<int>();
+
+    [SerializeField] List<int> list = new List<int>();
+    [SerializeField] List<int> monsterPrefabsNumber = new List<int>();
     Queue<int> monsterOrderQueue = new Queue<int>();
 
     [SerializeField] TimelineBoss timeline;
@@ -224,7 +225,7 @@ public class GameScene : MonoBehaviourPunCallbacks
                 photonView.RPC(nameof(SetMonsterOrder), RpcTarget.All, ran);
 
 
-
+                
             }
         }
 
@@ -234,7 +235,7 @@ public class GameScene : MonoBehaviourPunCallbacks
     IEnumerator SetMonsterDelay()
     {
         yield return new WaitForSeconds(3.0f);
-        SetMonster();
+       // SetMonster();
         characterSelectUI.SetActive(true);
     }
 
@@ -244,7 +245,11 @@ public class GameScene : MonoBehaviourPunCallbacks
 
 
         monsterOrderQueue.Enqueue(monsterPrefabsNumber[num]);
+        list.Add(monsterPrefabsNumber[num]);
         monsterPrefabsNumber.Remove(monsterPrefabsNumber[num]);
+
+ 
+
     }
 
 
@@ -420,6 +425,10 @@ public class GameScene : MonoBehaviourPunCallbacks
 
             }
 
+            foreach (int i in monsterOrderQueue)
+            {
+                Debug.Log("boss" + i);
+            }
 
         }
 

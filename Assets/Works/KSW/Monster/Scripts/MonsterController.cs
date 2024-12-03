@@ -89,6 +89,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
         model.AttackSpeed = model.AttackSpeed + (0.05f * stage);
 
         animator.speed = model.AttackSpeed;
+
+        Debug.Log("몬스터 스탯 세팅");
     }
 
     private void SetComponent()
