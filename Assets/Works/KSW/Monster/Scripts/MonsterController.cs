@@ -64,11 +64,7 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     WaitForSeconds lagWFS = new WaitForSeconds(0.08f);
 
-    private void Awake()
-    {
-       
-    }
-
+   
     private void SetStatus()
     {   
        int stage = GameScene.Instance.currentStage - 1;
@@ -311,6 +307,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
      
         if (runHash == currentHash || waitHash == currentHash )
         {
+
+            animator.SetBool(atkEndParameterHash, false);
             return;
         }
 
