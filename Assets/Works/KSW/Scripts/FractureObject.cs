@@ -150,6 +150,6 @@ public class FractureObject : MonoBehaviourPun
 
         }
 
-        PhotonNetwork.Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
