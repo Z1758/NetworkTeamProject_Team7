@@ -189,7 +189,6 @@ public class GameScene : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.LoadLevel("MKH_WaitingScene");
         
-        Destroy(gameObject);
     }
 
     public void LeaveRoom()
