@@ -206,7 +206,8 @@ public class MonsterController : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
-    
+        if (Time.timeScale < 0.1)
+            return;
         SetAniTime();
 
         if (isDie)
