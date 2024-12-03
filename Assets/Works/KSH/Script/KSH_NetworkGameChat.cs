@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunObservable
 {
     private ChatClient _chatClient;  // Photon Chat 클라이언트 객체
+    private bool _isReconnecting = false; // 재연결 플래그
 
     private string _userName;        // 사용자 이름
     private string _currentChannelName;  // 현재 채팅 채널 이름
@@ -231,6 +232,7 @@ public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunOb
         // 연결 끊어진 이유 확인을 위한 로그 추가
         Debug.Log("디스커넥트 이유: " + _chatClient.DebugOut.ToString());
         AddLine("서버에 연결이 끊어졌습니다.");  // 연결 끊어짐 메시지 출력
+        Reconnect();
     }
 
 
@@ -351,5 +353,22 @@ public class KSH_NetworkGameChat : MonoBehaviourPun, IChatClientListener, IPunOb
 
         // 귓말 모드 여부 토글
         isWhispering = !isWhispering;
+    }
+
+    private void Reconnect()
+    {
+        if (!_isReconnecting)
+        {
+            StartCoroutine(ReconnectAfterDelay());
+        }
+    }
+
+    private IEnumerator ReconnectAfterDelay()
+    {
+        _isReconnecting = true;
+        yield return new WaitForSeconds(2); // 2초 대기
+        AddLine("재연결 시도 중...");
+        _chatClient.Connect(_chatID, "1.0", new AuthenticationValues(_userName));
+        _isReconnecting = false;
     }
 }
