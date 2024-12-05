@@ -28558,6 +28558,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1174927898954718996, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
+      propertyPath: m_Layer
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284224202237429482, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
+      propertyPath: m_Layer
+      value: 28
+      objectReference: {fileID: 0}
     - target: {fileID: 1947241820577858990, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -28572,7 +28580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1947241820577858990, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.257893
+      value: 28.54
       objectReference: {fileID: 0}
     - target: {fileID: 1947241820577858990, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28601,6 +28609,10 @@ PrefabInstance:
     - target: {fileID: 1947241820577858990, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673065027447660011, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd1621f20e7044a45805fedb20c14358, type: 3}
