@@ -227,13 +227,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterNumber: 1
   type: 0
-  maxHP: 1000
-  hp: 1000
+  maxHP: 2000
+  hp: 2000
   maxStamina: 110
   stamina: 110
   consumetamina: 40
   recoveryStaminaMag: 9
-  attack: 70
+  attack: 90
   attackSpeed: 1
   moveSpeed: 9
   criticalRate: 30

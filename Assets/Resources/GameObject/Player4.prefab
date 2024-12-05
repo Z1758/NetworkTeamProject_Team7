@@ -283,7 +283,7 @@ MonoBehaviour:
   animator: {fileID: 5719219414308757056}
   model: {fileID: 4331536851024096322}
   hitboxType: 8
-  multiplier: 1.7
+  multiplier: 2
   effectName: SlashHitEffect1
   soundName: 
   radius: 0
@@ -593,13 +593,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterNumber: 4
   type: 0
-  maxHP: 1200
-  hp: 1200
+  maxHP: 2400
+  hp: 2400
   maxStamina: 100
   stamina: 100
   consumetamina: 40
   recoveryStaminaMag: 6
-  attack: 130
+  attack: 110
   attackSpeed: 1
   moveSpeed: 8
   criticalRate: 40
@@ -2248,11 +2248,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Size
-      value: 0.055800002
+      value: 0.052800003
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Value
-      value: -0.000000016160548
+      value: -0.000000016109363
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032733076243, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_AnchorMax.x
