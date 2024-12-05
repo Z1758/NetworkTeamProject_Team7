@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Player3Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3db2af3d30f363f4a96612fd7fe5ea9e
+    m_Address: Player3/Skill5Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player3Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5377884ed65c2804585fa73a8f04e88b
     m_Address: Player3/Atk2Swing
     m_ReadOnly: 0
@@ -79,6 +85,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c39db00217d72dc4183eb81c71e55689
     m_Address: Player3/Skill3Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player3Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9d90779e441ae048937813fc7ecc6e0
+    m_Address: Player3/Skill5Cast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player3Sound

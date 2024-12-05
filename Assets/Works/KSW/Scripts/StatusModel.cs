@@ -33,7 +33,7 @@ public class StatusModel : MonoBehaviourPun, IPunObservable
     [SerializeField] private float criticalDamageRate;
     [Header("½ºÅ³ ÄðÅ¸ÀÓ")]
     [SerializeField] private float[] skillCoolTime;
-    private float[] currentSkillCoolTime = new float[4];
+    private float[] currentSkillCoolTime = new float[5];
     public int CharacterNumber { get { return characterNumber; } }
     public float HP { get { return hp; } set { hp = value; OnChangedHpEvent?.Invoke(hp); } }
 

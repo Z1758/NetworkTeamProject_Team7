@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Player2Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43b1beb2b50f3614e9f2729c8cd42343
+    m_Address: Player2/Skill5Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5152704e7e4cfb444b59777002440cfa
     m_Address: Player2/Skill4Cast
     m_ReadOnly: 0
@@ -49,6 +55,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d4cf46bb73ec4d4c82be9952320d785
     m_Address: Player2/Skill1Shot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player2Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8093b39cd5df7314d9e34c675e2f4ab3
+    m_Address: Player2/Skill5Cast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player2Sound

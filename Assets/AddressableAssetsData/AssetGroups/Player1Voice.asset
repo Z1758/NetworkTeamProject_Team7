@@ -65,11 +65,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b487b7ea4fe73394fa3880bce6ccf262
+    m_Address: Player1/Skill5_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player1Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7cb35e7ebe3c674581a162cff1b999d
+    m_Address: Player1/Skill5_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player1Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc422646b08c6b248b23b02b24f5b957
     m_Address: Player1/Death1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Monster1Voice
+    - Player1Voice
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e444ef9e7d8a47f4a87a67185ae6a139
     m_Address: Player1/Skill2

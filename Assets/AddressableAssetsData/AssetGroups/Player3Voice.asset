@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: df75f730d7789fb44bfb26f8a5a6ef7a
   m_SerializeEntries:
+  - m_GUID: 027641de2778dc848857ddc04a88cb4b
+    m_Address: Player3/Skill5_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player3Voice
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22cddc295bfe96340a1ce62e32007abb
     m_Address: Player3/Skill3
     m_ReadOnly: 0
@@ -55,6 +61,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba9d5187359d6ec4e96b5600db9855a2
     m_Address: Player3/Hit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player3Voice
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c031f08bd06f3634b901c5e406fb8caf
+    m_Address: Player3/Skill5_1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player3Voice

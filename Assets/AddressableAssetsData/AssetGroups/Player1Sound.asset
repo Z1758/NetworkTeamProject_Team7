@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: de594ea6fb270b246b7abfc57c75e1cd
   m_SerializeEntries:
+  - m_GUID: 414671956ccde1d4b83dc098d79ed0b5
+    m_Address: Player1/Skill5Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player1Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bc434fe36f9d2e42a6f47950ea88673
     m_Address: Player1/Atk4Swing
     m_ReadOnly: 0
@@ -37,6 +43,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e8b29f924473c641a86f22d520798ae
     m_Address: Player1/Skill3Cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player1Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 894465bb7d3d9ed4989f6a7da627cae4
+    m_Address: Player1/Skill5Hit
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player1Sound
@@ -91,6 +103,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db2b636daba679341b8aeff7bc5cf8d1
     m_Address: Player1/Skill1Hit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player1Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec163d7605b0a3c4d82c7e132efb487c
+    m_Address: Player1/Skill5Shot
     m_ReadOnly: 0
     m_SerializedLabels:
     - Player1Sound

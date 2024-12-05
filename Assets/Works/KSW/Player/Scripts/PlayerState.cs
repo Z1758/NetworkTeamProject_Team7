@@ -145,6 +145,7 @@ public class SkillState : State
 
     public override void EnterState()
     {
+        controller.rigid.velocity = Vector3.zero;
         controller.ImmediateRotate();
         controller.model.SetCurrentSkillCoolTime(controller.skillNumber, controller.model.SkillCoolTime[controller.skillNumber]);
         controller.animator.SetBool(controller.skillNumberHash, true);

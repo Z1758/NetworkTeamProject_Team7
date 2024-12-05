@@ -4,6 +4,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Text;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -13,12 +14,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public enum PlayerAnimationHashNumber
 {
-    Wait, Run, Atk, Dodge, Down, Hit, Skill1,Skill2,Skill3,Skill4, Size
+    Wait, Run, Atk, Dodge, Down, Hit, Skill1,Skill2,Skill3,Skill4, Skill5, Size
 }
 
 public class PlayerController : MonoBehaviourPun
 {
-
+    [Header("유저 이름")]
+    [SerializeField] TMP_Text nameText;
     public enum PlayerState { Wait, Run, Attack, Hit, Down, Dodge, Dead, InputWait, Skill, Size }
     [Header("플레이어 상태")]
     [SerializeField] PlayerState curState = PlayerState.Wait;
@@ -197,8 +199,12 @@ public class PlayerController : MonoBehaviourPun
        // TestGameScene.Instance.players.Add(this);
         GameScene.Instance.players.Add(this);
 
+
+        nameText.text = photonView.Owner.NickName;
         if (photonView.IsMine == false)
             return;
+
+       
         states[(int)curState].EnterState();
      
 
@@ -286,6 +292,7 @@ public class PlayerController : MonoBehaviourPun
     {
         for (int i = 0; i < model.SkillCoolTime.Length; i++)
         {
+
             float cool = model.GetCurrentSkillCoolTime(i);
             if (cool > 0)
             {
@@ -326,6 +333,11 @@ public class PlayerController : MonoBehaviourPun
             case 3:
                 {
                     skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill4];
+                }
+                break;
+            case 4:
+                {
+                    skillNumberHash = animatorParameterHash[(int)PlayerAnimationHashNumber.Skill5];
                 }
                 break;
         }

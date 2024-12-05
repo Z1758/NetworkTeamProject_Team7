@@ -7,6 +7,7 @@ public class MKH_PlayerController : MonoBehaviourPun
 
     [SerializeField] CharacterController controller;
     [SerializeField] float moveSpeed;
+    [SerializeField] Animator animator;
 
     private Vector3 inputDir;
 
@@ -31,7 +32,11 @@ public class MKH_PlayerController : MonoBehaviourPun
             return;
 
         if (inputDir == Vector3.zero)
+        {
+            animator.SetBool("Walk", false);
             return;
+        }
+        animator.SetBool("Walk", true);
 
         inputDir *= moveSpeed;
 
