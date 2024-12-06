@@ -14,7 +14,7 @@ using Unity.VisualScripting;
 
 public class GameScene : MonoBehaviourPunCallbacks
 {
-    [SerializeField] Button gameOverButton;
+    [SerializeField] GameObject gameOverButton;
     [SerializeField] TMP_Text countDownText;
 
 
@@ -114,6 +114,8 @@ public class GameScene : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LocalPlayer.SetLoad(true);
         StartCoroutine(StartDelayRoutine());
+
+        SetGameOverButton();
     }
 
 
@@ -155,11 +157,8 @@ public class GameScene : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            gameOverButton.interactable = true;
-        }
-        else
-        {
-            gameOverButton.interactable = false;
+            if(gameOverButton)
+            gameOverButton.SetActive( true);
         }
     }
 
@@ -324,14 +323,28 @@ public class GameScene : MonoBehaviourPunCallbacks
         startPoint.SetActive(true);
     }
 
+    IEnumerator DelayLastRemoveBoss()
+    {
+        yield return new WaitForSecondsRealtime(3.0f);
+        if (photonView.IsMine)
+        {
+
+            RemoveBoss();
+        }
+
+        GameClear();
+    }
+
+
     void RemoveBoss()
     {
         if (currentBoss is not null)
         {
-            if(photonView.IsMine)
-            PhotonNetwork.Destroy(currentBoss);
-            currentBoss = null;
-
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(currentBoss);
+                currentBoss = null;
+            }
         }
 
     }
@@ -357,7 +370,8 @@ public class GameScene : MonoBehaviourPunCallbacks
         {
 
             Debug.Log("Å¬¸®¾î");
-            GameClear();
+            StartCoroutine(DelayLastRemoveBoss());
+            
         }
     }
 
@@ -371,8 +385,7 @@ public class GameScene : MonoBehaviourPunCallbacks
             players[i].Victory(endPoint[i]);
 
         }
-        RemoveBoss();
-
+        
 
         uiCanvas.SetActive(false);
         OnResultButton();

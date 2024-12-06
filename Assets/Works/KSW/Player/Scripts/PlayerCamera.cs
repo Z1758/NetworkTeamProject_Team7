@@ -121,6 +121,8 @@ public class PlayerCamera : MonoBehaviour
 
     private void Shake()
     {
+        if(!target) return;
+        
 
         float ranX = Random.Range(-0.05f, 0.05f);
         float ranY = Random.Range(-0.05f, 0.05f);

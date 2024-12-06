@@ -17,6 +17,10 @@ public class MKH_RoomPanel : MonoBehaviourPun
         UpdatePlayers();
         // 플레이어 넘버링 업데이트
         PlayerNumbering.OnPlayerNumberingChanged += UpdatePlayers;
+
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
     }
    
 

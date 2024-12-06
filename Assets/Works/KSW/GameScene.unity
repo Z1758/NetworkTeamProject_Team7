@@ -2719,7 +2719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &616763496
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7988,7 +7988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49492f350c9fca4fbb2a69ce86d1882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverButton: {fileID: 616763497}
+  gameOverButton: {fileID: 616763495}
   countDownText: {fileID: 164300415}
   characterSelectUI: {fileID: 2060059950}
   startPoint: {fileID: 791166951}

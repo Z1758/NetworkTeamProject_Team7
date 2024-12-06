@@ -29566,7 +29566,7 @@ MonoBehaviour:
   attack: 110
   attackSpeed: 1
   moveSpeed: 8
-  criticalRate: 45
+  criticalRate: 60
   criticalDamageRate: 0.5
   skillCoolTime:
   - 9
@@ -31516,11 +31516,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Size
-      value: 0.061800003
+      value: 0.05720001
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032712622358, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_Value
-      value: -0.000000016263899
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2017675032733076243, guid: cff9301d0a9e4b84da6dfe8951d04bdd, type: 3}
       propertyPath: m_AnchorMax.x

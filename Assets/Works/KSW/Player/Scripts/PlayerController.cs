@@ -262,6 +262,8 @@ public class PlayerController : MonoBehaviourPun
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death") && model.HP > 0)
         {
             animator.Play("StandUp");
+            playerHurtbox.layer = (int)LayerEnum.PLAYER_HURT_BOX;
+            gameObject.layer = (int)LayerEnum.PLAYER;
         }
 
             if (isFixed)
@@ -636,10 +638,24 @@ public class PlayerController : MonoBehaviourPun
         if(photonView.IsMine)
         inventory.UpgradePotion();
 
-        if (model.HP > 0f)
-            return;
-        model.HP = model.MaxHP* 0.5f;
-        animator.Play("StandUp");
+       
+        if(model.HP <= 0f)
+        {
+            animator.Play("StandUp");
+        }
+
+        if(model.HP + model.MaxHP * 0.5f > model.MaxHP)
+        {
+            model.HP = model.MaxHP;
+        }
+        else
+        {
+
+            model.HP += model.MaxHP * 0.5f;
+        }
+
+
+      
         playerHurtbox.layer = (int)LayerEnum.PLAYER_HURT_BOX;
         gameObject.layer = (int)LayerEnum.PLAYER;
     }
