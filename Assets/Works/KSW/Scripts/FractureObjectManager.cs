@@ -29,7 +29,18 @@ public class FractureObjectManager : MonoBehaviour
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            Vector3 randomPos = new Vector3(Random.Range(-spawnX, spawnX), 0, Random.Range(-spawnZ, spawnZ));
+            float x = Random.Range(-spawnX, spawnX);
+            float z = Random.Range(-spawnZ, spawnZ);
+            Vector3 randomPos = new Vector3(x, 0, z);
+            if ( x > -20 && x <20 )
+            {
+                if (z > 20 && z < 45)
+                {
+                    i--;
+                    continue;
+                }
+            }
+
 
             PhotonNetwork.Instantiate($"GameObject/FracObjects/{objList[Random.Range(0, objList.Count)]}", randomPos, Quaternion.Euler(-90, Random.Range(0, 360), 0));
         }
